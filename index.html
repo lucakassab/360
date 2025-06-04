@@ -4,17 +4,12 @@
   <meta charset="utf-8" />
   <title>Tour 360 Dinâmico</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#000000">
 
   <!-- A-Frame + Stereo Component (local) -->
   <script src="js/aframe.min.js"></script>
   <script src="js/aframe-stereo-component.min.js"></script>
-
-  <!-- Main JS que busca o JSON e carrega as mídias -->
-  <script src="js/main.js"></script>
 
   <style>
     body, html { margin:0; padding:0; width:100%; height:100%; background:#000; }
@@ -24,19 +19,15 @@
 </head>
 
 <body>
-  <!-- Botões básicos para trocar mídia -->
   <div id="ui">
     <button id="prevBtn">« Anterior</button>
     <span id="mediaName">Carregando...</span>
     <button id="nextBtn">Próxima »</button>
   </div>
 
-  <!-- Cena A-Frame vazia (será populada pelo main.js) -->
-  <a-scene id="scene" embedded vr-mode-ui="enabled: true">
-    <!-- A gente vai injetar o sky ou esfera de vídeo aqui dentro -->
-  </a-scene>
+  <a-scene id="scene" embedded vr-mode-ui="enabled: true"></a-scene>
 
-  <!-- Service Worker registration (só pra relembrar) -->
+  <!-- Registra o Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js')
@@ -44,5 +35,8 @@
         .catch(err => console.warn('[PWA] Falha registrar SW:', err));
     }
   </script>
+
+  <!-- AGORA sim carrega o main.js depois que tudo já existe -->
+  <script src="js/main.js"></script>
 </body>
 </html>
