@@ -77,8 +77,20 @@ window.addEventListener('DOMContentLoaded', () => {
     SCENE.appendChild(sky);
   }
 
-  // 2.2) Carrega imagem estéreo 360°
+  // 2.2) Carrega imagem estéreo 360° com fallback pra mono fora do VR
   function loadStereoImage(src) {
+    const isVR = SCENE.renderer && SCENE.renderer.xr && SCENE.renderer.xr.isPresenting;
+
+    if (!isVR) {
+      const sky = document.createElement('a-sky');
+      sky.setAttribute('src', src);
+      sky.setAttribute('rotation', '0 -130 0');
+      currentEntity = sky;
+      SCENE.appendChild(sky);
+      console.warn('[main.js] Exibindo imagem estéreo como mono (fallback)');
+      return;
+    }
+
     const sphereL = document.createElement('a-entity');
     sphereL.setAttribute('geometry', 'primitive: sphere; radius: 5000;');
     sphereL.setAttribute('material', 'shader: flat; side: back; src: ' + src);
@@ -96,31 +108,27 @@ window.addEventListener('DOMContentLoaded', () => {
     SCENE.appendChild(container);
   }
 
-  // 2.3) Carrega vídeo 360° (versão com ID único pra evitar textura presa)
+  // 2.3) Carrega vídeo 360° (esperando carregar antes de criar a sphere)
   function loadVideoSphere(src) {
-    // Remove entidade anterior (se existir)
     if (currentEntity) {
       SCENE.removeChild(currentEntity);
       currentEntity = null;
     }
 
-    // Garante que exista <a-assets> no <a-scene>
     let assets = document.querySelector('a-assets');
     if (!assets) {
       assets = document.createElement('a-assets');
       SCENE.appendChild(assets);
     }
 
-    // Pausa e remove vídeos antigos marcados como dinâmicos
-    assets.querySelectorAll('video[data-dyn]').forEach(v => {
-      v.pause();
-      assets.removeChild(v);
-    });
+    const oldVideo = assets.querySelector('video[data-dyn]');
+    if (oldVideo) {
+      oldVideo.pause();
+      assets.removeChild(oldVideo);
+    }
 
-    // Gera ID único
     const vidId = `dynVideo_${Date.now()}`;
 
-    // Cria o novo <video>
     const video = document.createElement('video');
     video.setAttribute('id', vidId);
     video.setAttribute('data-dyn', 'true');
@@ -129,10 +137,8 @@ window.addEventListener('DOMContentLoaded', () => {
     video.setAttribute('playsinline', '');
     video.setAttribute('preload', 'auto');
 
-    // Listener antes de setar src
     video.addEventListener('loadeddata', () => {
-      video.currentTime = 0; // garante que comece do início
-
+      video.currentTime = 0;
       const sphere = document.createElement('a-videosphere');
       sphere.setAttribute('src', `#${vidId}`);
       sphere.setAttribute('rotation', '0 -130 0');
@@ -149,7 +155,6 @@ window.addEventListener('DOMContentLoaded', () => {
       mediaNameEl.textContent = 'Falha ao carregar vídeo.';
     });
 
-    // Agora define o src e começa a carregar
     video.src = src;
     assets.appendChild(video);
     video.load();
@@ -160,7 +165,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const prev = (currentIndex - 1 + mediaList.length) % mediaList.length;
     loadMedia(prev);
   });
-
   nextBtn.addEventListener('click', () => {
     const next = (currentIndex + 1) % mediaList.length;
     loadMedia(next);
