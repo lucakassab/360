@@ -8,41 +8,40 @@ const PRECACHE_URLS = [
   './js/aframe.min.js',
   './js/aframe-stereo-component.min.js',
   './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png'
+  './icons/icon-192x192.png',
+  './icons/icon-512x512.png'
 ];
 
-// Cache inicial
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE_URLS))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(PRECACHE_URLS);
+    })
   );
 });
 
-// Intercepta requisições: 
 self.addEventListener('fetch', event => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // Se for JSON ou JS/CSS/HTML/vídeo/imagem requisitado → tenta responder do cache primeiro
-  if (PRECACHE_URLS.some(path => url.pathname.includes(path)) ||
-      req.destination === 'image' ||
-      req.destination === 'video' ||
-      req.destination === 'script') {
+  if (
+    PRECACHE_URLS.some(path => url.pathname.includes(path)) ||
+    req.destination === 'image' ||
+    req.destination === 'video' ||
+    req.destination === 'script'
+  ) {
     event.respondWith(
       caches.match(req).then(cachedRes => {
         if (cachedRes) return cachedRes;
         return fetch(req).then(fetchRes => {
-          // Armazena no cache dinâmico
           return caches.open(CACHE_NAME).then(cache => {
             cache.put(req, fetchRes.clone());
             return fetchRes;
           });
         });
       }).catch(() => {
-        // Poderia retornar fallback se quiser (imagem estática, por exemplo)
+        // poderia retornar fallback aqui, mas é opcional
       })
     );
   }
-  // Demais requisições (ex.: fontes, etc): deixa ir direto na rede
 });
