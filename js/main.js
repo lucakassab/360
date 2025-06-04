@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
   let currentEntity = null;
 
+  // 1) Carrega o JSON com fetch()
   fetch('./load_media_list.json')
     .then(res => {
       if (!res.ok) throw new Error('Não consegui carregar o JSON das mídias');
@@ -33,8 +34,9 @@ window.addEventListener('DOMContentLoaded', () => {
       mediaNameEl.textContent = 'Erro ao carregar mídias';
     });
 
+  // 2) Função para carregar mídia por índice
   function loadMedia(idx) {
-    if (!mediaNameEl) return; // evita o null
+    // Remove entidade anterior (se existir)
     if (currentEntity) {
       SCENE.removeChild(currentEntity);
       currentEntity = null;
@@ -46,8 +48,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const url = item.url;
     const lower = url.toLowerCase();
+
+    // Detecta se é vídeo: mp4, webm, ogg
     const isVideo = lower.match(/\.(mp4|webm|ogg)$/);
+    // Detecta imagem estéreo 360: nome ou URL contiver “stereo”
     const isStereoImage = !isVideo && (lower.includes('stereo') || item.name.toLowerCase().includes('stereo'));
+    // Caso contrário, assume imagem mono (jpg, jpeg, png)
     const isMonoImage = !isVideo && !isStereoImage && lower.match(/\.(jpg|jpeg|png)$/);
 
     if (isVideo) {
@@ -62,6 +68,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 2.1) Carrega imagem mono 360°
   function loadMonoImage(src) {
     const sky = document.createElement('a-sky');
     sky.setAttribute('src', src);
@@ -70,7 +77,9 @@ window.addEventListener('DOMContentLoaded', () => {
     SCENE.appendChild(sky);
   }
 
+  // 2.2) Carrega imagem estéreo 360°
   function loadStereoImage(src) {
+    // Assume imagem side-by-side (metade esquerda = olho esquerdo, metade direita = olho direito)
     const sphereL = document.createElement('a-entity');
     sphereL.setAttribute('geometry', 'primitive: sphere; radius: 5000;');
     sphereL.setAttribute('material', 'shader: flat; side: back; src: ' + src);
@@ -81,6 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
     sphereR.setAttribute('material', 'shader: flat; side: back; src: ' + src);
     sphereR.setAttribute('stereo', 'eye: right;');
 
+    // Container para os dois
     const container = document.createElement('a-entity');
     container.appendChild(sphereL);
     container.appendChild(sphereR);
@@ -88,36 +98,62 @@ window.addEventListener('DOMContentLoaded', () => {
     SCENE.appendChild(container);
   }
 
+  // 2.3) Carrega vídeo 360° mono (esperando carregar antes de criar a sphere)
   function loadVideoSphere(src) {
+    // Remove entidade anterior (pra garantir)
+    if (currentEntity) {
+      SCENE.removeChild(currentEntity);
+      currentEntity = null;
+    }
+
+    // Garante que exista <a-assets> no <a-scene>
     let assets = document.querySelector('a-assets');
     if (!assets) {
       assets = document.createElement('a-assets');
       SCENE.appendChild(assets);
     }
 
+    // Remove vídeo antigo se existir
     const oldVideo = assets.querySelector('video[id="dynVideo"]');
-    if (oldVideo) assets.removeChild(oldVideo);
+    if (oldVideo) {
+      assets.removeChild(oldVideo);
+    }
 
+    // Cria o novo <video>
     const video = document.createElement('video');
     video.setAttribute('id', 'dynVideo');
     video.setAttribute('src', src);
     video.setAttribute('crossorigin', 'anonymous');
     video.setAttribute('loop', '');
-    video.setAttribute('autoplay', '');
-    video.setAttribute('playsinline', '');
+    video.setAttribute('playsinline', '');  // necessário pra mobile sem fullscreen forçado
+    video.setAttribute('preload', 'auto');  // força pré-carregamento
+
     assets.appendChild(video);
+    video.load(); // começa o download
 
-    const sphere = document.createElement('a-videosphere');
-    sphere.setAttribute('src', '#dynVideo');
-    sphere.setAttribute('rotation', '0 -130 0');
-    currentEntity = sphere;
-    SCENE.appendChild(sphere);
+    // Espera carregar pelo menos o primeiro frame
+    video.addEventListener('loadeddata', () => {
+      // Só cria o <a-videosphere> depois que o vídeo tiver dado alguma carregada
+      const sphere = document.createElement('a-videosphere');
+      sphere.setAttribute('src', '#dynVideo');
+      sphere.setAttribute('rotation', '0 -130 0');
+      currentEntity = sphere;
+      SCENE.appendChild(sphere);
 
-    video.play().catch(e => {
-      console.warn('[main.js] Erro ao dar play no vídeo:', e);
+      // Agora toca o vídeo. Se houver erro, cai no catch
+      video.play().catch(e => {
+        console.warn('[main.js] Erro ao dar play no vídeo:', e);
+      });
+    });
+
+    // Se quiser, pode colocar handler pra erro de carregamento:
+    video.addEventListener('error', (e) => {
+      console.error('[main.js] Erro ao carregar o vídeo:', e);
+      mediaNameEl.textContent = 'Falha ao carregar vídeo.';
     });
   }
 
+  // 3) Botões anterior/próxima
   prevBtn.addEventListener('click', () => {
     const prev = (currentIndex - 1 + mediaList.length) % mediaList.length;
     loadMedia(prev);
