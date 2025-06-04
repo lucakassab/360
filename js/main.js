@@ -15,9 +15,8 @@ window.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
   let currentEntity = null;
 
-  // Aguarda A-Frame carregar para ter acesso ao renderer e state
+  // Espera o A-Frame completar o carregamento
   SCENE_EL.addEventListener('loaded', () => {
-    // 1) Carrega o JSON com fetch()
     fetch('./load_media_list.json')
       .then(res => {
         if (!res.ok) throw new Error('Não consegui carregar o JSON das mídias');
@@ -37,9 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
       });
   });
 
-  // 2) Função para carregar mídia por índice
   function loadMedia(idx) {
-    // Remove entidade anterior (se existir)
     if (currentEntity) {
       SCENE_EL.removeChild(currentEntity);
       currentEntity = null;
@@ -48,15 +45,11 @@ window.addEventListener('DOMContentLoaded', () => {
     currentIndex = idx;
     const item = mediaList[currentIndex];
     mediaNameEl.textContent = item.name;
-
     const url = item.url;
     const lower = url.toLowerCase();
 
-    // Detecta se é vídeo: mp4, webm, ogg
     const isVideo = lower.match(/\.(mp4|webm|ogg)$/);
-    // Detecta imagem estéreo 360: nome ou URL contiver “stereo”
     const isStereoImage = !isVideo && (lower.includes('stereo') || item.name.toLowerCase().includes('stereo'));
-    // Caso contrário, assume imagem mono (jpg, jpeg, png)
     const isMonoImage = !isVideo && !isStereoImage && lower.match(/\.(jpg|jpeg|png)$/);
 
     if (isVideo) {
@@ -66,12 +59,11 @@ window.addEventListener('DOMContentLoaded', () => {
     } else if (isMonoImage) {
       loadMonoImage(url);
     } else {
-      console.warn('[main.js] Formato da mídia não reconhecido:', url);
+      console.warn('[main.js] Formato da mídia não suportado:', url);
       mediaNameEl.textContent = 'Formato não suportado';
     }
   }
 
-  // 2.1) Carrega imagem mono 360°
   function loadMonoImage(src) {
     const sky = document.createElement('a-sky');
     sky.setAttribute('src', src);
@@ -80,78 +72,49 @@ window.addEventListener('DOMContentLoaded', () => {
     SCENE_EL.appendChild(sky);
   }
 
-  // 2.2) Carrega imagem estéreo 360° com fallback pra mono fora do VR
+  // <<<-----------------------------------------------------------------------------
+// Antes: havia um fallback preto se não estivesse em VR
+// Agora: sempre criamos 1 esfera com eye:both para mostrar a imagem stereo side-by-side
   function loadStereoImage(src) {
-    const sceneEl = SCENE_EL;
-    const isVR = sceneEl.is('vr-mode');
-
-    if (!isVR) {
-      // Fallback: exibe como imagem mono
-      const sky = document.createElement('a-sky');
-      sky.setAttribute('src', src);
-      sky.setAttribute('rotation', '0 -130 0');
-      currentEntity = sky;
-      SCENE_EL.appendChild(sky);
-      console.warn('[main.js] Exibindo imagem estéreo como mono (fallback)');
-      return;
-    }
-
-    // Modo VR: cria as esferas estéreo
-    const sphereL = document.createElement('a-entity');
-    sphereL.setAttribute('geometry', 'primitive: sphere; radius: 5000;');
-    sphereL.setAttribute('material', 'shader: flat; side: back; src: ' + src);
-    sphereL.setAttribute('stereo', 'eye: left;');
-
-    const sphereR = document.createElement('a-entity');
-    sphereR.setAttribute('geometry', 'primitive: sphere; radius: 5000;');
-    sphereR.setAttribute('material', 'shader: flat; side: back; src: ' + src);
-    sphereR.setAttribute('stereo', 'eye: right;');
-
-    const container = document.createElement('a-entity');
-    container.appendChild(sphereL);
-    container.appendChild(sphereR);
-    currentEntity = container;
-    SCENE_EL.appendChild(container);
+    const sphere = document.createElement('a-entity');
+    sphere.setAttribute('geometry', 'primitive: sphere; radius: 5000;');
+    sphere.setAttribute('material', 'shader: flat; side: back; src: ' + src);
+    sphere.setAttribute('stereo', 'eye: both;'); // mostra os dois olhos na mesma esfera
+    currentEntity = sphere;
+    SCENE_EL.appendChild(sphere);
   }
+// <<<-----------------------------------------------------------------------------
 
-  // 2.3) Carrega vídeo 360° (garante listener antes e checa readyState)
   function loadVideoSphere(src) {
-    // Remove entidade anterior (se existir)
     if (currentEntity) {
       SCENE_EL.removeChild(currentEntity);
       currentEntity = null;
     }
 
-    // Garante que exista <a-assets> no <a-scene>
     let assets = document.querySelector('a-assets');
     if (!assets) {
       assets = document.createElement('a-assets');
       SCENE_EL.appendChild(assets);
     }
 
-    // Pausa e remove vídeos antigos marcados como dinâmicos
     assets.querySelectorAll('video[data-dyn]').forEach(v => {
       v.pause();
       assets.removeChild(v);
     });
 
-    // Gera ID único
     const vidId = `dynVideo_${Date.now()}`;
-
-    // Cria o novo <video>
     const video = document.createElement('video');
     video.setAttribute('id', vidId);
     video.setAttribute('data-dyn', 'true');
     video.setAttribute('crossorigin', 'anonymous');
     video.setAttribute('loop', '');
-    video.setAttribute('playsinline', '');  // necessário pra mobile sem fullscreen forçado
-    video.setAttribute('preload', 'auto'); // tenta pré-carregar
+    video.setAttribute('playsinline', '');
+    video.setAttribute('preload', 'auto');
     video.src = src;
     assets.appendChild(video);
 
-    // Função que cria o sphere e toca o vídeo
     function createSphereAndPlay() {
-      video.currentTime = 0; // garante que comece do início
+      video.currentTime = 0;
       const sphere = document.createElement('a-videosphere');
       sphere.setAttribute('src', `#${vidId}`);
       sphere.setAttribute('rotation', '0 -130 0');
@@ -162,7 +125,6 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Listener antes de chamar load()
     video.addEventListener('loadeddata', () => {
       createSphereAndPlay();
     });
@@ -171,14 +133,12 @@ window.addEventListener('DOMContentLoaded', () => {
       mediaNameEl.textContent = 'Falha ao carregar vídeo.';
     });
 
-    // Se já estiver carregado, invoca imediatamente
     video.load();
     if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
       createSphereAndPlay();
     }
   }
 
-  // 3) Botões anterior/próxima
   prevBtn.addEventListener('click', () => {
     const prev = (currentIndex - 1 + mediaList.length) % mediaList.length;
     loadMedia(prev);
