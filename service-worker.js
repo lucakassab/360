@@ -12,6 +12,8 @@ const PRECACHE_URLS = [
   './icons/icon-512x512.png'
 ];
 
+// Cache inicial (install)
+// Aí ele roda cache.addAll, assumindo que todos os PRECACHE_URLS existem e retornam 200.
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -20,6 +22,7 @@ self.addEventListener('install', event => {
   );
 });
 
+// Intercepta fetch
 self.addEventListener('fetch', event => {
   const req = event.request;
   const url = new URL(req.url);
@@ -32,16 +35,36 @@ self.addEventListener('fetch', event => {
   ) {
     event.respondWith(
       caches.match(req).then(cachedRes => {
-        if (cachedRes) return cachedRes;
+        if (cachedRes) {
+          // Se encontrar no cache, devolve na hora
+          return cachedRes;
+        }
+
+        // Não achou no cache → faz fetch e só cacheia se status for 200
         return fetch(req).then(fetchRes => {
+          // Se a resposta não for “ok” (=status 200–299) ou for 206, devolve sem cachear
+          if (!fetchRes || fetchRes.status !== 200) {
+            // opcional: loga o motivo
+            console.warn(
+              '[SW] Não cacheando resposta não-200:',
+              fetchRes.status,
+              req.url
+            );
+            return fetchRes;
+          }
+
+          // Resposta 200: agora sim coloca no cache
           return caches.open(CACHE_NAME).then(cache => {
             cache.put(req, fetchRes.clone());
             return fetchRes;
           });
+        }).catch(err => {
+          // Se der erro de rede, opcionalmente devolve algo fallback ou simplesmente bota o erro pra ver no console
+          console.error('[SW] Fetch falhou pra', req.url, err);
+          throw err;
         });
-      }).catch(() => {
-        // poderia retornar fallback aqui, mas é opcional
       })
     );
   }
+  // Se não for desses tipos, deixa passar pro navegador sem interceptar
 });
