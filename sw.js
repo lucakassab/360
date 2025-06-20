@@ -1,38 +1,70 @@
-min.js',
+// sw.js
+const CACHE_STATIC = 'static-v2';
+const CACHE_MEDIA  = 'media-v2';
+
+const STATIC_FILES = [
+  'index.html',
+  'manifest.webmanifest',
+  'libs/aframe.min.js',
   'libs/aframe-stereo-component.js',
-  'js/main.js'
-];
-const MEDIA_FILES = [
-  // seus arquivos de mídia
+  'js/main.js',
+  'icons/icon-192.png',
+  'icons/icon-512.png'
 ];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
+self.addEventListener('install', ev => {
+  console.log('[SW] Install: cache estático');
+  ev.waitUntil(
     caches.open(CACHE_STATIC)
       .then(cache => cache.addAll(STATIC_FILES))
-      .then(() => caches.open(CACHE_MEDIA).then(mediaCache => mediaCache.addAll(MEDIA_FILES)))
-      .catch(err => console.warn('Cache addAll falhou:', err))
+      .then(() => console.log('[SW] Static cached'))
+      .catch(err => console.warn('[SW] Falha no cache estático:', err))
   );
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.filter(key => key !== CACHE_STATIC && key !== CACHE_MEDIA)
-          .map(old => caches.delete(old))
-    ))
+self.addEventListener('activate', ev => {
+  console.log('[SW] Activate: limpando caches antigos');
+  ev.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(k => k !== CACHE_STATIC && k !== CACHE_MEDIA)
+            .map(old => caches.delete(old).then(() => console.log('[SW] Removido cache:', old)))
+      )
+    )
   );
 });
 
-self.addEventListener('fetch', event => {
-  const req = event.request;
-  if (STATIC_FILES.includes(req.url.split('/').pop()) || MEDIA_FILES.includes(req.url.split('/').pop())) {
-    event.respondWith(
-      caches.match(req).then(resp => resp || fetch(req).then(fetchResp => {
-        const cacheName = STATIC_FILES.includes(req.url.split('/').pop()) ? CACHE_STATIC : CACHE_MEDIA;
-        caches.open(cacheName).then(c => c.put(req, fetchResp.clone()));
-        return fetchResp;
-      }))
+self.addEventListener('fetch', ev => {
+  const req = ev.request;
+  const url = req.url;
+
+  if (url.includes('/media/')) {
+    ev.respondWith(
+      caches.match(req).then(hit => {
+        if (hit) {
+          console.log('[SW] Media cache hit:', url);
+          return hit;
+        }
+        console.log('[SW] Media fetching e cacheando:', url);
+        return fetch(req).then(res => {
+          return caches.open(CACHE_MEDIA)
+            .then(cache => {
+              cache.put(req, res.clone());
+              console.log('[SW] Media armazenada:', url);
+              return res;
+            });
+        });
+      })
+    );
+    return;
+  }
+
+  if (STATIC_FILES.some(f => url.endsWith(f))) {
+    ev.respondWith(
+      caches.match(req).then(res => {
+        console.log('[SW] Static serve do cache:', url);
+        return res;
+      })
     );
   }
 });
