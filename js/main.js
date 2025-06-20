@@ -28,16 +28,16 @@ async function loadMedia(item) {
   if (/\.(mp4|webm)$/i.test(item.url)) {
     const vid = document.createElement('video');
     vid.id = 'vid'; vid.src = item.url; vid.crossOrigin = 'anonymous';
-    vid.loop = true; vid.setAttribute('playsinline', '');
+    vid.loop = true; vid.setAttribute('playsinline','');
     await vid.play();
     assets.appendChild(vid);
 
     const vs = document.createElement('a-videosphere');
     vs.classList.add('dyn-media');
-    vs.setAttribute('src', '#vid');
-    vs.setAttribute('look-controls', 'enabled: false');
+    vs.setAttribute('src','#vid');
+    vs.setAttribute('look-controls','enabled: false');
     if (!mono) {
-      vs.setAttribute('material', 'shader: flat; side: back; src: #vid; repeat: 1 0.5; offset: 0 0.5');
+      vs.setAttribute('material','shader: flat; side: back; src: #vid; repeat: 1 0.5; offset: 0 0.5');
     }
     scene.appendChild(vs);
     hideSpinner();
@@ -45,9 +45,9 @@ async function loadMedia(item) {
   } else {
     const sky = document.createElement('a-sky');
     sky.classList.add('dyn-media');
-    sky.setAttribute('look-controls', 'enabled: false');
+    sky.setAttribute('look-controls','enabled: false');
     if (!mono) {
-      sky.setAttribute('material', `shader: flat; side: back; src: ${item.url}; repeat: 1 0.5; offset: 0 0.5`);
+      sky.setAttribute('material',`shader: flat; side: back; src: ${item.url}; repeat: 1 0.5; offset: 0 0.5`);
     } else {
       sky.setAttribute('src', item.url);
     }
@@ -57,24 +57,25 @@ async function loadMedia(item) {
 }
 
 function enableDragOrbit() {
-  scene.addEventListener('loaded', () => {
+  scene.addEventListener('renderstart', () => {
     const camEl = scene.querySelector('[camera]');
     cameraObj = camEl.object3D;
 
-    let isDown = false;
-    let lastX = 0, lastY = 0;
-    let yaw = 0, pitch = 0;
-    const sens = 0.005;
     const canvas = scene.canvas;
     canvas.style.touchAction = 'none';
 
-    function start(x, y) {
-      isDown = true;
+    let active = false;
+    let lastX = 0, lastY = 0;
+    let yaw = 0, pitch = 0;
+    const sens = 0.005;
+
+    function onDown(x, y) {
+      active = true;
       lastX = x;
       lastY = y;
     }
-    function move(x, y) {
-      if (!isDown) return;
+    function onMove(x, y) {
+      if (!active) return;
       const dx = x - lastX;
       const dy = y - lastY;
       yaw   -= dx * sens;
@@ -84,52 +85,50 @@ function enableDragOrbit() {
       lastX = x;
       lastY = y;
     }
-    function end() {
-      isDown = false;
+    function onUp() {
+      active = false;
     }
 
-    // Desktop: mouse events
-    canvas.addEventListener('mousedown', e => start(e.clientX, e.clientY));
-    canvas.addEventListener('mousemove', e => {
-      if (e.buttons) move(e.clientX, e.clientY);
-    });
-    canvas.addEventListener('mouseup', end);
-    canvas.addEventListener('mouseleave', end);
+    // PointerEvents (desktop e mobile moderno)
+    canvas.addEventListener('pointerdown', e => { onDown(e.clientX, e.clientY); e.preventDefault(); });
+    canvas.addEventListener('pointermove', e => { onMove(e.clientX, e.clientY); });
+    canvas.addEventListener('pointerup',   e => { onUp(); });
+    canvas.addEventListener('pointerleave',e => { onUp(); });
+    canvas.addEventListener('pointercancel',e => { onUp(); });
 
-    // Mobile: touch events
+    // Fallback touch (iOS pré-Pointer Events)
     canvas.addEventListener('touchstart', e => {
       const t = e.touches[0];
-      start(t.clientX, t.clientY);
+      onDown(t.clientX, t.clientY);
       e.preventDefault();
     }, { passive: false });
 
     canvas.addEventListener('touchmove', e => {
       const t = e.touches[0];
-      move(t.clientX, t.clientY);
+      onMove(t.clientX, t.clientY);
       e.preventDefault();
     }, { passive: false });
 
     canvas.addEventListener('touchend', e => {
-      end();
+      onUp();
       e.preventDefault();
     }, { passive: false });
   });
 }
 
+// VR handlers (sem mudança)
 window.addEventListener('enter-vr', async () => {
   const item = MEDIA[select.value];
   const mono = isMono(item.url);
   document.querySelectorAll('.dyn-media').forEach(el => el.remove());
-
   if (!mono) {
     if (/\.(mp4|webm)$/i.test(item.url)) {
       await import('../libs/aframe-stereo-component.js');
       const vid2 = document.createElement('video');
       vid2.id = 'vidStereo'; vid2.src = item.url; vid2.crossOrigin = 'anonymous';
-      vid2.loop = true; vid2.setAttribute('playsinline', '');
+      vid2.loop = true; vid2.setAttribute('playsinline','');
       await vid2.play();
       assets.appendChild(vid2);
-
       const geom = 'primitive: sphere; radius: 100; segmentsWidth: 64; segmentsHeight: 64;';
       const mat  = 'shader: flat; side: back; src: #vidStereo;';
       const scl  = '-1 1 1';
@@ -142,7 +141,6 @@ window.addEventListener('enter-vr', async () => {
         ent.setAttribute('stereo', `eye:${eye}; split: vertical`);
         scene.appendChild(ent);
       });
-
     } else {
       await import('../libs/aframe-stereo-component.js');
       ['left','right'].forEach(eye => {
@@ -178,5 +176,4 @@ async function init() {
   loadMedia(MEDIA[0]);
   enableDragOrbit();
 }
-
 init();
