@@ -1,14 +1,8 @@
-// lá no topo do OrbitControls.js, substitua tudo da import por:
+// usa o THREE global que o A-Frame já carrega
 const {
-  EventDispatcher,
-  MOUSE,
-  Quaternion,
-  Spherical,
-  TOUCH,
-  Vector2,
-  Vector3
+  EventDispatcher, MOUSE, Quaternion, Spherical,
+  TOUCH, Vector2, Vector3
 } = window.THREE;
-
 // OrbitControls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
 //

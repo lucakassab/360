@@ -17,9 +17,10 @@ self.addEventListener('install', ev => {
   self.skipWaiting();
   ev.waitUntil(
     caches.open(CACHE_STATIC)
-      .then(cache => cache.addAll(STATIC_FILES))
+      .then(c => c.addAll(STATIC_FILES))
   );
 });
+
 self.addEventListener('activate', ev => {
   self.clients.claim();
   ev.waitUntil(
@@ -31,11 +32,14 @@ self.addEventListener('activate', ev => {
     )
   );
 });
+
 self.addEventListener('fetch', ev => {
   const url = ev.request.url;
   if (url.includes('/media/')) {
     ev.respondWith(
-      caches.match(ev.request).then(hit=>hit||fetch(ev.request).then(r=>caches.open(CACHE_MEDIA).then(c=>{c.put(ev.request,r.clone());return r;})))
+      caches.match(ev.request).then(hit=>hit||fetch(ev.request).then(res=>
+        caches.open(CACHE_MEDIA).then(c=>c.put(ev.request,res.clone())).then(()=>res)
+      ))
     );
     return;
   }

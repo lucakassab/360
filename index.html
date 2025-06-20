@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meu App VR 360</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/favicon.ico">
   <style>
-    body, html { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#000; color:#fff; }
+    body, html {
+      margin:0; padding:0;
+      width:100%; height:100%;
+      overflow:hidden; background:#000; color:#fff;
+    }
     #sceneSelect { position:absolute; top:10px; left:10px; z-index:10; }
-    #spinner    { display:none;  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:10; }
-    #enter-vr   { display:none; position:absolute; top:10px; right:10px; z-index:10; padding:8px 12px; background:#111; color:#fff; border:1px solid #444; cursor:pointer; }
+    #spinner      { display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:10; font-family:sans-serif;}
+    #enter-vr     { position:absolute; top:10px; right:10px; z-index:10; display:none; }
   </style>
 </head>
 <body>
@@ -22,25 +24,24 @@
   <a-scene embedded xr-mode-ui="enabled: false" background="color: #000">
     <a-assets></a-assets>
 
-    <!-- câmera manual sem look-controls padrão -->
-    <a-entity 
-      camera id="cameraRig" position="0 1.6 0" 
-      look-controls="enabled: false">
-    </a-entity>
+    <!-- câmera sem look-controls pra não travar pitch no mobile -->
+    <a-entity camera position="0 1.6 0" look-controls="enabled: false"></a-entity>
   </a-scene>
 
   <script src="libs/aframe.min.js"></script>
   <script>
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
-    // só mostra botão se WebXR suportar immersive-vr
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+    // mostra botão VR só se suportar WebXR
     if (navigator.xr && navigator.xr.isSessionSupported) {
-      navigator.xr.isSessionSupported('immersive-vr').then(s => {
-        if (s) document.getElementById('enter-vr').style.display = 'block';
-      });
+      navigator.xr.isSessionSupported('immersive-vr').then(ok=>{
+        if (ok) document.getElementById('enter-vr').style.display='block';
+      }).catch(()=>{});
     }
-    document.getElementById('enter-vr').addEventListener('click', () => {
-      const s = document.querySelector('a-scene');
-      s.is('vr-mode') ? s.exitVR() : s.enterVR();
+    // ligar/desligar VR
+    document.getElementById('enter-vr').addEventListener('click', ()=>{
+      const sc = document.querySelector('a-scene');
+      sc.is('vr-mode') ? sc.exitVR() : sc.enterVR();
     });
   </script>
   <script src="js/main.js" type="module"></script>
