@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meu App VR 360</title>
-  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="manifest" href="manifest.webmanifest" />
+
   <style>
     body, html {
       margin:0; padding:0;
@@ -12,9 +13,21 @@
       overflow:hidden; background:#000; color:#fff;
     }
     #sceneSelect { position:absolute; top:10px; left:10px; z-index:10; }
-    #spinner      { display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:10; font-family:sans-serif; }
+    #spinner      { display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:10; font-family:sans-serif;}
     #enter-vr     { position:absolute; top:10px; right:10px; z-index:10; display:none; }
   </style>
+
+  <!-- Import map: mapeia imports para seus arquivos locais -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three":           "./libs/three.module.js",
+      "aframe":          "./libs/aframe.module.js",
+      "aframe-stereo-component": "./libs/aframe-stereo-component.js",
+      "OrbitControls":   "./libs/OrbitControls.js"
+    }
+  }
+  </script>
 </head>
 <body>
   <select id="sceneSelect"></select>
@@ -23,6 +36,8 @@
 
   <a-scene embedded xr-mode-ui="enabled: false" background="color: #000">
     <a-assets></a-assets>
+
+    <!-- câmera sem look-controls, com nosso component orbit-controls -->
     <a-entity 
       camera 
       position="0 1.6 0" 
@@ -31,28 +46,14 @@
     </a-entity>
   </a-scene>
 
-  <!-- importa tudo da tua pasta libs -->
+  <!-- Carrega todos os módulos usando o import map -->
   <script type="module">
-    import './libs/three.module.js';
-    import './libs/aframe.module.js';
-    import './libs/aframe-stereo-component.js';
-    import './libs/OrbitControls.js';
+    import * as THREE from "three";          // garante THREE global
+    window.THREE = THREE;
+    import "aframe";                         // carrega A-Frame como ES module
+    import "aframe-stereo-component";        // plugin estéreo
+    import "OrbitControls";                  // controles orbitais
+    import "./js/main.js";                   // seu main.js
   </script>
-
-  <!-- service worker e botão VR -->
-  <script>
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
-    if (navigator.xr && navigator.xr.isSessionSupported) {
-      navigator.xr.isSessionSupported('immersive-vr').then(ok => {
-        if (ok) document.getElementById('enter-vr').style.display = 'block';
-      }).catch(()=>{});
-    }
-    document.getElementById('enter-vr').addEventListener('click', () => {
-      const sc = document.querySelector('a-scene');
-      sc.is('vr-mode') ? sc.exitVR() : sc.enterVR();
-    });
-  </script>
-
-  <script src="js/main.js" type="module"></script>
 </body>
 </html>
