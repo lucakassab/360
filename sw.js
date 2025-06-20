@@ -8,6 +8,7 @@ const STATIC_FILES = [
   'manifest.webmanifest',
   'libs/aframe.min.js',
   'libs/aframe-stereo-component.js',
+  'libs/three.module.js',
   'libs/OrbitControls.js',
   'js/main.js',
   'icons/icon-192.png',
@@ -75,3 +76,4 @@ self.addEventListener('fetch', ev => {
 
   // pro resto, vai pra rede
 });
+  
