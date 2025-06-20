@@ -1,46 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <title>Tour 360 Dinâmico</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#000000">
-
-  <!-- Favicon -->
-  <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" sizes="180x180">
-
-  <!-- A-Frame + Stereo Component (local) -->
-  <script src="js/aframe.min.js"></script>
-  <script src="js/aframe-stereo-component.min.js"></script>
-
+ App VR 360</title>
+  <link rel="manifest" href="manifest.webmanifest">
   <style>
-    body, html { margin:0; padding:0; width:100%; height:100%; background:#000; }
-    #ui { position: absolute; top: 10px; left: 10px; z-index: 999; color: #fff; font-family: sans-serif; }
-    #ui button { margin-right: 5px; }
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; color: #fff; }
+    #sceneSelect { position: absolute; top: 10px; left: 10px; z-index: 10; }
+    #spinner { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; font-family: sans-serif; }
   </style>
 </head>
-
 <body>
-  <div id="ui">
-    <button id="prevBtn">« Anterior</button>
-    <span id="mediaName">Carregando...</span>
-    <button id="nextBtn">Próxima »</button>
-  </div>
+  <select id="sceneSelect"></select>
+  <div id="spinner">Loading...</div>
 
-  <a-scene id="scene" embedded vr-mode-ui="enabled: true"></a-scene>
-
-  <!-- Registra o Service Worker -->
+  <!-- Carrega A-Frame local primeiro -->
+  <script src="libs/aframe.min.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(() => console.log('[PWA] SW registrado'))
-        .catch(err => console.warn('[PWA] Falha registrar SW:', err));
+      navigator.serviceWorker.register('sw.js');
     }
   </script>
-
-  <!-- AGORA sim carrega o main.js depois que tudo já existe -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js" type="module"></script>
 </body>
 </html>
