@@ -1,4 +1,4 @@
-// usa o THREE global que o A-Frame carregou, incluindo Ray, Raycaster e MathUtils
+// libs/OrbitControls.js — no topo do arquivo, remova todo o import antigo e cole isto:
 const {
   EventDispatcher,
   MOUSE,
@@ -9,7 +9,8 @@ const {
   Quaternion,
   Ray,
   Raycaster,
-  MathUtils
+  MathUtils,
+  Plane
 } = window.THREE;
 
 
