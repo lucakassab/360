@@ -1,15 +1,13 @@
-import {
-	EventDispatcher,
-	MOUSE,
-	Quaternion,
-	Spherical,
-	TOUCH,
-	Vector2,
-	Vector3,
-	Plane,
-	Ray,
-	MathUtils
-} from './three.module.js';
+// lá no topo do OrbitControls.js, substitua tudo da import por:
+const {
+  EventDispatcher,
+  MOUSE,
+  Quaternion,
+  Spherical,
+  TOUCH,
+  Vector2,
+  Vector3
+} = window.THREE;
 
 // OrbitControls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
