@@ -1,5 +1,4 @@
-// libs/OrbitControls.js — no topo do arquivo, remova todo o import antigo e cole isto:
-const {
+import {
   EventDispatcher,
   MOUSE,
   TOUCH,
@@ -11,7 +10,7 @@ const {
   Raycaster,
   MathUtils,
   Plane
-} = window.THREE;
+} from './three.module.js';
 
 
 // OrbitControls performs orbiting, dollying (zooming), and panning.
