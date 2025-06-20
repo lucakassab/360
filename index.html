@@ -1,4 +1,9 @@
- App VR 360</title>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu App VR 360</title>
   <link rel="manifest" href="manifest.webmanifest">
   <style>
     body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; color: #fff; }
@@ -9,6 +14,11 @@
 <body>
   <select id="sceneSelect"></select>
   <div id="spinner">Loading...</div>
+
+  <!-- Cena A-Frame -->
+  <a-scene embedded vr-mode-ui="enterVRButton: #enter-vr" background="color: #000">
+    <a-assets></a-assets>
+  </a-scene>
 
   <!-- Carrega A-Frame local primeiro -->
   <script src="libs/aframe.min.js"></script>
