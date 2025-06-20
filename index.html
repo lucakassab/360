@@ -25,7 +25,12 @@
     <a-assets></a-assets>
 
     <!-- câmera sem look-controls pra não travar pitch no mobile -->
-    <a-entity camera position="0 1.6 0" look-controls="enabled: false"></a-entity>
+  <a-entity 
+    camera 
+    position="0 1.6 0" 
+    look-controls="enabled: false"
+    orbit-controls>
+  </a-entity>
   </a-scene>
 
   <script src="libs/aframe.min.js"></script>
