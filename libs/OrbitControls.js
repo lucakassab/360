@@ -1,14 +1,31 @@
-// usa o THREE global que o A-Frame já carrega
+// usa o THREE global que o A-Frame carregou, incluindo Ray, Raycaster e MathUtils
 const {
-  EventDispatcher, MOUSE, Quaternion, Spherical,
-  TOUCH, Vector2, Vector3
+  EventDispatcher,
+  MOUSE,
+  TOUCH,
+  Vector2,
+  Vector3,
+  Spherical,
+  Quaternion,
+  Ray,
+  Raycaster,
+  MathUtils
 } = window.THREE;
+
+
 // OrbitControls performs orbiting, dollying (zooming), and panning.
+
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
+
 //
+
 //    Orbit - left mouse / touch: one-finger move
+
 //    Zoom - middle mouse, or mousewheel / touch: two-finger spread or squish
+
 //    Pan - right mouse, or left mouse + ctrl/meta/shiftKey, or arrow keys / touch: two-finger move
+
+
 
 const _changeEvent = { type: 'change' };
 const _startEvent = { type: 'start' };
