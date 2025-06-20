@@ -4,6 +4,7 @@ const select  = document.getElementById('sceneSelect');
 const scene   = document.querySelector('a-scene');
 const assets  = document.querySelector('a-assets');
 let cameraObj;
+let MEDIA = [];  // vai receber a lista dinâmica
 
 function isMono(url) {
   const result = /_Mono(\.[a-z0-9]+)$/i.test(url);
@@ -25,11 +26,11 @@ async function fetchMediaList() {
   console.debug('[Init] Buscando lista de mídias via GitHub API...');
   const resp = await fetch('https://api.github.com/repos/lucakassab/360/contents/media');
   const json = await resp.json();
-  const lista = json
+  const list = json
     .filter(entry => entry.type === 'file')
     .map(entry => ({ name: entry.name, url: `media/${entry.name}` }));
-  console.debug('[Init] Mídias encontradas:', lista);
-  return lista;
+  console.debug('[Init] Mídias encontradas:', list);
+  return list;
 }
 
 async function loadMedia(item) {
@@ -37,6 +38,7 @@ async function loadMedia(item) {
   showSpinner();
   const mono = isMono(item.url);
 
+  // remove mídia antiga
   document.querySelectorAll('.dyn-media').forEach(el => el.remove());
 
   if (/\.(mp4|webm)$/i.test(item.url)) {
@@ -91,7 +93,8 @@ function enableDragOrbit() {
     canvas.style.touchAction = 'none';
     canvas.addEventListener('pointerdown', e => {
       isDown = true;
-      lastX = e.clientX; lastY = e.clientY;
+      lastX = e.clientX;
+      lastY = e.clientY;
       console.debug('[Pointer] down', e.clientX, e.clientY);
     });
     canvas.addEventListener('pointerup',   () => { isDown = false; });
@@ -105,7 +108,8 @@ function enableDragOrbit() {
       pitch -= dy * sensitivity;
       pitch = Math.max(-Math.PI/2, Math.min(Math.PI/2, pitch));
       cameraObj.rotation.set(pitch, yaw, 0);
-      lastX = e.clientX; lastY = e.clientY;
+      lastX = e.clientX;
+      lastY = e.clientY;
       console.debug('[Pointer] rotate pitch:', pitch.toFixed(2), 'yaw:', yaw.toFixed(2));
     });
   });
@@ -113,8 +117,9 @@ function enableDragOrbit() {
 
 async function init() {
   console.debug('[Init] Inicializando aplicação');
-  const MEDIA = await fetchMediaList();
+  MEDIA = await fetchMediaList();
 
+  // popula dropdown
   MEDIA.forEach((m, i) => {
     const opt = document.createElement('option');
     opt.value = i;
@@ -127,17 +132,28 @@ async function init() {
     loadMedia(MEDIA[select.value]);
   });
 
+  // carrega a primeira mídia
   loadMedia(MEDIA[0]);
 
+  // evento VR
   window.addEventListener('enter-vr', async () => {
     const item = MEDIA[select.value];
     console.debug('[VR] Entrando em modo VR:', item);
     if (!isMono(item.url)) {
       await import('../libs/aframe-stereo-component.js');
-      const ent = document.querySelector('.dyn-media');
-      ent.removeAttribute('material');
-      ent.setAttribute('stereo-top-bottom', '');
-      console.debug('[VR] Plugin estéreo aplicado');
+      // remove vista mono/top-crop
+      document.querySelectorAll('.dyn-media').forEach(el => el.remove());
+      // cria sky para olho esquerdo
+      const skyL = document.createElement('a-sky');
+      skyL.classList.add('dyn-media');
+      skyL.setAttribute('src', item.url);
+      skyL.setAttribute('stereo', 'eye:left; split:vertical');
+      scene.appendChild(skyL);
+      // sky para olho direito (clone)
+      const skyR = skyL.cloneNode();
+      skyR.setAttribute('stereo', 'eye:right; split:vertical');
+      scene.appendChild(skyR);
+      console.debug('[VR] Stereo plugin aplicado corretamente');
     }
   });
 

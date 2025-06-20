@@ -2,7 +2,7 @@
 const CACHE_STATIC = 'static-v2';
 const CACHE_MEDIA  = 'media-v2';
 
-// **NÃO ESQUECE** desse array, sem ele vai dar ReferenceError
+// NÃO ESQUECE desse array ou vai dar undefined
 const STATIC_FILES = [
   'index.html',
   'manifest.webmanifest',
@@ -13,7 +13,6 @@ const STATIC_FILES = [
   'icons/icon-512.png'
 ];
 
-// força o SW novo a ativar na hora
 self.addEventListener('install', ev => {
   console.log('[SW] Install');
   self.skipWaiting();
@@ -43,7 +42,7 @@ self.addEventListener('fetch', ev => {
   const req = ev.request;
   const url = req.url;
 
-  // dinamicamente cacheia tudo que vier de /media/
+  // cache-first dinâmico para /media/
   if (url.includes('/media/')) {
     ev.respondWith(
       caches.match(req).then(hit => {
@@ -64,7 +63,7 @@ self.addEventListener('fetch', ev => {
     return;
   }
 
-  // para os arquivos estáticos listados
+  // serve os estáticos do cache
   if (STATIC_FILES.some(f => url.endsWith(f))) {
     ev.respondWith(
       caches.match(req).then(res => {
@@ -73,5 +72,5 @@ self.addEventListener('fetch', ev => {
       })
     );
   }
-  // o resto passa normal
+  // o resto vai pra network normalmente
 });
