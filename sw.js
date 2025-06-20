@@ -1,7 +1,4 @@
-LES = [
-  'index.html',
-  'manifest.webmanifest',
-  'libs/aframe.min.js',
+min.js',
   'libs/aframe-stereo-component.js',
   'js/main.js'
 ];
