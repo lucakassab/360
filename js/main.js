@@ -9,13 +9,8 @@ function isMono(url) {
   return /_Mono(\.[a-z0-9]+)$/i.test(url);
 }
 
-function showSpinner() {
-  spinner.style.display = 'block';
-}
-
-function hideSpinner() {
-  spinner.style.display = 'none';
-}
+function showSpinner() { spinner.style.display = 'block'; }
+function hideSpinner() { spinner.style.display = 'none'; }
 
 async function fetchMediaList() {
   const resp = await fetch('https://api.github.com/repos/lucakassab/360/contents/media');
@@ -33,16 +28,16 @@ async function loadMedia(item) {
   if (/\.(mp4|webm)$/i.test(item.url)) {
     const vid = document.createElement('video');
     vid.id = 'vid'; vid.src = item.url; vid.crossOrigin = 'anonymous';
-    vid.loop = true; vid.setAttribute('playsinline','');
+    vid.loop = true; vid.setAttribute('playsinline', '');
     await vid.play();
     assets.appendChild(vid);
 
     const vs = document.createElement('a-videosphere');
     vs.classList.add('dyn-media');
-    vs.setAttribute('src','#vid');
-    vs.setAttribute('look-controls','enabled: false');
+    vs.setAttribute('src', '#vid');
+    vs.setAttribute('look-controls', 'enabled: false');
     if (!mono) {
-      vs.setAttribute('material','shader: flat; side: back; src: #vid; repeat: 1 0.5; offset: 0 0.5');
+      vs.setAttribute('material', 'shader: flat; side: back; src: #vid; repeat: 1 0.5; offset: 0 0.5');
     }
     scene.appendChild(vs);
     hideSpinner();
@@ -50,9 +45,9 @@ async function loadMedia(item) {
   } else {
     const sky = document.createElement('a-sky');
     sky.classList.add('dyn-media');
-    sky.setAttribute('look-controls','enabled: false');
+    sky.setAttribute('look-controls', 'enabled: false');
     if (!mono) {
-      sky.setAttribute('material',`shader: flat; side: back; src: ${item.url}; repeat: 1 0.5; offset: 0 0.5`);
+      sky.setAttribute('material', `shader: flat; side: back; src: ${item.url}; repeat: 1 0.5; offset: 0 0.5`);
     } else {
       sky.setAttribute('src', item.url);
     }
@@ -93,29 +88,31 @@ function enableDragOrbit() {
       isDown = false;
     }
 
-    // Pointer events (desktop & mobile supporting PointerEvent)
-    if (window.PointerEvent) {
-      canvas.addEventListener('pointerdown', e => start(e.clientX, e.clientY));
-      canvas.addEventListener('pointermove', e => move(e.clientX, e.clientY));
-      canvas.addEventListener('pointerup',   end);
-      canvas.addEventListener('pointerleave',end);
-    } else {
-      // Fallback para browsers sem PointerEvent
-      canvas.addEventListener('touchstart', e => {
-        const t = e.touches[0];
-        start(t.clientX, t.clientY);
-        e.preventDefault();
-      });
-      canvas.addEventListener('touchmove', e => {
-        const t = e.touches[0];
-        move(t.clientX, t.clientY);
-        e.preventDefault();
-      });
-      canvas.addEventListener('touchend', e => {
-        end();
-        e.preventDefault();
-      });
-    }
+    // Desktop: mouse events
+    canvas.addEventListener('mousedown', e => start(e.clientX, e.clientY));
+    canvas.addEventListener('mousemove', e => {
+      if (e.buttons) move(e.clientX, e.clientY);
+    });
+    canvas.addEventListener('mouseup', end);
+    canvas.addEventListener('mouseleave', end);
+
+    // Mobile: touch events
+    canvas.addEventListener('touchstart', e => {
+      const t = e.touches[0];
+      start(t.clientX, t.clientY);
+      e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener('touchmove', e => {
+      const t = e.touches[0];
+      move(t.clientX, t.clientY);
+      e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', e => {
+      end();
+      e.preventDefault();
+    }, { passive: false });
   });
 }
 
@@ -129,7 +126,7 @@ window.addEventListener('enter-vr', async () => {
       await import('../libs/aframe-stereo-component.js');
       const vid2 = document.createElement('video');
       vid2.id = 'vidStereo'; vid2.src = item.url; vid2.crossOrigin = 'anonymous';
-      vid2.loop = true; vid2.setAttribute('playsinline','');
+      vid2.loop = true; vid2.setAttribute('playsinline', '');
       await vid2.play();
       assets.appendChild(vid2);
 
