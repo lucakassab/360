@@ -1,16 +1,18 @@
 // js/main.js
-import { OrbitControls } from '../libs/OrbitControls.js';
 
-// 1) Component A-Frame para OrbitControls
+// **Não** importa nada: usa global AFRAME, global THREE e global OrbitControls
+
+// 1) Component A-Frame que injeta o OrbitControls na câmera
 AFRAME.registerComponent('orbit-controls', {
   init: function () {
     const sceneEl  = this.el.sceneEl;
     const threeCam = this.el.getObject3D('camera');
+    // OrbitControls foi carregado como <script> e está em window.OrbitControls
     this.controls = new OrbitControls(threeCam, sceneEl.renderer.domElement);
-    this.controls.enableZoom      = false;
-    this.controls.enablePan       = false;
-    this.controls.minPolarAngle   = 0;
-    this.controls.maxPolarAngle   = Math.PI;
+    this.controls.enableZoom    = false;
+    this.controls.enablePan     = false;
+    this.controls.minPolarAngle = 0;       // olha pra cima
+    this.controls.maxPolarAngle = Math.PI; // olha pra baixo
   },
   tick: function () {
     this.controls.update();
@@ -26,12 +28,13 @@ let MEDIA = [];
 function isMono(url) {
   return /_Mono(\.[a-z0-9]+)$/i.test(url);
 }
-
 function showSpinner() { spinner.style.display = 'block'; }
 function hideSpinner() { spinner.style.display = 'none'; }
 
 async function fetchMediaList() {
-  const resp = await fetch('https://api.github.com/repos/lucakassab/360/contents/media');
+  const resp = await fetch(
+    'https://api.github.com/repos/lucakassab/360/contents/media'
+  );
   const json = await resp.json();
   return json
     .filter(e => e.type === 'file')
@@ -41,39 +44,48 @@ async function fetchMediaList() {
 async function loadMedia(item) {
   showSpinner();
   const mono = isMono(item.url);
+  // limpa tudo
   document.querySelectorAll('.dyn-media').forEach(el => el.remove());
 
   if (/\.(mp4|webm)$/i.test(item.url)) {
     // Vídeo
     const vid = document.createElement('video');
     vid.id = 'vid'; vid.src = item.url; vid.crossOrigin = 'anonymous';
-    vid.loop = true; vid.setAttribute('playsinline', '');
+    vid.loop = true; vid.setAttribute('playsinline','');
     await vid.play();
     assets.appendChild(vid);
 
     const vs = document.createElement('a-videosphere');
     vs.classList.add('dyn-media');
-    vs.setAttribute('src', '#vid');
-    vs.setAttribute('look-controls', 'enabled: false');
-    if (!mono) vs.setAttribute('material','shader: flat; side: back; src: #vid; repeat:1 0.5; offset:0 0.5');
+    vs.setAttribute('src','#vid');
+    vs.setAttribute('look-controls','enabled:false');
+    if (!mono) {
+      vs.setAttribute(
+        'material',
+        'shader: flat; side: back; src: #vid; repeat:1 0.5; offset:0 0.5'
+      );
+    }
     scene.appendChild(vs);
     hideSpinner();
   } else {
     // Imagem
     const sky = document.createElement('a-sky');
     sky.classList.add('dyn-media');
-    sky.setAttribute('look-controls', 'enabled: false');
+    sky.setAttribute('look-controls','enabled:false');
     if (!mono) {
-      sky.setAttribute('material', `shader: flat; side: back; src: ${item.url}; repeat:1 0.5; offset:0 0.5`);
+      sky.setAttribute(
+        'material',
+        `shader: flat; side: back; src: ${item.url}; repeat:1 0.5; offset:0 0.5`
+      );
     } else {
       sky.setAttribute('src', item.url);
     }
     scene.appendChild(sky);
-    sky.addEventListener('materialtextureloaded', () => hideSpinner(), { once: true });
+    sky.addEventListener('materialtextureloaded', () => hideSpinner(), { once:true });
   }
 }
 
-// 2) Handlers de VR
+// VR handlers
 window.addEventListener('enter-vr', async () => {
   const item = MEDIA[select.value];
   const mono = isMono(item.url);
@@ -82,12 +94,12 @@ window.addEventListener('enter-vr', async () => {
   if (!mono) {
     await import('../libs/aframe-stereo-component.js');
     if (/\.(mp4|webm)$/i.test(item.url)) {
-      // Vídeo estéreo em VR
       const vid2 = document.createElement('video');
       vid2.id = 'vidStereo'; vid2.src = item.url; vid2.crossOrigin = 'anonymous';
       vid2.loop = true; vid2.setAttribute('playsinline','');
       await vid2.play();
       assets.appendChild(vid2);
+
       const geom = 'primitive: sphere; radius:100; segmentsWidth:64; segmentsHeight:64;';
       const mat  = 'shader: flat; side: back; src: #vidStereo;';
       ['left','right'].forEach(eye => {
@@ -100,12 +112,12 @@ window.addEventListener('enter-vr', async () => {
         scene.appendChild(ent);
       });
     } else {
-      // Imagem estéreo em VR
       ['left','right'].forEach(eye => {
         const sky = document.createElement('a-sky');
         sky.classList.add('dyn-media');
         const offY = eye === 'left' ? 0.5 : 0;
-        sky.setAttribute('material',
+        sky.setAttribute(
+          'material',
           `shader: flat; side: back; src: ${item.url}; repeat:1 0.5; offset:0 ${offY}`
         );
         sky.setAttribute('stereo', `eye:${eye}`);
@@ -113,7 +125,7 @@ window.addEventListener('enter-vr', async () => {
       });
     }
   } else {
-    // Volta ao mono
+    // volta ao mono
     await loadMedia(item);
   }
 });
@@ -132,7 +144,6 @@ async function init() {
   });
   select.addEventListener('change', () => loadMedia(MEDIA[select.value]));
   await loadMedia(MEDIA[0]);
-  // OrbitControls via <a-entity orbit-controls> já registrado lá no index.html
 }
 
 init();

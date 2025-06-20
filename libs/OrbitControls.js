@@ -1,47 +1,32 @@
-import {
-  EventDispatcher,
-  MOUSE,
-  TOUCH,
-  Vector2,
-  Vector3,
-  Spherical,
-  Quaternion,
-  Ray,
-  Raycaster,
-  MathUtils,
-  Plane
-} from './three.module.js';
+// OrbitControls.js (modo clássico usando THREE global)
+(function () {
+  const {
+    EventDispatcher,
+    MOUSE,
+    TOUCH,
+    Vector2,
+    Vector3,
+    Spherical,
+    Quaternion,
+    Ray,
+    Raycaster,
+    MathUtils,
+    Plane
+  } = THREE;
 
+  const _changeEvent = { type: 'change' };
+  const _startEvent = { type: 'start' };
+  const _endEvent   = { type: 'end' };
+  const _ray        = new Ray();
+  const _plane      = new Plane();
+  const TILT_LIMIT  = Math.cos(70 * MathUtils.DEG2RAD);
 
-// OrbitControls performs orbiting, dollying (zooming), and panning.
+  window.OrbitControls = class OrbitControls extends EventDispatcher {
+    constructor(object, domElement) {
+      super();
+      this.object = object;
+      this.domElement = domElement;
 
-// Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
-
-//
-
-//    Orbit - left mouse / touch: one-finger move
-
-//    Zoom - middle mouse, or mousewheel / touch: two-finger spread or squish
-
-//    Pan - right mouse, or left mouse + ctrl/meta/shiftKey, or arrow keys / touch: two-finger move
-
-
-
-const _changeEvent = { type: 'change' };
-const _startEvent = { type: 'start' };
-const _endEvent = { type: 'end' };
-const _ray = new Ray();
-const _plane = new Plane();
-const TILT_LIMIT = Math.cos( 70 * MathUtils.DEG2RAD );
-
-class OrbitControls extends EventDispatcher {
-
-	constructor( object, domElement ) {
-
-		super();
-
-		this.object = object;
-		this.domElement = domElement;
 		this.domElement.style.touchAction = 'none'; // disable touch scroll
 
 		// Set to false to disable this control

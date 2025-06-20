@@ -1,12 +1,11 @@
 // sw.js
-const CACHE_STATIC = 'static-v5';
+const CACHE_STATIC = 'static-v3';
 const CACHE_MEDIA  = 'media-v2';
 
 const STATIC_FILES = [
   'index.html',
   'manifest.webmanifest',
-  'libs/three.module.js',
-  'libs/aframe.module.js',
+  'libs/aframe.min.js',
   'libs/aframe-stereo-component.js',
   'libs/OrbitControls.js',
   'js/main.js',
@@ -15,12 +14,12 @@ const STATIC_FILES = [
 ];
 
 self.addEventListener('install', ev => {
-  console.log('[SW] Install v5');
+  console.log('[SW] Install v3');
   self.skipWaiting();
   ev.waitUntil(
     caches.open(CACHE_STATIC)
       .then(cache => cache.addAll(STATIC_FILES))
-      .then(() => console.log('[SW] Static v5 cached'))
+      .then(() => console.log('[SW] Static v3 cached'))
       .catch(err => console.warn('[SW] Falha no cache estático:', err))
   );
 });
@@ -31,9 +30,8 @@ self.addEventListener('activate', ev => {
   ev.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
-        keys
-          .filter(k => k !== CACHE_STATIC && k !== CACHE_MEDIA)
-          .map(old => caches.delete(old).then(() => console.log('[SW] Cache excluído:', old)))
+        keys.filter(k => k !== CACHE_STATIC && k !== CACHE_MEDIA)
+            .map(old => caches.delete(old).then(() => console.log('[SW] Removido cache:', old)))
       )
     )
   );
