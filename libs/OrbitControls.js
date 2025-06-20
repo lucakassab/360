@@ -1,5 +1,6 @@
-// OrbitControls.js (modo clássico usando THREE global)
+// libs/OrbitControls.js
 (function () {
+  // Puxa tudo do THREE global
   const {
     EventDispatcher,
     MOUSE,
@@ -14,20 +15,21 @@
     Plane
   } = THREE;
 
+  // Variáveis internas
   const _changeEvent = { type: 'change' };
-  const _startEvent = { type: 'start' };
-  const _endEvent   = { type: 'end' };
-  const _ray        = new Ray();
-  const _plane      = new Plane();
-  const TILT_LIMIT  = Math.cos(70 * MathUtils.DEG2RAD);
+  const _startEvent  = { type: 'start' };
+  const _endEvent    = { type: 'end' };
+  const _ray         = new Ray();
+  const _plane       = new Plane();
+  const TILT_LIMIT   = Math.cos(70 * MathUtils.DEG2RAD);
 
+  // Define o OrbitControls no escopo global
   window.OrbitControls = class OrbitControls extends EventDispatcher {
     constructor(object, domElement) {
       super();
       this.object = object;
       this.domElement = domElement;
-
-		this.domElement.style.touchAction = 'none'; // disable touch scroll
+      this.domElement.style.touchAction = 'none';
 
 		// Set to false to disable this control
 		this.enabled = true;
@@ -1394,8 +1396,8 @@
 
 		this.update();
 
-	}
+    }
 
-}
+  };
 
-export { OrbitControls };
+})(); // fim da IIFE

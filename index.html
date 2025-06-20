@@ -35,10 +35,26 @@
 
   <!-- Bibliotecas locais (sem CDN) -->
   <script src="libs/aframe.min.js" defer></script>
-  <script src="libs/aframe-stereo-component.js" defer></script>
   <script src="libs/OrbitControls.js" defer></script>
 
-  <!-- Seu main.js como módulo, mas sem importar A-Frame ou THREE -->
+  <!-- service worker + VR button -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(e => console.warn('SW falhou:', e));
+    }
+    const btn = document.getElementById('enter-vr');
+    if (navigator.xr && navigator.xr.isSessionSupported) {
+      navigator.xr.isSessionSupported('immersive-vr')
+        .then(s => { if (s) btn.style.display = 'block'; })
+        .catch(() => {});
+    }
+    btn.addEventListener('click', () => {
+      const sc = document.querySelector('a-scene');
+      sc.is('vr-mode') ? sc.exitVR() : sc.enterVR();
+    });
+  </script>
+
+  <!-- Seu main.js como módulo -->
   <script src="js/main.js" type="module" defer></script>
 </body>
 </html>
