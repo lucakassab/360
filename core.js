@@ -24,7 +24,7 @@ async function main() {
     dropdown.appendChild(opt);
   });
 
-  // 2) Detecta plataforma e importa SOMENTE um módulo
+  // 2) Detecta plataforma e importa só 1 módulo
   if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
     platformMod = await import('./platforms/mobile.js');
   } else {
@@ -36,7 +36,7 @@ async function main() {
   // 3) Carrega a primeira mídia
   await loadMedia(currentIndex);
 
-  // 4) Se suportar WebXR, adiciona botão e eventos de sessão
+  // 4) Se suportar WebXR, adiciona botão VR
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
     const renderer = platformMod.renderer;
     renderer.xr.enabled = true;
@@ -49,7 +49,7 @@ async function main() {
     renderer.xr.addEventListener('sessionend',   onSessionEnd);
   }
 
-  // 5) UI listeners
+  // 5) Listeners UI
   dropdown.onchange = e => {
     currentIndex = +e.target.value;
     loadMedia(currentIndex);
@@ -66,18 +66,18 @@ async function main() {
   };
 }
 
-// Chamado quando entra em VR
+// Quando começa a sessão VR
 async function onSessionStart() {
   console.log('🌐 VR session started');
   const vrMod = await import('./platforms/vr.js');
-  // inicializa VR com o renderer atual
+  // Inicializa XR no mesmo canvas/renderer
   await vrMod.initXR(platformMod.renderer);
   currentModule = vrMod;
   await vrMod.load(mediaList[currentIndex]);
 
-  // configura botões A/B do Quest para avançar/voltar
+  // ⚠️ Aqui o fix: passa vrMod.renderer, não platformMod.renderer
   setupVRInputs(
-    platformMod.renderer,
+    vrMod.renderer,
     () => {
       currentIndex = (currentIndex + 1) % mediaList.length;
       dropdown.value = currentIndex;
@@ -91,12 +91,10 @@ async function onSessionStart() {
   );
 }
 
-// Chamado quando sai de VR
+// Quando sai da sessão VR
 async function onSessionEnd() {
   console.log('🌐 VR session ended');
-  // volta pro módulo original (desktop ou mobile)
   currentModule = platformMod;
-  // recarrega a cena no modo não-VR
   await loadMedia(currentIndex);
 }
 
