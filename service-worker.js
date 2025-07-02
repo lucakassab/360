@@ -9,6 +9,7 @@ const STATIC_ASSETS = [
   './libs/three.module.js',
   './libs/OrbitControls.js',
   './libs/VRButton.js',
+  './libs/XRHandModelFactory.js',
   './media/media.json'
 ];
 
