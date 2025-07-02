@@ -7,8 +7,30 @@ let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
-// 🔁 Toggle pra inverter olhos (debug)
-const INVERTER_OLHOS = true;
+// 🔁 Debug toggles
+const INVERTER_OLHOS = true;   // inverter top/bottom dos olhos
+const SHOW_VR_DEBUG = true;    // exibe overlay de logs em VR
+
+// vars para overlay de debug
+let debugCanvas, debugTexture, debugMesh;
+let debugLogs = [];
+const MAX_LOGS = 10;
+
+function logDebug(msg) {
+  if (!SHOW_VR_DEBUG) return;
+  debugLogs.push(msg);
+  if (debugLogs.length > MAX_LOGS) debugLogs.shift();
+  const ctx = debugCanvas.getContext('2d');
+  ctx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
+  ctx.fillStyle = 'rgba(0,0,0,0.8)';
+  ctx.fillRect(0, 0, debugCanvas.width, debugCanvas.height);
+  ctx.fillStyle = '#0f0';
+  ctx.font = '20px monospace';
+  debugLogs.forEach((line, i) => {
+    ctx.fillText(line, 10, 30 + i * 22);
+  });
+  debugTexture.needsUpdate = true;
+}
 
 export async function initXR(externalRenderer) {
   if (inited) return;
@@ -23,7 +45,7 @@ export async function initXR(externalRenderer) {
   );
   camera.position.set(0, 0, 0.1);
 
-  // 2) Reusa canvas/renderer e manda qualidade no talo
+  // 2) Reusa canvas/renderer e aplica máxima qualidade
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -31,7 +53,22 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) Adiciona cubos nos grips dos controllers
+  // 3) Overlay de debug (se habilitado)
+  if (SHOW_VR_DEBUG) {
+    debugCanvas = document.createElement('canvas');
+    debugCanvas.width  = 512;
+    debugCanvas.height = 256;
+    debugTexture = new THREE.CanvasTexture(debugCanvas);
+    const mat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
+    const geo = new THREE.PlaneGeometry(0.6, 0.3);
+    debugMesh = new THREE.Mesh(geo, mat);
+    debugMesh.position.set(0, -0.1, -0.5);
+    camera.add(debugMesh);
+    scene.add(camera);
+    logDebug('🛠️ Debug overlay ativado');
+  }
+
+  // 4) Cubos nos grips dos controllers
   const grip0 = renderer.xr.getControllerGrip(0);
   const cube0 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -39,6 +76,7 @@ export async function initXR(externalRenderer) {
   );
   grip0.add(cube0);
   scene.add(grip0);
+  logDebug('✅ Cubo verde (esquerdo) adicionado');
 
   const grip1 = renderer.xr.getControllerGrip(1);
   const cube1 = new THREE.Mesh(
@@ -47,22 +85,25 @@ export async function initXR(externalRenderer) {
   );
   grip1.add(cube1);
   scene.add(grip1);
+  logDebug('✅ Cubo vermelho (direito) adicionado');
 
-  // 4) Loop de render
+  // 5) Loop de render
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
 
   inited = true;
+  logDebug('🚀 initXR concluído');
 }
 
 export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
+  logDebug(`📂 Carregando mídia: ${media.name}`);
   await loadMedia(media);
+  logDebug('✅ loadMedia concluído');
 }
 
 function clearScene() {
-  // Remove esferas antigas
   [sphereLeft, sphereRight].forEach(mesh => {
     if (!mesh) return;
     scene.remove(mesh);
@@ -70,8 +111,6 @@ function clearScene() {
     mesh.material.map?.dispose();
     mesh.material.dispose();
   });
-
-  // Para e descarta o vídeo
   if (videoEl) {
     videoEl.pause();
     videoEl.src = '';
@@ -79,21 +118,17 @@ function clearScene() {
     videoEl.remove();
     videoEl = null;
   }
-
-  // Descarrega texturas
   if (texLeft?.dispose)  texLeft.dispose();
   if (texRight?.dispose) texRight.dispose();
-
-  sphereLeft = null;
-  sphereRight = null;
-  texLeft    = null;
-  texRight   = null;
+  sphereLeft = sphereRight = null;
+  texLeft = texRight = null;
+  logDebug('🧹 Cena limpa');
 }
 
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Cria as texturas
+  // 1) Cria textura
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -106,6 +141,7 @@ async function loadMedia(media) {
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
+    logDebug('🎥 VideoTexture criada');
   } else {
     const loader = new THREE.TextureLoader();
     const base = await new Promise((res, rej) =>
@@ -113,9 +149,10 @@ async function loadMedia(media) {
     );
     texLeft  = base;
     texRight = media.stereo ? base.clone() : null;
+    logDebug('📷 TextureLoader concluído');
   }
 
-  // 2) Filtros de alta qualidade e sRGB
+  // 2) Alta qualidade / sRGB
   [texLeft, texRight].forEach(tex => {
     if (!tex) return;
     tex.minFilter       = THREE.LinearFilter;
@@ -126,8 +163,9 @@ async function loadMedia(media) {
     tex.wrapS           = THREE.ClampToEdgeWrapping;
     tex.wrapT           = THREE.RepeatWrapping;
   });
+  logDebug('🔧 Filtros de alta qualidade aplicados');
 
-  // 3) Stereo top-down com toggle de inversão
+  // 3) Stereo top-down com inversão
   if (media.stereo) {
     texLeft.repeat.set(1, 0.5);
     texRight.repeat.set(1, 0.5);
@@ -137,32 +175,34 @@ async function loadMedia(media) {
     texRight.offset.set(0, bottomOffset);
     texLeft.needsUpdate  = true;
     texRight.needsUpdate = true;
+    logDebug(`🔀 Stereo aplicado (invertido: ${INVERTER_OLHOS})`);
   } else {
     texLeft.repeat.set(1, 1);
     texLeft.offset.set(0, 0);
     texLeft.needsUpdate = true;
+    logDebug('⚪ Mono aplicado');
   }
 
-  // 4) Monta a esfera invertida
+  // 4) Monta esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
   if (!media.stereo) {
     sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
     scene.add(sphereLeft);
-    return;
+  } else {
+    sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
+    sphereLeft.layers.set(1);
+    scene.add(sphereLeft);
+    sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
+    sphereRight.layers.set(2);
+    scene.add(sphereRight);
   }
 
-  sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
-  sphereLeft.layers.set(1);
-  scene.add(sphereLeft);
-
-  sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
-  sphereRight.layers.set(2);
-  scene.add(sphereRight);
-
-  // 5) Ativa as layers na câmera XR
+  // 5) Ativa layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
+
+  logDebug('🌐 Cena VR preparada');
 }
