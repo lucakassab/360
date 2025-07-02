@@ -71,24 +71,23 @@ export async function load(media) {
     });
   }
 
-  // 2) Define wrapping pra aceitar repeat/offset
+  // 2) Wrapping/corte top-bottom
   texture.wrapS = THREE.ClampToEdgeWrapping;
   texture.wrapT = THREE.RepeatWrapping;
-
-  // 3) Stereo top-bottom: exibe só a metade de cima (olho esquerdo, geralmente)
   if (media.stereo) {
-    texture.repeat.set(1, 0.5);    // largura total, altura metade
-    texture.offset.set(0, 0);     // começa do topo
+    // só metade de cima
+    texture.repeat.set(1, 0.5);
+    texture.offset.set(0, 0);
   } else {
     texture.repeat.set(1, 1);
     texture.offset.set(0, 0);
   }
-
   texture.needsUpdate = true;
+
   texture.mapping = THREE.EquirectangularReflectionMapping;
   texture.encoding = THREE.sRGBEncoding;
 
-  // 4) Monta a esfera invertida
+  // 3) Monta a esfera invertida
   const geometry = new THREE.SphereGeometry(500, 60, 40);
   geometry.scale(-1, 1, 1);
 
@@ -96,3 +95,6 @@ export async function load(media) {
   sphereMesh = new THREE.Mesh(geometry, material);
   scene.add(sphereMesh);
 }
+
+// Exporta o renderer pra o core.js poder usar
+export { renderer };

@@ -1,4 +1,3 @@
-// core.js
 const canvas     = document.getElementById('xr-canvas');
 const loadingEl  = document.getElementById('loading');
 const dropdown   = document.getElementById('mediaSelect');
@@ -25,7 +24,7 @@ async function main() {
     dropdown.appendChild(opt);
   });
 
-  // 3) detecta e importa desktop/mobile
+  // 3) detecta e importa plataforma
   currentModule = await importPlatform();
 
   // 4) carrega primeira mídia
@@ -51,37 +50,32 @@ async function main() {
 }
 
 async function importPlatform() {
-  // Se WebXR suportado, usamos desktop.js + mostramos botão VR
+  // WEBXR suportado? só mostra o botão, continua no desktop até clicar
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
     const mod = await import('./platforms/desktop.js');
-    // habilita XR no renderer
+    // habilita XR no renderer exportado
     mod.renderer.xr.enabled = true;
 
-    // carrega só o VRButton.js pra mostrar o botão
+    // cria e injeta o botão VR
     const { VRButton } = await import('./libs/VRButton.js');
     const btn = VRButton.createButton(mod.renderer);
-    // wrap no onclick: só importamos vr.js quando apertar
-    const oldClick = btn.onclick;
-    btn.onclick = async () => {
-      // importa vr.js e troca o módulo
+    document.body.appendChild(btn);
+
+    // quando clicar, troca pra vr.js e recarrega a mídia atual
+    btn.addEventListener('click', async () => {
       const vrMod = await import('./platforms/vr.js');
       currentModule = vrMod;
       await vrMod.load(mediaList[currentIndex]);
-      // depois que já carregou o modo VR, chama o handler original pra setSession
-      oldClick();
-    };
-    document.body.appendChild(btn);
+    });
 
     return mod;
   }
 
-  // senão: mobile ou desktop normal
+  // mobile ou desktop normal
   if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-    const mod = await import('./platforms/mobile.js');
-    return mod;
+    return await import('./platforms/mobile.js');
   } else {
-    const mod = await import('./platforms/desktop.js');
-    return mod;
+    return await import('./platforms/desktop.js');
   }
 }
 
