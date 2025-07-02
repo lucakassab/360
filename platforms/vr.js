@@ -9,14 +9,15 @@ let videoEl, texLeft, texRight;
 let inited = false;
 
 // 🔁 Toggles
-const SHOW_LEFT_CONTROLLER  = true;   // ⬅️ mostra/oculta controle esquerdo
-const SHOW_RIGHT_CONTROLLER = true;   // ➡️ mostra/oculta controle direito
+const SHOW_LEFT_CONTROLLER  = true;
+const SHOW_RIGHT_CONTROLLER = true;
 const INVERTER_OLHOS = true;
 const SHOW_VR_DEBUG  = true;
 
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
 const MAX_LOGS = 10;
+let prevButtonPressed = false;
 
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
@@ -35,12 +36,10 @@ function logDebug(msg) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
-  // 1) Cena e câmera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
 
-  // 2) Renderer vindo de fora
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -48,7 +47,6 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) Overlay debug
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
     debugCanvas.width  = 2048;
@@ -71,16 +69,13 @@ export async function initXR(externalRenderer) {
     logDebug(`🎮 Dispositivo XR: ${deviceName}`);
   }
 
-  // 4) Modelos dos controles
   const factory = new XRControllerModelFactory();
 
-  // a) Esconde qualquer target-ray/controller “cru” que o WebXR crie
   [0, 1].forEach(i => {
     const ctrl = renderer.xr.getController(i);
     ctrl.visible = false;
   });
 
-  // b) Cria grips só se o toggle mandar
   if (SHOW_LEFT_CONTROLLER) {
     const leftGrip = renderer.xr.getControllerGrip(0);
     leftGrip.add(factory.createControllerModel(leftGrip));
@@ -95,8 +90,28 @@ export async function initXR(externalRenderer) {
     logDebug?.('✅ Controle DIR carregado');
   }
 
-  // 5) Loop de render
-  renderer.setAnimationLoop(() => renderer.render(scene, camera));
+  renderer.setAnimationLoop(() => {
+    renderer.render(scene, camera);
+
+    const session = renderer.xr.getSession();
+    if (!session) return;
+
+    for (const source of session.inputSources) {
+      const gp = source.gamepad;
+      if (!gp || gp.buttons.length < 4) continue;
+
+      const isPressed = gp.buttons[3].pressed;
+
+      if (isPressed && !prevButtonPressed) {
+        if (debugMesh) {
+          debugMesh.visible = !debugMesh.visible;
+          logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
+        }
+      }
+
+      prevButtonPressed = isPressed;
+    }
+  });
 
   inited = true;
   logDebug?.('🚀 initXR concluído');
@@ -129,7 +144,6 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Textura
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -159,7 +173,6 @@ async function loadMedia(media) {
     tex.wrapT           = THREE.RepeatWrapping;
   });
 
-  // 2) Stereo top-bottom
   if (media.stereo) {
     const top = INVERTER_OLHOS ? 0.5 : 0.0;
     const bot = INVERTER_OLHOS ? 0.0 : 0.5;
@@ -172,7 +185,6 @@ async function loadMedia(media) {
     texLeft.needsUpdate = true;
   }
 
-  // 3) Esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -186,7 +198,6 @@ async function loadMedia(media) {
     sphereRight.layers.set(2); scene.add(sphereRight);
   }
 
-  // 4) Ativa layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
