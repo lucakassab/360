@@ -56,7 +56,7 @@ export async function initXR(externalRenderer) {
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
     debugCanvas.width  = 2048;
-    debugCanvas.height = 256;
+    debugCanvas.height = 1024;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
     const mat  = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
     const geo  = new THREE.PlaneGeometry(0.6, 0.3);
