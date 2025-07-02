@@ -2,150 +2,122 @@
 
 // === DEBUG FLAG ===
 const DEBUG = true;
-
-// Backup dos métodos originais
-const _console = {
-  log:   console.log,
-  info:  console.info,
-  warn:  console.warn,
-  error: console.error
-};
-
 if (DEBUG) {
-  // Cria a área de debug no DOM
-  const debugDiv = document.createElement('div');
-  debugDiv.id = 'debug-console';
-  Object.assign(debugDiv.style, {
-    position:      'fixed',
-    bottom:        '0',
-    left:          '0',
-    width:         '100%',
-    maxHeight:     '200px',
-    overflowY:     'auto',
-    background:    'rgba(0,0,0,0.8)',
-    color:         '#0f0',
-    fontSize:      '12px',
-    fontFamily:    'monospace',
-    zIndex:        '9999',
-    padding:       '4px'
+  const dump = document.createElement('div');
+  Object.assign(dump.style, {
+    position: 'fixed',
+    bottom: '0', left: '0',
+    width: '100%', maxHeight: '200px',
+    overflowY: 'auto',
+    background: 'rgba(0,0,0,0.8)',
+    color: '#0f0', font: '12px monospace',
+    zIndex: '9999', padding: '4px'
   });
-  document.body.appendChild(debugDiv);
-
-  // Sobrescreve console methods
-  ['log', 'info', 'warn', 'error'].forEach(level => {
-    console[level] = function(...args) {
-      // Chama o console original
-      _console[level].apply(console, args);
-
-      // Formata mensagem
-      const msg = args.map(a =>
-        (typeof a === 'object' ? JSON.stringify(a) : String(a))
-      ).join(' ');
-
-      // Adiciona no debugDiv
+  document.body.appendChild(dump);
+  ['log','info','warn','error'].forEach(level=>{
+    const orig = console[level];
+    console[level] = (...args)=>{
+      orig.apply(console,args);
       const line = document.createElement('div');
-      line.textContent = `[${level}] ${msg}`;
-      debugDiv.appendChild(line);
-      debugDiv.scrollTop = debugDiv.scrollHeight;
+      line.textContent = `[${level}] `+args.map(a=>typeof a==='object'?JSON.stringify(a):a).join(' ');
+      dump.appendChild(line);
+      dump.scrollTop = dump.scrollHeight;
     };
   });
 }
 
-// === ELEMENTOS PRINCIPAIS ===
 const canvas     = document.getElementById('xr-canvas');
 const loadingEl  = document.getElementById('loading');
 const dropdown   = document.getElementById('mediaSelect');
 const btnPrev    = document.getElementById('prevBtn');
 const btnNext    = document.getElementById('nextBtn');
 
-let mediaList     = [];
-let currentIndex  = 0;
-let currentModule = null;
+let mediaList    = [], currentIndex = 0, currentModule = null;
+let desktopMod, vrMod;
 
 main();
 
 async function main() {
-  console.log('main() iniciado');
-
+  console.log('main() start');
   showLoading(true);
 
-  // 1) carrega JSON de mídia
-  console.log('fetch media.json');
+  // 1) carrega lista
+  console.log('fetching media.json');
   const resp = await fetch('./media/media.json');
   mediaList = await resp.json();
   console.log('mediaList:', mediaList);
 
   // 2) preenche dropdown
-  mediaList.forEach((item, i) => {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = item.name;
-    dropdown.appendChild(opt);
+  mediaList.forEach((m,i)=>{
+    const o = document.createElement('option');
+    o.value = i; o.textContent = m.name;
+    dropdown.appendChild(o);
   });
-  console.log('dropdown populado');
+  console.log('dropdown ready');
 
-  // 3) importa módulos desktop e vr em paralelo
-  console.log('importando desktop e vr modules...');
-  const [desktopMod, vrMod] = await Promise.all([
+  // 3) importa desktop e vr js
+  console.log('importing modules');
+  [desktopMod, vrMod] = await Promise.all([
     import('./platforms/desktop.js'),
     import('./platforms/vr.js')
   ]);
-  console.log('modules importados:', desktopMod, vrMod);
+  console.log('modules loaded', desktopMod, vrMod);
 
-  // 4) inicializa desktop
+  // 4) start no desktop
   currentModule = desktopMod;
-  console.log('carregando primeira mídia no desktop');
+  console.log('loading first media on desktop');
   await loadMedia(currentIndex);
 
-  // 5) configura VRButton se suportado
+  // 5) se WebXR, prepara botao e sessionstart
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
-    console.log('WebXR suportado! inicializando XR renderer...');
-    await vrMod.initXR();
+    console.log('WebXR ok → initXR');
+    await vrMod.initXR(); // prepara renderer.xr
     const { VRButton } = await import('./libs/VRButton.js');
     const btn = VRButton.createButton(vrMod.renderer);
     document.body.appendChild(btn);
-    console.log('VRButton adicionado');
+    console.log('VRButton appended');
 
-    btn.addEventListener('click', async () => {
-      console.log('clicou ENTER VR, trocando para vrMod');
+    // só carrega media em VR quando sessionstart rolar
+    vrMod.renderer.xr.addEventListener('sessionstart', async ()=>{
+      console.log('▶ sessionstart detected, loading VR media');
       currentModule = vrMod;
       await vrMod.load(mediaList[currentIndex]);
     });
   } else {
-    console.log('WebXR NÃO suportado neste device.');
+    console.log('WebXR não suportado aqui');
   }
 
-  // 6) listeners UI
-  dropdown.onchange = e => {
+  // 6) UI listeners
+  dropdown.onchange = e=>{
     currentIndex = +e.target.value;
-    console.log('dropdown change', currentIndex);
+    console.log('dropdown ->', currentIndex);
     loadMedia(currentIndex);
   };
-  btnPrev.onclick = () => {
-    currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
-    console.log('prev click', currentIndex);
+  btnPrev.onclick = ()=>{
+    currentIndex = (currentIndex-1+mediaList.length)%mediaList.length;
+    console.log('prev ->', currentIndex);
     dropdown.value = currentIndex;
     loadMedia(currentIndex);
   };
-  btnNext.onclick = () => {
-    currentIndex = (currentIndex + 1) % mediaList.length;
-    console.log('next click', currentIndex);
+  btnNext.onclick = ()=>{
+    currentIndex = (currentIndex+1)%mediaList.length;
+    console.log('next ->', currentIndex);
     dropdown.value = currentIndex;
     loadMedia(currentIndex);
   };
 
   showLoading(false);
-  console.log('main() finalizado');
+  console.log('main() done');
 }
 
-async function loadMedia(i) {
-  console.log('loadMedia index=', i, mediaList[i]);
+async function loadMedia(idx) {
+  console.log('loadMedia idx=', idx);
   showLoading(true);
   try {
-    await currentModule.load(mediaList[i]);
-    console.log('media carregada com sucesso');
-  } catch (err) {
-    console.error('erro ao carregar mídia:', err);
+    await currentModule.load(mediaList[idx]);
+    console.log('media carregada!');
+  } catch(err) {
+    console.error('erro loadMedia:', err);
   }
   showLoading(false);
 }
