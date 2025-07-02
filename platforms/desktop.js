@@ -13,7 +13,12 @@ init();
 function init() {
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
   camera.position.set(0, 0, 0.1);
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
@@ -50,7 +55,7 @@ function clearScene() {
 export async function load(media) {
   clearScene();
 
-  // Carrega textura (imagem ou vídeo)
+  // 1) Cria a textura (vídeo ou imagem)
   if (media.type === 'video') {
     videoElement = document.createElement('video');
     videoElement.src = media.cachePath;
@@ -66,25 +71,26 @@ export async function load(media) {
     });
   }
 
-  // Configura wrapping pra poder usar repeat/offset
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.ClampToEdgeWrapping;
-  
-  // Stereo fora do VR: corta pra esquerda (olho esquerdo)
+  // 2) Define wrapping pra aceitar repeat/offset
+  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+
+  // 3) Stereo top-bottom: exibe só a metade de cima (olho esquerdo, geralmente)
   if (media.stereo) {
-    texture.repeat.set(0.5, 1);
-    texture.offset.set(0, 0);
+    texture.repeat.set(1, 0.5);    // largura total, altura metade
+    texture.offset.set(0, 0);     // começa do topo
   } else {
     texture.repeat.set(1, 1);
     texture.offset.set(0, 0);
   }
-  texture.needsUpdate = true;
 
+  texture.needsUpdate = true;
   texture.mapping = THREE.EquirectangularReflectionMapping;
   texture.encoding = THREE.sRGBEncoding;
 
+  // 4) Monta a esfera invertida
   const geometry = new THREE.SphereGeometry(500, 60, 40);
-  geometry.scale(-1, 1, 1); // Inverte pra olhar de dentro
+  geometry.scale(-1, 1, 1);
 
   const material = new THREE.MeshBasicMaterial({ map: texture });
   sphereMesh = new THREE.Mesh(geometry, material);
