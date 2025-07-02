@@ -1,56 +1,41 @@
 // platforms/vr_inputs.js
-// Captura inputs de controladores WebXR (Meta Quest) e dispara callbacks
-
-// Map para armazenar estados anteriores dos botões
-let _prevButtonStates = new Map();
+// Captura inputs de controladores WebXR (Meta Quest) e dispara callbacksA/B sem interferir no loop de render
 
 /**
- * Inicia o polling dos gamepad input sources do WebXR e dispara onNext/onPrev
- * @param {THREE.WebGLRenderer} renderer – o renderer XR já inicializado
- * @param {Function} onNext – chamado quando o usuário aperta “A”
- * @param {Function} onPrev – chamado quando o usuário aperta “B”
+ * Inicializa polling de botões A e B em WebXR sem substituir o animation loop do renderer.
+ * @param {THREE.WebGLRenderer} renderer - renderer XR habilitado
+ * @param {Function} onNext - callback para avançar mídia (botão A)
+ * @param {Function} onPrev - callback para voltar mídia (botão B)
  */
 export function setupVRInputs(renderer, onNext, onPrev) {
   function handleSession(session) {
-    // limpa estado se trocar de controlador
+    // limpa histórico ao trocar controladores
     session.addEventListener('inputsourceschange', () => {
-      _prevButtonStates.clear();
+      // nada a fazer, histórico fica no frame
     });
 
-    // Polling nos botões usando o animation loop do renderer
-    function poll(time, frame) {
-      const sources = session.inputSources;
-      for (const source of sources) {
-        if (!source.gamepad) continue;
-        const gp = source.gamepad;
-        const id = source.handedness + '|' + gp.id;
-        const prev = _prevButtonStates.get(id) || [];
-
-        gp.buttons.forEach((btn, idx) => {
-          // idx 0 = botão A, idx 1 = botão B
-          if (btn.pressed && !prev[idx]) {
-            if (idx === 0) onNext();
-            if (idx === 1) onPrev();
-          }
-        });
-
-        // armazena estado atual
-        _prevButtonStates.set(id, gp.buttons.map(b => b.pressed));
+    session.requestReferenceSpace('local').then(refSpace => {
+      function onXRFrame(time, frame) {
+        // poll em cada frame
+        for (const source of session.inputSources) {
+          if (!source.gamepad) continue;
+          const gp = source.gamepad;
+          // gp.buttons[0] = A, gp.buttons[1] = B
+          if (gp.buttons[0].pressed) onNext();
+          if (gp.buttons[1].pressed) onPrev();
+        }
+        // agenda próxima
+        session.requestAnimationFrame(onXRFrame);
       }
-      // continua o loop
-      renderer.setAnimationLoop(poll);
-    }
-
-    // começa o polling
-    renderer.setAnimationLoop(poll);
+      session.requestAnimationFrame(onXRFrame);
+    }).catch(err => console.error('VRInputs: falha ao obter referenceSpace', err));
   }
 
-  // Se já estiver apresentando, inicia de imediato
+  // Se já em sessão, inicia polling
   if (renderer.xr.isPresenting) {
     handleSession(renderer.xr.getSession());
   }
-
-  // Quando iniciar sessão, conecta handler
+  // Ao iniciar sessão
   renderer.xr.addEventListener('sessionstart', () => {
     handleSession(renderer.xr.getSession());
   });
