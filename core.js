@@ -43,8 +43,7 @@ async function main() {
 
   // 1) carrega lista
   console.log('fetching media.json');
-  const resp = await fetch('./media/media.json');
-  mediaList = await resp.json();
+  mediaList = await (await fetch('./media/media.json')).json();
   console.log('mediaList:', mediaList);
 
   // 2) preenche dropdown
@@ -61,14 +60,14 @@ async function main() {
     import('./platforms/desktop.js'),
     import('./platforms/vr.js')
   ]);
-  console.log('modules loaded', desktopMod, vrMod);
+  console.log('modules loaded');
 
   // 4) start no desktop
   currentModule = desktopMod;
   console.log('loading first media on desktop');
   await loadMedia(currentIndex);
 
-  // 5) se WebXR, prepara botao e sessionstart
+  // 5) se WebXR, prepara botão com override do click
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
     console.log('WebXR ok → initXR');
     await vrMod.initXR(); // prepara renderer.xr
@@ -77,12 +76,15 @@ async function main() {
     document.body.appendChild(btn);
     console.log('VRButton appended');
 
-    // só carrega media em VR quando sessionstart rolar
-    vrMod.renderer.xr.addEventListener('sessionstart', async ()=>{
-      console.log('▶ sessionstart detected, loading VR media');
+    // override do click: carrega VR antes de entrar na session
+    const origClick = btn.onclick;
+    btn.onclick = async () => {
+      console.log('▶ Enter VR clicked: loading VR media first');
       currentModule = vrMod;
       await vrMod.load(mediaList[currentIndex]);
-    });
+      console.log('▶ VR media loaded, now starting session');
+      origClick();
+    };
   } else {
     console.log('WebXR não suportado aqui');
   }
