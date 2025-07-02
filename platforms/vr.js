@@ -8,7 +8,7 @@ let videoEl, texLeft, texRight;
 let inited = false;
 
 // 🔁 Toggle pra inverter os olhos (debug)
-const INVERTER_OLHOS = false;
+const INVERTER_OLHOS = true;
 
 export async function initXR(externalRenderer) {
   if (inited) return;
