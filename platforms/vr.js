@@ -25,31 +25,22 @@ function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
   debugLogs.push(msg);
   if (debugLogs.length > MAX_LOGS) debugLogs.shift();
-  if (debugMesh.visible) {
-    const ctx = debugCanvas.getContext('2d');
-    ctx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
-    ctx.fillStyle = 'rgba(0,0,0,0.8)';
-    ctx.fillRect(0, 0, debugCanvas.width, debugCanvas.height);
-    ctx.fillStyle = '#0f0';
-    ctx.font = '20px monospace';
-    debugLogs.forEach((l, i) => ctx.fillText(l, 10, 30 + i * 22));
-  }
+  const ctx = debugCanvas.getContext('2d');
+  ctx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
+  ctx.fillStyle = 'rgba(0,0,0,0.8)';
+  ctx.fillRect(0, 0, debugCanvas.width, debugCanvas.height);
+  ctx.fillStyle = '#0f0';
+  ctx.font = '20px monospace';
+  debugLogs.forEach((l, i) => ctx.fillText(l, 10, 30 + i * 22));
+  debugTexture.needsUpdate = true;
 }
-
-const dumpMeshes = (root, label) => {
-  let count = 0;
-  root.traverse(o => {
-    if (o.isMesh && count < 50) {
-      logDebug(`📦 ${label}: mesh "${o.name}"`);
-      count++;
-    }
-  });
-};
+const dumpMeshes = (root, label) =>
+  root.traverse(o => o.isMesh && logDebug(📦 ${label}: mesh "${o.name}"));
 
 export async function initXR(extRenderer) {
   if (inited) return;
 
-  // ---------- cena básica ----------
+  /* ---------- cena básica ---------- */
   scene  = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
@@ -61,23 +52,18 @@ export async function initXR(extRenderer) {
   renderer.toneMapping = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // luz ambiente extra
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1));
-
-  // spot light
   const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI/6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot, spot.target);
   scene.add(camera);
 
-  // ---------- HUD ----------
+  /* ---------- HUD ---------- */
   if (SHOW_VR_DEBUG) {
-    debugCanvas  = Object.assign(document.createElement('canvas'), { width: 1024, height: 512 });
+    debugCanvas = Object.assign(document.createElement('canvas'), { width: 2048, height: 1024 });
     debugTexture = new THREE.CanvasTexture(debugCanvas);
     const hudMat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
     debugMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.3), hudMat);
-    debugMesh.visible = false;
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
 
@@ -88,22 +74,15 @@ export async function initXR(extRenderer) {
       ua.includes('quest 2')   ? 'Meta Quest 2'  :
       ua.includes('quest')     ? 'Meta Quest'    :
       ua.includes('oculusbrowser') ? 'Oculus Browser' : 'Desconhecido';
-    logDebug(`🎮 Dispositivo XR: ${dev}`);
+    logDebug(🎮 Dispositivo XR: ${dev});
   }
 
-  // ---------- controles ----------
+  /* ---------- controles ---------- */
   const factory = new XRControllerModelFactory();
-  [0,1].forEach(i => {
-    const ctrl = renderer.xr.getController(i);
-    if (ctrl) ctrl.visible = false; // esconde laser
-  });
+  [0,1].forEach(i => renderer.xr.getController(i).visible = false); // apaga laser
 
   const whiteMat = m => m.traverse(o => {
-    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
-      color: 0xffffff,
-      roughness: 0.3,
-      metalness: 0.4
-    });
+    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:0.3, metalness:0.4 });
   });
 
   function spawnGrip(i, label) {
@@ -114,42 +93,33 @@ export async function initXR(extRenderer) {
     whiteMat(model);
     grip.add(model);
 
-    let didDump = false;
+    model.addEventListener('connected', () => dumpMeshes(model, ${label} model ready));
+
     grip.addEventListener('connected', e => {
       const profile = (e.data?.profiles?.[0] || '').toLowerCase();
-      if (profile.includes('hand')) {
-        logDebug(`🙌 ${label} é hand-tracking, oculto`);
+      if (profile.includes('hand')) {           // IGNORA mão
+        logDebug(🙌 ${label} é hand-tracking, oculto);
         grip.visible = false;
       } else {
         grip.visible = true;
-        logDebug(`🟢 ${label} detectado (${profile})`);
-      }
-      if (!didDump) {
-        dumpMeshes(model, `${label} model ready`);
-        didDump = true;
+        logDebug(🟢 ${label} detectado (${profile}));
       }
     });
 
     grip.addEventListener('disconnected', () => {
       grip.visible = false;
-      logDebug(`🔴 ${label} perdido`);
+      logDebug(🔴 ${label} perdido);
     });
 
     scene.add(grip);
     return grip;
   }
-
   if (SHOW_LEFT_CONTROLLER)  gripL = spawnGrip(0, 'controle esquerdo');
   if (SHOW_RIGHT_CONTROLLER) gripR = spawnGrip(1, 'controle direito');
 
-  // ---------- render loop ----------
+  /* ---------- render loop ---------- */
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
-
-    if (SHOW_VR_DEBUG && debugMesh.visible) {
-      debugTexture.needsUpdate = true;
-    }
-
     const session = renderer.xr.getSession();
     if (!session) return;
 
@@ -157,18 +127,17 @@ export async function initXR(extRenderer) {
     let press = session.inputSources.some(src => src.gamepad?.buttons[3]?.pressed);
     if (press && !prevButtonPressed) {
       debugMesh.visible = !debugMesh.visible;
-      logDebug(`🟢 HUD ${debugMesh.visible ? 'on' : 'off'}`);
+      logDebug(🟢 HUD ${debugMesh.visible ? 'on' : 'off'});
     }
     prevButtonPressed = press;
 
     // estados de controle (ignorando hands)
     let foundL = false, foundR = false;
     session.inputSources.forEach(src => {
-      if (src.hand) return;
+      if (src.hand) return;                     // pula mão
       if (src.handedness === 'left')  foundL = true;
       if (src.handedness === 'right') foundR = true;
     });
-
     if (foundL !== leftPresent) {
       logDebug(foundL ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
       leftPresent = foundL;
@@ -177,7 +146,6 @@ export async function initXR(extRenderer) {
       logDebug(foundR ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
       rightPresent = foundR;
     }
-
     if (gripL) gripL.visible = foundL;
     if (gripR) gripR.visible = foundR;
   });
@@ -185,10 +153,9 @@ export async function initXR(extRenderer) {
   inited = true;
   logDebug('🚀 initXR concluído');
 }
-
 export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
-  logDebug(`📂 Carregando: ${media.name}`);
+  logDebug(📂 Carregando: ${media.name});
   await loadMedia(media);
   logDebug('✅ loadMedia concluído');
 }
@@ -216,7 +183,6 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Textura
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -232,7 +198,7 @@ async function loadMedia(media) {
     logDebug('🎥 VideoTexture criada');
   } else {
     const loader = new THREE.TextureLoader();
-    const base = await new Promise((res, rej) =>
+    const base   = await new Promise((res, rej) =>
       loader.load(media.cachePath, res, undefined, rej)
     );
     texLeft  = base;
@@ -240,7 +206,6 @@ async function loadMedia(media) {
     logDebug('📷 TextureLoader carregou imagem');
   }
 
-  // 2) Configura texturas
   [texLeft, texRight].forEach(t => {
     if (!t) return;
     t.minFilter = t.magFilter = THREE.LinearFilter;
@@ -251,19 +216,18 @@ async function loadMedia(media) {
     t.wrapT = THREE.RepeatWrapping;
   });
 
-  // 3) Stereo top-bottom
   if (media.stereo) {
     const top = INVERTER_OLHOS ? 0.5 : 0.0;
     const bot = INVERTER_OLHOS ? 0.0 : 0.5;
     texLeft.repeat.set(1, 0.5);  texLeft.offset.set(0, top);
     texRight.repeat.set(1, 0.5); texRight.offset.set(0, bot);
+    texLeft.needsUpdate = texRight.needsUpdate = true;
     logDebug('🔀 Stereo configurado');
   } else {
-    texLeft.repeat.set(1, 1); texLeft.offset.set(0, 0);
+    texLeft.repeat.set(1, 1); texLeft.offset.set(0, 0); texLeft.needsUpdate = true;
     logDebug('⚪ Mono configurado');
   }
 
-  // 4) Esfera 360°
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -280,7 +244,6 @@ async function loadMedia(media) {
     dumpMeshes(sphereRight, 'SphereR');
   }
 
-  // 5) Habilita layers na câmera
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
