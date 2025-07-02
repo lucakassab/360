@@ -8,7 +8,7 @@ let videoEl, texLeft, texRight;
 let inited = false;
 
 // debug toggles (opcional)
-const INVERTER_OLHOS = true;
+const INVERTER_OLHOS = false;
 const SHOW_VR_DEBUG   = false; // desliga o overlay pra focar na mídia
 
 // referências aos botões HTML
