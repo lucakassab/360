@@ -1,3 +1,4 @@
+
 // platforms/vr.js
 import * as THREE from '../libs/three.module.js';
 import { XRControllerModelFactory } from 'https://unpkg.com/three@0.158.0/examples/jsm/webxr/XRControllerModelFactory.js';
@@ -19,7 +20,7 @@ let debugLogs = [];
 const MAX_LOGS = 10;
 let prevButtonPressed = false;
 
-// refs pros grips (pra esconder/mostrar)
+// refs pros grips
 let gripL = null, gripR = null;
 
 function logDebug(msg) {
@@ -39,8 +40,9 @@ function logDebug(msg) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
+  // Cena e câmera
   scene  = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
 
   renderer = externalRenderer;
@@ -50,14 +52,14 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 💡 Spot light 2,5× mais forte (intensity 5)
-  const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI / 6, 0.25);
+  // SpotLight potente
+  const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI/6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
-  camera.add(spot);
-  camera.add(spot.target);
+  camera.add(spot, spot.target);
   scene.add(camera);
 
+  // Debug HUD
   if (SHOW_VR_DEBUG) {
     debugCanvas  = document.createElement('canvas');
     debugCanvas.width  = 2048;
@@ -80,79 +82,73 @@ export async function initXR(externalRenderer) {
   }
 
   const factory = new XRControllerModelFactory();
-
-  // esconde target-ray padrão
-  [0, 1].forEach(i => renderer.xr.getController(i).visible = false);
-
-  // helper para aplicar material branco
-  const applyWhiteMaterial = model => {
-    model.traverse(o => {
-      if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        roughness: 0.3,
-        metalness: 0.4
-      });
+  const applyMat = model => model.traverse(o => {
+    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      roughness: 0.3,
+      metalness: 0.4
     });
-  };
+  });
 
-  // configura grip esquerdo
+  // configura grips
   if (SHOW_LEFT_CONTROLLER) {
     gripL = renderer.xr.getControllerGrip(0);
     gripL.visible = false;
     gripL.addEventListener('connected', () => {
+      gripL.visible = true;
+      // limpa filhos antigos
+      gripL.clear && gripL.clear(); 
       const model = factory.createControllerModel(gripL);
-      applyWhiteMaterial(model);
+      applyMat(model);
       gripL.add(model);
     });
     gripL.addEventListener('disconnected', () => {
       gripL.visible = false;
-      while (gripL.children.length) gripL.remove(gripL.children[0]);
     });
     scene.add(gripL);
   }
-
-  // configura grip direito
   if (SHOW_RIGHT_CONTROLLER) {
     gripR = renderer.xr.getControllerGrip(1);
     gripR.visible = false;
     gripR.addEventListener('connected', () => {
+      gripR.visible = true;
+      gripR.clear && gripR.clear();
       const model = factory.createControllerModel(gripR);
-      applyWhiteMaterial(model);
+      applyMat(model);
       gripR.add(model);
     });
     gripR.addEventListener('disconnected', () => {
       gripR.visible = false;
-      while (gripR.children.length) gripR.remove(gripR.children[0]);
     });
     scene.add(gripR);
   }
 
+  // Loop de renderização
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
-
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // === Toggle HUD com botão B ===
-    let btnPressedNow = false;
-    for (const src of session.inputSources) {
+    // Toggle HUD com botão B
+    let now = false;
+    session.inputSources.forEach(src => {
       const gp = src.gamepad;
-      if (gp && gp.buttons.length >= 4 && gp.buttons[3].pressed) btnPressedNow = true;
-    }
-    if (btnPressedNow && !prevButtonPressed && debugMesh) {
+      if (gp && gp.buttons[3].pressed) now = true;
+    });
+    if (now && !prevButtonPressed && debugMesh) {
       debugMesh.visible = !debugMesh.visible;
       logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
     }
-    prevButtonPressed = btnPressedNow;
+    prevButtonPressed = now;
 
-    // === Autodetecção de controles ===
-    let foundLeft = false, foundRight = false;
-    for (const src of session.inputSources) {
-      if (src.handedness === 'left')  foundLeft  = true;
-      if (src.handedness === 'right') foundRight = true;
-    }
-    if (gripL) gripL.visible = foundLeft;
-    if (gripR) gripR.visible = foundRight;
+    // Autodetecta visibilidade (fallback)
+    let left = false, right = false;
+    session.inputSources.forEach(src => {
+      if (src.handedness === 'left')  left  = true;
+      if (src.handedness === 'right') right = true;
+    });
+    if (gripL) gripL.visible = left && SHOW_LEFT_CONTROLLER;
+    if (gripR) gripR.visible = right && SHOW_RIGHT_CONTROLLER;
   });
 
   inited = true;
@@ -165,6 +161,8 @@ export async function load(media) {
   await loadMedia(media);
   logDebug?.('✅ loadMedia concluído');
 }
+
+
 
 function clearScene() {
   [sphereLeft, sphereRight].forEach(m => {
