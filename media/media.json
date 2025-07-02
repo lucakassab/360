@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Praia 1",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/A3_Stereo.jpg",
+    "cachePath": "./media/A3_Stereo.jpg",
+    "type": "image",
+    "stereo": true
+  },
+  {
+    "name": "Praia Estéreo",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/A1_Mono.jpg",
+    "cachePath": "./media/A1_Mono.jpg",
+    "type": "image",
+    "stereo": false
+  },
+  {
+    "name": "Cachoeira Mono",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/A2_Stereo.jpg",
+    "cachePath": "./media/A2_Stereo.jpg",
+    "type": "image",
+    "stereo": true
+  }
+]
