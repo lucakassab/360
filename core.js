@@ -13,15 +13,16 @@ let platformMod;
 main();
 
 async function main() {
-  // 1) carrega lista
+  // 1) Carrega lista de mídia
   mediaList = await (await fetch('./media/media.json')).json();
-  mediaList.forEach((m,i)=>{
+  mediaList.forEach((m, i) => {
     const o = document.createElement('option');
-    o.value = i; o.textContent = m.name;
+    o.value = i;
+    o.textContent = m.name;
     dropdown.appendChild(o);
   });
 
-  // 2) detecta e importa só 1 módulo
+  // 2) Detecta plataforma e importa SOMENTE um módulo
   if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
     platformMod = await import('./platforms/mobile.js');
   } else {
@@ -30,20 +31,23 @@ async function main() {
   await platformMod.init();
   currentModule = platformMod;
 
-  // 3) carrega mídia inicial
+  // 3) Carrega a primeira mídia
   await loadMedia(currentIndex);
 
-  // 4) VR button (desktop ou mobile): pega renderer do platformMod
+  // 4) Se suportar WebXR, adiciona botão e eventos de sessão
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
     const renderer = platformMod.renderer;
     renderer.xr.enabled = true;
+
     const { VRButton } = await import('./libs/VRButton.js');
     const btn = VRButton.createButton(renderer);
-    btn.addEventListener('click', onEnterVR);
     document.body.appendChild(btn);
+
+    renderer.xr.addEventListener('sessionstart', onSessionStart);
+    renderer.xr.addEventListener('sessionend',   onSessionEnd);
   }
 
-  // 5) listeners UI
+  // 5) UI listeners
   dropdown.onchange = e => {
     currentIndex = +e.target.value;
     loadMedia(currentIndex);
@@ -60,19 +64,30 @@ async function main() {
   };
 }
 
-async function onEnterVR() {
-  // importa e inicializa VR só no clique
+// Chamado quando entra em VR
+async function onSessionStart() {
+  console.log('🌐 VR session started');
   const vrMod = await import('./platforms/vr.js');
+  // inicializa VR com o renderer atual
   await vrMod.initXR(platformMod.renderer);
   currentModule = vrMod;
   await vrMod.load(mediaList[currentIndex]);
+}
+
+// Chamado quando sai de VR
+async function onSessionEnd() {
+  console.log('🌐 VR session ended');
+  // volta pro módulo original (desktop ou mobile)
+  currentModule = platformMod;
+  // recarrega a cena no modo não-VR
+  await loadMedia(currentIndex);
 }
 
 async function loadMedia(idx) {
   loadingEl.style.display = 'block';
   try {
     await currentModule.load(mediaList[idx]);
-  } catch(err) {
+  } catch (err) {
     console.error('erro loadMedia:', err);
   }
   loadingEl.style.display = 'none';
