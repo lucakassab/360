@@ -1,5 +1,7 @@
 // core.js
 
+import { setupVRInputs } from './platforms/vr_inputs.js';
+
 const loadingEl  = document.getElementById('loading');
 const dropdown   = document.getElementById('mediaSelect');
 const btnPrev    = document.getElementById('prevBtn');
@@ -16,10 +18,10 @@ async function main() {
   // 1) Carrega lista de mídia
   mediaList = await (await fetch('./media/media.json')).json();
   mediaList.forEach((m, i) => {
-    const o = document.createElement('option');
-    o.value = i;
-    o.textContent = m.name;
-    dropdown.appendChild(o);
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = m.name;
+    dropdown.appendChild(opt);
   });
 
   // 2) Detecta plataforma e importa SOMENTE um módulo
@@ -72,6 +74,21 @@ async function onSessionStart() {
   await vrMod.initXR(platformMod.renderer);
   currentModule = vrMod;
   await vrMod.load(mediaList[currentIndex]);
+
+  // configura botões A/B do Quest para avançar/voltar
+  setupVRInputs(
+    platformMod.renderer,
+    () => {
+      currentIndex = (currentIndex + 1) % mediaList.length;
+      dropdown.value = currentIndex;
+      vrMod.load(mediaList[currentIndex]);
+    },
+    () => {
+      currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
+      dropdown.value = currentIndex;
+      vrMod.load(mediaList[currentIndex]);
+    }
+  );
 }
 
 // Chamado quando sai de VR
