@@ -1,6 +1,5 @@
 // platforms/vr.js
 import * as THREE from '../libs/three.module.js';
-import { XRHandModelFactory } from '../libs/XRHandModelFactory.js'; // precisa estar nessa pasta
 
 let scene, camera;
 export let renderer;
@@ -8,7 +7,7 @@ let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
-// toggle pra inverter olhos
+// 🔁 Toggle pra inverter olhos (debug)
 const INVERTER_OLHOS = true;
 
 export async function initXR(externalRenderer) {
@@ -24,7 +23,7 @@ export async function initXR(externalRenderer) {
   );
   camera.position.set(0, 0, 0.1);
 
-  // 2) Reusa o mesmo canvas/renderer do desktop/mobile e maximiza qualidade
+  // 2) Reusa o mesmo canvas/renderer do desktop/mobile e aplica tudo no talo
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -32,7 +31,8 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) Cria cubos nos grips
+  // 3) Adiciona cubos nos grips dos controllers
+  // Controller esquerdo (verde)
   const grip0 = renderer.xr.getControllerGrip(0);
   const cube0 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -41,6 +41,7 @@ export async function initXR(externalRenderer) {
   grip0.add(cube0);
   scene.add(grip0);
 
+  // Controller direito (vermelho)
   const grip1 = renderer.xr.getControllerGrip(1);
   const cube1 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -49,52 +50,10 @@ export async function initXR(externalRenderer) {
   grip1.add(cube1);
   scene.add(grip1);
 
-  // 4) Prepara hand-tracking
-  const handFactory = new XRHandModelFactory();
-  const hand0 = renderer.xr.getHand(0);
-  const handMesh0 = handFactory.createHandModel(hand0, 'mesh');
-  hand0.add(handMesh0);
-  scene.add(hand0);
-
-  const hand1 = renderer.xr.getHand(1);
-  const handMesh1 = handFactory.createHandModel(hand1, 'mesh');
-  hand1.add(handMesh1);
-  scene.add(hand1);
-
-  // inicialmente: mostra cubos, esconde mãos
-  cube0.visible     = true;
-  cube1.visible     = true;
-  handMesh0.visible = false;
-  handMesh1.visible = false;
-
-  // 5) Detecta mudanças nos inputSources para alternar
-  const session = renderer.xr.getSession();
-  session.addEventListener('inputsourceschange', () => {
-    session.inputSources.forEach(source => {
-      if (source.handedness === 'left') {
-        if (source.hand) {
-          handMesh0.visible = true;
-          cube0.visible     = false;
-        } else if (source.gamepad) {
-          handMesh0.visible = false;
-          cube0.visible     = true;
-        }
-      }
-      if (source.handedness === 'right') {
-        if (source.hand) {
-          handMesh1.visible = true;
-          cube1.visible     = false;
-        } else if (source.gamepad) {
-          handMesh1.visible = false;
-          cube1.visible     = true;
-        }
-      }
-    });
-  });
-
-  // 6) Loop de render
-  renderer.setAnimationLoop(() => {
+  // 4) Loop de render & (se necessário) polling de gamepads
+  renderer.setAnimationLoop((time, frame) => {
     renderer.render(scene, camera);
+    // se você quiser polling, coloca aqui
   });
 
   inited = true;
@@ -125,7 +84,7 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Cria Textures
+  // 1) Cria as texturas
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -173,7 +132,7 @@ async function loadMedia(media) {
     texLeft.needsUpdate = true;
   }
 
-  // 4) Monta esfera invertida
+  // 4) Monta a esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -191,7 +150,7 @@ async function loadMedia(media) {
   sphereRight.layers.set(2);
   scene.add(sphereRight);
 
-  // 5) Ativa layers na câmera XR
+  // 5) Ativa as layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
