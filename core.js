@@ -70,24 +70,15 @@ async function main() {
 async function onSessionStart() {
   console.log('🌐 VR session started');
   const vrMod = await import('./platforms/vr.js');
-  // Inicializa XR no mesmo canvas/renderer
   await vrMod.initXR(platformMod.renderer);
   currentModule = vrMod;
   await vrMod.load(mediaList[currentIndex]);
 
-  // ⚠️ Aqui o fix: passa vrMod.renderer, não platformMod.renderer
+  // FIX: usa os mesmos botões do HTML pra manter estado e UI
   setupVRInputs(
     vrMod.renderer,
-    () => {
-      currentIndex = (currentIndex + 1) % mediaList.length;
-      dropdown.value = currentIndex;
-      vrMod.load(mediaList[currentIndex]);
-    },
-    () => {
-      currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
-      dropdown.value = currentIndex;
-      vrMod.load(mediaList[currentIndex]);
-    }
+    () => btnNext.click(),
+    () => btnPrev.click()
   );
 }
 
@@ -98,6 +89,7 @@ async function onSessionEnd() {
   await loadMedia(currentIndex);
 }
 
+// Função única de carregar mídia
 async function loadMedia(idx) {
   loadingEl.style.display = 'block';
   try {
