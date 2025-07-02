@@ -33,25 +33,9 @@ async function main() {
   await platformMod.init();
   currentModule = platformMod;
 
-  // 3) Carrega a primeira mídia
-  await loadMedia(currentIndex);
-
-  // 4) Se suportar WebXR, adiciona botão VR
-  if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
-    const renderer = platformMod.renderer;
-    renderer.xr.enabled = true;
-
-    const { VRButton } = await import('./libs/VRButton.js');
-    const btn = VRButton.createButton(renderer);
-    document.body.appendChild(btn);
-
-    renderer.xr.addEventListener('sessionstart', onSessionStart);
-    renderer.xr.addEventListener('sessionend',   onSessionEnd);
-  }
-
-  // 5) Listeners UI
-  dropdown.onchange = e => {
-    currentIndex = +e.target.value;
+  // 3) UI listeners (HTML buttons)
+  dropdown.onchange = () => {
+    currentIndex = +dropdown.value;
     loadMedia(currentIndex);
   };
   btnPrev.onclick = () => {
@@ -64,32 +48,49 @@ async function main() {
     dropdown.value = currentIndex;
     loadMedia(currentIndex);
   };
+
+  // 4) Carrega a primeira mídia
+  await loadMedia(currentIndex);
+
+  // 5) Se suportar WebXR, adiciona botão VR e eventos
+  if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
+    const renderer = platformMod.renderer;
+    renderer.xr.enabled = true;
+
+    const { VRButton } = await import('./libs/VRButton.js');
+    const vrBtn = VRButton.createButton(renderer);
+    document.body.appendChild(vrBtn);
+
+    renderer.xr.addEventListener('sessionstart', onSessionStart);
+    renderer.xr.addEventListener('sessionend',   onSessionEnd);
+  }
 }
 
-// Quando começa a sessão VR
+// Quando entra em VR
 async function onSessionStart() {
   console.log('🌐 VR session started');
   const vrMod = await import('./platforms/vr.js');
+  // Inicializa XR (reusa o mesmo renderer)
   await vrMod.initXR(platformMod.renderer);
   currentModule = vrMod;
   await vrMod.load(mediaList[currentIndex]);
 
-  // FIX: usa os mesmos botões do HTML pra manter estado e UI
+  // ⚠️ FIX: usa vrMod.renderer aqui e dispara os clicks dos botões HTML
   setupVRInputs(
     vrMod.renderer,
-    () => btnNext.click(),
-    () => btnPrev.click()
+    () => btnNext.click(), // avança
+    () => btnPrev.click()  // volta
   );
 }
 
-// Quando sai da sessão VR
+// Quando sai do VR
 async function onSessionEnd() {
   console.log('🌐 VR session ended');
   currentModule = platformMod;
   await loadMedia(currentIndex);
 }
 
-// Função única de carregar mídia
+// Função genérica de carregar mídia (desktop/mobile/VR)
 async function loadMedia(idx) {
   loadingEl.style.display = 'block';
   try {
