@@ -1,13 +1,11 @@
+// vr.js (sem alterações, ele faz initXR + load stereo/mono)
 import * as THREE from '../libs/three.module.js';
-import { VRButton } from '../libs/VRButton.js'; // pegue o VRButton.js em three.js/examples/jsm/webxr/VRButton.js e coloque em /libs
+import { VRButton } from '../libs/VRButton.js'; // já patchado
 
 let scene, camera, renderer;
 let sphereLeft, sphereRight;
-let videoEl;
-let texLeft, texRight;
+let videoEl, texLeft, texRight;
 let initialized = false;
-
-const canvas = document.getElementById('xr-canvas');
 
 export async function load(media) {
   if (!initialized) {
@@ -18,53 +16,37 @@ export async function load(media) {
 }
 
 async function initXR() {
-  // Cena e câmera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
 
-  // Renderer com XR enabled
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('xr-canvas'), antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
-
-  // Botão de entrar em VR
   document.body.appendChild(VRButton.createButton(renderer));
-
-  // Loop de renderização
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
 }
 
 function clearScene() {
-  // Remove e dispose das esferas
-  [sphereLeft, sphereRight].forEach(mesh => {
-    if (mesh) {
-      scene.remove(mesh);
-      mesh.geometry.dispose();
-      mesh.material.map?.dispose();
-      mesh.material.dispose();
-    }
+  [sphereLeft, sphereRight].forEach(m => {
+    if (!m) return;
+    scene.remove(m);
+    m.geometry.dispose();
+    m.material.map?.dispose();
+    m.material.dispose();
   });
-  sphereLeft = sphereRight = null;
-
-  // Para vídeo e dispose
-  if (videoEl) {
-    videoEl.pause();
-    videoEl.remove();
-    videoEl = null;
-  }
-  texLeft?.dispose();
-  texRight?.dispose();
+  if (videoEl) { videoEl.pause(); videoEl.remove(); videoEl = null; }
   texLeft = texRight = null;
+  sphereLeft = sphereRight = null;
 }
 
 async function loadMedia(media) {
   clearScene();
 
-  // Cria texturas
+  // cria as texturas
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     videoEl.src = media.cachePath;
@@ -73,47 +55,38 @@ async function loadMedia(media) {
     videoEl.muted = true;
     videoEl.playsInline = true;
     await videoEl.play();
-
-    // Duas texturas pro mesmo elemento
     texLeft  = new THREE.VideoTexture(videoEl);
-    texRight = new THREE.VideoTexture(videoEl);
+    texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
     const loader = new THREE.TextureLoader();
-    const baseTex = await new Promise((res, rej) => {
-      loader.load(media.cachePath, res, undefined, rej);
-    });
-    baseTex.mapping  = THREE.EquirectangularReflectionMapping;
-    baseTex.encoding = THREE.sRGBEncoding;
-
+    const base = await new Promise((r, e) => loader.load(media.cachePath, r, undefined, e));
+    base.mapping  = THREE.EquirectangularReflectionMapping;
+    base.encoding = THREE.sRGBEncoding;
     if (media.stereo) {
-      texLeft  = baseTex.clone();
-      texRight = baseTex.clone();
+      texLeft  = base.clone();
+      texRight = base.clone();
     } else {
-      texLeft  = baseTex;
+      texLeft  = base;
       texRight = null;
     }
   }
 
-  // Configura offsets/repeats
+  // ajusta corte/offset
   if (media.stereo) {
     texLeft.repeat.set(0.5, 1);
     texLeft.offset.set(0, 0);
-    texLeft.needsUpdate = true;
-
     texRight.repeat.set(0.5, 1);
     texRight.offset.set(0.5, 0);
-    texRight.needsUpdate = true;
   } else {
     texLeft.repeat.set(1, 1);
     texLeft.offset.set(0, 0);
-    texLeft.needsUpdate = true;
   }
+  texLeft.needsUpdate = true;
+  texRight?.needsUpdate = true;
 
-  // Geometria
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
-  // Mono
   if (!media.stereo) {
     const mat = new THREE.MeshBasicMaterial({ map: texLeft });
     sphereLeft = new THREE.Mesh(geo, mat);
@@ -121,9 +94,8 @@ async function loadMedia(media) {
     return;
   }
 
-  // Estéreo: uma esfera p/ cada olho
   const matL = new THREE.MeshBasicMaterial({ map: texLeft });
-  sphereLeft  = new THREE.Mesh(geo, matL);
+  sphereLeft = new THREE.Mesh(geo, matL);
   sphereLeft.layers.set(1);
   scene.add(sphereLeft);
 
@@ -132,7 +104,6 @@ async function loadMedia(media) {
   sphereRight.layers.set(2);
   scene.add(sphereRight);
 
-  // Garante que as câmeras XR vão renderizar as duas layers
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
