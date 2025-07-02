@@ -7,13 +7,13 @@ let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
-// toggle pra inverter olhos
+// 🔁 Toggle pra inverter olhos (debug)
 const INVERTER_OLHOS = true;
 
 export async function initXR(externalRenderer) {
   if (inited) return;
 
-  // 1) Cena e câmera
+  // 1) Cena e câmera VR
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -23,16 +23,16 @@ export async function initXR(externalRenderer) {
   );
   camera.position.set(0, 0, 0.1);
 
-  // 2) Reusa canvas/renderer do desktop/mobile e garante VR de alta qualidade
+  // 2) Reusa o mesmo canvas/renderer do desktop/mobile e aplica tudo no talo
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
   renderer.xr.setFramebufferScaleFactor(window.devicePixelRatio);
-  renderer.toneMapping     = THREE.NoToneMapping;
-  renderer.outputEncoding  = THREE.sRGBEncoding;
+  renderer.toneMapping    = THREE.NoToneMapping;
+  renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) ADICIONA O CUBO EM CADA CONTROLLER
-  // grip 0
+  // 3) Adiciona cubos nos grips dos controllers
+  // Controller esquerdo (verde)
   const grip0 = renderer.xr.getControllerGrip(0);
   const cube0 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -41,19 +41,19 @@ export async function initXR(externalRenderer) {
   grip0.add(cube0);
   scene.add(grip0);
 
-  // grip 1
+  // Controller direito (vermelho)
   const grip1 = renderer.xr.getControllerGrip(1);
   const cube1 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
-    new THREE.MeshBasicMaterial({ color: 0x0000ff })
+    new THREE.MeshBasicMaterial({ color: 0xff0000 })
   );
   grip1.add(cube1);
   scene.add(grip1);
 
-  // 4) Loop de render
+  // 4) Loop de render & (se necessário) polling de gamepads
   renderer.setAnimationLoop((time, frame) => {
     renderer.render(scene, camera);
-    // (se tiver polling de botões, mantém aqui)
+    // se você quiser polling, coloca aqui
   });
 
   inited = true;
@@ -65,7 +65,7 @@ export async function load(media) {
 }
 
 function clearScene() {
-  [sphereLeft, sphereRight].forEach(m => {
+  [ sphereLeft, sphereRight ].forEach(m => {
     if (!m) return;
     scene.remove(m);
     m.geometry.dispose();
@@ -84,15 +84,13 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) cria Textures
+  // 1) Cria as texturas
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
       src: media.cachePath,
       crossOrigin: 'anonymous',
-      loop: true,
-      muted: true,
-      playsInline: true
+      loop: true, muted: true, playsInline: true
     });
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
@@ -106,8 +104,8 @@ async function loadMedia(media) {
     texRight = media.stereo ? base.clone() : null;
   }
 
-  // 2) filtros de alta qualidade e sRGB
-  [texLeft, texRight].forEach(tex => {
+  // 2) Filtros de alta qualidade
+  [ texLeft, texRight ].forEach(tex => {
     if (!tex) return;
     tex.minFilter      = THREE.LinearFilter;
     tex.magFilter      = THREE.LinearFilter;
@@ -118,7 +116,7 @@ async function loadMedia(media) {
     tex.wrapT          = THREE.RepeatWrapping;
   });
 
-  // 3) crop stereo top-down com toggle
+  // 3) Stereo top-down com toggle de inversão
   if (media.stereo) {
     texLeft.repeat.set(1, 0.5);
     texRight.repeat.set(1, 0.5);
@@ -134,7 +132,7 @@ async function loadMedia(media) {
     texLeft.needsUpdate = true;
   }
 
-  // 4) esfera invertida
+  // 4) Monta a esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -152,7 +150,7 @@ async function loadMedia(media) {
   sphereRight.layers.set(2);
   scene.add(sphereRight);
 
-  // 5) ativa layers na câmera
+  // 5) Ativa as layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
