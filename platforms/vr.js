@@ -1,5 +1,6 @@
 // platforms/vr.js
 import * as THREE from '../libs/three.module.js';
+import { XRHandModelFactory } from '../libs/XRHandModelFactory.js';
 
 let scene, camera;
 export let renderer;
@@ -7,7 +8,7 @@ let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
-// 🔁 Toggle pra inverter olhos (debug)
+// Toggle pra inverter olhos (debug)
 const INVERTER_OLHOS = true;
 
 export async function initXR(externalRenderer) {
@@ -23,7 +24,7 @@ export async function initXR(externalRenderer) {
   );
   camera.position.set(0, 0, 0.1);
 
-  // 2) Reusa o mesmo canvas/renderer do desktop/mobile e aplica tudo no talo
+  // 2) Reusa canvas/renderer e manda qualidade no talo
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -31,8 +32,7 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) Adiciona cubos nos grips dos controllers
-  // Controller esquerdo (verde)
+  // 3) Cubos nos grips dos controllers
   const grip0 = renderer.xr.getControllerGrip(0);
   const cube0 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -41,7 +41,6 @@ export async function initXR(externalRenderer) {
   grip0.add(cube0);
   scene.add(grip0);
 
-  // Controller direito (vermelho)
   const grip1 = renderer.xr.getControllerGrip(1);
   const cube1 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -50,10 +49,51 @@ export async function initXR(externalRenderer) {
   grip1.add(cube1);
   scene.add(grip1);
 
-  // 4) Loop de render & (se necessário) polling de gamepads
-  renderer.setAnimationLoop((time, frame) => {
+  // 4) Hand tracking com dedos animados
+  const handFactory = new XRHandModelFactory();
+
+  const hand0 = renderer.xr.getHand(0);
+  const handModel0 = handFactory.createHandModel(hand0, 'mesh');
+  hand0.add(handModel0);
+  scene.add(hand0);
+
+  const hand1 = renderer.xr.getHand(1);
+  const handModel1 = handFactory.createHandModel(hand1, 'mesh');
+  hand1.add(handModel1);
+  scene.add(hand1);
+
+  // visibilidade inicial
+  cube0.visible      = true;
+  cube1.visible      = true;
+  handModel0.visible = false;
+  handModel1.visible = false;
+
+  // 5) Loop de render + troca cubo/hand por source type
+  renderer.setAnimationLoop(() => {
+    const session = renderer.xr.getSession();
+    if (session) {
+      session.inputSources.forEach(src => {
+        if (src.handedness === 'left') {
+          if (src.hand) {
+            handModel0.visible = true;
+            cube0.visible = false;
+          } else if (src.gamepad) {
+            handModel0.visible = false;
+            cube0.visible = true;
+          }
+        }
+        if (src.handedness === 'right') {
+          if (src.hand) {
+            handModel1.visible = true;
+            cube1.visible = false;
+          } else if (src.gamepad) {
+            handModel1.visible = false;
+            cube1.visible = true;
+          }
+        }
+      });
+    }
     renderer.render(scene, camera);
-    // se você quiser polling, coloca aqui
   });
 
   inited = true;
@@ -65,7 +105,7 @@ export async function load(media) {
 }
 
 function clearScene() {
-  [ sphereLeft, sphereRight ].forEach(m => {
+  [sphereLeft, sphereRight].forEach(m => {
     if (!m) return;
     scene.remove(m);
     m.geometry.dispose();
@@ -84,13 +124,15 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Cria as texturas
+  // 1) Texturas vídeo/imagem
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
       src: media.cachePath,
       crossOrigin: 'anonymous',
-      loop: true, muted: true, playsInline: true
+      loop: true,
+      muted: true,
+      playsInline: true
     });
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
@@ -104,26 +146,26 @@ async function loadMedia(media) {
     texRight = media.stereo ? base.clone() : null;
   }
 
-  // 2) Filtros de alta qualidade
-  [ texLeft, texRight ].forEach(tex => {
+  // 2) Filtros de alta qualidade & sRGB
+  [texLeft, texRight].forEach(tex => {
     if (!tex) return;
-    tex.minFilter      = THREE.LinearFilter;
-    tex.magFilter      = THREE.LinearFilter;
-    tex.generateMipmaps= true;
-    tex.mapping        = THREE.EquirectangularReflectionMapping;
-    tex.encoding       = THREE.sRGBEncoding;
-    tex.wrapS          = THREE.ClampToEdgeWrapping;
-    tex.wrapT          = THREE.RepeatWrapping;
+    tex.minFilter       = THREE.LinearFilter;
+    tex.magFilter       = THREE.LinearFilter;
+    tex.generateMipmaps = true;
+    tex.mapping         = THREE.EquirectangularReflectionMapping;
+    tex.encoding        = THREE.sRGBEncoding;
+    tex.wrapS           = THREE.ClampToEdgeWrapping;
+    tex.wrapT           = THREE.RepeatWrapping;
   });
 
-  // 3) Stereo top-down com toggle de inversão
+  // 3) Stereo top-down com inversão
   if (media.stereo) {
     texLeft.repeat.set(1, 0.5);
     texRight.repeat.set(1, 0.5);
-    const topOffset    = INVERTER_OLHOS ? 0.5 : 0.0;
-    const bottomOffset = INVERTER_OLHOS ? 0.0 : 0.5;
-    texLeft.offset.set(0, topOffset);
-    texRight.offset.set(0, bottomOffset);
+    const top    = INVERTER_OLHOS ? 0.5 : 0.0;
+    const bottom = INVERTER_OLHOS ? 0.0 : 0.5;
+    texLeft.offset.set(0, top);
+    texRight.offset.set(0, bottom);
     texLeft.needsUpdate  = true;
     texRight.needsUpdate = true;
   } else {
@@ -132,7 +174,7 @@ async function loadMedia(media) {
     texLeft.needsUpdate = true;
   }
 
-  // 4) Monta a esfera invertida
+  // 4) Esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -150,7 +192,7 @@ async function loadMedia(media) {
   sphereRight.layers.set(2);
   scene.add(sphereRight);
 
-  // 5) Ativa as layers na câmera XR
+  // 5) Ativa layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
