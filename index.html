@@ -42,12 +42,14 @@
   <div id="loading">Loading...</div>
   <canvas id="xr-canvas"></canvas>
 
-  <script>
-    // Service Worker registro
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(()=>console.log('🛠️ Service Worker registrado!'))
-        .catch(err=>console.error('💥 Falha ao registrar SW:', err));
-  <script type="module" src="./core.js"></script>
+	<script>
+	  if ('serviceWorker' in navigator) {
+	    navigator.serviceWorker.register('./service-worker.js')
+	      .then(()=>console.log('🛠️ Service Worker registrado!'))
+	      .catch(err=>console.error('💥 Falha ao registrar SW:', err));
+	  }
+	</script>
+	<script type="module" src="./core.js"></script>
+
 </body>
 </html>
