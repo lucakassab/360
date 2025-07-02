@@ -7,8 +7,8 @@ const previousStates = new Map();
 /**
  * Inicializa polling de gamepad inputs no WebXR sem interferir no loop de render.
  * @param {THREE.WebGLRenderer} renderer - o renderer XR habilitado
- * @param {Function} onNext - callback quando se detecta botão "A"
- * @param {Function} onPrev - callback quando se detecta botão "B"
+ * @param {Function} onNext - callback quando se detecta botão "A" (button[4])
+ * @param {Function} onPrev - callback quando se detecta botão "B" (button[5])
  * @param {Function} onDebug - callback para qualquer botão detectado, recebe string crua do input
  */
 export function setupVRInputs(renderer, onNext, onPrev, onDebug) {
@@ -28,9 +28,11 @@ export function setupVRInputs(renderer, onNext, onPrev, onDebug) {
           gp.buttons.forEach((btn, idx) => {
             if (btn.pressed && !prev[idx]) {
               const raw = `${id} button[${idx}]`;
-              onDebug(raw);
-              if (idx === 0) onNext();
-              if (idx === 1) onPrev();
+              if (onDebug) onDebug(raw);
+
+              // mapeamento definitivo:
+              if (idx === 4) onNext();
+              if (idx === 5) onPrev();
             }
           });
 
