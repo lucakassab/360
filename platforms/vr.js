@@ -22,12 +22,8 @@ function logDebug(msg) {
   debugLogs.push(msg);
   if (debugLogs.length > MAX_LOGS) debugLogs.shift();
   const ctx = debugCanvas.getContext('2d');
-  // limpa completamente o canvas pra não ghostear
-  ctx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
-  // fundo opaco
-  ctx.fillStyle = 'rgba(0,0,0,1)';
+  ctx.fillStyle = 'rgba(0,0,0,0.5)';
   ctx.fillRect(0, 0, debugCanvas.width, debugCanvas.height);
-  // desenha texto
   ctx.fillStyle = '#0f0';
   ctx.font = '20px monospace';
   debugLogs.forEach((line, i) => {
@@ -39,18 +35,18 @@ function logDebug(msg) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
-  // 1) Cena e câmera
+  // Cena e câmera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75, window.innerWidth / window.innerHeight, 0.1, 1000
   );
   camera.position.set(0, 0, 0.1);
 
-  // 2) Renderer XR
+  // Renderer XR
   renderer = externalRenderer;
   renderer.xr.enabled = true;
 
-  // 3) Debug overlay
+  // Se debug, cria overlay
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
     debugCanvas.width = 512;
@@ -64,15 +60,15 @@ export async function initXR(externalRenderer) {
     scene.add(camera);
   }
 
-  // 4) Inputs VR (A, B e raw)
+  // Configura inputs VR A/B e raw
   setupVRInputs(
     renderer,
     () => logDebug('🔵 Botão A (mapped)'),
     () => logDebug('🟣 Botão B (mapped)'),
-    raw => logDebug(`🟡 RAW: ${raw}`)
+    (raw) => logDebug(`🟡 RAW: ${raw}`)
   );
 
-  // 5) Loop de render
+  // Loop de render
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
@@ -106,7 +102,6 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // textura (vídeo ou imagem)
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -135,7 +130,6 @@ async function loadMedia(media) {
     }
   }
 
-  // esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -156,13 +150,8 @@ async function loadMedia(media) {
     tex.needsUpdate = true;
   });
 
-  if (!INVERTER_OLHOS) {
-    texLeft.offset.copy(offsetTop);
-    texRight.offset.copy(offsetBot);
-  } else {
-    texLeft.offset.copy(offsetBot);
-    texRight.offset.copy(offsetTop);
-  }
+  texLeft.offset.copy(INVERTER_OLHOS ? offsetBot : offsetTop);
+  texRight.offset.copy(INVERTER_OLHOS ? offsetTop : offsetBot);
 
   sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
   sphereLeft.layers.set(1);
