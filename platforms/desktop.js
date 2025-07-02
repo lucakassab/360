@@ -50,20 +50,30 @@ function clearScene() {
 export async function load(media) {
   clearScene();
 
+  // Carrega textura (imagem ou vídeo)
   if (media.type === 'video') {
     videoElement = document.createElement('video');
     videoElement.src = media.cachePath;
     videoElement.crossOrigin = 'anonymous';
     videoElement.loop = true;
     videoElement.muted = true;
-    videoElement.play();
-
+    await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
   } else {
     const loader = new THREE.TextureLoader();
-    texture = await new Promise((resolve, reject) => {
-      loader.load(media.cachePath, resolve, undefined, reject);
+    texture = await new Promise((res, rej) => {
+      loader.load(media.cachePath, res, undefined, rej);
     });
+  }
+
+  // Se for stereo e não for modo VR, ajusta repeat/offset pra mostrar só metade (olho esquerdo)
+  if (media.stereo) {
+    texture.repeat = new THREE.Vector2(0.5, 1);
+    texture.offset = new THREE.Vector2(0, 0);
+    texture.needsUpdate = true;
+  } else {
+    texture.repeat = new THREE.Vector2(1, 1);
+    texture.offset = new THREE.Vector2(0, 0);
   }
 
   texture.mapping = THREE.EquirectangularReflectionMapping;
