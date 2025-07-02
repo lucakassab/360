@@ -1,5 +1,7 @@
 // core.js
 
+import { setupVRInputs } from './platforms/vr_inputs.js';
+
 const loadingEl  = document.getElementById('loading');
 const dropdown   = document.getElementById('mediaSelect');
 const btnPrev    = document.getElementById('prevBtn');
@@ -72,6 +74,21 @@ async function onSessionStart() {
   await vrMod.initXR(platformMod.renderer);
   currentModule = vrMod;
   await vrMod.load(mediaList[currentIndex]);
+
+  // configura botões A/B do Quest pra avançar/voltar
+  setupVRInputs(
+    platformMod.renderer,
+    () => {
+      currentIndex = (currentIndex + 1) % mediaList.length;
+      dropdown.value = currentIndex;
+      vrMod.load(mediaList[currentIndex]);
+    },
+    () => {
+      currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
+      dropdown.value = currentIndex;
+      vrMod.load(mediaList[currentIndex]);
+    }
+  );
 }
 
 // Chamado quando sai de VR
