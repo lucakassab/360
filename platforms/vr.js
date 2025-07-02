@@ -8,7 +8,7 @@ let videoEl, texLeft, texRight;
 let inited = false;
 
 // 🔁 Debug toggles
-const INVERTER_OLHOS = true;   // inverter top/bottom dos olhos
+const INVERTER_OLHOS = true;   // inverte top/bottom dos olhos
 const SHOW_VR_DEBUG = true;    // exibe overlay de logs em VR
 
 // vars para overlay de debug
@@ -53,7 +53,15 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) Overlay de debug (se habilitado)
+  // 3) Detecta dispositivo via userAgent
+  const ua = navigator.userAgent;
+  let deviceName = 'Desconhecido';
+  if (/Quest\s?Pro/.test(ua))          deviceName = 'Meta Quest Pro';
+  else if (/Quest\s?2/.test(ua))        deviceName = 'Meta Quest 2';
+  else if (/Quest\s?3/.test(ua))        deviceName = 'Meta Quest 3';
+  else if (/Quest/.test(ua))            deviceName = 'Meta Quest';
+  else if (/OculusBrowser/.test(ua))    deviceName = 'Oculus Browser';
+  // 4) Overlay de debug (se habilitado)
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
     debugCanvas.width  = 512;
@@ -65,10 +73,10 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
     scene.add(camera);
-    logDebug('🛠️ Debug overlay ativado');
+    logDebug(`🎮 Dispositivo XR: ${deviceName}`);
   }
 
-  // 4) Cubos nos grips dos controllers
+  // 5) Cubos nos grips dos controllers
   const grip0 = renderer.xr.getControllerGrip(0);
   const cube0 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -87,7 +95,7 @@ export async function initXR(externalRenderer) {
   scene.add(grip1);
   logDebug('✅ Cubo vermelho (direito) adicionado');
 
-  // 5) Loop de render
+  // 6) Loop de render
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
@@ -203,6 +211,5 @@ async function loadMedia(media) {
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
-
   logDebug('🌐 Cena VR preparada');
 }
