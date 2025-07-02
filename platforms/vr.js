@@ -19,6 +19,9 @@ let debugLogs = [];
 const MAX_LOGS = 10;
 let prevButtonPressed = false;
 
+// refs pros grips (pra esconder/mostrar)
+let gripL = null, gripR = null;
+
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
   debugLogs.push(msg);
@@ -47,8 +50,8 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 💡 Spot light 2.2m acima da cabeça
-  const spot = new THREE.SpotLight(0xffffff, 2, 10, Math.PI / 6, 0.25);
+  // 💡 Spot light 2,5× mais forte (intensity 5)
+  const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI / 6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot);
@@ -78,39 +81,28 @@ export async function initXR(externalRenderer) {
 
   const factory = new XRControllerModelFactory();
 
-  [0, 1].forEach(i => {
-    const ctrl = renderer.xr.getController(i);
-    ctrl.visible = false;
-  });
+  // esconde target-ray padrão
+  [0, 1].forEach(i => renderer.xr.getController(i).visible = false);
 
-  const applyWhiteMaterial = model => {
-    model.traverse(obj => {
-      if (obj.isMesh) {
-        obj.material = new THREE.MeshStandardMaterial({
-          color: 0xffffff,
-          roughness: 0.3,
-          metalness: 0.4
-        });
-      }
+  const whiteMat = model => {
+    model.traverse(o => {
+      if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        roughness: 0.3,
+        metalness: 0.4
+      });
     });
   };
 
   if (SHOW_LEFT_CONTROLLER) {
-    const gripL = renderer.xr.getControllerGrip(0);
-    const modelL = factory.createControllerModel(gripL);
-    applyWhiteMaterial(modelL);
-    gripL.add(modelL);
-    scene.add(gripL);
-    logDebug?.('✅ Controle ESQ pronto');
+    gripL = renderer.xr.getControllerGrip(0);
+    const mL = factory.createControllerModel(gripL); whiteMat(mL);
+    gripL.add(mL); scene.add(gripL); gripL.visible = false;
   }
-
   if (SHOW_RIGHT_CONTROLLER) {
-    const gripR = renderer.xr.getControllerGrip(1);
-    const modelR = factory.createControllerModel(gripR);
-    applyWhiteMaterial(modelR);
-    gripR.add(modelR);
-    scene.add(gripR);
-    logDebug?.('✅ Controle DIR pronto');
+    gripR = renderer.xr.getControllerGrip(1);
+    const mR = factory.createControllerModel(gripR); whiteMat(mR);
+    gripR.add(mR); scene.add(gripR); gripR.visible = false;
   }
 
   renderer.setAnimationLoop(() => {
@@ -119,18 +111,28 @@ export async function initXR(externalRenderer) {
     const session = renderer.xr.getSession();
     if (!session) return;
 
+    // === 1) Toggle HUD com botão B ===
+    let btnPressedNow = false;
+
     for (const src of session.inputSources) {
       const gp = src.gamepad;
-      if (!gp || gp.buttons.length < 4) continue;
-
-      const isPressed = gp.buttons[3].pressed;
-
-      if (isPressed && !prevButtonPressed && debugMesh) {
-        debugMesh.visible = !debugMesh.visible;
-        logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
-      }
-      prevButtonPressed = isPressed;
+      if (gp && gp.buttons.length >= 4 && gp.buttons[3].pressed)
+        btnPressedNow = true;
     }
+    if (btnPressedNow && !prevButtonPressed && debugMesh) {
+      debugMesh.visible = !debugMesh.visible;
+      logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
+    }
+    prevButtonPressed = btnPressedNow;
+
+    // === 2) Autodetecção de controles ===
+    let foundLeft = false, foundRight = false;
+    for (const src of session.inputSources) {
+      if (src.handedness === 'left')  foundLeft  = true;
+      if (src.handedness === 'right') foundRight = true;
+    }
+    if (gripL) gripL.visible = foundLeft;
+    if (gripR) gripR.visible = foundRight;
   });
 
   inited = true;
@@ -145,17 +147,12 @@ export async function load(media) {
 }
 
 function clearScene() {
-  [sphereLeft, sphereRight].forEach(mesh => {
-    if (!mesh) return;
-    scene.remove(mesh);
-    mesh.geometry.dispose();
-    mesh.material.map?.dispose();
-    mesh.material.dispose();
+  [sphereLeft, sphereRight].forEach(m => {
+    if (!m) return;
+    scene.remove(m); m.geometry.dispose();
+    m.material.map?.dispose(); m.material.dispose();
   });
-  if (videoEl) {
-    videoEl.pause(); videoEl.src = ''; videoEl.load(); videoEl.remove();
-    videoEl = null;
-  }
+  if (videoEl) { videoEl.pause(); videoEl.src=''; videoEl.load(); videoEl.remove(); videoEl=null; }
   texLeft?.dispose?.(); texRight?.dispose?.();
   sphereLeft = sphereRight = texLeft = texRight = null;
   logDebug?.('🧹 Cena limpa');
@@ -166,59 +163,43 @@ async function loadMedia(media) {
 
   if (media.type === 'video') {
     videoEl = document.createElement('video');
-    Object.assign(videoEl, {
-      src: media.cachePath,
-      crossOrigin: 'anonymous',
-      loop: true,
-      muted: true,
-      playsInline: true
-    });
+    Object.assign(videoEl, { src: media.cachePath, crossOrigin: 'anonymous', loop: true, muted: true, playsInline: true });
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
-    const loader = new THREE.TextureLoader();
-    const base = await new Promise((res, rej) => loader.load(media.cachePath, res, undefined, rej));
-    texLeft  = base;
-    texRight = media.stereo ? base.clone() : null;
+    const base = await new Promise((res, rej) => new THREE.TextureLoader().load(media.cachePath, res, undefined, rej));
+    texLeft = base; texRight = media.stereo ? base.clone() : null;
   }
 
-  [texLeft, texRight].forEach(tex => {
-    if (!tex) return;
-    tex.minFilter = tex.magFilter = THREE.LinearFilter;
-    tex.generateMipmaps = true;
-    tex.mapping         = THREE.EquirectangularReflectionMapping;
-    tex.encoding        = THREE.sRGBEncoding;
-    tex.wrapS           = THREE.ClampToEdgeWrapping;
-    tex.wrapT           = THREE.RepeatWrapping;
+  [texLeft, texRight].forEach(t => {
+    if (!t) return;
+    t.minFilter = t.magFilter = THREE.LinearFilter;
+    t.generateMipmaps = true;
+    t.mapping = THREE.EquirectangularReflectionMapping;
+    t.encoding = THREE.sRGBEncoding;
+    t.wrapS = THREE.ClampToEdgeWrapping;
+    t.wrapT = THREE.RepeatWrapping;
   });
 
   if (media.stereo) {
-    const top = INVERTER_OLHOS ? 0.5 : 0.0;
-    const bot = INVERTER_OLHOS ? 0.0 : 0.5;
-    texLeft.repeat.set(1, 0.5);  texLeft.offset.set(0, top);
-    texRight.repeat.set(1, 0.5); texRight.offset.set(0, bot);
+    const top = INVERTER_OLHOS ? 0.5 : 0.0, bot = INVERTER_OLHOS ? 0.0 : 0.5;
+    texLeft.repeat.set(1,0.5);  texLeft.offset.set(0,top);
+    texRight.repeat.set(1,0.5); texRight.offset.set(0,bot);
     texLeft.needsUpdate = texRight.needsUpdate = true;
   } else {
-    texLeft.repeat.set(1, 1);
-    texLeft.offset.set(0, 0);
-    texLeft.needsUpdate = true;
+    texLeft.repeat.set(1,1); texLeft.offset.set(0,0); texLeft.needsUpdate = true;
   }
 
-  const geo = new THREE.SphereGeometry(500, 60, 40);
-  geo.scale(-1, 1, 1);
+  const geo = new THREE.SphereGeometry(500,60,40); geo.scale(-1,1,1);
 
   if (!media.stereo) {
-    sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
-    scene.add(sphereLeft);
+    sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft })); scene.add(sphereLeft);
   } else {
-    sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
-    sphereLeft.layers.set(1); scene.add(sphereLeft);
-    sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
-    sphereRight.layers.set(2); scene.add(sphereRight);
+    sphereLeft  = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));  sphereLeft.layers.set(1); scene.add(sphereLeft);
+    sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight })); sphereRight.layers.set(2); scene.add(sphereRight);
   }
 
   const xrCam = renderer.xr.getCamera(camera);
-  xrCam.layers.enable(1);
-  xrCam.layers.enable(2);
+  xrCam.layers.enable(1); xrCam.layers.enable(2);
 }
