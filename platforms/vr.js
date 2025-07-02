@@ -11,59 +11,60 @@ let inited = false;
 const INVERTER_OLHOS = true;
 const SHOW_VR_DEBUG  = true;
 
+// debug overlay
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
 const MAX_LOGS = 10;
+// conversão de pixels do canvas para metros no mundo 3D
+const PX_TO_M = 0.001;
 
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
 
-  // Push e clamp
+  // adiciona e limita linhas
   debugLogs.push(msg);
   if (debugLogs.length > MAX_LOGS) debugLogs.shift();
 
   const ctx = debugCanvas.getContext('2d');
+  ctx.font = '20px monospace';
   const padding = 10;
   const lineHeight = 22;
-  ctx.font = '20px monospace';
 
-  // 1) Medir largura máxima e altura total
+  // calcula largura máxima
   let maxWidth = 0;
-  debugLogs.forEach(line => {
+  for (const line of debugLogs) {
     const w = ctx.measureText(line).width;
     if (w > maxWidth) maxWidth = w;
-  });
-  const canvasWidth = Math.ceil(maxWidth + padding * 2);
-  const canvasHeight = Math.ceil(debugLogs.length * lineHeight + padding * 2);
+  }
 
-  // 2) Atualiza tamanho do canvas e redesenha fundo/texto
-  debugCanvas.width = canvasWidth;
-  debugCanvas.height = canvasHeight;
+  // novas dimensões do canvas
+  const canvasW = Math.ceil(maxWidth + padding * 2);
+  const canvasH = Math.ceil(debugLogs.length * lineHeight + padding * 2);
 
+  // redimensiona canvas e redesenha
+  debugCanvas.width = canvasW;
+  debugCanvas.height = canvasH;
+
+  ctx.clearRect(0, 0, canvasW, canvasH);
   ctx.fillStyle = 'rgba(0,0,0,0.8)';
-  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  ctx.fillRect(0, 0, canvasW, canvasH);
   ctx.fillStyle = '#0f0';
   ctx.font = '20px monospace';
+
   debugLogs.forEach((line, i) => {
-    ctx.fillText(line, padding, padding + (i + 1) * lineHeight - 5);
+    ctx.fillText(line, padding, padding + (i+1)*lineHeight - 5);
   });
 
   debugTexture.needsUpdate = true;
 
-  // 3) Atualiza geometria do plano
-  const scale = 0.001; // escala aproximada de px → metros
-  const newW = canvasWidth * scale;
-  const newH = canvasHeight * scale;
-  debugMesh.geometry.dispose();
-  debugMesh.geometry = new THREE.PlaneGeometry(newW, newH);
-  // Reposiciona centralizado
-  debugMesh.position.set(0, -0.1 - newH / 2, -0.5);
+  // ajusta escala do mesh (mantendo geometria 1×1)
+  debugMesh.scale.set(canvasW * PX_TO_M, canvasH * PX_TO_M, 1);
 }
 
 export async function initXR(externalRenderer) {
   if (inited) return;
 
-  // 1) Cena e câmera
+  // 1) Cena + câmera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -73,7 +74,7 @@ export async function initXR(externalRenderer) {
   );
   camera.position.set(0, 0, 0.1);
 
-  // 2) Reusa renderer e força qualidade máxima
+  // 2) Reutiliza o canvas/renderer e força máxima qualidade
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -81,36 +82,45 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) Overlay de debug
+  // 3) Overlay de debug (uma só geometria 1×1, depois escalada)
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
     debugCanvas.width  = 512;
     debugCanvas.height = 256;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
+
     const mat  = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
-    // tamanho inicial arbitrário (ajustado no primeiro logDebug)
-    debugMesh   = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.3), mat);
+    const geo  = new THREE.PlaneGeometry(1, 1);
+    debugMesh   = new THREE.Mesh(geo, mat);
+    // escala inicial (pode ser pequena, será ajustada no primeiro logDebug)
+    debugMesh.scale.set(
+      debugCanvas.width * PX_TO_M,
+      debugCanvas.height * PX_TO_M,
+      1
+    );
     debugMesh.position.set(0, -0.1, -0.5);
+
     camera.add(debugMesh);
     scene.add(camera);
 
-    // 3.1) Detecta dispositivo XR e loga
+    // loga o dispositivo XR detectado
     const ua  = navigator.userAgent;
     const low = ua.toLowerCase();
     let deviceName = 'Desconhecido';
-    if (low.includes('quest pro'))             deviceName = 'Meta Quest Pro';
-    else if (low.includes('quest 3'))           deviceName = 'Meta Quest 3';
-    else if (low.includes('quest 2'))           deviceName = 'Meta Quest 2';
-    else if (low.includes('quest'))             deviceName = 'Meta Quest';
+    if (low.includes('quest pro')) deviceName = 'Meta Quest Pro';
+    else if (low.includes('quest 3'))   deviceName = 'Meta Quest 3';
+    else if (low.includes('quest 2'))   deviceName = 'Meta Quest 2';
+    else if (low.includes('quest'))     deviceName = 'Meta Quest';
+    else if (low.includes('oculusbrowser')) deviceName = 'Oculus Browser';
     logDebug(`🎮 Dispositivo XR: ${deviceName}`);
     logDebug(`🖥️ User-Agent: ${ua}`);
   }
 
-  // 4) Cubos nos grips
+  // 4) Adiciona cubos aos grips dos controllers
   const grip0 = renderer.xr.getControllerGrip(0);
   const cube0 = new THREE.Mesh(
-    new THREE.BoxGeometry(0.05,0.05,0.05),
-    new THREE.MeshBasicMaterial({ color:0x00ff00 })
+    new THREE.BoxGeometry(0.05, 0.05, 0.05),
+    new THREE.MeshBasicMaterial({ color: 0x00ff00 })
   );
   grip0.add(cube0);
   scene.add(grip0);
@@ -118,14 +128,14 @@ export async function initXR(externalRenderer) {
 
   const grip1 = renderer.xr.getControllerGrip(1);
   const cube1 = new THREE.Mesh(
-    new THREE.BoxGeometry(0.05,0.05,0.05),
-    new THREE.MeshBasicMaterial({ color:0xff0000 })
+    new THREE.BoxGeometry(0.05, 0.05, 0.05),
+    new THREE.MeshBasicMaterial({ color: 0xff0000 })
   );
   grip1.add(cube1);
   scene.add(grip1);
   if (SHOW_VR_DEBUG) logDebug('✅ Cubo vermelho (dir) adicionado');
 
-  // 5) Loop de render
+  // 5) Inicia loop de render
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
@@ -166,7 +176,7 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Criar textura
+  // 1) Cria textura
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -174,7 +184,7 @@ async function loadMedia(media) {
       crossOrigin: 'anonymous',
       loop: true,
       muted: true,
-      playsInline: true,
+      playsInline: true
     });
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
@@ -190,7 +200,7 @@ async function loadMedia(media) {
     if (SHOW_VR_DEBUG) logDebug('📷 TextureLoader carregou imagem');
   }
 
-  // 2) Alta qualidade & sRGB
+  // 2) Filtros de alta qualidade
   [texLeft, texRight].forEach(tex => {
     if (!tex) return;
     tex.minFilter       = THREE.LinearFilter;
@@ -203,10 +213,10 @@ async function loadMedia(media) {
   });
   if (SHOW_VR_DEBUG) logDebug('🔧 Filtros aplicados');
 
-  // 3) Stereo top-down
+  // 3) Stereo top-down / inversão
   if (media.stereo) {
-    const top  = INVERTER_OLHOS ? 0.5 : 0.0;
-    const bot  = INVERTER_OLHOS ? 0.0 : 0.5;
+    const top = INVERTER_OLHOS ? 0.5 : 0.0;
+    const bot = INVERTER_OLHOS ? 0.0 : 0.5;
     texLeft.repeat.set(1, 0.5);
     texRight.repeat.set(1, 0.5);
     texLeft.offset.set(0, top);
@@ -215,13 +225,13 @@ async function loadMedia(media) {
     texRight?.needsUpdate = true;
     if (SHOW_VR_DEBUG) logDebug(`🔀 Stereo aplicado (invertido: ${INVERTER_OLHOS})`);
   } else {
-    texLeft.repeat.set(1, 1);
-    texLeft.offset.set(0, 0);
+    texLeft.repeat.set(1,1);
+    texLeft.offset.set(0,0);
     texLeft.needsUpdate = true;
     if (SHOW_VR_DEBUG) logDebug('⚪ Mono aplicado');
   }
 
-  // 4) Criar esfera invertida
+  // 4) Monta esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -238,7 +248,7 @@ async function loadMedia(media) {
     scene.add(sphereRight);
   }
 
-  // 5) Habilitar layers na câmera XR
+  // 5) Ativa layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
