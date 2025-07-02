@@ -42,7 +42,6 @@ async function main() {
   showLoading(true);
 
   // 1) carrega lista
-  console.log('fetching media.json');
   mediaList = await (await fetch('./media/media.json')).json();
   console.log('mediaList:', mediaList);
 
@@ -52,72 +51,58 @@ async function main() {
     o.value = i; o.textContent = m.name;
     dropdown.appendChild(o);
   });
-  console.log('dropdown ready');
 
-  // 3) importa desktop e vr js
-  console.log('importing modules');
+  // 3) importa desktop e vr
   [desktopMod, vrMod] = await Promise.all([
     import('./platforms/desktop.js'),
     import('./platforms/vr.js')
   ]);
-  console.log('modules loaded');
 
-  // 4) start no desktop
+  // 4) começa no desktop
   currentModule = desktopMod;
-  console.log('loading first media on desktop');
   await loadMedia(currentIndex);
 
-  // 5) se WebXR, prepara botão com override do click
+  // 5) se WebXR, cria botão e bind no click
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
-    console.log('WebXR ok → initXR');
-    await vrMod.initXR(); // prepara renderer.xr
+    console.log('WebXR ok, inicializando XR renderer');
+    await vrMod.initXR();
+
     const { VRButton } = await import('./libs/VRButton.js');
     const btn = VRButton.createButton(vrMod.renderer);
-    document.body.appendChild(btn);
-    console.log('VRButton appended');
-
-    // override do click: carrega VR antes de entrar na session
-    const origClick = btn.onclick;
-    btn.onclick = async () => {
-      console.log('▶ Enter VR clicked: loading VR media first');
+    // antes de entrar na sessão, carrega a cena VR
+    btn.addEventListener('click', async () => {
+      console.log('← click ENTER VR: carregando cena VR');
       currentModule = vrMod;
       await vrMod.load(mediaList[currentIndex]);
-      console.log('▶ VR media loaded, now starting session');
-      origClick();
-    };
-  } else {
-    console.log('WebXR não suportado aqui');
+      console.log('← cena VR pronta, agora entra na sessão');
+      // a própria VRButton cuidará de chamar requestSession()
+    });
+    document.body.appendChild(btn);
   }
 
   // 6) UI listeners
   dropdown.onchange = e=>{
     currentIndex = +e.target.value;
-    console.log('dropdown ->', currentIndex);
     loadMedia(currentIndex);
   };
   btnPrev.onclick = ()=>{
     currentIndex = (currentIndex-1+mediaList.length)%mediaList.length;
-    console.log('prev ->', currentIndex);
     dropdown.value = currentIndex;
     loadMedia(currentIndex);
   };
   btnNext.onclick = ()=>{
     currentIndex = (currentIndex+1)%mediaList.length;
-    console.log('next ->', currentIndex);
     dropdown.value = currentIndex;
     loadMedia(currentIndex);
   };
 
   showLoading(false);
-  console.log('main() done');
 }
 
 async function loadMedia(idx) {
-  console.log('loadMedia idx=', idx);
   showLoading(true);
   try {
     await currentModule.load(mediaList[idx]);
-    console.log('media carregada!');
   } catch(err) {
     console.error('erro loadMedia:', err);
   }

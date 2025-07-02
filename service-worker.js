@@ -6,14 +6,9 @@ const STATIC_ASSETS = [
   './index.html',
   './core.js',
   './service-worker.js',
-  // libs
   './libs/three.module.js',
   './libs/OrbitControls.js',
-  // módulos de plataforma
-  './platforms/vr.js',
-  './platforms/desktop.js',
-  './platforms/mobile.js',
-  // mídia
+  './libs/VRButton.js',
   './media/media.json'
 ];
 
@@ -49,6 +44,12 @@ self.addEventListener('fetch', event => {
 
   if (url.pathname.startsWith('/media/')) {
     event.respondWith(cacheFirst(req));
+    return;
+  }
+
+  // 🔥 Força uso da rede pra arquivos da pasta /platforms (como vr.js)
+  if (url.pathname.startsWith('/platforms/')) {
+    event.respondWith(networkFirst(req));
     return;
   }
 
