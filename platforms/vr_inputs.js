@@ -22,12 +22,12 @@ export function setupVRInputs(renderer, onNext, onPrev, onDebug) {
         for (const source of session.inputSources) {
           if (!source.gamepad) continue;
           const gp = source.gamepad;
-          const id = ${source.handedness}|${gp.id};
+          const id = `${source.handedness}|${gp.id}`;
           const prev = previousStates.get(id) || [];
 
           gp.buttons.forEach((btn, idx) => {
             if (btn.pressed && !prev[idx]) {
-              const raw = ${id} button[${idx}];
+              const raw = `${id} button[${idx}]`;
               onDebug(raw);
               if (idx === 0) onNext();
               if (idx === 1) onPrev();
