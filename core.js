@@ -1,90 +1,121 @@
-const canvas     = document.getElementById('xr-canvas');
-const loadingEl  = document.getElementById('loading');
-const dropdown   = document.getElementById('mediaSelect');
-const btnPrev    = document.getElementById('prevBtn');
-const btnNext    = document.getElementById('nextBtn');
+// vr.js
+import * as THREE from '../libs/three.module.js';
 
-let mediaList     = [];
-let currentIndex  = 0;
-let currentModule = null;
+let scene, camera, renderer;
+let sphereLeft, sphereRight;
+let videoEl, texLeft, texRight;
+let isXRInited = false;
 
-main();
+export async function initXR() {
+  // inicializa cena e renderer XR (sem carregar mídia)
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+  camera.position.set(0, 0, 0.1);
 
-async function main() {
-  showLoading(true);
+  renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('xr-canvas'),
+    antialias: true
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.xr.enabled = true;
 
-  // 1) carrega JSON
-  const resp = await fetch('./media/media.json');
-  mediaList = await resp.json();
-
-  // 2) preenche dropdown
-  mediaList.forEach((item,i)=> {
-    const opt = document.createElement('option');
-    opt.value = i; opt.textContent = item.name;
-    dropdown.appendChild(opt);
+  renderer.setAnimationLoop(() => {
+    renderer.render(scene, camera);
   });
 
-  // 3) detecta e importa plataforma
-  currentModule = await importPlatform();
-
-  // 4) carrega primeira mídia
-  await loadMedia(currentIndex);
-
-  // 5) listeners
-  dropdown.onchange = e => {
-    currentIndex = +e.target.value;
-    loadMedia(currentIndex);
-  };
-  btnPrev.onclick = () => {
-    currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
-    dropdown.value = currentIndex;
-    loadMedia(currentIndex);
-  };
-  btnNext.onclick = () => {
-    currentIndex = (currentIndex + 1) % mediaList.length;
-    dropdown.value = currentIndex;
-    loadMedia(currentIndex);
-  };
-
-  showLoading(false);
+  isXRInited = true;
 }
 
-async function importPlatform() {
-  // WEBXR suportado? só mostra o botão, continua no desktop até clicar
-  if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
-    const mod = await import('./platforms/desktop.js');
-    // habilita XR no renderer exportado
-    mod.renderer.xr.enabled = true;
+// expõe o renderer pro core.js criar o VRButton
+export { renderer };
 
-    // cria e injeta o botão VR
-    const { VRButton } = await import('./libs/VRButton.js');
-    const btn = VRButton.createButton(mod.renderer);
-    document.body.appendChild(btn);
-
-    // quando clicar, troca pra vr.js e recarrega a mídia atual
-    btn.addEventListener('click', async () => {
-      const vrMod = await import('./platforms/vr.js');
-      currentModule = vrMod;
-      await vrMod.load(mediaList[currentIndex]);
-    });
-
-    return mod;
+export async function load(media) {
+  // garante initXR já foi chamado
+  if (!isXRInited) {
+    await initXR();
   }
 
-  // mobile ou desktop normal
-  if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-    return await import('./platforms/mobile.js');
+  // limpa cena
+  [sphereLeft, sphereRight].forEach(m => {
+    if (!m) return;
+    scene.remove(m);
+    m.geometry.dispose();
+    m.material.map?.dispose();
+    m.material.dispose();
+  });
+  if (videoEl) { videoEl.pause(); videoEl.remove(); videoEl = null; }
+  texLeft = texRight = null;
+  sphereLeft = sphereRight = null;
+
+  // carrega textura
+  if (media.type === 'video') {
+    videoEl = document.createElement('video');
+    videoEl.src = media.cachePath;
+    videoEl.crossOrigin = 'anonymous';
+    videoEl.loop = true;
+    videoEl.muted = true;
+    videoEl.playsInline = true;
+    await videoEl.play();
+    texLeft  = new THREE.VideoTexture(videoEl);
+    texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
-    return await import('./platforms/desktop.js');
+    const loader = new THREE.TextureLoader();
+    const base = await new Promise((r, e) => loader.load(media.cachePath, r, undefined, e));
+    base.mapping  = THREE.EquirectangularReflectionMapping;
+    base.encoding = THREE.sRGBEncoding;
+    if (media.stereo) {
+      texLeft  = base.clone();
+      texRight = base.clone();
+    } else {
+      texLeft  = base;
+      texRight = null;
+    }
   }
-}
 
-async function loadMedia(i) {
-  showLoading(true);
-  await currentModule.load(mediaList[i]);
-  showLoading(false);
-}
+  // configura cortes e offsets
+  if (media.stereo) {
+    // estéreo lado-a-lado
+    texLeft.repeat.set(0.5, 1);
+    texLeft.offset.set(0, 0);
+    texRight.repeat.set(0.5, 1);
+    texRight.offset.set(0.5, 0);
+  } else {
+    texLeft.repeat.set(1, 1);
+    texLeft.offset.set(0, 0);
+  }
+  texLeft.needsUpdate = true;
+  texRight?.needsUpdate = true;
 
-function showLoading(v) {
-  loadingEl.style.display = v ? 'block' : 'none';
+  // monta esfera invertida
+  const geo = new THREE.SphereGeometry(500, 60, 40);
+  geo.scale(-1, 1, 1);
+
+  if (!media.stereo) {
+    const mat = new THREE.MeshBasicMaterial({ map: texLeft });
+    sphereLeft = new THREE.Mesh(geo, mat);
+    scene.add(sphereLeft);
+    return;
+  }
+
+  // cria duas esferas para cada olho
+  const matL = new THREE.MeshBasicMaterial({ map: texLeft });
+  sphereLeft = new THREE.Mesh(geo, matL);
+  sphereLeft.layers.set(1);
+  scene.add(sphereLeft);
+
+  const matR = new THREE.MeshBasicMaterial({ map: texRight });
+  sphereRight = new THREE.Mesh(geo, matR);
+  sphereRight.layers.set(2);
+  scene.add(sphereRight);
+
+  // habilita layers no XR camera
+  const xrCam = renderer.xr.getCamera(camera);
+  xrCam.layers.enable(1);
+  xrCam.layers.enable(2);
 }
