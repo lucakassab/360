@@ -1,23 +1,44 @@
 [
   {
-    "name": "Praia 1",
-    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/A3_Stereo.jpg",
-    "cachePath": "./media/A3_Stereo.jpg",
-    "type": "image",
-    "stereo": true
-  },
-  {
-    "name": "Praia Estéreo",
-    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/A1_Mono.jpg",
-    "cachePath": "./media/A1_Mono.jpg",
+    "name": "image_1_Mono",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/image_1_Mono.jpg",
+    "cachePath": "./media/image_1_Mono.jpg",
     "type": "image",
     "stereo": false
   },
   {
-    "name": "Cachoeira Mono",
-    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/A2_Stereo.jpg",
-    "cachePath": "./media/A2_Stereo.jpg",
+    "name": "image_2_Stereo",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/image_2_Stereo.jpg",
+    "cachePath": "./media/image_2_Stereo.jpg",
     "type": "image",
     "stereo": true
+  },
+  {
+    "name": "image_3_Stereo",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/image_3_Stereo.jpg",
+    "cachePath": "./media/image_3_Stereo.jpg",
+    "type": "image",
+    "stereo": true
+  },
+  {
+    "name": "image_4_Stereo",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/image_4_Stereo.jpg",
+    "cachePath": "./media/image_4_Stereo.jpg",
+    "type": "image",
+    "stereo": true
+  },
+  {
+    "name": "video_5_Stereo",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/video_5_Stereo.mp4",
+    "cachePath": "./media/video_5_Stereo.mp4",
+    "type": "video",
+    "stereo": true
+  },
+  {
+    "name": "video_6_Mono",
+    "src": "https://raw.githubusercontent.com/lucakassab/360/master/media/video_6_Mono.mp4",
+    "cachePath": "./media/video_6_Mono.mp4",
+    "type": "video",
+    "stereo": false
   }
 ]
