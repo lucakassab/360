@@ -7,6 +7,9 @@ let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
+// 🔁 Toggle pra inverter os olhos (debug)
+const INVERTER_OLHOS = false;
+
 export async function initXR(externalRenderer) {
   if (inited) return;
   renderer = externalRenderer;
@@ -15,16 +18,9 @@ export async function initXR(externalRenderer) {
     renderer.render(scene, camera);
   });
 
-  // Cria cena e câmera VR
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
-
   inited = true;
 }
 
@@ -82,30 +78,6 @@ async function loadMedia(media) {
     }
   }
 
-  // **Stereo top-down**: top half → olho esquerdo, bottom half → olho direito
-  if (media.stereo) {
-    // wrapT para cortar verticalmente
-    texLeft.wrapS   = THREE.ClampToEdgeWrapping;
-    texLeft.wrapT   = THREE.RepeatWrapping;
-    texLeft.repeat.set(1, 0.5);
-    texLeft.offset.set(0, 0);
-    texLeft.needsUpdate = true;
-
-    texRight.wrapS   = THREE.ClampToEdgeWrapping;
-    texRight.wrapT   = THREE.RepeatWrapping;
-    texRight.repeat.set(1, 0.5);
-    texRight.offset.set(0, 0.5);
-    texRight.needsUpdate = true;
-  } else {
-    // mono: exibe tudo
-    texLeft.wrapS   = THREE.ClampToEdgeWrapping;
-    texLeft.wrapT   = THREE.ClampToEdgeWrapping;
-    texLeft.repeat.set(1, 1);
-    texLeft.offset.set(0, 0);
-    texLeft.needsUpdate = true;
-  }
-
-  // monta esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -115,16 +87,31 @@ async function loadMedia(media) {
     return;
   }
 
-  // olho esquerdo (layer 1)
-  sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
+  // stereo top-down com toggle de inversão
+  const offsetTop    = new THREE.Vector2(0, 0);
+  const offsetBottom = new THREE.Vector2(0, 0.5);
+  const repeatStereo = new THREE.Vector2(1, 0.5);
+
+  const texL = texLeft;
+  const texR = texRight;
+
+  texL.wrapS = texR.wrapS = THREE.ClampToEdgeWrapping;
+  texL.wrapT = texR.wrapT = THREE.RepeatWrapping;
+  texL.repeat.copy(repeatStereo);
+  texR.repeat.copy(repeatStereo);
+  texL.offset.copy(INVERTER_OLHOS ? offsetBottom : offsetTop);
+  texR.offset.copy(INVERTER_OLHOS ? offsetTop    : offsetBottom);
+  texL.needsUpdate = true;
+  texR.needsUpdate = true;
+
+  sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texL }));
   sphereLeft.layers.set(1);
   scene.add(sphereLeft);
-  // olho direito (layer 2)
-  sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
+
+  sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texR }));
   sphereRight.layers.set(2);
   scene.add(sphereRight);
 
-  // habilita layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
