@@ -8,7 +8,6 @@ let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
-// 🔁 Toggles
 const SHOW_LEFT_CONTROLLER  = true;
 const SHOW_RIGHT_CONTROLLER = true;
 const INVERTER_OLHOS        = true;
@@ -19,9 +18,8 @@ let debugLogs = [];
 const MAX_LOGS = 10;
 let prevButtonPressed = false;
 
-// refs pros grips
 let gripL = null, gripR = null;
-let leftPresent  = false;   // estados para detectar mudança
+let leftPresent  = false;
 let rightPresent = false;
 
 function logDebug(msg) {
@@ -38,7 +36,6 @@ function logDebug(msg) {
   debugTexture.needsUpdate = true;
 }
 
-// helper p/ listar meshes
 function dumpMeshes(root, label) {
   root.traverse(o => {
     if (o.isMesh) logDebug(`📦 ${label}: mesh "${o.name}"`);
@@ -59,14 +56,12 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // SpotLight
   const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI / 6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot, spot.target);
   scene.add(camera);
 
-  // Debug HUD
   if (SHOW_VR_DEBUG) {
     debugCanvas  = document.createElement('canvas');
     debugCanvas.width  = 2048;
@@ -89,7 +84,7 @@ export async function initXR(externalRenderer) {
   }
 
   const factory = new XRControllerModelFactory();
-  [0, 1].forEach(i => renderer.xr.getController(i).visible = false); // esconde target-ray
+  [0, 1].forEach(i => renderer.xr.getController(i).visible = false);
 
   const whiteMat = model => {
     model.traverse(o => {
@@ -101,25 +96,34 @@ export async function initXR(externalRenderer) {
     });
   };
 
-  if (SHOW_LEFT_CONTROLLER) {
-    gripL = renderer.xr.getControllerGrip(0);
-    const mL = factory.createControllerModel(gripL);
-    whiteMat(mL);
-    dumpMeshes(mL, 'L');            // log de meshes
-    gripL.add(mL);
-    scene.add(gripL);
-    gripL.visible = false;
+  function spawnGrip(index, label) {
+    const grip = renderer.xr.getControllerGrip(index);
+    grip.visible = false;
+
+    const model = factory.createControllerModel(grip);
+    whiteMat(model);
+    grip.add(model);
+
+    model.addEventListener('connected', () => {
+      dumpMeshes(model, `${label} (model ready)`);
+    });
+
+    grip.addEventListener('connected', (e) => {
+      grip.visible = true;
+      logDebug(`🟢 ${label} detectado (profile: ${e.data?.profiles?.[0] || '??'})`);
+    });
+
+    grip.addEventListener('disconnected', () => {
+      grip.visible = false;
+      logDebug(`🔴 ${label} perdido`);
+    });
+
+    scene.add(grip);
+    return grip;
   }
 
-  if (SHOW_RIGHT_CONTROLLER) {
-    gripR = renderer.xr.getControllerGrip(1);
-    const mR = factory.createControllerModel(gripR);
-    whiteMat(mR);
-    dumpMeshes(mR, 'R');
-    gripR.add(mR);
-    scene.add(gripR);
-    gripR.visible = false;
-  }
+  if (SHOW_LEFT_CONTROLLER)  gripL  = spawnGrip(0, 'controle esquerdo');
+  if (SHOW_RIGHT_CONTROLLER) gripR = spawnGrip(1, 'controle direito');
 
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
@@ -127,7 +131,6 @@ export async function initXR(externalRenderer) {
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // 1) Toggle HUD com botão B
     let btnPressedNow = false;
     session.inputSources.forEach(src => {
       const gp = src.gamepad;
@@ -139,7 +142,6 @@ export async function initXR(externalRenderer) {
     }
     prevButtonPressed = btnPressedNow;
 
-    // 2) Autodetecção de controles + log
     let foundLeft = false, foundRight = false;
     session.inputSources.forEach(src => {
       if (src.handedness === 'left')  foundLeft  = true;
@@ -193,7 +195,6 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Textura
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -217,7 +218,6 @@ async function loadMedia(media) {
     logDebug('📷 TextureLoader carregou imagem');
   }
 
-  // 2) Configura texturas
   [texLeft, texRight].forEach(t => {
     if (!t) return;
     t.minFilter = t.magFilter = THREE.LinearFilter;
@@ -228,7 +228,6 @@ async function loadMedia(media) {
     t.wrapT = THREE.RepeatWrapping;
   });
 
-  // 3) Stereo top-bottom
   if (media.stereo) {
     const top = INVERTER_OLHOS ? 0.5 : 0.0;
     const bot = INVERTER_OLHOS ? 0.0 : 0.5;
@@ -241,7 +240,6 @@ async function loadMedia(media) {
     logDebug('⚪ Mono configurado');
   }
 
-  // 4) Esfera
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -258,7 +256,6 @@ async function loadMedia(media) {
     dumpMeshes(sphereRight, 'SphereR');
   }
 
-  // 5) Habilita layers na câmera
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
