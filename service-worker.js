@@ -9,7 +9,6 @@ const STATIC_ASSETS = [
   './libs/three.module.js',
   './libs/OrbitControls.js',
   './libs/VRButton.js',
-  './libs/XRHandModelFactory.js', // adiciona o hand factory no cache
   './media/media.json'
 ];
 
