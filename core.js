@@ -1,114 +1,78 @@
 // core.js
 
-// === DEBUG FLAG ===
-const DEBUG = true;
-if (DEBUG) {
-  const dump = document.createElement('div');
-  Object.assign(dump.style, {
-    position: 'fixed',
-    bottom: '0', left: '0',
-    width: '100%', maxHeight: '200px',
-    overflowY: 'auto',
-    background: 'rgba(0,0,0,0.8)',
-    color: '#0f0', font: '12px monospace',
-    zIndex: '9999', padding: '4px'
-  });
-  document.body.appendChild(dump);
-  ['log','info','warn','error'].forEach(level=>{
-    const orig = console[level];
-    console[level] = (...args)=>{
-      orig.apply(console,args);
-      const line = document.createElement('div');
-      line.textContent = `[${level}] `+args.map(a=>typeof a==='object'?JSON.stringify(a):a).join(' ');
-      dump.appendChild(line);
-      dump.scrollTop = dump.scrollHeight;
-    };
-  });
-}
-
 const canvas     = document.getElementById('xr-canvas');
 const loadingEl  = document.getElementById('loading');
 const dropdown   = document.getElementById('mediaSelect');
 const btnPrev    = document.getElementById('prevBtn');
 const btnNext    = document.getElementById('nextBtn');
 
-let mediaList    = [], currentIndex = 0, currentModule = null;
-let desktopMod, vrMod;
+let mediaList    = [];
+let currentIndex = 0;
+let currentModule;
+
+let desktopMod, mobileMod;
 
 main();
 
 async function main() {
-  console.log('main() start');
-  showLoading(true);
-
-  // 1) carrega lista
+  // 1) lista de mídia
   mediaList = await (await fetch('./media/media.json')).json();
-  console.log('mediaList:', mediaList);
 
-  // 2) preenche dropdown
+  // 2) dropdown
   mediaList.forEach((m,i)=>{
     const o = document.createElement('option');
     o.value = i; o.textContent = m.name;
     dropdown.appendChild(o);
   });
 
-  // 3) importa desktop e vr
-  [desktopMod, vrMod] = await Promise.all([
+  // 3) importa apenas desktop e mobile
+  [desktopMod, mobileMod] = await Promise.all([
     import('./platforms/desktop.js'),
-    import('./platforms/vr.js')
+    import('./platforms/mobile.js')
   ]);
 
-  // 4) começa no desktop
-  currentModule = desktopMod;
+  // 4) escolhe mobile vs desktop
+  if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    currentModule = mobileMod;
+  } else {
+    currentModule = desktopMod;
+  }
+
+  // 5) carrega primeira mídia
   await loadMedia(currentIndex);
 
-  // 5) se WebXR, cria botão e bind no click
+  // 6) se WebXR suportado, mostra o VR Button
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
-    console.log('WebXR ok, inicializando XR renderer');
-    await vrMod.initXR();
-
     const { VRButton } = await import('./libs/VRButton.js');
-    const btn = VRButton.createButton(vrMod.renderer);
-    // antes de entrar na sessão, carrega a cena VR
-    btn.addEventListener('click', async () => {
-      console.log('← click ENTER VR: carregando cena VR');
-      currentModule = vrMod;
-      await vrMod.load(mediaList[currentIndex]);
-      console.log('← cena VR pronta, agora entra na sessão');
-      // a própria VRButton cuidará de chamar requestSession()
-    });
+    // usa o mesmo renderer do desktopMod pra criar o botão
+    const renderer = desktopMod.renderer;
+    renderer.xr.enabled = true;
+    const btn = VRButton.createButton(renderer);
+    btn.addEventListener('click', onEnterVR);
     document.body.appendChild(btn);
   }
 
-  // 6) UI listeners
-  dropdown.onchange = e=>{
-    currentIndex = +e.target.value;
-    loadMedia(currentIndex);
-  };
-  btnPrev.onclick = ()=>{
-    currentIndex = (currentIndex-1+mediaList.length)%mediaList.length;
-    dropdown.value = currentIndex;
-    loadMedia(currentIndex);
-  };
-  btnNext.onclick = ()=>{
-    currentIndex = (currentIndex+1)%mediaList.length;
-    dropdown.value = currentIndex;
-    loadMedia(currentIndex);
-  };
+  // 7) UI listeners
+  dropdown.onchange = () => loadMedia(currentIndex = +dropdown.value);
+  btnPrev.onclick = () => loadMedia(currentIndex = (currentIndex-1+mediaList.length)%mediaList.length);
+  btnNext.onclick = () => loadMedia(currentIndex = (currentIndex+1)%mediaList.length);
+}
 
-  showLoading(false);
+async function onEnterVR() {
+  // 8) só aqui importa e inicia o VR
+  const vrMod = await import('./platforms/vr.js');
+  currentModule = vrMod;
+  // passa o renderer que já existia no desktopMod
+  await vrMod.initXR(desktopMod.renderer);
+  await vrMod.load(mediaList[currentIndex]);
 }
 
 async function loadMedia(idx) {
-  showLoading(true);
+  loadingEl.style.display = 'block';
   try {
     await currentModule.load(mediaList[idx]);
-  } catch(err) {
-    console.error('erro loadMedia:', err);
+  } catch(e) {
+    console.error('erro loadMedia:', e);
   }
-  showLoading(false);
-}
-
-function showLoading(v) {
-  loadingEl.style.display = v ? 'block' : 'none';
+  loadingEl.style.display = 'none';
 }
