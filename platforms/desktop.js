@@ -66,15 +66,19 @@ export async function load(media) {
     });
   }
 
-  // Se for stereo e não for modo VR, ajusta repeat/offset pra mostrar só metade (olho esquerdo)
+  // Configura wrapping pra poder usar repeat/offset
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.ClampToEdgeWrapping;
+  
+  // Stereo fora do VR: corta pra esquerda (olho esquerdo)
   if (media.stereo) {
-    texture.repeat = new THREE.Vector2(0.5, 1);
-    texture.offset = new THREE.Vector2(0, 0);
-    texture.needsUpdate = true;
+    texture.repeat.set(0.5, 1);
+    texture.offset.set(0, 0);
   } else {
-    texture.repeat = new THREE.Vector2(1, 1);
-    texture.offset = new THREE.Vector2(0, 0);
+    texture.repeat.set(1, 1);
+    texture.offset.set(0, 0);
   }
+  texture.needsUpdate = true;
 
   texture.mapping = THREE.EquirectangularReflectionMapping;
   texture.encoding = THREE.sRGBEncoding;
