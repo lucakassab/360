@@ -1,45 +1,32 @@
 import * as THREE from '../libs/three.module.js';
 import { OrbitControls } from '../libs/OrbitControls.js';
 
-let scene, camera, renderer, controls;
-let sphereMesh;
-let videoElement;
-let texture;
-
+let scene, camera, renderer, controls, sphereMesh, videoElement, texture;
 const canvas = document.getElementById('xr-canvas');
 
-init();
-
-function init() {
+// chamado EXPLICITAMENTE pelo core.js
+export function init() {
   scene = new THREE.Scene();
-
-  camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
-  // Usa OrbitControls, que já lida com touch/pinch
   controls = new OrbitControls(camera, canvas);
-  controls.enableZoom = true;   // pinch
-  controls.enablePan = false;   // sem pan
+  controls.enableZoom = true;
+  controls.enablePan = false;
   controls.enableDamping = true;
   controls.dampingFactor = 0.1;
 
-  window.addEventListener('resize', onResize);
-  animate();
-}
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
 
-function onResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  animate();
 }
 
 function animate() {
@@ -52,7 +39,7 @@ function clearScene() {
   if (sphereMesh) {
     scene.remove(sphereMesh);
     sphereMesh.geometry.dispose();
-    if (texture?.dispose) texture.dispose();
+    texture?.dispose();
     sphereMesh = null;
   }
   if (videoElement) {
@@ -62,37 +49,27 @@ function clearScene() {
   }
 }
 
-// A função que o core.js chama
 export async function load(media) {
   clearScene();
 
-  // 1) Cria a textura (vídeo ou imagem)
   if (media.type === 'video') {
     videoElement = document.createElement('video');
-    videoElement.src = media.cachePath;
-    videoElement.crossOrigin = 'anonymous';
-    videoElement.loop = true;
-    videoElement.muted = true;
-    videoElement.playsInline = true;
+    Object.assign(videoElement, { src: media.cachePath, crossOrigin: 'anonymous', loop: true, muted: true, playsInline: true });
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
   } else {
-    const loader = new THREE.TextureLoader();
     texture = await new Promise((res, rej) => {
-      loader.load(media.cachePath, res, undefined, rej);
+      new THREE.TextureLoader().load(media.cachePath, res, undefined, rej);
     });
   }
 
-  // 2) Wrapping e corte para stereo top-bottom
+  // stereo top-bottom
+  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
   if (media.stereo) {
-    texture.wrapS = THREE.ClampToEdgeWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    // mostra só metade de cima
     texture.repeat.set(1, 0.5);
     texture.offset.set(0, 0);
   } else {
-    texture.wrapS = THREE.ClampToEdgeWrapping;
-    texture.wrapT = THREE.ClampToEdgeWrapping;
     texture.repeat.set(1, 1);
     texture.offset.set(0, 0);
   }
@@ -101,11 +78,9 @@ export async function load(media) {
   texture.mapping = THREE.EquirectangularReflectionMapping;
   texture.encoding = THREE.sRGBEncoding;
 
-  // 3) Esfera invertida
-  const geometry = new THREE.SphereGeometry(500, 60, 40);
-  geometry.scale(-1, 1, 1);
+  const geo = new THREE.SphereGeometry(500, 60, 40);
+  geo.scale(-1, 1, 1);
 
-  const material = new THREE.MeshBasicMaterial({ map: texture });
-  sphereMesh = new THREE.Mesh(geometry, material);
+  sphereMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texture }));
   scene.add(sphereMesh);
 }
