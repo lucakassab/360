@@ -4,39 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#000000" />
-
   <title>PWA WebXR 360 Viewer</title>
 
-  <!-- Import Map pra resolver imports bare specifiers -->
+  <!-- Importmap, Manifest e Ícones -->
   <script type="importmap">
-  {
-    "imports": {
-      "three": "./libs/three.module.js"
-    }
-  }
+    {"imports":{"three":"./libs/three.module.js"}}
   </script>
-
-  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
-
-  <!-- Ícones -->
-  <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+  <link rel="icon" href="icons/favicon.ico" />
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="360Viewer" />
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="icons/icon-256.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
-  <link rel="icon" type="image/png" sizes="1024x1024" href="icons/vision-icon.png">
+  <link rel="icon" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" sizes="256x256" href="icons/icon-256.png" />
+  <link rel="icon" sizes="512x512" href="icons/icon-512.png" />
+  <link rel="icon" sizes="1024x1024" href="icons/vision-icon.png" />
 
   <style>
-    body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; color: #fff; }
-    #ui { position: absolute; top: 10px; left: 10px; z-index: 10; display: flex; gap: 8px; align-items: center; }
-    select, button { padding: 5px 10px; font-size: 14px; border-radius: 4px; border: none; background: #222; color: #fff; cursor: pointer; }
-    #installBtn { background: #4caf50; display: none; } 
-    #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px; font-weight: bold; z-index: 20; display: none; }
+    body { margin:0; overflow:hidden; background:#000; color:#fff; font-family:sans-serif; }
+    #ui { position:absolute; top:10px; left:10px; z-index:10; display:flex; gap:8px; align-items:center; }
+    select, button { padding:5px 10px; font-size:14px; border-radius:4px; border:none; background:#222; color:#fff; cursor:pointer; }
+    #installBtn { background:#4caf50; display:none; }
+    #loading { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:24px; font-weight:bold; z-index:20; display:none; }
   </style>
 </head>
 <body>
@@ -51,34 +42,35 @@
   <div id="loading">Loading...</div>
   <canvas id="xr-canvas"></canvas>
 
-  <script type="module" src="./core.js"></script>
+  <!-- beforeinstallprompt deve ser capturado depois do botão existir -->
   <script>
-    // Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(() => console.log('🛠️ Service Worker registrado!'))
-        .catch(err => console.error('💥 Falha ao registrar SW:', err));
-    }
-
-    // PWA install prompt
-    let deferredInstallPrompt;
-    const installBtn = document.getElementById('installBtn');
-
+    window.deferredInstallPrompt = null;
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
-      deferredInstallPrompt = e;
-      installBtn.style.display = 'inline-block';
+      window.deferredInstallPrompt = e;
+      const btn = document.getElementById('installBtn');
+      if (btn) btn.style.display = 'inline-block';
       console.log('📲 beforeinstallprompt capturado');
     });
 
-    installBtn.addEventListener('click', async () => {
-      if (!deferredInstallPrompt) return;
-      installBtn.style.display = 'none';
-      deferredInstallPrompt.prompt();
-      const choice = await deferredInstallPrompt.userChoice;
+    document.getElementById('installBtn').addEventListener('click', async () => {
+      const e = window.deferredInstallPrompt;
+      if (!e) return;
+      document.getElementById('installBtn').style.display = 'none';
+      e.prompt();
+      const choice = await e.userChoice;
       console.log('📲 Resultado da instalação:', choice.outcome);
-      deferredInstallPrompt = null;
+      window.deferredInstallPrompt = null;
     });
+  </script>
+
+  <script type="module" src="./core.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(()=>console.log('🛠️ Service Worker registrado!'))
+        .catch(err=>console.error('💥 Falha ao registrar SW:', err));
+    }
   </script>
 </body>
 </html>
