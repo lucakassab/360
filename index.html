@@ -7,12 +7,26 @@
 
   <title>PWA WebXR 360 Viewer</title>
 
-  <!-- PWA Support -->
+  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon.png" />
-  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- Favicon padrão -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Android & Meta Quest -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Apple (iOS, Vision Pro) -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="360Viewer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Ícones para outras plataformas -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="icon-256.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="vision-icon.png">
 
   <style>
     body {
