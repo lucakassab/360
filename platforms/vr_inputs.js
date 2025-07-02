@@ -1,43 +1,45 @@
 // platforms/vr_inputs.js
-// Captura inputs de controladores WebXR (Meta Quest) e dispara callbacks para debug e A/B
+// Poll VR controller inputs each XR frame using session.requestAnimationFrame,
+// without touching renderer.setAnimationLoop.
 
-// Armazena estado anterior dos botões para detectar transições
 const previousStates = new Map();
 
 /**
- * Inicializa polling de gamepad inputs no WebXR sem interferir no loop de render.
- * @param {THREE.WebGLRenderer} renderer - o renderer XR habilitado
- * @param {Function} onNext - callback quando se detecta botão "A"
- * @param {Function} onPrev - callback quando se detecta botão "B"
- * @param {Function} onDebug - callback para qualquer botão detectado, recebe string crua do input
+ * Initialize polling of gamepad inputs in WebXR.
+ * @param {THREE.WebGLRenderer} renderer - XR-enabled renderer
+ * @param {Function} onNext - callback for button A (index 4)
+ * @param {Function} onPrev - callback for button B (index 5)
+ * @param {Function} onDebug - callback for any button pressed, receives raw input string
  */
 export function setupVRInputs(renderer, onNext, onPrev, onDebug) {
   function handleSession(session) {
+    previousStates.clear();
     session.addEventListener('inputsourceschange', () => {
       previousStates.clear();
     });
 
-    session.requestReferenceSpace('local').then(refSpace => {
-      function poll(time, frame) {
-        for (const source of session.inputSources) {
-          if (!source.gamepad) continue;
-          const gp = source.gamepad;
-          const id = `${source.handedness}|${gp.id}`;
-          const prev = previousStates.get(id) || [];
+    function poll(time, frame) {
+      for (const source of session.inputSources) {
+        if (!source.gamepad) continue;
+        const gp = source.gamepad;
+        const id = `${source.handedness}|${gp.id}`;
+        const prev = previousStates.get(id) || [];
 
-          gp.buttons.forEach((btn, idx) => {
-            if (btn.pressed && !prev[idx]) {
-              const raw = `${id} button[${idx}]`;
-              onDebug(raw);
-              if (idx === 0) onNext();
-              if (idx === 1) onPrev();
-            }
-          });
+        gp.buttons.forEach((btn, idx) => {
+          if (btn.pressed && !prev[idx]) {
+            const raw = `${id} button[${idx}]`;
+            onDebug && onDebug(raw);
+            if (idx === 4) onNext();
+            if (idx === 5) onPrev();
+          }
+        });
 
-          previousStates.set(id, gp.buttons.map(b => b.pressed));
-        }
-        session.requestAnimationFrame(poll);
+        previousStates.set(id, gp.buttons.map(b => b.pressed));
       }
+      session.requestAnimationFrame(poll);
+    }
+
+    session.requestReferenceSpace('local').then(() => {
       session.requestAnimationFrame(poll);
     });
   }
