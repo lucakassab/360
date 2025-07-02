@@ -1,21 +1,21 @@
 // platforms/vr.js
-
 import * as THREE from '../libs/three.module.js';
 
-let scene, camera, renderer;
+let scene, camera;
+export let renderer; // exporta só aqui
 let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
-// expõe renderer pra VRButton
-export let renderer;
-
-// initXR separado, sem criar botao
+// initXR separado, sem criar botão
 export async function initXR() {
   console.log('vr.js → initXR()');
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
-    75, window.innerWidth/window.innerHeight, 0.1, 1000
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
   );
   camera.position.set(0, 0, 0.1);
 
@@ -27,7 +27,7 @@ export async function initXR() {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
 
-  renderer.setAnimationLoop(()=>{
+  renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
 
@@ -44,12 +44,12 @@ export async function load(media) {
 }
 
 function clearScene() {
-  [sphereLeft, sphereRight].forEach(m=>{
-    if (!m) return;
-    scene.remove(m);
-    m.geometry.dispose();
-    m.material.map && m.material.map.dispose();
-    m.material.dispose();
+  [sphereLeft, sphereRight].forEach(mesh => {
+    if (!mesh) return;
+    scene.remove(mesh);
+    mesh.geometry.dispose();
+    mesh.material.map && mesh.material.map.dispose();
+    mesh.material.dispose();
   });
   if (videoEl) {
     videoEl.pause();
@@ -69,13 +69,15 @@ async function loadMedia(media) {
     videoEl = document.createElement('video');
     videoEl.src = media.cachePath;
     videoEl.crossOrigin = 'anonymous';
-    videoEl.loop = videoEl.muted = videoEl.playsInline = true;
+    videoEl.loop = true;
+    videoEl.muted = true;
+    videoEl.playsInline = true;
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
     const loader = new THREE.TextureLoader();
-    const base = await new Promise((res,rej)=>
+    const base = await new Promise((res, rej) =>
       loader.load(media.cachePath, res, undefined, rej)
     );
     base.mapping  = THREE.EquirectangularReflectionMapping;
@@ -91,19 +93,19 @@ async function loadMedia(media) {
 
   // stereo lado-a-lado
   if (media.stereo) {
-    texLeft.repeat.set(0.5,1);
-    texLeft.offset.set(0,0);
-    texRight.repeat.set(0.5,1);
-    texRight.offset.set(0.5,0);
+    texLeft.repeat.set(0.5, 1);
+    texLeft.offset.set(0, 0);
+    texRight.repeat.set(0.5, 1);
+    texRight.offset.set(0.5, 0);
     texRight.needsUpdate = true;
   } else {
-    texLeft.repeat.set(1,1);
-    texLeft.offset.set(0,0);
+    texLeft.repeat.set(1, 1);
+    texLeft.offset.set(0, 0);
   }
   texLeft.needsUpdate = true;
 
-  const geo = new THREE.SphereGeometry(500,60,40);
-  geo.scale(-1,1,1);
+  const geo = new THREE.SphereGeometry(500, 60, 40);
+  geo.scale(-1, 1, 1);
 
   if (!media.stereo) {
     const mat = new THREE.MeshBasicMaterial({ map: texLeft });
@@ -125,5 +127,6 @@ async function loadMedia(media) {
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
+
   console.log('vr.js.loadMedia done');
 }
