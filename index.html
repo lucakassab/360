@@ -7,63 +7,35 @@
 
   <title>PWA WebXR 360 Viewer</title>
 
+  <!-- Import Map pra resolver imports bare specifiers -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./libs/three.module.js"
+    }
+  }
+  </script>
+
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
 
-  <!-- Favicon padrão -->
+  <!-- Ícones -->
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
-
-  <!-- Android & Meta Quest -->
   <meta name="mobile-web-app-capable" content="yes">
-
-  <!-- Apple (iOS, Vision Pro) -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="360Viewer" />
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-
-  <!-- Ícones para outras plataformas -->
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
   <link rel="icon" type="image/png" sizes="256x256" href="icons/icon-256.png">
   <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
   <link rel="icon" type="image/png" sizes="1024x1024" href="icons/vision-icon.png">
 
   <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background: #000;
-      font-family: sans-serif;
-      color: #fff;
-    }
-    #ui {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      z-index: 10;
-      display: flex;
-      gap: 8px;
-    }
-    select, button {
-      padding: 5px 10px;
-      font-size: 14px;
-      border-radius: 4px;
-      border: none;
-      background: #222;
-      color: #fff;
-      cursor: pointer;
-    }
-    #loading {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      font-size: 24px;
-      font-weight: bold;
-      z-index: 20;
-      display: none;
-    }
+    body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; color: #fff; }
+    #ui { position: absolute; top: 10px; left: 10px; z-index: 10; display: flex; gap: 8px; }
+    select, button { padding: 5px 10px; font-size: 14px; border-radius: 4px; border: none; background: #222; color: #fff; cursor: pointer; }
+    #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px; font-weight: bold; z-index: 20; display: none; }
   </style>
 </head>
 <body>
