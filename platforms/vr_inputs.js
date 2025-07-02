@@ -1,41 +1,50 @@
 // platforms/vr_inputs.js
-// Captura inputs de controladores WebXR (Meta Quest) e dispara callbacksA/B sem interferir no loop de render
+// Captura inputs de controladores WebXR (Meta Quest) e dispara callbacks para debug e A/B
+
+// Armazena estado anterior dos botões para detectar transições
+const previousStates = new Map();
 
 /**
- * Inicializa polling de botões A e B em WebXR sem substituir o animation loop do renderer.
- * @param {THREE.WebGLRenderer} renderer - renderer XR habilitado
- * @param {Function} onNext - callback para avançar mídia (botão A)
- * @param {Function} onPrev - callback para voltar mídia (botão B)
+ * Inicializa polling de gamepad inputs no WebXR sem interferir no loop de render.
+ * @param {THREE.WebGLRenderer} renderer - o renderer XR habilitado
+ * @param {Function} onNext - callback quando se detecta botão "A"
+ * @param {Function} onPrev - callback quando se detecta botão "B"
+ * @param {Function} onDebug - callback para qualquer botão detectado, recebe string crua do input
  */
-export function setupVRInputs(renderer, onNext, onPrev) {
+export function setupVRInputs(renderer, onNext, onPrev, onDebug) {
   function handleSession(session) {
-    // limpa histórico ao trocar controladores
     session.addEventListener('inputsourceschange', () => {
-      // nada a fazer, histórico fica no frame
+      previousStates.clear();
     });
 
     session.requestReferenceSpace('local').then(refSpace => {
-      function onXRFrame(time, frame) {
-        // poll em cada frame
+      function poll(time, frame) {
         for (const source of session.inputSources) {
           if (!source.gamepad) continue;
           const gp = source.gamepad;
-          // gp.buttons[0] = A, gp.buttons[1] = B
-          if (gp.buttons[0].pressed) onNext();
-          if (gp.buttons[1].pressed) onPrev();
+          const id = `${source.handedness}|${gp.id}`;
+          const prev = previousStates.get(id) || [];
+
+          gp.buttons.forEach((btn, idx) => {
+            if (btn.pressed && !prev[idx]) {
+              const raw = `${id} button[${idx}]`;
+              onDebug(raw);
+              if (idx === 0) onNext();
+              if (idx === 1) onPrev();
+            }
+          });
+
+          previousStates.set(id, gp.buttons.map(b => b.pressed));
         }
-        // agenda próxima
-        session.requestAnimationFrame(onXRFrame);
+        session.requestAnimationFrame(poll);
       }
-      session.requestAnimationFrame(onXRFrame);
-    }).catch(err => console.error('VRInputs: falha ao obter referenceSpace', err));
+      session.requestAnimationFrame(poll);
+    });
   }
 
-  // Se já em sessão, inicia polling
   if (renderer.xr.isPresenting) {
     handleSession(renderer.xr.getSession());
   }
-  // Ao iniciar sessão
   renderer.xr.addEventListener('sessionstart', () => {
     handleSession(renderer.xr.getSession());
   });

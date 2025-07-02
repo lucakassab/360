@@ -13,7 +13,6 @@ const INVERTER_OLHOS = true;
 // 🎛️ Toggle pra mostrar console VR overlay
 const SHOW_VR_DEBUG = true;
 
-// variáveis internas pra overlay de debug
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
 const MAX_LOGS = 10;
@@ -35,7 +34,7 @@ function logDebug(msg) {
 
 export async function initXR(externalRenderer) {
   if (inited) return;
-  
+
   // Cena e câmera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
@@ -61,10 +60,12 @@ export async function initXR(externalRenderer) {
     scene.add(camera);
   }
 
-  // Configura inputs VR A/B
-  setupVRInputs(renderer,
-    button => logDebug(`Button A pressed`),
-    button => logDebug(`Button B pressed`)
+  // Configura inputs VR A/B e raw
+  setupVRInputs(
+    renderer,
+    () => logDebug('🔵 Botão A (mapped)'),
+    () => logDebug('🟣 Botão B (mapped)'),
+    (raw) => logDebug(`🟡 RAW: ${raw}`)
   );
 
   // Loop de render
@@ -77,6 +78,7 @@ export async function initXR(externalRenderer) {
 
 export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) precisa rodar antes de load()');
+  logDebug(`📂 Carregando: ${media.name}`);
   await loadMedia(media);
 }
 
@@ -100,7 +102,6 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // carrega textura
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -129,7 +130,6 @@ async function loadMedia(media) {
     }
   }
 
-  // Geometria
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
@@ -139,7 +139,6 @@ async function loadMedia(media) {
     return;
   }
 
-  // Stereo top-down
   const repeatStereo = new THREE.Vector2(1, 0.5);
   const offsetTop    = new THREE.Vector2(0, 0);
   const offsetBot    = new THREE.Vector2(0, 0.5);
@@ -150,13 +149,9 @@ async function loadMedia(media) {
     tex.repeat.copy(repeatStereo);
     tex.needsUpdate = true;
   });
-  if (!INVERTER_OLHOS) {
-    texLeft.offset.copy(offsetTop);
-    texRight.offset.copy(offsetBot);
-  } else {
-    texLeft.offset.copy(offsetBot);
-    texRight.offset.copy(offsetTop);
-  }
+
+  texLeft.offset.copy(INVERTER_OLHOS ? offsetBot : offsetTop);
+  texRight.offset.copy(INVERTER_OLHOS ? offsetTop : offsetBot);
 
   sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
   sphereLeft.layers.set(1);
@@ -166,7 +161,6 @@ async function loadMedia(media) {
   sphereRight.layers.set(2);
   scene.add(sphereRight);
 
-  // Layers na câmera
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
