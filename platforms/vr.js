@@ -84,7 +84,8 @@ export async function initXR(externalRenderer) {
   // esconde target-ray padrão
   [0, 1].forEach(i => renderer.xr.getController(i).visible = false);
 
-  const whiteMat = model => {
+  // helper para aplicar material branco
+  const applyWhiteMaterial = model => {
     model.traverse(o => {
       if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
         color: 0xffffff,
@@ -94,15 +95,36 @@ export async function initXR(externalRenderer) {
     });
   };
 
+  // configura grip esquerdo
   if (SHOW_LEFT_CONTROLLER) {
     gripL = renderer.xr.getControllerGrip(0);
-    const mL = factory.createControllerModel(gripL); whiteMat(mL);
-    gripL.add(mL); scene.add(gripL); gripL.visible = false;
+    gripL.visible = false;
+    gripL.addEventListener('connected', () => {
+      const model = factory.createControllerModel(gripL);
+      applyWhiteMaterial(model);
+      gripL.add(model);
+    });
+    gripL.addEventListener('disconnected', () => {
+      gripL.visible = false;
+      while (gripL.children.length) gripL.remove(gripL.children[0]);
+    });
+    scene.add(gripL);
   }
+
+  // configura grip direito
   if (SHOW_RIGHT_CONTROLLER) {
     gripR = renderer.xr.getControllerGrip(1);
-    const mR = factory.createControllerModel(gripR); whiteMat(mR);
-    gripR.add(mR); scene.add(gripR); gripR.visible = false;
+    gripR.visible = false;
+    gripR.addEventListener('connected', () => {
+      const model = factory.createControllerModel(gripR);
+      applyWhiteMaterial(model);
+      gripR.add(model);
+    });
+    gripR.addEventListener('disconnected', () => {
+      gripR.visible = false;
+      while (gripR.children.length) gripR.remove(gripR.children[0]);
+    });
+    scene.add(gripR);
   }
 
   renderer.setAnimationLoop(() => {
@@ -111,13 +133,11 @@ export async function initXR(externalRenderer) {
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // === 1) Toggle HUD com botão B ===
+    // === Toggle HUD com botão B ===
     let btnPressedNow = false;
-
     for (const src of session.inputSources) {
       const gp = src.gamepad;
-      if (gp && gp.buttons.length >= 4 && gp.buttons[3].pressed)
-        btnPressedNow = true;
+      if (gp && gp.buttons.length >= 4 && gp.buttons[3].pressed) btnPressedNow = true;
     }
     if (btnPressedNow && !prevButtonPressed && debugMesh) {
       debugMesh.visible = !debugMesh.visible;
@@ -125,7 +145,7 @@ export async function initXR(externalRenderer) {
     }
     prevButtonPressed = btnPressedNow;
 
-    // === 2) Autodetecção de controles ===
+    // === Autodetecção de controles ===
     let foundLeft = false, foundRight = false;
     for (const src of session.inputSources) {
       if (src.handedness === 'left')  foundLeft  = true;
