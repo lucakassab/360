@@ -41,7 +41,12 @@ export async function initXR(externalRenderer) {
 
   // 2) Mesma canvas/renderer do desktop/mobile
   renderer = externalRenderer;
+
+  // **>>> AQUI VEM O FIX DE QUALIDADE:**
+  // Garante que o XR framebuffer use o mesmo pixelRatio
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
+  renderer.xr.setFramebufferScaleFactor(window.devicePixelRatio);
 
   // 3) Overlay de debug
   if (SHOW_VR_DEBUG) {
@@ -68,15 +73,12 @@ export async function initXR(externalRenderer) {
     const gps = navigator.getGamepads();
     for (const gp of gps) {
       if (!gp) continue;
-      // usa id do gp para diferenciar controles
       const id = gp.id;
       if (!prevStates[id]) prevStates[id] = gp.buttons.map(_=>false);
 
       gp.buttons.forEach((btn, idx) => {
-        // transição: não-pressionado → pressionado
         if (btn.pressed && !prevStates[id][idx]) {
           logDebug(`RAW: ${id} button[${idx}]`);
-          // botão 4 = A, botão 5 = B no Quest
           if (idx === 4) {
             logDebug('🔵 Botão A → NEXT');
             btnNext.click();
@@ -86,7 +88,6 @@ export async function initXR(externalRenderer) {
             btnPrev.click();
           }
         }
-        // atualiza estado
         prevStates[id][idx] = btn.pressed;
       });
     }
