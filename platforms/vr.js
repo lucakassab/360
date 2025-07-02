@@ -1,6 +1,5 @@
 // platforms/vr.js
 import * as THREE from '../libs/three.module.js';
-import { setupVRInputs } from './vr_inputs.js';
 
 let scene, camera;
 export let renderer;
@@ -11,46 +10,22 @@ let inited = false;
 // 🔁 Toggle pra inverter os olhos (debug)
 const INVERTER_OLHOS = false;
 
-/**
- * Inicializa WebXR no renderer existente, cria cena/câmera e liga o loop de render.
- * Também configura os inputs do controle (A/B) via setupVRInputs.
- * @param {THREE.WebGLRenderer} externalRenderer
- * @param {Function} onNext
- * @param {Function} onPrev
- */
-export async function initXR(externalRenderer, onNext, onPrev) {
+export async function initXR(externalRenderer) {
   if (inited) return;
-
-  // 1) cena e câmera primeiro
-  scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
-  camera.position.set(0, 0, 0.1);
-
-  // 2) pega o renderer da plataforma
   renderer = externalRenderer;
   renderer.xr.enabled = true;
-
-  // 3) configura o polling dos botões A/B
-  setupVRInputs(renderer, onNext, onPrev);
-
-  // 4) liga o loop de render com cena/câmera já criadas
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
 
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.set(0, 0, 0.1);
   inited = true;
 }
 
-/**
- * Carrega a mídia na cena VR (deve chamar initXR antes).
- */
 export async function load(media) {
-  if (!inited) throw new Error('Você deve chamar initXR(renderer, onNext, onPrev) antes de load()');
+  if (!inited) throw new Error('initXR(renderer) precisa rodar antes de load()');
   await loadMedia(media);
 }
 
@@ -74,7 +49,7 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // carrega textura (vídeo ou imagem)
+  // carrega a textura (vídeo ou imagem)
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -103,57 +78,40 @@ async function loadMedia(media) {
     }
   }
 
-  // configura top-down stereo
-  const repeatStereo = new THREE.Vector2(1, 0.5);
-  const offsetTop    = new THREE.Vector2(0, 0);
-  const offsetBot    = new THREE.Vector2(0, 0.5);
+  const geo = new THREE.SphereGeometry(500, 60, 40);
+  geo.scale(-1, 1, 1);
 
-  // se não for estéreo, exibe tudo no texLeft
   if (!media.stereo) {
-    texLeft.wrapS = texLeft.wrapT = THREE.ClampToEdgeWrapping;
-    texLeft.repeat.set(1,1);
-    texLeft.offset.set(0,0);
-    texLeft.needsUpdate = true;
-
-    const geo = new THREE.SphereGeometry(500, 60, 40);
-    geo.scale(-1,1,1);
     sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
     scene.add(sphereLeft);
     return;
   }
 
-  // stereo top-down
-  [texLeft, texRight].forEach(tex => {
-    tex.wrapS = THREE.ClampToEdgeWrapping;
-    tex.wrapT = THREE.RepeatWrapping;
-    tex.repeat.copy(repeatStereo);
-    tex.needsUpdate = true;
-  });
+  // stereo top-down com toggle de inversão
+  const offsetTop    = new THREE.Vector2(0, 0);
+  const offsetBottom = new THREE.Vector2(0, 0.5);
+  const repeatStereo = new THREE.Vector2(1, 0.5);
 
-  // aplica offsets com toggle de debug
-  if (!INVERTER_OLHOS) {
-    texLeft.offset.copy(offsetTop);
-    texRight.offset.copy(offsetBot);
-  } else {
-    // invertido pra debug
-    texLeft.offset.copy(offsetBot);
-    texRight.offset.copy(offsetTop);
-  }
+  const texL = texLeft;
+  const texR = texRight;
 
-  const geo = new THREE.SphereGeometry(500, 60, 40);
-  geo.scale(-1,1,1);
+  texL.wrapS = texR.wrapS = THREE.ClampToEdgeWrapping;
+  texL.wrapT = texR.wrapT = THREE.RepeatWrapping;
+  texL.repeat.copy(repeatStereo);
+  texR.repeat.copy(repeatStereo);
+  texL.offset.copy(INVERTER_OLHOS ? offsetBottom : offsetTop);
+  texR.offset.copy(INVERTER_OLHOS ? offsetTop    : offsetBottom);
+  texL.needsUpdate = true;
+  texR.needsUpdate = true;
 
-  // olho esquerdo → layer 1
-  sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
+  sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texL }));
   sphereLeft.layers.set(1);
   scene.add(sphereLeft);
 
-  // olho direito → layer 2
-  sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
+  sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texR }));
   sphereRight.layers.set(2);
   scene.add(sphereRight);
 
-  // habilita as layers
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
