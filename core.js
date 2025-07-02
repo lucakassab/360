@@ -1,6 +1,5 @@
 // core.js
 
-const canvas     = document.getElementById('xr-canvas');
 const loadingEl  = document.getElementById('loading');
 const dropdown   = document.getElementById('mediaSelect');
 const btnPrev    = document.getElementById('prevBtn');
@@ -9,11 +8,12 @@ const btnNext    = document.getElementById('nextBtn');
 let mediaList    = [];
 let currentIndex = 0;
 let currentModule;
+let platformMod;
 
 main();
 
 async function main() {
-  // 1) carrega JSON
+  // 1) carrega lista
   mediaList = await (await fetch('./media/media.json')).json();
   mediaList.forEach((m,i)=>{
     const o = document.createElement('option');
@@ -21,24 +21,21 @@ async function main() {
     dropdown.appendChild(o);
   });
 
-  // 2) detecta plataforma e importa só 1 módulo
+  // 2) detecta e importa só 1 módulo
   if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-    const mobileMod = await import('./platforms/mobile.js');
-    await mobileMod.init();
-    currentModule = mobileMod;
+    platformMod = await import('./platforms/mobile.js');
   } else {
-    const desktopMod = await import('./platforms/desktop.js');
-    await desktopMod.init();
-    currentModule = desktopMod;
+    platformMod = await import('./platforms/desktop.js');
   }
+  await platformMod.init();
+  currentModule = platformMod;
 
-  // 3) carrega a mídia inicial
+  // 3) carrega mídia inicial
   await loadMedia(currentIndex);
 
-  // 4) se WebXR, monta o botão VR usando o mesmo renderer do desktopMod
+  // 4) VR button (desktop ou mobile): pega renderer do platformMod
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
-    // só desktopMod tem renderer, mobileMod nem precisa VR
-    const { renderer } = await import('./platforms/desktop.js');
+    const renderer = platformMod.renderer;
     renderer.xr.enabled = true;
     const { VRButton } = await import('./libs/VRButton.js');
     const btn = VRButton.createButton(renderer);
@@ -46,19 +43,28 @@ async function main() {
     document.body.appendChild(btn);
   }
 
-  // 5) UI
-  dropdown.onchange = () => loadMedia(currentIndex = +dropdown.value);
-  btnPrev.onclick = () => loadMedia(currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length);
-  btnNext.onclick = () => loadMedia(currentIndex = (currentIndex + 1) % mediaList.length);
+  // 5) listeners UI
+  dropdown.onchange = e => {
+    currentIndex = +e.target.value;
+    loadMedia(currentIndex);
+  };
+  btnPrev.onclick = () => {
+    currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
+    dropdown.value = currentIndex;
+    loadMedia(currentIndex);
+  };
+  btnNext.onclick = () => {
+    currentIndex = (currentIndex + 1) % mediaList.length;
+    dropdown.value = currentIndex;
+    loadMedia(currentIndex);
+  };
 }
 
 async function onEnterVR() {
-  // 6) import e inicializa VR SÓ no click
+  // importa e inicializa VR só no clique
   const vrMod = await import('./platforms/vr.js');
+  await vrMod.initXR(platformMod.renderer);
   currentModule = vrMod;
-  // passa o desktop renderer
-  const { renderer } = await import('./platforms/desktop.js');
-  await vrMod.initXR(renderer);
   await vrMod.load(mediaList[currentIndex]);
 }
 

@@ -1,13 +1,18 @@
 import * as THREE from '../libs/three.module.js';
 import { OrbitControls } from '../libs/OrbitControls.js';
 
-let scene, camera, renderer, controls, sphereMesh, videoElement, texture;
+export let renderer;
+let scene, camera, controls, sphereMesh, videoElement, texture;
 const canvas = document.getElementById('xr-canvas');
 
-// chamado EXPLICITAMENTE pelo core.js
 export function init() {
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
   camera.position.set(0, 0, 0.1);
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
@@ -44,10 +49,16 @@ function clearScene() {
 export async function load(media) {
   clearScene();
 
-  // carrega textura
+  // carrega vídeo ou imagem
   if (media.type === 'video') {
     videoElement = document.createElement('video');
-    Object.assign(videoElement, { src: media.cachePath, crossOrigin: 'anonymous', loop: true, muted: true });
+    Object.assign(videoElement, {
+      src: media.cachePath,
+      crossOrigin: 'anonymous',
+      loop: true,
+      muted: true,
+      playsInline: true
+    });
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
   } else {
@@ -56,7 +67,7 @@ export async function load(media) {
     });
   }
 
-  // stereo top-bottom
+  // corte top-bottom pra stereo
   texture.wrapS = THREE.ClampToEdgeWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   if (media.stereo) {
@@ -77,6 +88,3 @@ export async function load(media) {
   sphereMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texture }));
   scene.add(sphereMesh);
 }
-
-// expõe o renderer pro VRButton
-export { renderer };

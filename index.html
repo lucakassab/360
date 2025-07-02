@@ -48,46 +48,6 @@
       navigator.serviceWorker.register('./service-worker.js')
         .then(()=>console.log('🛠️ Service Worker registrado!'))
         .catch(err=>console.error('💥 Falha ao registrar SW:', err));
-    }
-
-    // Variáveis para install prompt
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
-
-    // Detecta iOS Safari
-    const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-
-    // Se for iOS e não estiver instalado, mostra botão e instruções
-    if (isIos && !isInStandaloneMode) {
-      installBtn.style.display = 'inline-block';
-      installBtn.addEventListener('click', () => {
-        alert(
-          'Para instalar: toque no ícone de compartilhar no Safari e selecione "Adicionar à Tela de Início".'
-        );
-      });
-    }
-
-    // Captura o beforeinstallprompt (Chrome/Edge)
-    window.addEventListener('beforeinstallprompt', e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = 'inline-block';
-      console.log('📲 beforeinstallprompt capturado');
-    });
-
-    // Quando clicar no botão (Chromium)
-    installBtn.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        installBtn.style.display = 'none';
-        deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        console.log('📲 Resultado da instalação:', choice.outcome); // accepted/dismissed
-        deferredPrompt = null;
-      }
-    });
-  </script>
-
   <script type="module" src="./core.js"></script>
 </body>
 </html>
