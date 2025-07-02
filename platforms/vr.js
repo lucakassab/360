@@ -8,10 +8,10 @@ let videoEl, texLeft, texRight;
 let inited = false;
 
 // 🔁 Debug toggles
-const INVERTER_OLHOS = true;   // inverte top/bottom dos olhos
-const SHOW_VR_DEBUG = true;    // exibe overlay de logs em VR
+const INVERTER_OLHOS   = true;  // inverte top/bottom das metades estéreo
+const SHOW_VR_DEBUG    = true;  // mostra a sobreposição de console no headset
 
-// vars para overlay de debug
+// variáveis da sobreposição de debug
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
 const MAX_LOGS = 10;
@@ -53,15 +53,7 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // 3) Detecta dispositivo via userAgent
-  const ua = navigator.userAgent;
-  let deviceName = 'Desconhecido';
-  if (/Quest\s?Pro/.test(ua))          deviceName = 'Meta Quest Pro';
-  else if (/Quest\s?2/.test(ua))        deviceName = 'Meta Quest 2';
-  else if (/Quest\s?3/.test(ua))        deviceName = 'Meta Quest 3';
-  else if (/Quest/.test(ua))            deviceName = 'Meta Quest';
-  else if (/OculusBrowser/.test(ua))    deviceName = 'Oculus Browser';
-  // 4) Overlay de debug (se habilitado)
+  // 3) Configura overlay de debug
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
     debugCanvas.width  = 512;
@@ -73,10 +65,21 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
     scene.add(camera);
+
+    // 3.1) Detecta dispositivo XR via User-Agent
+    const ua  = navigator.userAgent;
+    const lu  = ua.toLowerCase();
+    let deviceName = 'Desconhecido';
+    if (lu.includes('quest pro'))               deviceName = 'Meta Quest Pro';
+    else if (lu.includes('quest 3') || lu.includes('quest3')) deviceName = 'Meta Quest 3';
+    else if (lu.includes('quest 2') || lu.includes('quest2')) deviceName = 'Meta Quest 2';
+    else if (lu.includes('quest'))               deviceName = 'Meta Quest';
+    else if (lu.includes('oculusbrowser'))       deviceName = 'Oculus Browser';
     logDebug(`🎮 Dispositivo XR: ${deviceName}`);
+    logDebug(`🖥️ User-Agent: ${ua}`);
   }
 
-  // 5) Cubos nos grips dos controllers
+  // 4) Adiciona cubos nos grips dos controllers
   const grip0 = renderer.xr.getControllerGrip(0);
   const cube0 = new THREE.Mesh(
     new THREE.BoxGeometry(0.05, 0.05, 0.05),
@@ -84,7 +87,7 @@ export async function initXR(externalRenderer) {
   );
   grip0.add(cube0);
   scene.add(grip0);
-  logDebug('✅ Cubo verde (esquerdo) adicionado');
+  logDebug('✅ Cubo verde (esq) adicionado');
 
   const grip1 = renderer.xr.getControllerGrip(1);
   const cube1 = new THREE.Mesh(
@@ -93,9 +96,9 @@ export async function initXR(externalRenderer) {
   );
   grip1.add(cube1);
   scene.add(grip1);
-  logDebug('✅ Cubo vermelho (direito) adicionado');
+  logDebug('✅ Cubo vermelho (dir) adicionado');
 
-  // 6) Loop de render
+  // 5) Loop de render
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
   });
@@ -106,7 +109,7 @@ export async function initXR(externalRenderer) {
 
 export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
-  logDebug(`📂 Carregando mídia: ${media.name}`);
+  logDebug(`📂 Carregando: ${media.name}`);
   await loadMedia(media);
   logDebug('✅ loadMedia concluído');
 }
@@ -136,7 +139,7 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // 1) Cria textura
+  // 1) Cria a textura (vídeo ou imagem)
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
@@ -157,10 +160,10 @@ async function loadMedia(media) {
     );
     texLeft  = base;
     texRight = media.stereo ? base.clone() : null;
-    logDebug('📷 TextureLoader concluído');
+    logDebug('📷 TextureLoader carregou imagem');
   }
 
-  // 2) Alta qualidade / sRGB
+  // 2) Filtros de alta qualidade e sRGB
   [texLeft, texRight].forEach(tex => {
     if (!tex) return;
     tex.minFilter       = THREE.LinearFilter;
@@ -173,14 +176,14 @@ async function loadMedia(media) {
   });
   logDebug('🔧 Filtros de alta qualidade aplicados');
 
-  // 3) Stereo top-down com inversão
+  // 3) Crop stereo top-down com toggle de inversão
   if (media.stereo) {
     texLeft.repeat.set(1, 0.5);
     texRight.repeat.set(1, 0.5);
-    const topOffset    = INVERTER_OLHOS ? 0.5 : 0.0;
-    const bottomOffset = INVERTER_OLHOS ? 0.0 : 0.5;
-    texLeft.offset.set(0, topOffset);
-    texRight.offset.set(0, bottomOffset);
+    const topOfs    = INVERTER_OLHOS ? 0.5 : 0.0;
+    const botOfs    = INVERTER_OLHOS ? 0.0 : 0.5;
+    texLeft.offset.set(0, topOfs);
+    texRight.offset.set(0, botOfs);
     texLeft.needsUpdate  = true;
     texRight.needsUpdate = true;
     logDebug(`🔀 Stereo aplicado (invertido: ${INVERTER_OLHOS})`);
@@ -191,10 +194,9 @@ async function loadMedia(media) {
     logDebug('⚪ Mono aplicado');
   }
 
-  // 4) Monta esfera invertida
+  // 4) Monta a esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
-
   if (!media.stereo) {
     sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
     scene.add(sphereLeft);
@@ -207,9 +209,9 @@ async function loadMedia(media) {
     scene.add(sphereRight);
   }
 
-  // 5) Ativa layers na câmera XR
+  // 5) Ativa a renderização por layer dos olhos
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
-  logDebug('🌐 Cena VR preparada');
+  logDebug('🌐 Cena VR pronta');
 }
