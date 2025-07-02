@@ -55,7 +55,7 @@ export async function initXR(externalRenderer) {
   // 3) Overlay de debug
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
-    debugCanvas.width  = 512;
+    debugCanvas.width  = 2048;
     debugCanvas.height = 256;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
     const mat  = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
