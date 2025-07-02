@@ -33,8 +33,9 @@
 
   <style>
     body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; color: #fff; }
-    #ui { position: absolute; top: 10px; left: 10px; z-index: 10; display: flex; gap: 8px; }
+    #ui { position: absolute; top: 10px; left: 10px; z-index: 10; display: flex; gap: 8px; align-items: center; }
     select, button { padding: 5px 10px; font-size: 14px; border-radius: 4px; border: none; background: #222; color: #fff; cursor: pointer; }
+    #installBtn { background: #4caf50; display: none; } 
     #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px; font-weight: bold; z-index: 20; display: none; }
   </style>
 </head>
@@ -44,6 +45,7 @@
     <button id="prevBtn">◀</button>
     <select id="mediaSelect"></select>
     <button id="nextBtn">▶</button>
+    <button id="installBtn">Instalar App</button>
   </div>
 
   <div id="loading">Loading...</div>
@@ -51,11 +53,32 @@
 
   <script type="module" src="./core.js"></script>
   <script>
+    // Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js')
         .then(() => console.log('🛠️ Service Worker registrado!'))
         .catch(err => console.error('💥 Falha ao registrar SW:', err));
     }
+
+    // PWA install prompt
+    let deferredInstallPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      installBtn.style.display = 'inline-block';
+      console.log('📲 beforeinstallprompt capturado');
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (!deferredInstallPrompt) return;
+      installBtn.style.display = 'none';
+      deferredInstallPrompt.prompt();
+      const choice = await deferredInstallPrompt.userChoice;
+      console.log('📲 Resultado da instalação:', choice.outcome);
+      deferredInstallPrompt = null;
+    });
   </script>
 </body>
 </html>
