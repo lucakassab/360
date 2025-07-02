@@ -19,7 +19,8 @@ const MAX_LOGS = 10;
 let prevButtonPressed = false;
 
 let gripL = null, gripR = null;
-let leftPresent = false, rightPresent = false;
+let leftPresent  = false;
+let rightPresent = false;
 
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
@@ -31,131 +32,142 @@ function logDebug(msg) {
   ctx.fillRect(0, 0, debugCanvas.width, debugCanvas.height);
   ctx.fillStyle = '#0f0';
   ctx.font = '20px monospace';
-  debugLogs.forEach((l, i) => ctx.fillText(l, 10, 30 + i * 22));
+  debugLogs.forEach((line, i) => ctx.fillText(line, 10, 30 + i * 22));
   debugTexture.needsUpdate = true;
 }
-const dumpMeshes = (root, label) =>
-  root.traverse(o => o.isMesh && logDebug(📦 ${label}: mesh "${o.name}"));
 
-export async function initXR(extRenderer) {
+function dumpMeshes(root, label) {
+  root.traverse(o => {
+    if (o.isMesh) logDebug(`📦 ${label}: mesh "${o.name}"`);
+  });
+}
+
+export async function initXR(externalRenderer) {
   if (inited) return;
 
-  /* ---------- cena básica ---------- */
   scene  = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
 
-  renderer = extRenderer;
-  renderer.xr.enabled = true;
+  renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.xr.enabled = true;
   renderer.xr.setFramebufferScaleFactor(window.devicePixelRatio);
-  renderer.toneMapping = THREE.NoToneMapping;
+  renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI/6, 0.25);
+  const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI / 6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot, spot.target);
   scene.add(camera);
 
-  /* ---------- HUD ---------- */
   if (SHOW_VR_DEBUG) {
-    debugCanvas = Object.assign(document.createElement('canvas'), { width: 2048, height: 1024 });
+    debugCanvas  = document.createElement('canvas');
+    debugCanvas.width  = 2048;
+    debugCanvas.height = 1024;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
-    const hudMat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
-    debugMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.3), hudMat);
+    const mat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
+    const geo = new THREE.PlaneGeometry(0.6, 0.3);
+    debugMesh = new THREE.Mesh(geo, mat);
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
 
     const ua = navigator.userAgent.toLowerCase();
-    const dev =
+    const device =
       ua.includes('quest pro') ? 'Meta Quest Pro' :
       ua.includes('quest 3')   ? 'Meta Quest 3'  :
       ua.includes('quest 2')   ? 'Meta Quest 2'  :
       ua.includes('quest')     ? 'Meta Quest'    :
       ua.includes('oculusbrowser') ? 'Oculus Browser' : 'Desconhecido';
-    logDebug(🎮 Dispositivo XR: ${dev});
+    logDebug(`🎮 Dispositivo XR: ${device}`);
   }
 
-  /* ---------- controles ---------- */
   const factory = new XRControllerModelFactory();
-  [0,1].forEach(i => renderer.xr.getController(i).visible = false); // apaga laser
+  [0, 1].forEach(i => renderer.xr.getController(i).visible = false);
 
-  const whiteMat = m => m.traverse(o => {
-    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:0.3, metalness:0.4 });
-  });
+  const whiteMat = model => {
+    model.traverse(o => {
+      if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        roughness: 0.3,
+        metalness: 0.4
+      });
+    });
+  };
 
-  function spawnGrip(i, label) {
-    const grip = renderer.xr.getControllerGrip(i);
+  function spawnGrip(index, label) {
+    const grip = renderer.xr.getControllerGrip(index);
     grip.visible = false;
 
     const model = factory.createControllerModel(grip);
     whiteMat(model);
     grip.add(model);
 
-    model.addEventListener('connected', () => dumpMeshes(model, ${label} model ready));
+    model.addEventListener('connected', () => {
+      dumpMeshes(model, `${label} (model ready)`);
+    });
 
-    grip.addEventListener('connected', e => {
-      const profile = (e.data?.profiles?.[0] || '').toLowerCase();
-      if (profile.includes('hand')) {           // IGNORA mão
-        logDebug(🙌 ${label} é hand-tracking, oculto);
-        grip.visible = false;
-      } else {
-        grip.visible = true;
-        logDebug(🟢 ${label} detectado (${profile}));
-      }
+    grip.addEventListener('connected', (e) => {
+      grip.visible = true;
+      logDebug(`🟢 ${label} detectado (profile: ${e.data?.profiles?.[0] || '??'})`);
     });
 
     grip.addEventListener('disconnected', () => {
       grip.visible = false;
-      logDebug(🔴 ${label} perdido);
+      logDebug(`🔴 ${label} perdido`);
     });
 
     scene.add(grip);
     return grip;
   }
-  if (SHOW_LEFT_CONTROLLER)  gripL = spawnGrip(0, 'controle esquerdo');
+
+  if (SHOW_LEFT_CONTROLLER)  gripL  = spawnGrip(0, 'controle esquerdo');
   if (SHOW_RIGHT_CONTROLLER) gripR = spawnGrip(1, 'controle direito');
 
-  /* ---------- render loop ---------- */
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
+
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // toggle HUD (botão B)
-    let press = session.inputSources.some(src => src.gamepad?.buttons[3]?.pressed);
-    if (press && !prevButtonPressed) {
-      debugMesh.visible = !debugMesh.visible;
-      logDebug(🟢 HUD ${debugMesh.visible ? 'on' : 'off'});
-    }
-    prevButtonPressed = press;
-
-    // estados de controle (ignorando hands)
-    let foundL = false, foundR = false;
+    let btnPressedNow = false;
     session.inputSources.forEach(src => {
-      if (src.hand) return;                     // pula mão
-      if (src.handedness === 'left')  foundL = true;
-      if (src.handedness === 'right') foundR = true;
+      const gp = src.gamepad;
+      if (gp && gp.buttons[3]?.pressed) btnPressedNow = true;
     });
-    if (foundL !== leftPresent) {
-      logDebug(foundL ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
-      leftPresent = foundL;
+    if (btnPressedNow && !prevButtonPressed && debugMesh) {
+      debugMesh.visible = !debugMesh.visible;
+      logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
     }
-    if (foundR !== rightPresent) {
-      logDebug(foundR ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
-      rightPresent = foundR;
+    prevButtonPressed = btnPressedNow;
+
+    let foundLeft = false, foundRight = false;
+    session.inputSources.forEach(src => {
+      if (src.handedness === 'left')  foundLeft  = true;
+      if (src.handedness === 'right') foundRight = true;
+    });
+
+    if (foundLeft !== leftPresent) {
+      logDebug(foundLeft ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
+      leftPresent = foundLeft;
     }
-    if (gripL) gripL.visible = foundL;
-    if (gripR) gripR.visible = foundR;
+    if (foundRight !== rightPresent) {
+      logDebug(foundRight ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
+      rightPresent = foundRight;
+    }
+
+    if (gripL) gripL.visible = foundLeft;
+    if (gripR) gripR.visible = foundRight;
   });
 
   inited = true;
   logDebug('🚀 initXR concluído');
 }
+
 export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
-  logDebug(📂 Carregando: ${media.name});
+  logDebug(`📂 Carregando: ${media.name}`);
   await loadMedia(media);
   logDebug('✅ loadMedia concluído');
 }
