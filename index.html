@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.json" />
 
   <!-- Favicon padrão -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
 
   <!-- Android & Meta Quest -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -20,13 +20,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="360Viewer" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 
   <!-- Ícones para outras plataformas -->
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="icon-256.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-  <link rel="icon" type="image/png" sizes="1024x1024" href="vision-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="icons/icon-256.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="icons/vision-icon.png">
 
   <style>
     body {
@@ -36,7 +36,6 @@
       font-family: sans-serif;
       color: #fff;
     }
-
     #ui {
       position: absolute;
       top: 10px;
@@ -45,7 +44,6 @@
       display: flex;
       gap: 8px;
     }
-
     select, button {
       padding: 5px 10px;
       font-size: 14px;
@@ -55,7 +53,6 @@
       color: #fff;
       cursor: pointer;
     }
-
     #loading {
       position: absolute;
       top: 50%;
@@ -78,13 +75,10 @@
   </div>
 
   <div id="loading">Loading...</div>
-
   <canvas id="xr-canvas"></canvas>
 
   <script type="module" src="./core.js"></script>
-
   <script>
-    // Register service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js')
         .then(() => console.log('🛠️ Service Worker registrado!'))
