@@ -74,8 +74,8 @@ export async function initXR(externalRenderer) {
     else if (low.includes('quest 2'))           deviceName = 'Meta Quest 2';
     else if (low.includes('quest'))             deviceName = 'Meta Quest';
     else if (low.includes('oculusbrowser'))     deviceName = 'Oculus Browser';
-    logDebug(🎮 Dispositivo XR: ${deviceName});
-    logDebug(🖥️ User-Agent: ${ua});
+    logDebug(`🎮 Dispositivo XR: ${deviceName}`);
+    logDebug(`🖥️ User-Agent: ${ua}`);
   }
 
   // 4) Adiciona cubos nos grips
@@ -108,7 +108,7 @@ export async function initXR(externalRenderer) {
 
 export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
-  logDebug(📂 Carregando: ${media.name});
+  logDebug(`📂 Carregando: ${media.name}`);
   await loadMedia(media);
   logDebug('✅ loadMedia concluído');
 }
@@ -185,7 +185,7 @@ async function loadMedia(media) {
     texRight.offset.set(0, bot);
     texLeft.needsUpdate   = true;
     texRight.needsUpdate  = true;
-    if (SHOW_VR_DEBUG) logDebug(🔀 Stereo aplicado (invertido: ${INVERTER_OLHOS}));
+    if (SHOW_VR_DEBUG) logDebug(`🔀 Stereo aplicado (invertido: ${INVERTER_OLHOS})`);
   } else {
     texLeft.repeat.set(1, 1);
     texLeft.offset.set(0, 0);
