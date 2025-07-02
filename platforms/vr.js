@@ -5,14 +5,15 @@ import { XRControllerModelFactory } from 'https://unpkg.com/three@0.158.0/exampl
 let scene, camera;
 export let renderer;
 let sphereLeft, sphereRight;
-let videoEl, texLeft, texRight;
+let videoEl, texLeft, texRight, envMap;
+let pmremGen;
 let inited = false;
 
 // 🔁 Toggles
 const SHOW_LEFT_CONTROLLER  = true;
 const SHOW_RIGHT_CONTROLLER = true;
-const INVERTER_OLHOS = true;
-const SHOW_VR_DEBUG  = true;
+const INVERTER_OLHOS        = true;
+const SHOW_VR_DEBUG         = true;
 
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
@@ -36,29 +37,32 @@ function logDebug(msg) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
-  scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  scene   = new THREE.Scene();
+  camera  = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
 
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
   renderer.xr.setFramebufferScaleFactor(window.devicePixelRatio);
-  renderer.toneMapping    = THREE.NoToneMapping;
+  renderer.toneMapping = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
+  // PMREM generator para HDR "fake"
+  pmremGen = new THREE.PMREMGenerator(renderer);
+  pmremGen.compileEquirectangularShader();
+
   if (SHOW_VR_DEBUG) {
-    debugCanvas = document.createElement('canvas');
+    debugCanvas  = document.createElement('canvas');
     debugCanvas.width  = 2048;
     debugCanvas.height = 1024;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
-    const mat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
-    const geo = new THREE.PlaneGeometry(0.6, 0.3);
-    debugMesh = new THREE.Mesh(geo, mat);
+    const mat  = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
+    const geo  = new THREE.PlaneGeometry(0.6, 0.3);
+    debugMesh  = new THREE.Mesh(geo, mat);
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
     scene.add(camera);
-
     const ua = navigator.userAgent.toLowerCase();
     const deviceName =
       ua.includes('quest pro') ? 'Meta Quest Pro' :
@@ -71,22 +75,19 @@ export async function initXR(externalRenderer) {
 
   const factory = new XRControllerModelFactory();
 
-  [0, 1].forEach(i => {
-    const ctrl = renderer.xr.getController(i);
-    ctrl.visible = false;
-  });
+  // Esconde target-ray padrão
+  [0,1].forEach(i => renderer.xr.getController(i).visible = false);
 
   if (SHOW_LEFT_CONTROLLER) {
-    const leftGrip = renderer.xr.getControllerGrip(0);
-    leftGrip.add(factory.createControllerModel(leftGrip));
-    scene.add(leftGrip);
+    const gripL = renderer.xr.getControllerGrip(0);
+    gripL.add(factory.createControllerModel(gripL));
+    scene.add(gripL);
     logDebug?.('✅ Controle ESQ carregado');
   }
-
   if (SHOW_RIGHT_CONTROLLER) {
-    const rightGrip = renderer.xr.getControllerGrip(1);
-    rightGrip.add(factory.createControllerModel(rightGrip));
-    scene.add(rightGrip);
+    const gripR = renderer.xr.getControllerGrip(1);
+    gripR.add(factory.createControllerModel(gripR));
+    scene.add(gripR);
     logDebug?.('✅ Controle DIR carregado');
   }
 
@@ -96,20 +97,16 @@ export async function initXR(externalRenderer) {
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    for (const source of session.inputSources) {
-      const gp = source.gamepad;
+    for (const src of session.inputSources) {
+      const gp = src.gamepad;
       if (!gp || gp.buttons.length < 4) continue;
 
-      const isPressed = gp.buttons[3].pressed;
-
-      if (isPressed && !prevButtonPressed) {
-        if (debugMesh) {
-          debugMesh.visible = !debugMesh.visible;
-          logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
-        }
+      const pressed = gp.buttons[3].pressed; // Botão B
+      if (pressed && !prevButtonPressed && debugMesh) {
+        debugMesh.visible = !debugMesh.visible;
+        logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
       }
-
-      prevButtonPressed = isPressed;
+      prevButtonPressed = pressed;
     }
   });
 
@@ -125,18 +122,19 @@ export async function load(media) {
 }
 
 function clearScene() {
-  [sphereLeft, sphereRight].forEach(mesh => {
-    if (!mesh) return;
-    scene.remove(mesh);
-    mesh.geometry.dispose();
-    mesh.material.map?.dispose();
-    mesh.material.dispose();
+  [sphereLeft, sphereRight].forEach(m => {
+    if (!m) return;
+    scene.remove(m);
+    m.geometry.dispose();
+    m.material.map?.dispose();
+    m.material.dispose();
   });
   if (videoEl) {
-    videoEl.pause(); videoEl.src = ''; videoEl.load(); videoEl.remove();
+    videoEl.pause(); videoEl.src=''; videoEl.load(); videoEl.remove();
     videoEl = null;
   }
   texLeft?.dispose?.(); texRight?.dispose?.();
+  if (envMap) { envMap.dispose(); envMap = null; scene.environment = null; }
   sphereLeft = sphereRight = texLeft = texRight = null;
   logDebug?.('🧹 Cena limpa');
 }
@@ -144,49 +142,57 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
+  // 1) Carrega textura / vídeo
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
       src: media.cachePath,
       crossOrigin: 'anonymous',
-      loop: true,
-      muted: true,
-      playsInline: true
+      loop: true, muted: true, playsInline: true
     });
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
     const loader = new THREE.TextureLoader();
-    const base = await new Promise((res, rej) => loader.load(media.cachePath, res, undefined, rej));
+    const base = await new Promise((r,e)=>loader.load(media.cachePath, r, undefined, e));
     texLeft  = base;
     texRight = media.stereo ? base.clone() : null;
   }
 
-  [texLeft, texRight].forEach(tex => {
-    if (!tex) return;
-    tex.minFilter = tex.magFilter = THREE.LinearFilter;
-    tex.generateMipmaps = true;
-    tex.mapping         = THREE.EquirectangularReflectionMapping;
-    tex.encoding        = THREE.sRGBEncoding;
-    tex.wrapS           = THREE.ClampToEdgeWrapping;
-    tex.wrapT           = THREE.RepeatWrapping;
+  // 2) Config tex
+  [texLeft, texRight].forEach(t => {
+    if (!t) return;
+    t.minFilter = t.magFilter = THREE.LinearFilter;
+    t.generateMipmaps = true;
+    t.mapping   = THREE.EquirectangularReflectionMapping;
+    t.encoding  = THREE.sRGBEncoding;
+    t.wrapS = THREE.ClampToEdgeWrapping;
+    t.wrapT = THREE.RepeatWrapping;
   });
 
+  // 3) Stereo top-bottom
   if (media.stereo) {
     const top = INVERTER_OLHOS ? 0.5 : 0.0;
     const bot = INVERTER_OLHOS ? 0.0 : 0.5;
-    texLeft.repeat.set(1, 0.5);  texLeft.offset.set(0, top);
-    texRight.repeat.set(1, 0.5); texRight.offset.set(0, bot);
+    texLeft.repeat.set(1,0.5);  texLeft.offset.set(0,top);
+    texRight.repeat.set(1,0.5); texRight.offset.set(0,bot);
     texLeft.needsUpdate = texRight.needsUpdate = true;
   } else {
-    texLeft.repeat.set(1, 1);
-    texLeft.offset.set(0, 0);
-    texLeft.needsUpdate = true;
+    texLeft.repeat.set(1,1); texLeft.offset.set(0,0); texLeft.needsUpdate = true;
   }
 
+  // 4) Aplica PMREM da textura (só se for imagem; vídeo deixo sem)
+  if (media.type === 'image') {
+    if (envMap) envMap.dispose();
+    envMap = pmremGen.fromEquirectangular(texLeft).texture;
+    scene.environment = envMap;
+    logDebug?.('💡 Ambiente PMREM aplicado');
+  }
+
+  // 5) Esfera invertida
   const geo = new THREE.SphereGeometry(500, 60, 40);
-  geo.scale(-1, 1, 1);
+  geo.scale(-1,1,1);
 
   if (!media.stereo) {
     sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
@@ -199,6 +205,5 @@ async function loadMedia(media) {
   }
 
   const xrCam = renderer.xr.getCamera(camera);
-  xrCam.layers.enable(1);
-  xrCam.layers.enable(2);
+  xrCam.layers.enable(1); xrCam.layers.enable(2);
 }
