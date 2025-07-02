@@ -1,5 +1,3 @@
-vr_inputs.js:
-
 // platforms/vr_inputs.js
 // Captura inputs de controladores WebXR (Meta Quest) e dispara callbacks para debug e A/B
 
