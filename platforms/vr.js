@@ -50,6 +50,7 @@ function dumpMeshes(root, label) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
+  // cena, pivot de mídia e câmera
   scene      = new THREE.Scene();
   mediaGroup = new THREE.Group();
   scene.add(mediaGroup);
@@ -58,6 +59,7 @@ export async function initXR(externalRenderer) {
   camera.position.set(0, 0, 0.1);
   scene.add(camera);
 
+  // renderer XR
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -65,7 +67,7 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // luz básica
+  // luz
   const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI / 6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
@@ -150,26 +152,24 @@ export async function initXR(externalRenderer) {
     if (gripL) gripL.visible = fL;
     if (gripR) gripR.visible = fR;
 
-    // thumbstick + snap rotate no mediaGroup
+    // thumbstick + snap rotate
     session.inputSources.forEach(src=>{
       const gp = src.gamepad;
       if (!gp || gp.axes.length < 2) return;
       const x = gp.axes.length >= 4 ? gp.axes[2] : gp.axes[0];
-
-      // snap quando ultrapassar threshold
       if (src.handedness==='left') {
         if (x>=SNAP_THRESHOLD && !snappedRight) {
           mediaGroup.rotation.y -= Math.PI/2;
-          snappedRight = true; snappedLeft = false;
+          snappedRight=true; snappedLeft=false;
           logDebug('➡️ Snap right');
         }
         else if (x<=-SNAP_THRESHOLD && !snappedLeft) {
           mediaGroup.rotation.y += Math.PI/2;
-          snappedLeft = true; snappedRight = false;
+          snappedLeft=true; snappedRight=false;
           logDebug('⬅️ Snap left');
         }
         if (x<SNAP_THRESHOLD && x>-SNAP_THRESHOLD) {
-          snappedLeft = snappedRight = false;
+          snappedLeft=snappedRight=false;
         }
       }
     });
@@ -189,21 +189,15 @@ export async function load(media) {
 function clearScene() {
   mediaGroup.children.slice().forEach(obj => {
     mediaGroup.remove(obj);
-    if (obj.geometry) obj.geometry.dispose();
-    if (obj.material) {
-      obj.material.map?.dispose();
-      obj.material.dispose();
-    }
+    obj.geometry?.dispose();
+    obj.material?.map?.dispose();
+    obj.material?.dispose();
   });
   sphereLeft = sphereRight = null;
   if (videoEl) {
-    videoEl.pause();
-    videoEl.src = '';
-    videoEl.load();
-    videoEl.remove();
-    videoEl = null;
+    videoEl.pause(); videoEl.src=''; videoEl.load(); videoEl.remove(); videoEl=null;
   }
-  texLeft?.dispose?.(); texRight?.dispose?.();
+  texLeft?.dispose(); texRight?.dispose();
   texLeft = texRight = null;
   logDebug('🧹 Cena limpa');
 }
@@ -211,11 +205,15 @@ function clearScene() {
 async function loadMedia(media) {
   clearScene();
 
-  // carrega textura/vídeo
+  // carrega vídeo ou imagem
   if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
-      src: media.cachePath, loop: true, muted: true, playsInline: true, crossOrigin: 'anonymous'
+      src: media.cachePath,
+      loop: true,
+      muted: true,
+      playsInline: true,
+      crossOrigin: 'anonymous'
     });
     await videoEl.play();
     texLeft  = new THREE.VideoTexture(videoEl);
@@ -223,52 +221,50 @@ async function loadMedia(media) {
     logDebug('🎥 VídeoTex criada');
   } else {
     const loader = new THREE.TextureLoader();
-    const base = await new Promise((res, rej) => loader.load(media.cachePath, res, undefined, rej));
+    const base = await new Promise((res, rej) =>
+      loader.load(media.cachePath, res, undefined, rej)
+    );
     texLeft  = base;
     texRight = media.stereo ? base.clone() : null;
     logDebug('📷 Textura carregada');
   }
 
-  // mapeamento UV
+  // qualidade máxima: mipmaps, anisotropia e filtros
+  const maxAniso = renderer.capabilities.getMaxAnisotropy();
   [texLeft, texRight].forEach(t => {
     if (!t) return;
-    t.minFilter = t.magFilter = THREE.LinearFilter;
-    t.generateMipmaps = true;
     t.mapping = THREE.EquirectangularReflectionMapping;
-    t.encoding  = THREE.sRGBEncoding;
+    t.encoding = THREE.sRGBEncoding;
     t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+    t.generateMipmaps = true;
+    t.minFilter = THREE.LinearMipMapLinearFilter;
+    t.magFilter = THREE.LinearFilter;
+    t.anisotropy = maxAniso;
   });
 
-  if (media.stereo) {
-    const top = INVERTER_OLHOS ? 0.5 : 0.0;
-    const bot = INVERTER_OLHOS ? 0.0 : 0.5;
-    texLeft.repeat.set(1,0.5);  texLeft.offset.set(0, top);
-    texRight.repeat.set(1,0.5); texRight.offset.set(0, bot);
-    logDebug('🔀 Stereo configurado');
-  } else {
-    texLeft.repeat.set(1,1); texLeft.offset.set(0,0);
-    logDebug('⚪ Mono configurado');
-  }
+  // esfera 360 de alta resolução
+  const geo = new THREE.SphereGeometry(500, 64, 64);
+  geo.scale(-1, 1, 1);
 
-  // geometria 360
-  const geo = new THREE.SphereGeometry(500, 60, 40);
-  geo.scale(-1,1,1);
-
-  // cria meshes
   if (!media.stereo) {
+    // mono em ambos os olhos
     sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
-    sphereLeft.layers.set(1);
+    sphereLeft.layers.enable(1);
+    sphereLeft.layers.enable(2);
     mediaGroup.add(sphereLeft);
-    dumpMeshes(sphereLeft,'Mono');
+    dumpMeshes(sphereLeft, 'Mono');
   } else {
-    sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
-    sphereRight= new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
-    sphereLeft.layers.set(1); sphereRight.layers.set(2);
+    // stereo: left/right
+    sphereLeft  = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
+    sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
+    sphereLeft.layers.set(1);
+    sphereRight.layers.set(2);
     mediaGroup.add(sphereLeft, sphereRight);
-    dumpMeshes(sphereLeft,'L'); dumpMeshes(sphereRight,'R');
+    dumpMeshes(sphereLeft, 'L');
+    dumpMeshes(sphereRight, 'R');
   }
 
-  // habilita layers no XR camera
+  // ativa layers na câmera XR
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1);
   xrCam.layers.enable(2);
