@@ -3,37 +3,40 @@
 const prevStates = new Map();
 
 /**
- * Configura polling de inputs VR (controllers e mãos).
+ * Configura polling de inputs VR (controllers e hand-tracking).
  *
  * @param {THREE.WebGLRenderer} renderer
  * @param {Object|Function} handlersOrNext
- *    Se for função: onNext
- *    Se for objeto: { onNext, onPrev, onToggleHUD, onSnap, onDebugLog }
- * @param {Function} [maybePrev]
- * @param {Function} [maybeDebugLog]
+ *    - Se for função: apenas onNext (avançar mídia)
+ *    - Se for objeto: { onNext, onPrev, onToggleHUD, onSnap, onDebugLog }
+ * @param {Function} [maybePrev]       onPrev, se handlersOrNext for função
+ * @param {Function} [maybeDebugLog]   onDebugLog, se handlersOrNext for função
  */
 export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog) {
   let onNext, onPrev, onToggleHUD, onSnap, onDebugLog;
+
   if (typeof handlersOrNext === 'function') {
+    // assinatura antiga: (renderer, onNext, onPrev, onDebugLog)
     onNext      = handlersOrNext;
     onPrev      = maybePrev;
     onToggleHUD = () => {};
     onSnap      = () => {};
     onDebugLog  = maybeDebugLog;
   } else {
+    // nova assinatura: (renderer, { onNext, onPrev, onToggleHUD, onSnap, onDebugLog })
     ({ onNext, onPrev, onToggleHUD, onSnap, onDebugLog } = handlersOrNext);
   }
 
   function handleSession(session) {
     prevStates.clear();
 
+    // Quando mudar fontes (controller ↔ hand)
     session.addEventListener('inputsourceschange', () => {
-      // toda vez que mudar fontes de entrada (controller ↔ handtracking)
       prevStates.clear();
-      // log de handtracking connect/disconnect
+      // Loga eventuais conexões de mão ou controller
       session.inputSources.forEach(src => {
         if (src.hand) {
-          onDebugLog && onDebugLog('hand', 'connected');
+          onDebugLog && onDebugLog(src.handedness, 'hand-connected');
         } else if (src.targetRayMode === 'tracked-pointer') {
           onDebugLog && onDebugLog(src.handedness, 'controller-connected');
         }
@@ -42,39 +45,42 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
 
     function poll() {
       for (const src of session.inputSources) {
-        const gp = src.gamepad;
-
-        // hand-tracking não tem gp, mas queremos logar quando aparece/desaparece
-        if (!gp && src.hand) {
-          // a cada frame, se ainda não marcado nos prevStates, loga
-          const id = `hand|${src.handedness}`;
-          if (!prevStates.has(id)) {
+        // --- hand-tracking ---
+        if (src.hand && !src.gamepad) {
+          const hid = `hand|${src.handedness}`;
+          if (!prevStates.has(hid)) {
             onDebugLog && onDebugLog(src.handedness, 'hand-detected');
-            prevStates.set(id, { hand: true });
+            prevStates.set(hid, { seen: true });
           }
           continue;
         }
 
-        if (!gp) continue;
+        const gp = src.gamepad;
+        if (!gp) continue; // sem gamepad, já tratei hand acima
 
-        const id   = `${src.handedness}|${gp.id}`;
-        const prev = prevStates.get(id) || { buttons: [], _snapDone: false };
+        const id = `${src.handedness}|${gp.id}`;
+        let prev = prevStates.get(id);
+        if (!prev) {
+          // estado inicial: nenhum botão pressionado + snap liberado
+          prev = { buttons: Array(gp.buttons.length).fill(false), _snapDone: false };
+        }
 
-        // 1) Botões (A=4, B=5, stick click=3, qualquer outro para debug)
-        gp.buttons.forEach((btn, idx) => {
-          if (btn.pressed && !prev.buttons[idx]) {
+        // --- botões ---
+        const curr = gp.buttons.map(b => b.pressed);
+        curr.forEach((pressed, idx) => {
+          if (pressed && !prev.buttons[idx]) {
             // log genérico
             onDebugLog && onDebugLog(src.handedness, idx);
-            // avanços / retornos
-            if (idx === 4) onNext      && onNext();
-            if (idx === 5) onPrev      && onPrev();
-            // toggle HUD
+            // A e B
+            if (idx === 4) onNext && onNext();
+            if (idx === 5) onPrev && onPrev();
+            // stick click (botão 3)
             if (idx === 3) onToggleHUD && onToggleHUD();
           }
         });
 
-        // 2) Snap turn via eixo X do thumbstick (para ambos controles)
-        const x = gp.axes.length >= 4 ? gp.axes[2] : gp.axes[0];
+        // --- snap turn (eixo X do thumbstick) ---
+        const x = gp.axes[0] || 0;  // eixo X principal
         if (Math.abs(x) < 0.7) {
           prev._snapDone = false;
         } else if (!prev._snapDone) {
@@ -83,8 +89,8 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
           prev._snapDone = true;
         }
 
-        // atualiza estado
-        prev.buttons = gp.buttons.map(b => b.pressed);
+        // atualiza estado para próxima iteração
+        prev.buttons = curr;
         prevStates.set(id, prev);
       }
 
@@ -96,9 +102,11 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
     });
   }
 
+  // já apresentando?
   if (renderer.xr.isPresenting) {
     handleSession(renderer.xr.getSession());
   }
+  // nova sessão
   renderer.xr.addEventListener('sessionstart', () => {
     handleSession(renderer.xr.getSession());
   });
