@@ -8,27 +8,27 @@ let sphereLeft, sphereRight;
 let videoEl, texLeft, texRight;
 let inited = false;
 
-const SHOW_LEFT_CONTROLLER  = true;
-const SHOW_RIGHT_CONTROLLER = true;
-const INVERTER_OLHOS        = true;
-const SHOW_VR_DEBUG         = true;
-
-// --- CONFIGURAÇÃO DE SNAP TURN ---
-const SNAP_THRESHOLD = 0.7;    // 0.0–1.0 sensibilidade do stick
-const SNAP_ANGLE     = 20;     // ângulo em graus, muda aqui
+// Configurações
+const SHOW_VR_DEBUG = true;
+const SNAP_THRESHOLD = 0.7;
+const SNAP_ANGLE     = 90;
 const SNAP_RAD       = THREE.MathUtils.degToRad(SNAP_ANGLE);
-// -----------------------------------
 
-let snappedLeft  = false;
+let snappedLeft = false;
 let snappedRight = false;
+
+// Primeiro, armazena estados anteriores de botões por controller
+const prevButtonStates = { left: [], right: [] };
+
+let prevAxesL = [0,0];
 
 let prevButtonPressed = false;
 let gripL = null, gripR = null;
 let leftPresent = false, rightPresent = false;
 
+// HUD debug
 let debugCanvas, debugTexture, debugMesh, debugLogs = [];
-const MAX_LOGS = 10;
-
+const MAX_LOGS = 15;
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
   debugLogs.push(msg);
@@ -43,16 +43,8 @@ function logDebug(msg) {
   debugTexture.needsUpdate = true;
 }
 
-function dumpMeshes(root, label) {
-  root.traverse(o => {
-    if (o.isMesh) logDebug(`📦 ${label}: mesh "${o.name}"`);
-  });
-}
-
 export async function initXR(externalRenderer) {
   if (inited) return;
-
-  // renderer XR já criado em core.js
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio * 2);
   renderer.xr.enabled = true;
@@ -60,8 +52,8 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // cena, pivot 360 e câmera
-  scene      = new THREE.Scene();
+  // Cena e pivot de mídia
+  scene = new THREE.Scene();
   mediaGroup = new THREE.Group();
   scene.add(mediaGroup);
 
@@ -69,51 +61,34 @@ export async function initXR(externalRenderer) {
   camera.position.set(0, 0, 0.1);
   scene.add(camera);
 
-  // luz simples
-  const spot = new THREE.SpotLight(0xffffff,5,10,Math.PI/6,0.25);
-  spot.position.set(0,2.2,0);
-  spot.target.position.set(0,0,-1);
-  camera.add(spot, spot.target);
-
-  // HUD debug
+  // Cria HUD
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
-    debugCanvas.width  = 2048;
-    debugCanvas.height = 1024;
+    debugCanvas.width = 2048; debugCanvas.height = 1024;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
-    const mat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
-    const geo = new THREE.PlaneGeometry(0.6, 0.3);
-    debugMesh = new THREE.Mesh(geo, mat);
+    const mat  = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
+    const geo  = new THREE.PlaneGeometry(0.6, 0.3);
+    debugMesh   = new THREE.Mesh(geo, mat);
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
-
-    logDebug('version: 1.15');
-    const ua = navigator.userAgent.toLowerCase();
-    const device =
-      ua.includes('quest pro') ? 'Meta Quest Pro' :
-      ua.includes('quest 3')   ? 'Meta Quest 3'  :
-      ua.includes('quest 2')   ? 'Meta Quest 2'  :
-      ua.includes('quest')     ? 'Meta Quest'    :
-      ua.includes('oculusbrowser') ? 'Oculus Browser' : 'Desconhecido';
-    logDebug(`🎮 Dispositivo XR: ${device}`);
+    logDebug('🔧 DEBUG HUD ativo');
   }
 
-  // controllers
+  // Controllers
   const factory = new XRControllerModelFactory();
   [0,1].forEach(i => renderer.xr.getController(i).visible = false);
   const whiteMat = model => model.traverse(o => {
     if (o.isMesh) o.material = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:0.3, metalness:0.4 });
   });
-  function spawnGrip(idx,label) {
+  function spawnGrip(idx, label) {
     const grip = renderer.xr.getControllerGrip(idx);
     grip.visible = false;
     const model = factory.createControllerModel(grip);
     whiteMat(model);
     grip.add(model);
-    model.addEventListener('connected', () => dumpMeshes(model, `${label} ready`));
     grip.addEventListener('connected', e => {
       grip.visible = true;
-      logDebug(`🟢 ${label} conectado (${e.data?.profiles?.[0]||'??'})`);
+      logDebug(`🟢 ${label} conectado`);
     });
     grip.addEventListener('disconnected', () => {
       grip.visible = false;
@@ -122,56 +97,75 @@ export async function initXR(externalRenderer) {
     scene.add(grip);
     return grip;
   }
-  gripL = spawnGrip(0,'esquerdo');
-  gripR = spawnGrip(1,'direito');
+  gripL = spawnGrip(0, 'Left');
+  gripR = spawnGrip(1, 'Right');
 
-  // loop XR
+  // Loop XR
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // toggle debug HUD = botão 3
-    let btn = false;
+    // Toggle HUD com botão 3
+    let btn3 = false;
     session.inputSources.forEach(src => {
       const gp = src.gamepad;
-      if (gp && gp.buttons[3]?.pressed) btn = true;
+      if (gp && gp.buttons[3]?.pressed) btn3 = true;
     });
-    if (btn && !prevButtonPressed && debugMesh) {
-      debugMesh.visible = !debugMesh.visible;
-      logDebug(`🟢 HUD ${debugMesh.visible?'on':'off'}`);
-    }
-    prevButtonPressed = btn;
+    if (btn3 && !prevButtonPressed) debugMesh.visible = !debugMesh.visible;
+    prevButtonPressed = btn3 && !prevButtonPressed ? true : btn3;
 
-    // detecta controllers
-    let L=false, R=false;
-    session.inputSources.forEach(src=>{
-      if(src.handedness==='left')  L=true;
-      if(src.handedness==='right') R=true;
+    // Detecta controllers
+    let fL=false, fR=false;
+    session.inputSources.forEach(src => {
+      if (src.handedness==='left')  fL=true;
+      if (src.handedness==='right') fR=true;
     });
-    if(L!==leftPresent)  { logDebug(L?'🟢 L detectado':'🔴 L sumiu'); leftPresent=L; }
-    if(R!==rightPresent) { logDebug(R?'🟢 R detectado':'🔴 R sumiu'); rightPresent=R; }
-    gripL.visible = leftPresent;
-    gripR.visible = rightPresent;
+    if (fL !== leftPresent)  logDebug(fL ? '🟢 Left presente'  : '🔴 Left ausente');
+    if (fR !== rightPresent) logDebug(fR ? '🟢 Right presente' : '🔴 Right ausente');
+    leftPresent = fL; rightPresent = fR;
+    gripL.visible = leftPresent; gripR.visible = rightPresent;
 
-    // thumbstick + snap turn configurável
-    session.inputSources.forEach(src=>{
+    // Para cada controle, varre botões e axes
+    session.inputSources.forEach(src => {
+      if (!src.gamepad) return;
       const gp = src.gamepad;
-      if(!gp||gp.axes.length<2) return;
-      const x = gp.axes.length>=4 ? gp.axes[2] : gp.axes[0];
-      if(src.handedness==='left'){
-        if(x>=SNAP_THRESHOLD && !snappedRight){
-          mediaGroup.rotation.y -= SNAP_RAD;
-          snappedRight=true; snappedLeft=false;
-          logDebug(`➡️ Snap ${SNAP_ANGLE}°`);
+      const hand = src.handedness;
+      // Botões
+      gp.buttons.forEach((btn, idx) => {
+        const prev = prevButtonStates[hand][idx] || false;
+        if (btn.pressed && !prev) {
+          logDebug(`🎮 [${hand}] button[${idx}] pressed`);
         }
-        else if(x<=-SNAP_THRESHOLD && !snappedLeft){
-          mediaGroup.rotation.y += SNAP_RAD;
-          snappedLeft=true; snappedRight=false;
-          logDebug(`⬅️ Snap ${SNAP_ANGLE}°`);
+        if (!btn.pressed && prev) {
+          logDebug(`❌ [${hand}] button[${idx}] released`);
         }
-        if(x<SNAP_THRESHOLD && x>-SNAP_THRESHOLD){
-          snappedLeft=snappedRight=false;
+        prevButtonStates[hand][idx] = btn.pressed;
+      });
+      // Axes (thumbstick)
+      if (gp.axes.length >= 2) {
+        const x = gp.axes.length >= 4 ? gp.axes[2] : gp.axes[0];
+        const y = gp.axes.length >= 4 ? gp.axes[3] : gp.axes[1];
+        // log só quando muda >0.1
+        const prev = prevAxesL;
+        if (Math.abs(x - prev[0]) > 0.1 || Math.abs(y - prev[1]) > 0.1) {
+          logDebug(`🎯 [${hand}] axes: x=${x.toFixed(2)}, y=${y.toFixed(2)}`);
+          prevAxesL = [x,y];
+        }
+        // Snap turn configurável
+        if (hand==='left') {
+          if (x >= SNAP_THRESHOLD && !snappedRight) {
+            mediaGroup.rotation.y -= SNAP_RAD;
+            snappedRight=true; snappedLeft=false;
+            logDebug(`➡️ Snap ${SNAP_ANGLE}°`);
+          } else if (x <= -SNAP_THRESHOLD && !snappedLeft) {
+            mediaGroup.rotation.y += SNAP_RAD;
+            snappedLeft=true; snappedRight=false;
+            logDebug(`⬅️ Snap ${SNAP_ANGLE}°`);
+          }
+          if (x < SNAP_THRESHOLD && x > -SNAP_THRESHOLD) {
+            snappedLeft = snappedRight = false;
+          }
         }
       }
     });
@@ -182,78 +176,70 @@ export async function initXR(externalRenderer) {
 }
 
 export async function load(media) {
-  if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
+  if (!inited) throw new Error('initXR deve rodar antes de load()');
   clearScene();
-  logDebug(`📂 Carregando: ${media.name}`);
+  await new Promise(r=>setTimeout(r,0)); // força limpeza
   await loadMedia(media);
-  logDebug('✅ loadMedia ok');
+  logDebug(`📂 Loaded ${media.name}`);
 }
 
+// mantém os children num grupo, dispõe texturas e esferas
 function clearScene() {
-  mediaGroup.children.slice().forEach(obj=>{
-    mediaGroup.remove(obj);
-    obj.geometry?.dispose();
-    obj.material?.map?.dispose();
-    obj.material?.dispose();
+  mediaGroup.children.slice().forEach(c => {
+    mediaGroup.remove(c);
+    c.geometry?.dispose();
+    c.material?.map?.dispose();
+    c.material?.dispose();
   });
-  sphereLeft=sphereRight=null;
-  if(videoEl){ videoEl.pause(); videoEl.src=''; videoEl.load(); videoEl.remove(); videoEl=null; }
+  sphereLeft = sphereRight = null;
+  if (videoEl) { videoEl.pause(); videoEl.remove(); videoEl=null; }
   texLeft?.dispose(); texRight?.dispose();
   texLeft=texRight=null;
 }
 
 async function loadMedia(media) {
-  // carrega vídeo ou imagem
-  if(media.type==='video'){
-    videoEl=document.createElement('video');
-    Object.assign(videoEl,{ src:media.cachePath, loop:true, muted:true, playsInline:true, crossOrigin:'anonymous' });
+  // carrega texture/vídeo...
+  if (media.type==='video') {
+    videoEl = document.createElement('video');
+    Object.assign(videoEl, { src: media.cachePath, loop:true, muted:true, playsInline:true, crossOrigin:'anonymous' });
     await videoEl.play();
     texLeft = new THREE.VideoTexture(videoEl);
-    texRight= media.stereo? new THREE.VideoTexture(videoEl): null;
+    texRight= media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
-    const base = await new Promise((res,rej)=> new THREE.TextureLoader().load(media.cachePath,res,undefined,rej));
+    const base = await new Promise((res,rej)=> new THREE.TextureLoader().load(media.cachePath, res, undefined, rej));
     texLeft = base;
-    texRight= media.stereo? base.clone() : null;
+    texRight= media.stereo ? base.clone() : null;
   }
-
-  // filtros top
+  // filtros e split stereo/mono ...
   const maxA = renderer.capabilities.getMaxAnisotropy();
-  [texLeft,texRight].forEach(t=>{
-    if(!t) return;
+  [texLeft, texRight].forEach(t => {
+    if (!t) return;
     t.mapping = THREE.EquirectangularReflectionMapping;
-    t.encoding= THREE.sRGBEncoding;
-    t.wrapS=t.wrapT=THREE.ClampToEdgeWrapping;
-    t.generateMipmaps=true;
-    t.minFilter=THREE.LinearMipMapLinearFilter;
-    t.magFilter=THREE.LinearFilter;
-    t.anisotropy=maxA;
+    t.encoding = THREE.sRGBEncoding;
+    t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+    t.generateMipmaps = true;
+    t.minFilter = THREE.LinearMipMapLinearFilter;
+    t.magFilter = THREE.LinearFilter;
+    t.anisotropy = maxA;
   });
-
-  // stereo split
-  if(media.stereo){
-    const top= INVERTER_OLHOS?0.5:0.0;
+  if (media.stereo) {
+    const top = INVERTER_OLHOS ? 0.5 : 0.0;
     texLeft.repeat.set(1,0.5);  texLeft.offset.set(0,top);
-    texRight.repeat.set(1,0.5); texRight.offset.set(0, top===0?0.5:0.0);
-    logDebug('🔀 Stereo split OK');
+    texRight.repeat.set(1,0.5); texRight.offset.set(0,top===0?0.5:0.0);
   } else {
     texLeft.repeat.set(1,1); texLeft.offset.set(0,0);
-    logDebug('⚪ Mono full OK');
   }
 
-  // esfera 360 de altíssima resolução
-  const geo = new THREE.SphereGeometry(500,128,128);
-  geo.scale(-1,1,1);
-
-  if(!media.stereo){
+  // cria esfera 360
+  const geo = new THREE.SphereGeometry(500,128,128); geo.scale(-1,1,1);
+  if (!media.stereo) {
     sphereLeft = new THREE.Mesh(geo,new THREE.MeshBasicMaterial({ map:texLeft }));
     sphereLeft.layers.enable(1); sphereLeft.layers.enable(2);
     mediaGroup.add(sphereLeft);
-    dumpMeshes(sphereLeft,'Mono');
   } else {
     sphereLeft  = new THREE.Mesh(geo,new THREE.MeshBasicMaterial({ map:texLeft }));
     sphereRight = new THREE.Mesh(geo,new THREE.MeshBasicMaterial({ map:texRight }));
     sphereLeft.layers.set(1); sphereRight.layers.set(2);
-    mediaGroup.add(sphereLeft,sphereRight);
-    dumpMeshes(sphereLeft,'L'); dumpMeshes(sphereRight,'R');
+    mediaGroup.add(sphereLeft, sphereRight);
   }
 }
