@@ -1,99 +1,100 @@
-const STATIC_CACHE = 'static-cache-v3';
-const DYNAMIC_CACHE = 'dynamic-cache-v1';
+const STATIC_CACHE   = 'static-cache-v4';
+const DYNAMIC_CACHE  = 'dynamic-cache-v1';
 
-// TODOS os arquivos que teu app precisa SEMPRE estar disponíveis offline
+// tudo que precisa estar 100% offline
 const STATIC_ASSETS = [
   './',
   './index.html',
   './core.js',
   './service-worker.js',
+
+  // 3-JS & helpers
   './libs/three.module.js',
   './libs/OrbitControls.js',
   './libs/VRButton.js',
+
+  // XR extras
   './libs/XRControllerModelFactory.js',
   './libs/XRHandModelFactory.js',
+  './libs/motion-controllers.module.js',
+
+  // GLTF loader usado pelo factory
+  './loaders/GLTFLoader.js',
+
+  // A-Frame (caso você use)
   './libs/aframe.min.js',
   './libs/aframe-stereo-component.js',
+
+  // dados
   './media/media.json'
 ];
 
+// ---------- Install ----------
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
-      .then(async (cache) => {
-        // Baixa cada asset individualmente (sem travar o install inteiro)
-        await Promise.all(
-          STATIC_ASSETS.map(async url => {
-            try {
-              await cache.add(url);
-            } catch (e) {
-              // Só loga, não para o resto (deixa claro qual asset ficou faltando)
-              console.warn('Falhou ao baixar:', url, e);
-            }
-          })
-        );
-      })
+      .then(cache =>
+        Promise.all(STATIC_ASSETS.map(async url => {
+          try { await cache.add(url); }
+          catch (e) { console.warn('Falhou baixar', url, e); }
+        }))
+      )
       .then(() => self.skipWaiting())
   );
 });
 
+// ---------- Activate ----------
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
-        keys
-          .filter(key => key !== STATIC_CACHE && key !== DYNAMIC_CACHE)
-          .map(key => caches.delete(key))
+        keys.filter(k => k !== STATIC_CACHE && k !== DYNAMIC_CACHE)
+            .map(k => caches.delete(k))
       ).then(() => self.clients.claim())
     )
   );
 });
 
+// ---------- Fetch ----------
 self.addEventListener('fetch', event => {
   const req = event.request;
   const url = new URL(req.url);
+
   if (req.method !== 'GET') return;
 
-  // 🟢 Cache first para recursos do three.js via CDN (unpkg.com)
+  // unpkg → cache-first (já funcionava)
   if (url.hostname === 'unpkg.com') {
-    event.respondWith(cacheFirst(req));
-    return;
+    return event.respondWith(cacheFirst(req));
   }
 
-  // 📄 media.json usa network-first (pra ver novas mídias se tiver online)
-  if (url.pathname.endsWith('/media/media.json')) {
-    event.respondWith(networkFirst(req));
-    return;
+  // libs/  e  loaders/  — cache-first (são estáticos)
+  if (url.pathname.startsWith('/libs/') || url.pathname.startsWith('/loaders/')) {
+    return event.respondWith(cacheFirst(req));
   }
 
-  // 🖼️ Mídias cache-first
+  // dados mutáveis
+  if (url.pathname.endsWith('/media/media.json') ||
+      url.pathname.startsWith('/platforms/')) {
+    return event.respondWith(networkFirst(req));
+  }
+
+  // mídia pesada → cache-first
   if (url.pathname.startsWith('/media/')) {
-    event.respondWith(cacheFirst(req));
-    return;
+    return event.respondWith(cacheFirst(req));
   }
 
-  // 🧠 Scripts de plataforma preferem rede (pra facilitar hot reload)
-  if (url.pathname.startsWith('/platforms/')) {
-    event.respondWith(networkFirst(req));
-    return;
-  }
-
-  // 📦 Todo o resto: cache-first
+  // fallback genérico
   event.respondWith(cacheFirst(req));
 });
 
+// ---------- Estratégias ----------
 async function cacheFirst(req) {
   const cached = await caches.match(req);
   if (cached) return cached;
-  try {
-    const fresh = await fetch(req);
-    const cache = await caches.open(DYNAMIC_CACHE);
-    cache.put(req, fresh.clone());
-    return fresh;
-  } catch (err) {
-    if (req.destination === 'document') return caches.match('./');
-    throw err;
-  }
+  const fresh  = await fetch(req);
+  const cache  = await caches.open(DYNAMIC_CACHE);
+  cache.put(req, fresh.clone());
+  return fresh;
 }
 
 async function networkFirst(req) {
@@ -102,8 +103,7 @@ async function networkFirst(req) {
     const fresh = await fetch(req);
     cache.put(req, fresh.clone());
     return fresh;
-  } catch (err) {
-    const cached = await cache.match(req);
-    return cached || caches.match(req);
+  } catch {
+    return (await cache.match(req)) || (await caches.match(req));
   }
 }
