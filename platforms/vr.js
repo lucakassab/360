@@ -163,8 +163,12 @@ export function _toggleDebug() {
   if (debugMesh) debugMesh.visible = !debugMesh.visible;
 }
 
-
 export function snapTurn(hand, dir) {
   mediaGroup.rotation.y += dir * SNAP_ANGLE_RADIANS;
   logDebug(dir > 0 ? '➡️ Snap R' : '⬅️ Snap L');
+}
+
+// injeta a mensagem de button press no HUD
+export function debugLog(buttonHandedness, buttonIndex) {
+  logDebug(`[${buttonHandedness}] button[${buttonIndex}]`);
 }

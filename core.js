@@ -90,7 +90,6 @@ async function onSessionStart() {
       }
     },
     onSnap: (hand, dir) => {
-      // chama o snapTurn dentro do vr.js
       if (typeof vrMod.snapTurn === 'function') {
         vrMod.snapTurn(hand, dir);
       } else {
@@ -98,7 +97,12 @@ async function onSessionStart() {
       }
     },
     onDebugLog: (hand, idx) => {
-      console.log(`[${hand}] button[${idx}]`);
+      if (typeof vrMod.debugLog === 'function') {
+        vrMod.debugLog(hand, idx);
+      } else {
+        // fallback caso a função não exista
+        console.log(`[${hand}] button[${idx}]`);
+      }
     }
   });
 }
