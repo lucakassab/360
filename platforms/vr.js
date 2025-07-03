@@ -15,7 +15,7 @@ const SHOW_VR_DEBUG         = true;
 
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
-const MAX_LOGS = 10;
+const MAX_LOGS = 20;
 let prevButtonPressed = false;
 
 let gripL = null, gripR = null;
