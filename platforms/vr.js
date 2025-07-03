@@ -153,7 +153,7 @@ export async function initXR(externalRenderer) {
     const geo = new THREE.PlaneGeometry(0.6, 0.3);
     debugMesh = new THREE.Mesh(geo, mat);
     debugMesh.position.set(0, -0.1, -0.5);
-    debugMesh.visible = false;
+    debugMesh.visible = true;
     camera.add(debugMesh);
     logDebug('version:1.23');
   }

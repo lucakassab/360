@@ -7,23 +7,21 @@ const prevStates = new Map();
  *
  * @param {THREE.WebGLRenderer} renderer
  * @param {Object|Function} handlersOrNext
- *    - Se for função: apenas onNext (avançar mídia)
+ *    - Se for função: apenas onNext
  *    - Se for objeto: { onNext, onPrev, onToggleHUD, onSnap, onDebugLog }
- * @param {Function} [maybePrev]       onPrev, se handlersOrNext for função
- * @param {Function} [maybeDebugLog]   onDebugLog, se handlersOrNext for função
+ * @param {Function} [maybePrev]     onPrev, se handlersOrNext for função
+ * @param {Function} [maybeDebugLog] onDebugLog, se handlersOrNext for função
  */
 export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog) {
   let onNext, onPrev, onToggleHUD, onSnap, onDebugLog;
 
   if (typeof handlersOrNext === 'function') {
-    // assinatura LEGACY: (renderer, onNext, onPrev, onDebugLog)
     onNext      = handlersOrNext;
     onPrev      = maybePrev;
     onToggleHUD = () => {};
     onSnap      = () => {};
     onDebugLog  = maybeDebugLog;
   } else {
-    // assinatura moderna: (renderer, { onNext, onPrev, onToggleHUD, onSnap, onDebugLog })
     ({ onNext, onPrev, onToggleHUD, onSnap, onDebugLog } = handlersOrNext);
   }
 
@@ -32,7 +30,7 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
 
     session.addEventListener('inputsourceschange', () => {
       prevStates.clear();
-      // loga conexões
+      // log de novas fontes
       session.inputSources.forEach(src => {
         if (src.hand) {
           onDebugLog && onDebugLog(src.handedness, 'hand-connected');
@@ -44,7 +42,7 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
 
     function poll() {
       for (const src of session.inputSources) {
-        // hand‐tracking
+        // --- hand-tracking detectado ---
         if (src.hand && !src.gamepad) {
           const hid = `hand|${src.handedness}`;
           if (!prevStates.has(hid)) {
@@ -63,19 +61,25 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
           prev = { buttons: Array(gp.buttons.length).fill(false), _snapDone: false };
         }
 
-        // 1) Botões
+        // --- botões (log + ações) ---
         const curr = gp.buttons.map(b => b.pressed);
         curr.forEach((pressed, idx) => {
           if (pressed && !prev.buttons[idx]) {
             onDebugLog && onDebugLog(src.handedness, idx);
-            if (idx === 4) onNext && onNext();       // A
-            if (idx === 5) onPrev && onPrev();       // B
-            if (idx === 3) onToggleHUD && onToggleHUD(); // stick‐press
+
+            if (idx === 4) onNext      && onNext();       // A
+            else if (idx === 5) onPrev && onPrev();       // B
+            else if (idx === 3) onToggleHUD && onToggleHUD(); // stick-press
           }
         });
 
-        // 2) Snap turn (pega eixo X do stick direito, se existir)
-        const x = gp.axes.length >= 4 ? gp.axes[2] : (gp.axes[0] ?? 0);
+        // --- snap turn nos dois sticks ---
+        let x;
+        if (src.handedness === 'right' && gp.axes.length >= 4) {
+          x = gp.axes[2];       // eixo X do stick direito
+        } else {
+          x = gp.axes[0] ?? 0;  // eixo X do stick esquerdo (ou fallback)
+        }
         if (Math.abs(x) < 0.7) {
           prev._snapDone = false;
         } else if (!prev._snapDone) {
@@ -84,7 +88,6 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
           prev._snapDone = true;
         }
 
-        // atualiza estado
         prev.buttons = curr;
         prevStates.set(id, prev);
       }
@@ -92,16 +95,14 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
       session.requestAnimationFrame(poll);
     }
 
-    session.requestReferenceSpace('local').then(() => {
-      session.requestAnimationFrame(poll);
-    });
+    session.requestReferenceSpace('local')
+      .then(() => session.requestAnimationFrame(poll));
   }
 
-  // já em VR?
+  // se já estiver entrando em VR
   if (renderer.xr.isPresenting) {
     handleSession(renderer.xr.getSession());
   }
-  // quando iniciar sessão
   renderer.xr.addEventListener('sessionstart', () => {
     handleSession(renderer.xr.getSession());
   });
