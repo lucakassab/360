@@ -7,32 +7,36 @@ const dropdown  = document.getElementById('mediaSelect');
 const btnPrev   = document.getElementById('prevBtn');
 const btnNext   = document.getElementById('nextBtn');
 
-let mediaList     = [];
-let currentIndex  = 0;
+let mediaList = [];
+let currentIndex = 0;
 let currentModule;
 let platformMod;
-let isLoading = false; // <— a flag
+let isLoading = false;
 
 main();
 
 async function main() {
+  // carrega JSON
   mediaList = await (await fetch('./media/media.json')).json();
   mediaList.forEach((m, i) => {
     const opt = document.createElement('option');
-    opt.value = i; opt.textContent = m.name;
+    opt.value = i;
+    opt.textContent = m.name;
     dropdown.appendChild(opt);
   });
 
-  // plataforma
+  // escolhe mobile ou desktop
   if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
     platformMod = await import('./platforms/mobile.js');
   } else {
     platformMod = await import('./platforms/desktop.js');
   }
+
+  // init desktop/mobile
   await platformMod.init();
   currentModule = platformMod;
 
-  // UI HTML
+  // UI desktop/mobile
   dropdown.onchange = () => {
     currentIndex = +dropdown.value;
     loadMedia(currentIndex);
@@ -52,7 +56,7 @@ async function main() {
 
   await loadMedia(currentIndex);
 
-  // VR button
+  // botão VR
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
     const renderer = platformMod.renderer;
     renderer.xr.enabled = true;
@@ -70,7 +74,6 @@ async function onSessionStart() {
   currentModule = vrMod;
   await loadMedia(currentIndex);
 
-  // VR inputs: chama loadMedia direto, respeitando isLoading
   setupVRInputs(
     vrMod.renderer,
     async () => {
@@ -84,13 +87,22 @@ async function onSessionStart() {
       currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
       dropdown.value = currentIndex;
       await loadMedia(currentIndex);
+    },
+    raw => {
+      // opcional: log de debug de botões
+      console.log(raw);
     }
   );
 }
 
 async function onSessionEnd() {
   console.log('🌐 VR session ended');
+  // desliga o XR no renderer
+  platformMod.renderer.xr.enabled = false;
+  // reinicia a cena desktop/mobile
+  await platformMod.init();
   currentModule = platformMod;
+  // recarrega a mídia atual limpinho
   await loadMedia(currentIndex);
 }
 
