@@ -16,9 +16,15 @@ const SNAP_RAD     = THREE.MathUtils.degToRad(SNAP_DEGREES);
 const INVERTER_OLHOS = true;
 const SHOW_VR_DEBUG  = true;
 
+// Aqui ficam todos os logs completos salvos pra baixar depois
+window._vrLogDump = window._vrLogDump || [];
+
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
-  debugLogs.push(msg);
+  const timestamp = (new Date()).toISOString().slice(11,23); // HH:MM:SS.mmm
+  const entry = `[${timestamp}] ${msg}`;
+  debugLogs.push(entry);
+  window._vrLogDump.push(entry);
   if (debugLogs.length > MAX_LOGS) debugLogs.shift();
   const ctx = debugCanvas.getContext('2d');
   ctx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
@@ -29,6 +35,20 @@ function logDebug(msg) {
   debugLogs.forEach((line, i) => ctx.fillText(line, 10, 30 + i * 22));
   debugTexture.needsUpdate = true;
 }
+
+// Função global pra baixar o log em TXT
+window.baixarVRLog = function() {
+  const txt = window._vrLogDump.join('\n');
+  const blob = new Blob([txt], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'log_vr.txt';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 2000);
+};
 
 export function debugLog(hand, idxOrMsg) {
   logDebug(`[${hand}] ${idxOrMsg}`);
@@ -45,8 +65,9 @@ export async function load(media) {
   // limpa
   mediaGroup.children.slice().forEach(c => {
     mediaGroup.remove(c);
-    c.geometry.dispose();
-    c.material.map.dispose();
+    c.geometry?.dispose?.();
+    c.material?.map?.dispose?.();
+    c.material?.dispose?.();
   });
   logDebug(`📂 Carregando: ${media.name}`);
 
@@ -144,9 +165,25 @@ export async function initXR(externalRenderer) {
     const geo2 = new THREE.PlaneGeometry(0.6,0.3);
     debugMesh  = new THREE.Mesh(geo2, mat);
     debugMesh.position.set(0,-0.1,-0.5);
-    debugMesh.visible = true;  // já visível
+    debugMesh.visible = true;
     camera.add(debugMesh);
+
+    // Adiciona o botão flutuante de baixar log (só se não existir)
+    if (!document.getElementById('btnBaixarLogVR')) {
+      const btn = document.createElement('button');
+      btn.id = 'btnBaixarLogVR';
+      btn.innerText = '⏬ Baixar Log VR';
+      btn.style.cssText = `
+        position:fixed;top:8px;right:8px;z-index:9999;
+        padding:7px 18px;background:#111;color:#0f0;font:700 16px monospace;
+        border-radius:10px;border:none;cursor:pointer;opacity:0.93;
+      `;
+      btn.onclick = window.baixarVRLog;
+      document.body.appendChild(btn);
+    }
+
     logDebug('version:1.23');
+    logDebug('🟢 Log TXT ativado: clique em "⏬ Baixar Log VR"!');
   }
 
   const cf = new XRControllerModelFactory();
