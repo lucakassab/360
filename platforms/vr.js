@@ -32,7 +32,7 @@ function logDebug(msg) {
   if (debugLogs.length > MAX_LOGS) debugLogs.shift();
   const ctx = debugCanvas.getContext('2d');
   ctx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
-  ctx.fillStyle = '#0008';
+  ctx.fillStyle = 'rgba(0,0,0,0.8)';
   ctx.fillRect(0, 0, debugCanvas.width, debugCanvas.height);
   ctx.fillStyle = '#0f0';
   ctx.font = '20px monospace';
@@ -46,7 +46,7 @@ function dumpMeshes(root, label) {
   });
 }
 
-// carrega sem bloquear o loop
+// inicia carregar mídia sem travar o loop
 export function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
   clearScene();
@@ -56,6 +56,7 @@ export function load(media) {
 
 export async function initXR(externalRenderer) {
   if (inited) return;
+
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio * 2);
   renderer.xr.enabled = true;
@@ -67,26 +68,26 @@ export async function initXR(externalRenderer) {
   mediaGroup = new THREE.Group();
   scene.add(mediaGroup);
 
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
   scene.add(camera);
 
-  // PointLight emitida do centro da câmera, mas elevada 1m acima localmente
+  // PointLight emitida do centro da câmera, elevada 1m acima
   const pointLight = new THREE.PointLight(0xffffff, 1.5, 40, 2);
   pointLight.position.set(0, 1, 0);
   camera.add(pointLight);
 
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
-    debugCanvas.width = 2048; debugCanvas.height = 1024;
+    debugCanvas.width = 2048;
+    debugCanvas.height = 1024;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
     const mat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
     const geo = new THREE.PlaneGeometry(0.6, 0.3);
     debugMesh = new THREE.Mesh(geo, mat);
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
-
-    logDebug('version:1.17');
+    logDebug('version: 1.18');
     const ua = navigator.userAgent.toLowerCase();
     const device = ua.includes('quest pro') ? 'Meta Quest Pro'
                  : ua.includes('quest 3')   ? 'Meta Quest 3'
@@ -100,12 +101,10 @@ export async function initXR(externalRenderer) {
   const factory = new XRControllerModelFactory();
   [0,1].forEach(i => renderer.xr.getController(i).visible = false);
   const whiteMat = model => model.traverse(o => {
-    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
-      color:0xffffff, roughness:0.3, metalness:0.4
-    });
+    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:0.3, metalness:0.4 });
   });
 
-  function spawnGrip(idx,label) {
+  function spawnGrip(idx, label) {
     const grip = renderer.xr.getControllerGrip(idx);
     grip.visible = false;
     const model = factory.createControllerModel(grip);
@@ -114,7 +113,7 @@ export async function initXR(externalRenderer) {
     model.addEventListener('connected', () => dumpMeshes(model, `${label} ready`));
     grip.addEventListener('connected', e => {
       grip.visible = true;
-      logDebug(`🟢 ${label} conectado (${e.data?.profiles?.[0]||'??'})`);
+      logDebug(`🟢 ${label} conectado (${e.data?.profiles?.[0] || '??'})`);
     });
     grip.addEventListener('disconnected', () => {
       grip.visible = false;
@@ -123,15 +122,15 @@ export async function initXR(externalRenderer) {
     scene.add(grip);
     return grip;
   }
-  gripL = spawnGrip(0,'Left');
-  gripR = spawnGrip(1,'Right');
+  gripL = spawnGrip(0, 'Left');
+  gripR = spawnGrip(1, 'Right');
 
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // HUD toggle
+    // toggle HUD
     let btn = false;
     session.inputSources.forEach(src => {
       const gp = src.gamepad;
@@ -143,10 +142,10 @@ export async function initXR(externalRenderer) {
     prevButtonPressed = btn;
 
     // detect controllers
-    let L=false, R=false;
+    let L = false, R = false;
     session.inputSources.forEach(src => {
-      if (src.handedness==='left')  L=true;
-      if (src.handedness==='right') R=true;
+      if (src.handedness === 'left')  L = true;
+      if (src.handedness === 'right') R = true;
     });
     if (L !== leftPresent) logDebug(L ? '🟢 L entrou' : '🔴 L saiu');
     if (R !== rightPresent) logDebug(R ? '🟢 R entrou' : '🔴 R saiu');
@@ -158,7 +157,7 @@ export async function initXR(externalRenderer) {
       const gp = src.gamepad;
       if (!gp || gp.axes.length < 2) return;
       const x = gp.axes.length >= 4 ? gp.axes[2] : gp.axes[0];
-      if (src.handedness==='left') {
+      if (src.handedness === 'left') {
         if (x >= SNAP_THRESHOLD && !snappedRight) {
           mediaGroup.rotation.y += SNAP_ANGLE_RADIANS;
           snappedRight = true; snappedLeft = false;
@@ -178,8 +177,12 @@ export async function initXR(externalRenderer) {
 }
 
 function loadMedia(media) {
-  // carga async, não bloqueia
-  if (media.type==='video') {
+  // não bloqueia a renderização
+  if (videoEl) {
+    videoEl.pause();
+    videoEl.remove();
+  }
+  if (media.type === 'video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, {
       src: media.cachePath,
@@ -191,6 +194,7 @@ function loadMedia(media) {
     videoEl.play();
     texLeft = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
+    setupTexture();
     applyTexture();
   } else {
     const loader = new THREE.TextureLoader();
@@ -218,7 +222,6 @@ function setupTexture() {
 }
 
 function applyTexture() {
-  // remove cena antiga e adiciona nova mesh quando texture pronta
   clearScene();
   const geo = new THREE.SphereGeometry(500, 128, 128);
   geo.scale(-1, 1, 1);
