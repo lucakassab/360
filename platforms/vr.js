@@ -50,8 +50,43 @@ window.baixarVRLog = function() {
   setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 2000);
 };
 
+// Adiciona no topo do vr.js:
+const BUTTON_NAMES = {
+  "right-controller": {
+    0: "Trigger",
+    1: "Grip",
+    3: "Thumbstick",
+    4: "A",
+    5: "B"
+  },
+  "left-controller": {
+    0: "Trigger",
+    1: "Grip",
+    3: "Thumbstick",
+    4: "X",
+    5: "Y",
+    12: "Menu"
+  },
+  "left-hand": {
+    0: "IndexPinch",
+    4: "Wrist/Menu"
+  },
+  "right-hand": {
+    0: "IndexPinch"
+  }
+};
+
+
 export function debugLog(hand, idxOrMsg) {
-  logDebug(`[${hand}] ${idxOrMsg}`);
+  let label = idxOrMsg;
+
+  // Se for "buttonX", tenta traduzir o nome bonito
+  if (typeof idxOrMsg === "string" && idxOrMsg.startsWith("button")) {
+    const idx = idxOrMsg.replace("button", "");
+    const pretty = BUTTON_NAMES[hand]?.[idx];
+    if (pretty) label = `button${idx} (${pretty})`;
+  }
+  logDebug(`[${hand}] ${label}`);
 }
 
 function dumpMeshes(root, label) {
