@@ -83,29 +83,21 @@ async function onSessionStart() {
       await loadMedia(currentIndex);
     },
     onToggleHUD: () => {
-      if (typeof vrMod._toggleDebug === 'function') {
-        vrMod._toggleDebug();
-      } else {
-        console.warn('⚠️ vrMod._toggleDebug() não está disponível');
-      }
+      vrMod._toggleDebug?.();
     },
     onSnap: (hand, dir) => {
-      if (typeof vrMod.snapTurn === 'function') {
-        vrMod.snapTurn(hand, dir);
-      } else {
-        console.warn('⚠️ vrMod.snapTurn() não está disponível');
-      }
+      vrMod.snapTurn?.(hand, dir);
     },
-    onDebugLog: (hand, idx) => {
+    // NOTE: aqui recebemos `idxOrMsg`, que pode ser número ou string
+    onDebugLog: (hand, idxOrMsg) => {
       if (typeof vrMod.debugLog === 'function') {
-        vrMod.debugLog(hand, idx);
+        vrMod.debugLog(hand, idxOrMsg);
       } else {
-        // fallback caso a função não exista
-        console.log(`[${hand}] button[${idx}]`);
+        console.log(`[${hand}]`, idxOrMsg);
       }
     }
   });
-}
+}  // <<< fechamos o onSessionStart corretamente
 
 async function onSessionEnd() {
   console.log('🌐 VR session ended');
