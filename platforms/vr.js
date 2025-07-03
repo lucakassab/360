@@ -78,7 +78,7 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
 
-    // version log
+    // versão do VR.js
     logDebug('version: 1.13');
 
     const ua = navigator.userAgent.toLowerCase();
@@ -91,14 +91,14 @@ export async function initXR(externalRenderer) {
     logDebug(`🎮 Dispositivo XR: ${device}`);
   }
 
-  // --- dump initial scene
+  // initial dump
   dumpMeshes(scene, 'initial scene');
 
   // --- controllers
   const factory = new XRControllerModelFactory();
   [0,1].forEach(i => {
     const c = renderer.xr.getController(i);
-    if (c) c.visible = false;  // hide default laser
+    if (c) c.visible = false;  // only grips
   });
 
   const whiteMat = model => {
@@ -120,19 +120,23 @@ export async function initXR(externalRenderer) {
 
     grip.addEventListener('connected', e => {
       const prof = (e.data.profiles[0] || '').toLowerCase();
-      // always unload old model
+      // unload old model if any
       if (controllerModel) {
         grip.remove(controllerModel);
         controllerModel = null;
       }
-      // ignore hand-tracking profiles
-      if (prof.includes('hand')) {
-        logDebug(`🙌 ${label} hand-tracking ignored`);
-        return;
-      }
-      // create and show controller model
+      // create model
       controllerModel = factory.createControllerModel(grip);
       whiteMat(controllerModel);
+
+      // hide any “hand” meshes
+      controllerModel.traverse(node => {
+        if (node.isMesh && node.name.toLowerCase().includes('hand')) {
+          node.visible = false;
+          logDebug(`🙈 Ocultando mesh de mão: "${node.name}"`);
+        }
+      });
+
       grip.add(controllerModel);
       grip.visible = true;
       logDebug(`🟢 ${label} detectado (${prof})`);
@@ -162,7 +166,7 @@ export async function initXR(externalRenderer) {
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // toggle HUD button B
+    // toggle HUD on B
     const pressed = session.inputSources.some(src => src.gamepad?.buttons[3]?.pressed);
     if (pressed && !prevButtonPressed && debugMesh) {
       debugMesh.visible = !debugMesh.visible;
@@ -170,22 +174,21 @@ export async function initXR(externalRenderer) {
     }
     prevButtonPressed = pressed;
 
-    // presence fallback
-    let foundL = false, foundR = false;
+    // fallback presence
+    let fL = false, fR = false;
     session.inputSources.forEach(src => {
-      if (src.handedness === 'left')  foundL  = true;
-      if (src.handedness === 'right') foundR = true;
+      if (src.handedness === 'left')  fL = true;
+      if (src.handedness === 'right') fR = true;
     });
-
-    if (foundL !== leftPresent) {
-      logDebug(foundL ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
-      leftPresent = foundL;
-      if (gripL) gripL.visible = foundL;
+    if (fL !== leftPresent) {
+      logDebug(fL ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
+      leftPresent = fL;
+      if (gripL) gripL.visible = fL;
     }
-    if (foundR !== rightPresent) {
-      logDebug(foundR ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
-      rightPresent = foundR;
-      if (gripR) gripR.visible = foundR;
+    if (fR !== rightPresent) {
+      logDebug(fR ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
+      rightPresent = fR;
+      if (gripR) gripR.visible = fR;
     }
   });
 
@@ -247,13 +250,12 @@ async function loadMedia(media) {
 
   [texLeft, texRight].forEach(t => {
     if (!t) return;
-    t.minFilter       = THREE.LinearFilter;
-    t.magFilter       = THREE.LinearFilter;
+    t.minFilter = t.magFilter = THREE.LinearFilter;
     t.generateMipmaps = true;
-    t.mapping         = THREE.EquirectangularReflectionMapping;
-    t.encoding        = THREE.sRGBEncoding;
-    t.wrapS           = THREE.ClampToEdgeWrapping;
-    t.wrapT           = THREE.RepeatWrapping;
+    t.mapping = THREE.EquirectangularReflectionMapping;
+    t.encoding = THREE.sRGBEncoding;
+    t.wrapS = THREE.ClampToEdgeWrapping;
+    t.wrapT = THREE.RepeatWrapping;
   });
 
   if (media.stereo) {
