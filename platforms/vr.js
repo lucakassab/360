@@ -19,7 +19,7 @@ const MAX_LOGS = 10;
 const SNAP_ANGLE_DEGREES = 20;
 const SNAP_ANGLE_RADIANS = THREE.MathUtils.degToRad(SNAP_ANGLE_DEGREES);
 
-// funções de log e debug
+// log e debug
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
   debugLogs.push(msg);
@@ -35,38 +35,42 @@ function dumpMeshes(root,label) {
   root.traverse(o=>o.isMesh&&logDebug(`📦 ${label}: mesh "${o.name}"`));
 }
 
-export function load(media) {
+// load público, retorna promise para core.js
+export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
   clearScene();
   logDebug(`📂 Carregando: ${media.name}`);
-  loadMedia(media);
+  await loadMedia(media);
+  logDebug('✅ loadMedia concluído');
 }
 
+// inicializa XR e input handlers
 export async function initXR(externalRenderer) {
   if (inited) return;
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio*2);
-  renderer.xr.enabled=true; renderer.xr.setFramebufferScaleFactor(1.0);
-  renderer.toneMapping=THREE.NoToneMapping; renderer.outputEncoding=THREE.sRGBEncoding;
+  renderer.xr.enabled=true;
+  renderer.xr.setFramebufferScaleFactor(1.0);
+  renderer.toneMapping=THREE.NoToneMapping;
+  renderer.outputEncoding=THREE.sRGBEncoding;
 
   scene=new THREE.Scene(); mediaGroup=new THREE.Group(); scene.add(mediaGroup);
   camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
   camera.position.set(0,0,0.1); scene.add(camera);
 
-  // luz ponto central
   const light=new THREE.PointLight(0xffffff,1.5,80,2);
   light.position.set(0,0,0); camera.add(light);
 
   if(SHOW_VR_DEBUG) {
     debugCanvas=document.createElement('canvas'); debugCanvas.width=2048; debugCanvas.height=1024;
     debugTexture=new THREE.CanvasTexture(debugCanvas);
-    const mat=new THREE.MeshBasicMaterial({ map:debugTexture, transparent:true });
+    const mat=new THREE.MeshBasicMaterial({map:debugTexture,transparent:true});
     const geo=new THREE.PlaneGeometry(0.6,0.3);
     debugMesh=new THREE.Mesh(geo,mat);
     debugMesh.position.set(0,-0.1,-0.5);
     debugMesh.visible=false;
     camera.add(debugMesh);
-    logDebug('version:1.20');
+    logDebug('version:1.21');
   }
 
   const factory=new XRControllerModelFactory();
@@ -83,39 +87,48 @@ export async function initXR(externalRenderer) {
     g.addEventListener('disconnected',()=>{ g.visible=false; logDebug(`🔴 ${label} desconectado`); });
     scene.add(g); return g;
   }
-  gripL=spawnGrip(0,'Left'); gripR=spawnGrip(1,'Right');
+  const gripL=spawnGrip(0,'Left');
+  const gripR=spawnGrip(1,'Right');
 
   setupVRInputs(renderer,{
-    onNext: ()=>window.nextMedia&&window.nextMedia(),
-    onPrev: ()=>window.prevMedia&&window.prevMedia(),
-    onToggleHUD: ()=>{ debugMesh.visible=!debugMesh.visible; },
+    onNext:()=>window.nextMedia&&window.nextMedia(),
+    onPrev:()=>window.prevMedia&&window.prevMedia(),
+    onToggleHUD:()=>debugMesh.visible=!debugMesh.visible,
     onSnap:(hand,dir)=>{
       mediaGroup.rotation.y += dir*SNAP_ANGLE_RADIANS;
       logDebug(dir>0?'➡️ Snap R':'⬅️ Snap L');
     },
-    onDebugLog:(hand,idx)=> logDebug(`[${hand}] button[${idx}] pressed`)
+    onDebugLog:(hand,idx)=>logDebug(`[${hand}] button[${idx}] pressed`)
   });
 
-  renderer.setAnimationLoop(()=> renderer.render(scene,camera));
-
-  inited=true; logDebug('🚀 initXR pronto');
+  renderer.setAnimationLoop(()=>renderer.render(scene,camera));
+  inited=true;
+  logDebug('🚀 initXR pronto');
 }
 
-function loadMedia(media){
+// retorna Promise
+async function loadMedia(media) {
   if(videoEl){ videoEl.pause(); videoEl.remove(); }
   if(media.type==='video'){
     videoEl=document.createElement('video');
     Object.assign(videoEl,{src:media.cachePath,loop:true,muted:true,playsInline:true,crossOrigin:'anonymous'});
-    videoEl.play(); texLeft=new THREE.VideoTexture(videoEl); texRight=media.stereo?new THREE.VideoTexture(videoEl):null;
-    setupTexture(); applyTexture();
+    await videoEl.play();
+    texLeft=new THREE.VideoTexture(videoEl);
+    texRight=media.stereo?new THREE.VideoTexture(videoEl):null;
   } else {
-    new THREE.TextureLoader().load(media.cachePath,tex=>{texLeft=tex; texRight=media.stereo?tex.clone():null; setupTexture(); applyTexture();});
+    const tex=await new Promise((res,rej)=>
+      new THREE.TextureLoader().load(media.cachePath,res,undefined,rej)
+    );
+    texLeft=tex;
+    texRight=media.stereo?tex.clone():null;
   }
+  setupTexture();
+  applyTexture();
 }
 
 function setupTexture(){
   const ma=renderer.capabilities.getMaxAnisotropy();
-  [texLeft,texRight].forEach(t=>{ if(!t)return; t.mapping=THREE.EquirectangularReflectionMapping; t.encoding=THREE.sRGBEncoding; t.wrapS=t.wrapT=THREE.ClampToEdgeWrapping; t.generateMipmaps=true; t.minFilter=THREE.LinearMipMapLinearFilter; t.magFilter=THREE.LinearFilter; t.anisotropy=ma; });
+  [texLeft,texRight].forEach(t=>{if(!t)return; t.mapping=THREE.EquirectangularReflectionMapping; t.encoding=THREE.sRGBEncoding; t.wrapS=t.wrapT=THREE.ClampToEdgeWrapping; t.generateMipmaps=true; t.minFilter=THREE.LinearMipMapLinearFilter; t.magFilter=THREE.LinearFilter; t.anisotropy=ma;});
 }
 
 function applyTexture(){
