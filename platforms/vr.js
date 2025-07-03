@@ -64,12 +64,10 @@ export async function initXR(externalRenderer) {
   camera.position.set(0, 0, 0.1);
   scene.add(camera);
 
-  // Spotlight emitida do centro da câmera, raio duplicado (100%)
-  const spot = new THREE.SpotLight(0xffffff, 5, 30, Math.PI/6, 0.25);
-  spot.position.set(0, 0, 0);
-  spot.target.position.set(0, 0, -1);
-  camera.add(spot);
-  camera.add(spot.target);
+  // PointLight at camera center, omnidirectional, increased range (100% more)
+  const pointLight = new THREE.PointLight(0xffffff, 1.5, 40, 2); // intensity 1.5, distance 40, decay 2
+  pointLight.position.set(0, 0, 0);
+  camera.add(pointLight);
 
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
@@ -81,7 +79,7 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0,-0.1,-0.5);
     camera.add(debugMesh);
 
-    logDebug('version: 1.14');
+    logDebug('version: 1.15');
     const ua = navigator.userAgent.toLowerCase();
     const device = ua.includes('quest pro') ? 'Meta Quest Pro'
                  : ua.includes('quest 3')   ? 'Meta Quest 3'
@@ -95,11 +93,9 @@ export async function initXR(externalRenderer) {
   const factory = new XRControllerModelFactory();
   [0,1].forEach(i => renderer.xr.getController(i).visible = false);
   const whiteMat = model => model.traverse(o => {
-    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
-      color:0xffffff, roughness:0.3, metalness:0.4
-    });
+    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:0.3, metalness:0.4 });
   });
-  function spawnGrip(idx,label) {
+  function spawnGrip(idx, label) {
     const grip = renderer.xr.getControllerGrip(idx);
     grip.visible = false;
     const model = factory.createControllerModel(grip);
@@ -200,7 +196,8 @@ async function loadMedia(media) {
     texLeft = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
-    const base = await new Promise((res, rej) => new THREE.TextureLoader().load(media.cachePath, res, undefined, rej));
+    const loader = new THREE.TextureLoader();
+    const base = await new Promise((res, rej) => loader.load(media.cachePath, res, undefined, rej));
     texLeft = base;
     texRight = media.stereo ? base.clone() : null;
   }
@@ -229,7 +226,8 @@ async function loadMedia(media) {
     logDebug('⚪ Mono full OK');
   }
 
-  const geo = new THREE.SphereGeometry(500,128,128); geo.scale(-1,1,1);
+  const geo = new THREE.SphereGeometry(500,128,128);
+  geo.scale(-1,1,1);
   if (!media.stereo) {
     sphereLeft = new THREE.Mesh(geo,new THREE.MeshBasicMaterial({ map:texLeft }));
     sphereLeft.layers.enable(1); sphereLeft.layers.enable(2);
