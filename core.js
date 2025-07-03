@@ -83,7 +83,6 @@ async function onSessionStart() {
       await loadMedia(currentIndex);
     },
     onToggleHUD: () => {
-      // Usa função interna do vrMod pra ativar HUD
       if (typeof vrMod._toggleDebug === 'function') {
         vrMod._toggleDebug();
       } else {
@@ -91,7 +90,12 @@ async function onSessionStart() {
       }
     },
     onSnap: (hand, dir) => {
-      console.log(`Snap ${hand} -> ${dir > 0 ? '➡️' : '⬅️'}`);
+      // chama o snapTurn dentro do vr.js
+      if (typeof vrMod.snapTurn === 'function') {
+        vrMod.snapTurn(hand, dir);
+      } else {
+        console.warn('⚠️ vrMod.snapTurn() não está disponível');
+      }
     },
     onDebugLog: (hand, idx) => {
       console.log(`[${hand}] button[${idx}]`);
