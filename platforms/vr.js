@@ -23,7 +23,6 @@ function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
   debugLogs.push(msg);
   if (debugLogs.length > MAX_LOGS) debugLogs.shift();
-  // redesenha HUD
   const ctx = debugCanvas.getContext('2d');
   ctx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
   ctx.fillStyle = 'rgba(0,0,0,0.8)';
@@ -58,17 +57,15 @@ export async function initXR(extRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // luz ambiente + spot
   scene.add(new THREE.HemisphereLight(0xffffff,0x444444,1));
   const spot = new THREE.SpotLight(0xffffff,5,10,Math.PI/6,0.25);
   spot.position.set(0,2.2,0);
   spot.target.position.set(0,0,-1);
   camera.add(spot,spot.target);
 
-  // HUD
   if (SHOW_VR_DEBUG) {
-    debugCanvas = Object.assign(document.createElement('canvas'),{width:1024,height:512});
-    debugTexture= new THREE.CanvasTexture(debugCanvas);
+    debugCanvas  = Object.assign(document.createElement('canvas'),{width:1024,height:512});
+    debugTexture = new THREE.CanvasTexture(debugCanvas);
     debugMesh = new THREE.Mesh(
       new THREE.PlaneGeometry(0.6,0.3),
       new THREE.MeshBasicMaterial({map:debugTexture,transparent:true})
@@ -87,11 +84,10 @@ export async function initXR(extRenderer) {
     logDebug(`🎮 Dispositivo XR: ${dev}`);
   }
 
-  // factory de modelos
   const factory = new XRControllerModelFactory();
   [0,1].forEach(i=>{
     const c = renderer.xr.getController(i);
-    if (c) c.visible = false; // só queremos o grip, sem laser
+    if (c) c.visible = false;
   });
 
   const whiteMat = model => model.traverse(o=>{
@@ -100,35 +96,31 @@ export async function initXR(extRenderer) {
     });
   });
 
-  function spawnGrip(idx,label) {
-    const grip = renderer.xr.getControllerGrip(idx);
+  function spawnGrip(index,label) {
+    const grip = renderer.xr.getControllerGrip(index);
     grip.visible = false;
     let model = null, didDump=false;
 
-    // só cria e adiciona modelo quando o controller for conectado
-    grip.addEventListener('connected', e=>{
-      // filtra hand-tracking: profiles com 'hand'
+    grip.addEventListener('connected', e => {
       const prof = (e.data?.profiles?.[0]||'').toLowerCase();
       if (prof.includes('hand')) {
         logDebug(`🙌 ${label} é hand-tracking, ignorado`);
         return;
       }
-      // remove modelo antigo
-      if (model) grip.remove(model);
-      // cria novo modelo de controle
-      model = factory.createControllerModel(grip);
-      whiteMat(model);
-      grip.add(model);
-      grip.visible = true;
-      logDebug(`🟢 ${label} detectado (${prof})`);
-      // dump meshes uma vez
-      if (!didDump) {
-        dumpMeshes(model,`${label} model ready`);
-        didDump = true;
+      if (!model) {
+        model = factory.createControllerModel(grip);
+        whiteMat(model);
+        grip.add(model);
+        logDebug(`🟢 ${label} detectado (${prof})`);
+        if (!didDump) {
+          dumpMeshes(model, `${label} model ready`);
+          didDump = true;
+        }
       }
+      grip.visible = true;
     });
 
-    grip.addEventListener('disconnected', ()=>{
+    grip.addEventListener('disconnected', ()=> {
       grip.visible = false;
       logDebug(`🔴 ${label} perdido`);
     });
@@ -142,12 +134,11 @@ export async function initXR(extRenderer) {
 
   renderer.setAnimationLoop(()=>{
     renderer.render(scene,camera);
-    // atualiza HUD se visível
-    if (SHOW_VR_DEBUG && debugMesh.visible) debugTexture.needsUpdate=true;
+    if (SHOW_VR_DEBUG && debugMesh.visible) debugTexture.needsUpdate = true;
 
     const sess = renderer.xr.getSession();
     if (!sess) return;
-    // toggle HUD
+
     const press = sess.inputSources.some(src=>src.gamepad?.buttons[3]?.pressed);
     if (press && !prevButtonPressed) {
       debugMesh.visible = !debugMesh.visible;
@@ -155,18 +146,22 @@ export async function initXR(extRenderer) {
     }
     prevButtonPressed = press;
 
-    // fallback visibilidade
-    let fL=false,fR=false;
+    let fL=false, fR=false;
     sess.inputSources.forEach(src=>{
-      if (src.hand) return; // pula hand-tracking
+      if (src.hand) return;
       if (src.handedness==='left')  fL=true;
       if (src.handedness==='right') fR=true;
     });
-    if (fL!==leftPresent)  logDebug(fL?'🟢 controle esquerdo detectado':'🔴 controle esquerdo perdido');
-    if (fR!==rightPresent) logDebug(fR?'🟢 controle direito detectado':'🔴 controle direito perdido');
-    leftPresent=fL; rightPresent=fR;
-    if (gripL) gripL.visible = fL;
-    if (gripR) gripR.visible = fR;
+    if (fL!==leftPresent) {
+      logDebug(fL?'🟢 controle esquerdo detectado':'🔴 controle esquerdo perdido');
+      leftPresent = fL;
+    }
+    if (fR!==rightPresent) {
+      logDebug(fR?'🟢 controle direito detectado':'🔴 controle direito perdido');
+      rightPresent = fR;
+    }
+    if (gripL) gripL.visible = leftPresent;
+    if (gripR) gripR.visible = rightPresent;
   });
 
   inited = true;
