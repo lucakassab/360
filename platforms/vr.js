@@ -17,7 +17,7 @@ const MAX_LOGS = 10;
 const SNAP_ANGLE_DEGREES = 20;
 const SNAP_ANGLE_RADIANS = THREE.MathUtils.degToRad(SNAP_ANGLE_DEGREES);
 
-// guarda grips por mão para uso posterior
+// Armazena os grips para left/right
 const grips = { left: null, right: null };
 
 function logDebug(msg) {
@@ -105,7 +105,7 @@ export async function initXR(externalRenderer) {
     logDebug('version:1.23');
   }
 
-  // fábrica de modelos XR
+  // fábrica e preparação dos contrôles
   const factory = new XRControllerModelFactory();
   [0,1].forEach(i => renderer.xr.getController(i).visible = false);
   const whiteMat = model => model.traverse(o => {
@@ -114,7 +114,6 @@ export async function initXR(externalRenderer) {
     });
   });
 
-  // função para criar grip e ouvir eventos
   function spawnGrip(handedness, label, index) {
     const grip = renderer.xr.getControllerGrip(index);
     grip.visible = false;
@@ -140,17 +139,17 @@ export async function initXR(externalRenderer) {
     grips[handedness] = grip;
   }
 
-  // spawn imediato
-  spawnGrip('left', 'Left',  0);
-  spawnGrip('right','Right', 1);
+  // cria os grips
+  spawnGrip('left',  'Left',  0);
+  spawnGrip('right', 'Right', 1);
 
-  // assim que a sessão começar, force disparar 'connected' nos grips já presentes
+  // logo ao iniciar a sessão, verifica quem já está presente
   const session = renderer.xr.getSession();
   if (session) {
     session.inputSources.forEach(src => {
       const h = src.handedness;
-      if ((h==='left'||h==='right') && grips[h]) {
-        const prof = src.profiles?.[0]||'??';
+      if ((h === 'left' || h === 'right') && grips[h]) {
+        const prof = src.profiles?.[0] || '??';
         grips[h].userData.profile = prof;
         grips[h].visible = true;
         logDebug(`🟢 ${h.charAt(0).toUpperCase()+h.slice(1)} conectado (${prof})`);
@@ -158,8 +157,18 @@ export async function initXR(externalRenderer) {
     });
   }
 
-  // loop de render
+  // loop de render + monitoramento contínuo de presença
   renderer.setAnimationLoop(() => {
+    const sess = renderer.xr.getSession();
+    if (sess) {
+      let foundL = false, foundR = false;
+      sess.inputSources.forEach(src => {
+        if (src.handedness === 'left')   foundL = true;
+        if (src.handedness === 'right')  foundR = true;
+      });
+      if (grips.left)  grips.left.visible  = foundL;
+      if (grips.right) grips.right.visible = foundR;
+    }
     renderer.render(scene, camera);
   });
 
@@ -199,7 +208,7 @@ function applyTexture() {
     texRight.repeat.set(1,0.5);
     texRight.offset.set(0, top === 0 ? 0.5 : 0.0);
     texRight.needsUpdate = true;
-    sphereLeft  = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
+    sphereLeft  = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft  }));
     sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
     sphereLeft.layers.set(1);
     sphereRight.layers.set(2);
@@ -219,12 +228,12 @@ function clearScene() {
   });
 }
 
-// chamado pelo core.js para ligar/desligar HUD
+// HUD toggle chamado do core.js
 export function _toggleDebug() {
   if (debugMesh) debugMesh.visible = !debugMesh.visible;
 }
 
-// expõe botão no HUD
+// expõe botões no HUD
 export function debugLog(hand, idx) {
   logDebug(`[${hand}] button[${idx}]`);
 }
