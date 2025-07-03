@@ -16,24 +16,23 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
   let onNext, onPrev, onToggleHUD, onSnap, onDebugLog;
 
   if (typeof handlersOrNext === 'function') {
-    // assinatura antiga: (renderer, onNext, onPrev, onDebugLog)
+    // assinatura LEGACY: (renderer, onNext, onPrev, onDebugLog)
     onNext      = handlersOrNext;
     onPrev      = maybePrev;
     onToggleHUD = () => {};
     onSnap      = () => {};
     onDebugLog  = maybeDebugLog;
   } else {
-    // nova assinatura: (renderer, { onNext, onPrev, onToggleHUD, onSnap, onDebugLog })
+    // assinatura moderna: (renderer, { onNext, onPrev, onToggleHUD, onSnap, onDebugLog })
     ({ onNext, onPrev, onToggleHUD, onSnap, onDebugLog } = handlersOrNext);
   }
 
   function handleSession(session) {
     prevStates.clear();
 
-    // Quando mudar fontes (controller ↔ hand)
+    // quando conectam/desconectam controllers ou handtracking
     session.addEventListener('inputsourceschange', () => {
       prevStates.clear();
-      // Loga eventuais conexões de mão ou controller
       session.inputSources.forEach(src => {
         if (src.hand) {
           onDebugLog && onDebugLog(src.handedness, 'hand-connected');
@@ -45,7 +44,8 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
 
     function poll() {
       for (const src of session.inputSources) {
-        // --- hand-tracking ---
+
+        // === hand tracking ===
         if (src.hand && !src.gamepad) {
           const hid = `hand|${src.handedness}`;
           if (!prevStates.has(hid)) {
@@ -56,31 +56,35 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
         }
 
         const gp = src.gamepad;
-        if (!gp) continue; // sem gamepad, já tratei hand acima
+        if (!gp) continue;
 
         const id = `${src.handedness}|${gp.id}`;
         let prev = prevStates.get(id);
         if (!prev) {
-          // estado inicial: nenhum botão pressionado + snap liberado
-          prev = { buttons: Array(gp.buttons.length).fill(false), _snapDone: false };
+          prev = {
+            buttons: Array(gp.buttons.length).fill(false),
+            _snapDone: false
+          };
         }
 
-        // --- botões ---
+        // === botões ===
         const curr = gp.buttons.map(b => b.pressed);
         curr.forEach((pressed, idx) => {
           if (pressed && !prev.buttons[idx]) {
             // log genérico
             onDebugLog && onDebugLog(src.handedness, idx);
+
             // A e B
             if (idx === 4) onNext && onNext();
             if (idx === 5) onPrev && onPrev();
-            // stick click (botão 3)
-            if (idx === 3) onToggleHUD && onToggleHUD();
+
+            // toggle HUD no thumbstick‐press (índice 2), fallback 3
+            if (idx === 2 || idx === 3) onToggleHUD && onToggleHUD();
           }
         });
 
-        // --- snap turn (eixo X do thumbstick) ---
-        const x = gp.axes[0] || 0;  // eixo X principal
+        // === snap turn ===
+        const x = gp.axes[0] ?? 0;
         if (Math.abs(x) < 0.7) {
           prev._snapDone = false;
         } else if (!prev._snapDone) {
@@ -89,7 +93,7 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
           prev._snapDone = true;
         }
 
-        // atualiza estado para próxima iteração
+        // atualiza estado
         prev.buttons = curr;
         prevStates.set(id, prev);
       }
@@ -97,16 +101,15 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
       session.requestAnimationFrame(poll);
     }
 
-    session.requestReferenceSpace('local').then(() => {
-      session.requestAnimationFrame(poll);
-    });
+    session.requestReferenceSpace('local')
+      .then(() => session.requestAnimationFrame(poll));
   }
 
-  // já apresentando?
+  // Se já estivermos no VR
   if (renderer.xr.isPresenting) {
     handleSession(renderer.xr.getSession());
   }
-  // nova sessão
+  // Quando entrar em VR
   renderer.xr.addEventListener('sessionstart', () => {
     handleSession(renderer.xr.getSession());
   });
