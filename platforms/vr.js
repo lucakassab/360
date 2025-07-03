@@ -73,7 +73,7 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
 
-    // versão do VR.js
+    // adiciona versão no log
     logDebug('version: 1.13');
 
     const ua = navigator.userAgent.toLowerCase();
