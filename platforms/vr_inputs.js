@@ -12,7 +12,18 @@ const prevStates = new Map();
  * @param {Function} handlers.onSnap       Chama ao ultrapassar deadzone do stick
  * @param {Function} handlers.onDebugLog   Chama em qualquer botão novo, (handedness, index)
  */
-export function setupVRInputs(renderer, {
+export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebug) {
+  // Suporta chamada posicional: (renderer, onNext, onPrev, onDebugLog)
+  let onNext, onPrev, onToggleHUD, onSnap, onDebugLog;
+  if (typeof handlersOrNext === 'function') {
+    onNext = handlersOrNext;
+    onPrev = maybePrev;
+    onDebugLog = maybeDebug;
+    onToggleHUD = () => {};
+    onSnap = () => {};
+  } else {
+    ({ onNext, onPrev, onToggleHUD, onSnap, onDebugLog } = handlersOrNext);
+  }
   onNext,
   onPrev,
   onToggleHUD,
