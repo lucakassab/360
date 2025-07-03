@@ -16,7 +16,6 @@ let isLoading = false;
 main();
 
 async function main() {
-  // carrega JSON
   mediaList = await (await fetch('./media/media.json')).json();
   mediaList.forEach((m, i) => {
     const opt = document.createElement('option');
@@ -25,18 +24,15 @@ async function main() {
     dropdown.appendChild(opt);
   });
 
-  // escolhe mobile ou desktop
   if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
     platformMod = await import('./platforms/mobile.js');
   } else {
     platformMod = await import('./platforms/desktop.js');
   }
 
-  // init desktop/mobile
   await platformMod.init();
   currentModule = platformMod;
 
-  // UI desktop/mobile
   dropdown.onchange = () => {
     currentIndex = +dropdown.value;
     loadMedia(currentIndex);
@@ -56,7 +52,6 @@ async function main() {
 
   await loadMedia(currentIndex);
 
-  // botão VR
   if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
     const renderer = platformMod.renderer;
     renderer.xr.enabled = true;
@@ -74,35 +69,41 @@ async function onSessionStart() {
   currentModule = vrMod;
   await loadMedia(currentIndex);
 
-  setupVRInputs(
-    vrMod.renderer,
-    async () => {
+  setupVRInputs(vrMod.renderer, {
+    onNext: async () => {
       if (isLoading) return;
       currentIndex = (currentIndex + 1) % mediaList.length;
       dropdown.value = currentIndex;
       await loadMedia(currentIndex);
     },
-    async () => {
+    onPrev: async () => {
       if (isLoading) return;
       currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
       dropdown.value = currentIndex;
       await loadMedia(currentIndex);
     },
-    raw => {
-      // opcional: log de debug de botões
-      console.log(raw);
+    onToggleHUD: () => {
+      // Usa função interna do vrMod pra ativar HUD
+      if (typeof vrMod._toggleDebug === 'function') {
+        vrMod._toggleDebug();
+      } else {
+        console.warn('⚠️ vrMod._toggleDebug() não está disponível');
+      }
+    },
+    onSnap: (hand, dir) => {
+      console.log(`Snap ${hand} -> ${dir > 0 ? '➡️' : '⬅️'}`);
+    },
+    onDebugLog: (hand, idx) => {
+      console.log(`[${hand}] button[${idx}]`);
     }
-  );
+  });
 }
 
 async function onSessionEnd() {
   console.log('🌐 VR session ended');
-  // desliga o XR no renderer
   platformMod.renderer.xr.enabled = false;
-  // reinicia a cena desktop/mobile
   await platformMod.init();
   currentModule = platformMod;
-  // recarrega a mídia atual limpinho
   await loadMedia(currentIndex);
 }
 
