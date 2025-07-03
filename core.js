@@ -88,16 +88,12 @@ async function onSessionStart() {
     onSnap: (hand, dir) => {
       vrMod.snapTurn?.(hand, dir);
     },
-    // NOTE: aqui recebemos `idxOrMsg`, que pode ser número ou string
+    // aqui idxOrMsg pode ser número ou string
     onDebugLog: (hand, idxOrMsg) => {
-      if (typeof vrMod.debugLog === 'function') {
-        vrMod.debugLog(hand, idxOrMsg);
-      } else {
-        console.log(`[${hand}]`, idxOrMsg);
-      }
+      vrMod.debugLog?.(hand, idxOrMsg);
     }
   });
-}  // <<< fechamos o onSessionStart corretamente
+}
 
 async function onSessionEnd() {
   console.log('🌐 VR session ended');
