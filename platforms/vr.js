@@ -73,6 +73,9 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
 
+    // versão do VR.js
+    logDebug('version: 1.13');
+
     const ua = navigator.userAgent.toLowerCase();
     const device =
       ua.includes('quest pro') ? 'Meta Quest Pro' :
