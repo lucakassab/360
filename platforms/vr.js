@@ -15,7 +15,7 @@ const SHOW_VR_DEBUG         = true;
 
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
-const MAX_LOGS = 20;
+const MAX_LOGS = 10;
 let prevButtonPressed = false;
 
 let gripL = null, gripR = null;
@@ -45,10 +45,13 @@ function dumpMeshes(root, label) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
+  // --- scene & camera
   scene  = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
+  scene.add(camera);
 
+  // --- renderer
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -56,12 +59,14 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI / 6, 0.25);
+  // --- lights
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1));
+  const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI/6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot, spot.target);
-  scene.add(camera);
 
+  // --- debug HUD
   if (SHOW_VR_DEBUG) {
     debugCanvas  = document.createElement('canvas');
     debugCanvas.width  = 2048;
@@ -71,9 +76,9 @@ export async function initXR(externalRenderer) {
     const geo = new THREE.PlaneGeometry(0.6, 0.3);
     debugMesh = new THREE.Mesh(geo, mat);
     debugMesh.position.set(0, -0.1, -0.5);
+    debugMesh.visible = false; // começa oculto
     camera.add(debugMesh);
 
-    // adiciona versão no log
     logDebug('version: 1.13');
 
     const ua = navigator.userAgent.toLowerCase();
@@ -86,37 +91,63 @@ export async function initXR(externalRenderer) {
     logDebug(`🎮 Dispositivo XR: ${device}`);
   }
 
+  dumpMeshes(scene, 'initial scene');
+
+  // --- controllers
   const factory = new XRControllerModelFactory();
-  [0, 1].forEach(i => renderer.xr.getController(i).visible = false);
+  [0,1].forEach(i => {
+    const c = renderer.xr.getController(i);
+    if (c) c.visible = false;
+  });
 
   const whiteMat = model => {
     model.traverse(o => {
-      if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        roughness: 0.3,
-        metalness: 0.4
-      });
+      if (o.isMesh) {
+        o.material = new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          roughness: 0.3,
+          metalness: 0.4
+        });
+      }
     });
   };
 
   function spawnGrip(index, label) {
     const grip = renderer.xr.getControllerGrip(index);
     grip.visible = false;
+    let controllerModel = null;
 
-    const model = factory.createControllerModel(grip);
-    whiteMat(model);
-    grip.add(model);
-
-    model.addEventListener('connected', () => {
-      dumpMeshes(model, `${label} (model ready)`);
-    });
-
-    grip.addEventListener('connected', (e) => {
+    grip.addEventListener('connected', e => {
+      const prof = (e.data.profiles[0] || '').toLowerCase();
+      if (controllerModel) {
+        grip.remove(controllerModel);
+        controllerModel = null;
+      }
+      controllerModel = factory.createControllerModel(grip);
+      whiteMat(controllerModel);
+      controllerModel.traverse(node => {
+        if (node.isMesh && node.name.toLowerCase().includes('hand')) {
+          node.visible = false;
+          logDebug(`🙈 Ocultando mesh de mão: "${node.name}"`);
+        }
+      });
+      grip.add(controllerModel);
       grip.visible = true;
-      logDebug(`🟢 ${label} detectado (profile: ${e.data?.profiles?.[0] || '??'})`);
+      logDebug(`🟢 ${label} detectado (${prof})`);
+      dumpMeshes(controllerModel, `${label} model ready`);
     });
 
     grip.addEventListener('disconnected', () => {
+      if (controllerModel) {
+        controllerModel.traverse(n => {
+          if (n.isMesh) {
+            n.geometry.dispose();
+            n.material.dispose();
+          }
+        });
+        grip.remove(controllerModel);
+        controllerModel = null;
+      }
       grip.visible = false;
       logDebug(`🔴 ${label} perdido`);
     });
@@ -125,43 +156,40 @@ export async function initXR(externalRenderer) {
     return grip;
   }
 
-  if (SHOW_LEFT_CONTROLLER)  gripL  = spawnGrip(0, 'controle esquerdo');
+  if (SHOW_LEFT_CONTROLLER)  gripL = spawnGrip(0, 'controle esquerdo');
   if (SHOW_RIGHT_CONTROLLER) gripR = spawnGrip(1, 'controle direito');
 
+  // --- render loop
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
 
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    let btnPressedNow = false;
-    session.inputSources.forEach(src => {
-      const gp = src.gamepad;
-      if (gp && gp.buttons[3]?.pressed) btnPressedNow = true;
-    });
-    if (btnPressedNow && !prevButtonPressed && debugMesh) {
+    // toggle HUD with B
+    const pressed = session.inputSources.some(src => src.gamepad?.buttons[3]?.pressed);
+    if (pressed && !prevButtonPressed) {
       debugMesh.visible = !debugMesh.visible;
       logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
     }
-    prevButtonPressed = btnPressedNow;
+    prevButtonPressed = pressed;
 
-    let foundLeft = false, foundRight = false;
+    // controller presence fallback
+    let fL = false, fR = false;
     session.inputSources.forEach(src => {
-      if (src.handedness === 'left')  foundLeft  = true;
-      if (src.handedness === 'right') foundRight = true;
+      if (src.handedness === 'left')  fL = true;
+      if (src.handedness === 'right') fR = true;
     });
-
-    if (foundLeft !== leftPresent) {
-      logDebug(foundLeft ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
-      leftPresent = foundLeft;
+    if (fL !== leftPresent) {
+      logDebug(fL ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
+      leftPresent = fL;
+      if (gripL) gripL.visible = fL;
     }
-    if (foundRight !== rightPresent) {
-      logDebug(foundRight ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
-      rightPresent = foundRight;
+    if (fR !== rightPresent) {
+      logDebug(fR ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
+      rightPresent = fR;
+      if (gripR) gripR.visible = fR;
     }
-
-    if (gripL) gripL.visible = foundLeft;
-    if (gripR) gripR.visible = foundRight;
   });
 
   inited = true;
@@ -190,7 +218,7 @@ function clearScene() {
     videoEl.remove();
     videoEl = null;
   }
-  texLeft?.dispose?.(); texRight?.dispose?.();
+  texLeft?.dispose(); texRight?.dispose();
   sphereLeft = sphereRight = texLeft = texRight = null;
   logDebug('🧹 Cena limpa');
 }
@@ -207,28 +235,29 @@ async function loadMedia(media) {
       muted: true,
       playsInline: true
     });
-    await videoEl.play();
+    // não await aqui para não bloquear
+    videoEl.play().catch(() => {});
     texLeft  = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
     logDebug('🎥 VideoTexture criada');
   } else {
+    // loadAsync é realmente assíncrono
     const loader = new THREE.TextureLoader();
-    const base   = await new Promise((res, rej) =>
-      loader.load(media.cachePath, res, undefined, rej)
-    );
+    const base = await loader.loadAsync(media.cachePath);
     texLeft  = base;
     texRight = media.stereo ? base.clone() : null;
-    logDebug('📷 TextureLoader carregou imagem');
+    logDebug('📷 Texture async carregada');
   }
 
   [texLeft, texRight].forEach(t => {
     if (!t) return;
-    t.minFilter = t.magFilter = THREE.LinearFilter;
+    t.minFilter       = THREE.LinearFilter;
+    t.magFilter       = THREE.LinearFilter;
     t.generateMipmaps = true;
-    t.mapping = THREE.EquirectangularReflectionMapping;
-    t.encoding = THREE.sRGBEncoding;
-    t.wrapS = THREE.ClampToEdgeWrapping;
-    t.wrapT = THREE.RepeatWrapping;
+    t.mapping         = THREE.EquirectangularReflectionMapping;
+    t.encoding        = THREE.sRGBEncoding;
+    t.wrapS           = THREE.ClampToEdgeWrapping;
+    t.wrapT           = THREE.RepeatWrapping;
   });
 
   if (media.stereo) {
@@ -239,7 +268,9 @@ async function loadMedia(media) {
     texLeft.needsUpdate = texRight.needsUpdate = true;
     logDebug('🔀 Stereo configurado');
   } else {
-    texLeft.repeat.set(1, 1); texLeft.offset.set(0, 0); texLeft.needsUpdate = true;
+    texLeft.repeat.set(1, 1);
+    texLeft.offset.set(0, 0);
+    texLeft.needsUpdate = true;
     logDebug('⚪ Mono configurado');
   }
 
