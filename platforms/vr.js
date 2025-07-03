@@ -15,7 +15,7 @@ const SHOW_VR_DEBUG         = true;
 
 // --- CONFIGURAÇÃO DE SNAP TURN ---
 const SNAP_THRESHOLD = 0.7;    // 0.0–1.0 sensibilidade do stick
-const SNAP_ANGLE     = 90;     // ângulo em graus, muda aqui
+const SNAP_ANGLE     = 20;     // ângulo em graus, muda aqui
 const SNAP_RAD       = THREE.MathUtils.degToRad(SNAP_ANGLE);
 // -----------------------------------
 
