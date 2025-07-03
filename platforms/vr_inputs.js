@@ -1,41 +1,52 @@
 // platforms/vr_inputs.js
-// Poll VR controller inputs each XR frame using session.requestAnimationFrame,
-// without touching renderer.setAnimationLoop.
 
-const previousStates = new Map();
+const prevStates = new Map();
 
-/**
- * Initialize polling of gamepad inputs in WebXR.
- * @param {THREE.WebGLRenderer} renderer - XR-enabled renderer
- * @param {Function} onNext - callback for button A (index 4)
- * @param {Function} onPrev - callback for button B (index 5)
- * @param {Function} onDebug - callback for any button pressed, receives raw input string
- */
-export function setupVRInputs(renderer, onNext, onPrev, onDebug) {
+export function setupVRInputs(renderer, {
+  onNext,
+  onPrev,
+  onToggleHUD,
+  onSnap,
+  onDebugLog
+}) {
   function handleSession(session) {
-    previousStates.clear();
+    prevStates.clear();
+
     session.addEventListener('inputsourceschange', () => {
-      previousStates.clear();
+      prevStates.clear();
     });
 
     function poll(time, frame) {
-      for (const source of session.inputSources) {
-        if (!source.gamepad) continue;
-        const gp = source.gamepad;
-        const id = `${source.handedness}|${gp.id}`;
-        const prev = previousStates.get(id) || [];
+      session.inputSources.forEach(src => {
+        if (!src.gamepad) return;
+        const id = `${src.handedness}|${src.gamepad.id}`;
+        const prev = prevStates.get(id) || [];
 
-        gp.buttons.forEach((btn, idx) => {
+        // Botões
+        src.gamepad.buttons.forEach((btn, idx) => {
           if (btn.pressed && !prev[idx]) {
-            const raw = `${id} button[${idx}]`;
-            onDebug && onDebug(raw);
-            if (idx === 4) onNext();
-            if (idx === 5) onPrev();
+            onDebugLog && onDebugLog(src.handedness, idx);
+            if (idx === 4) onNext && onNext();
+            if (idx === 5) onPrev && onPrev();
+            if (idx === 3) onToggleHUD && onToggleHUD();
           }
         });
 
-        previousStates.set(id, gp.buttons.map(b => b.pressed));
-      }
+        // Snap turn via thumbstick esquerdo ou direito
+        const x = src.gamepad.axes.length >= 4 ? src.gamepad.axes[2] : src.gamepad.axes[0];
+        const was = prev._snapDone;
+        if (Math.abs(x) < 0.7) {
+          prev._snapDone = false;
+        } else if (!was) {
+          const dir = x > 0 ? 1 : -1;
+          onSnap && onSnap(src.handedness, dir);
+          prev._snapDone = true;
+        }
+
+        // Atualiza estado
+        prevStates.set(id, Object.assign(gpToBools(src.gamepad), { _snapDone: prev._snapDone }));
+      });
+
       session.requestAnimationFrame(poll);
     }
 
@@ -44,10 +55,13 @@ export function setupVRInputs(renderer, onNext, onPrev, onDebug) {
     });
   }
 
-  if (renderer.xr.isPresenting) {
-    handleSession(renderer.xr.getSession());
-  }
+  if (renderer.xr.isPresenting) handleSession(renderer.xr.getSession());
+
   renderer.xr.addEventListener('sessionstart', () => {
     handleSession(renderer.xr.getSession());
   });
+}
+
+function gpToBools(gp) {
+  return gp.buttons.map(b => b.pressed);
 }
