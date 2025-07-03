@@ -38,7 +38,7 @@ function logDebug(msg) {
 
 function dumpMeshes(root, label) {
   root.traverse(o => {
-    if (o.isMesh) logDebug(📦 ${label}: mesh "${o.name}");
+    if (o.isMesh) logDebug(`📦 ${label}: mesh "${o.name}"`);
   });
 }
 
@@ -73,7 +73,7 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
 
-    // adiciona versão no log
+    // versão do VR.js
     logDebug('version: 1.13');
 
     const ua = navigator.userAgent.toLowerCase();
@@ -83,7 +83,7 @@ export async function initXR(externalRenderer) {
       ua.includes('quest 2')   ? 'Meta Quest 2'  :
       ua.includes('quest')     ? 'Meta Quest'    :
       ua.includes('oculusbrowser') ? 'Oculus Browser' : 'Desconhecido';
-    logDebug(🎮 Dispositivo XR: ${device});
+    logDebug(`🎮 Dispositivo XR: ${device}`);
   }
 
   const factory = new XRControllerModelFactory();
@@ -108,17 +108,17 @@ export async function initXR(externalRenderer) {
     grip.add(model);
 
     model.addEventListener('connected', () => {
-      dumpMeshes(model, ${label} (model ready));
+      dumpMeshes(model, `${label} (model ready)`);
     });
 
     grip.addEventListener('connected', (e) => {
       grip.visible = true;
-      logDebug(🟢 ${label} detectado (profile: ${e.data?.profiles?.[0] || '??'}));
+      logDebug(`🟢 ${label} detectado (profile: ${e.data?.profiles?.[0] || '??'})`);
     });
 
     grip.addEventListener('disconnected', () => {
       grip.visible = false;
-      logDebug(🔴 ${label} perdido);
+      logDebug(`🔴 ${label} perdido`);
     });
 
     scene.add(grip);
@@ -141,7 +141,7 @@ export async function initXR(externalRenderer) {
     });
     if (btnPressedNow && !prevButtonPressed && debugMesh) {
       debugMesh.visible = !debugMesh.visible;
-      logDebug(🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'});
+      logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
     }
     prevButtonPressed = btnPressedNow;
 
@@ -170,7 +170,7 @@ export async function initXR(externalRenderer) {
 
 export async function load(media) {
   if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
-  logDebug(📂 Carregando: ${media.name});
+  logDebug(`📂 Carregando: ${media.name}`);
   await loadMedia(media);
   logDebug('✅ loadMedia concluído');
 }
