@@ -21,6 +21,7 @@ let prevButtonPressed = false;
 let snappedLeft = false, snappedRight = false;
 const SNAP_THRESHOLD = 0.7;
 const SNAP_ANGLE_DEGREES = 20;
+const SNAP_ANGLE_RADIANS = THREE.MathUtils.degToRad(SNAP_ANGLE_DEGREES);
 
 let gripL = null, gripR = null;
 let leftPresent = false, rightPresent = false;
@@ -63,10 +64,12 @@ export async function initXR(externalRenderer) {
   camera.position.set(0, 0, 0.1);
   scene.add(camera);
 
-  const spot = new THREE.SpotLight(0xffffff, 5, 30, Math.PI/6, 0.25); // raio aumentado em 150%
-  spot.position.set(0, 1.0, 0);
+  // Spotlight emitida do centro da câmera, raio duplicado (100%)
+  const spot = new THREE.SpotLight(0xffffff, 5, 30, Math.PI/6, 0.25);
+  spot.position.set(0, 0, 0);
   spot.target.position.set(0, 0, -1);
-  camera.add(spot, spot.target);
+  camera.add(spot);
+  camera.add(spot.target);
 
   if (SHOW_VR_DEBUG) {
     debugCanvas = document.createElement('canvas');
@@ -103,7 +106,7 @@ export async function initXR(externalRenderer) {
     whiteMat(model);
     grip.add(model);
     model.addEventListener('connected', () => dumpMeshes(model, `${label} ready`));
-    grip.addEventListener('connected', e => {
+    grip.addEventListener('connected', (e) => {
       grip.visible = true;
       logDebug(`🟢 ${label} conectado (${e.data?.profiles?.[0]||'??'})`);
     });
@@ -138,8 +141,8 @@ export async function initXR(externalRenderer) {
       if (src.handedness==='left')  L=true;
       if (src.handedness==='right') R=true;
     });
-    if (L!==leftPresent)  { logDebug(L?'🟢 L entr':'🔴 L saiu'); leftPresent=L; }
-    if (R!==rightPresent) { logDebug(R?'🟢 R entr':'🔴 R saiu'); rightPresent=R; }
+    if (L!==leftPresent)  { logDebug(L?'🟢 L entrou':'🔴 L saiu'); leftPresent=L; }
+    if (R!==rightPresent) { logDebug(R?'🟢 R entrou':'🔴 R saiu'); rightPresent=R; }
     gripL.visible = leftPresent;
     gripR.visible = rightPresent;
 
@@ -148,13 +151,12 @@ export async function initXR(externalRenderer) {
       if(!gp||gp.axes.length<2) return;
       const x = gp.axes.length>=4 ? gp.axes[2] : gp.axes[0];
       if (src.handedness==='left') {
-        const angleRad = THREE.MathUtils.degToRad(SNAP_ANGLE_DEGREES);
         if (x>=SNAP_THRESHOLD && !snappedRight) {
-          mediaGroup.rotation.y -= angleRad;
+          mediaGroup.rotation.y -= SNAP_ANGLE_RADIANS;
           snappedRight=true; snappedLeft=false;
           logDebug('➡️ Snap R');
         } else if (x<=-SNAP_THRESHOLD && !snappedLeft) {
-          mediaGroup.rotation.y += angleRad;
+          mediaGroup.rotation.y += SNAP_ANGLE_RADIANS;
           snappedLeft=true; snappedRight=false;
           logDebug('⬅️ Snap L');
         }
@@ -189,7 +191,8 @@ function clearScene() {
 }
 
 async function loadMedia(media) {
-  if (videoEl) { clearScene(); }
+  clearScene();
+
   if (media.type==='video') {
     videoEl = document.createElement('video');
     Object.assign(videoEl, { src:media.cachePath, loop:true, muted:true, playsInline:true, crossOrigin:'anonymous' });
@@ -197,8 +200,7 @@ async function loadMedia(media) {
     texLeft = new THREE.VideoTexture(videoEl);
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
   } else {
-    const loader = new THREE.TextureLoader();
-    const base = await new Promise((res, rej) => loader.load(media.cachePath, res, undefined, rej));
+    const base = await new Promise((res, rej) => new THREE.TextureLoader().load(media.cachePath, res, undefined, rej));
     texLeft = base;
     texRight = media.stereo ? base.clone() : null;
   }
@@ -217,27 +219,27 @@ async function loadMedia(media) {
 
   if (media.stereo) {
     const top = INVERTER_OLHOS ? 0.5 : 0.0;
-    texLeft.repeat.set(1,0.5);  texLeft.offset.set(0,top);
+    texLeft.repeat.set(1,0.5); texLeft.offset.set(0,top);
     texRight.repeat.set(1,0.5); texRight.offset.set(0,top===0?0.5:0.0);
+    texLeft.needsUpdate=true; texRight.needsUpdate=true;
     logDebug('🔀 Stereo split OK');
   } else {
     texLeft.repeat.set(1,1); texLeft.offset.set(0,0);
+    texLeft.needsUpdate=true;
     logDebug('⚪ Mono full OK');
   }
 
-  const geo = new THREE.SphereGeometry(500,128,128);
-  geo.scale(-1,1,1);
-
+  const geo = new THREE.SphereGeometry(500,128,128); geo.scale(-1,1,1);
   if (!media.stereo) {
-    sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map:texLeft }));
+    sphereLeft = new THREE.Mesh(geo,new THREE.MeshBasicMaterial({ map:texLeft }));
     sphereLeft.layers.enable(1); sphereLeft.layers.enable(2);
     mediaGroup.add(sphereLeft);
     dumpMeshes(sphereLeft,'Mono');
   } else {
-    sphereLeft  = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map:texLeft }));
-    sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map:texRight }));
+    sphereLeft  = new THREE.Mesh(geo,new THREE.MeshBasicMaterial({ map:texLeft }));
+    sphereRight = new THREE.Mesh(geo,new THREE.MeshBasicMaterial({ map:texRight }));
     sphereLeft.layers.set(1); sphereRight.layers.set(2);
-    mediaGroup.add(sphereLeft, sphereRight);
+    mediaGroup.add(sphereLeft,sphereRight);
     dumpMeshes(sphereLeft,'L'); dumpMeshes(sphereRight,'R');
   }
 
