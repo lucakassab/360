@@ -15,7 +15,7 @@ const SHOW_VR_DEBUG         = true;
 
 let debugCanvas, debugTexture, debugMesh;
 let debugLogs = [];
-const MAX_LOGS = 20;
+const MAX_LOGS = 10;
 let prevButtonPressed = false;
 
 let gripL = null, gripR = null;
@@ -45,13 +45,13 @@ function dumpMeshes(root, label) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
-  // Scene & Camera
+  // --- scene & camera
   scene  = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
   scene.add(camera);
 
-  // Renderer
+  // --- renderer
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -59,14 +59,14 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
-  // Light
+  // --- lights
   scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1));
   const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI/6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot, spot.target);
 
-  // Debug HUD
+  // --- debug HUD
   if (SHOW_VR_DEBUG) {
     debugCanvas  = document.createElement('canvas');
     debugCanvas.width  = 2048;
@@ -78,7 +78,7 @@ export async function initXR(externalRenderer) {
     debugMesh.position.set(0, -0.1, -0.5);
     camera.add(debugMesh);
 
-    // versão
+    // version log
     logDebug('version: 1.13');
 
     const ua = navigator.userAgent.toLowerCase();
@@ -91,47 +91,59 @@ export async function initXR(externalRenderer) {
     logDebug(`🎮 Dispositivo XR: ${device}`);
   }
 
-  // initial dump
+  // --- dump initial scene
   dumpMeshes(scene, 'initial scene');
 
-  // Controllers
+  // --- controllers
   const factory = new XRControllerModelFactory();
   [0,1].forEach(i => {
     const c = renderer.xr.getController(i);
-    if (c) c.visible = false; // hide default ray
+    if (c) c.visible = false;  // hide default laser
   });
 
-  const whiteMat = model => model.traverse(o => {
-    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
-      color: 0xffffff,
-      roughness: 0.3,
-      metalness: 0.4
+  const whiteMat = model => {
+    model.traverse(o => {
+      if (o.isMesh) {
+        o.material = new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          roughness: 0.3,
+          metalness: 0.4
+        });
+      }
     });
-  });
+  };
 
   function spawnGrip(index, label) {
     const grip = renderer.xr.getControllerGrip(index);
     grip.visible = false;
-    const model = factory.createControllerModel(grip);
-    whiteMat(model);
-    grip.add(model);
+    let controllerModel = null;
 
     grip.addEventListener('connected', e => {
-      const prof = (e.data?.profiles?.[0] || '').toLowerCase();
+      const prof = (e.data.profiles[0] || '').toLowerCase();
+      // always unload old model
+      if (controllerModel) {
+        grip.remove(controllerModel);
+        controllerModel = null;
+      }
+      // ignore hand-tracking profiles
       if (prof.includes('hand')) {
-        // hide entire hand mesh without removing
-        model.traverse(o => { if (o.isMesh) o.visible = false; });
-        logDebug(`🙌 ${label} hand-tracking hidden`);
+        logDebug(`🙌 ${label} hand-tracking ignored`);
         return;
       }
-      // show controller meshes
-      model.traverse(o => { if (o.isMesh) o.visible = true; });
+      // create and show controller model
+      controllerModel = factory.createControllerModel(grip);
+      whiteMat(controllerModel);
+      grip.add(controllerModel);
       grip.visible = true;
       logDebug(`🟢 ${label} detectado (${prof})`);
-      dumpMeshes(model, `${label} model`);
+      dumpMeshes(controllerModel, `${label} model ready`);
     });
 
     grip.addEventListener('disconnected', () => {
+      if (controllerModel) {
+        grip.remove(controllerModel);
+        controllerModel = null;
+      }
       grip.visible = false;
       logDebug(`🔴 ${label} perdido`);
     });
@@ -143,14 +155,15 @@ export async function initXR(externalRenderer) {
   if (SHOW_LEFT_CONTROLLER)  gripL = spawnGrip(0, 'controle esquerdo');
   if (SHOW_RIGHT_CONTROLLER) gripR = spawnGrip(1, 'controle direito');
 
+  // --- render loop
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
 
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // toggle HUD
-    let pressed = session.inputSources.some(src => src.gamepad?.buttons[3]?.pressed);
+    // toggle HUD button B
+    const pressed = session.inputSources.some(src => src.gamepad?.buttons[3]?.pressed);
     if (pressed && !prevButtonPressed && debugMesh) {
       debugMesh.visible = !debugMesh.visible;
       logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
@@ -158,22 +171,22 @@ export async function initXR(externalRenderer) {
     prevButtonPressed = pressed;
 
     // presence fallback
-    let fL = false, fR = false;
+    let foundL = false, foundR = false;
     session.inputSources.forEach(src => {
-      if (src.handedness === 'left')  fL = true;
-      if (src.handedness === 'right') fR = true;
+      if (src.handedness === 'left')  foundL  = true;
+      if (src.handedness === 'right') foundR = true;
     });
-    if (fL !== leftPresent) {
-      logDebug(fL ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
-      leftPresent = fL;
-    }
-    if (fR !== rightPresent) {
-      logDebug(fR ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
-      rightPresent = fR;
-    }
 
-    if (gripL) gripL.visible = leftPresent;
-    if (gripR) gripR.visible = rightPresent;
+    if (foundL !== leftPresent) {
+      logDebug(foundL ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
+      leftPresent = foundL;
+      if (gripL) gripL.visible = foundL;
+    }
+    if (foundR !== rightPresent) {
+      logDebug(foundR ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
+      rightPresent = foundR;
+      if (gripR) gripR.visible = foundR;
+    }
   });
 
   inited = true;
@@ -202,8 +215,7 @@ function clearScene() {
     videoEl.remove();
     videoEl = null;
   }
-  texLeft?.dispose?.();
-  texRight?.dispose?.();
+  texLeft?.dispose(); texRight?.dispose();
   sphereLeft = sphereRight = texLeft = texRight = null;
   logDebug('🧹 Cena limpa');
 }
@@ -225,9 +237,8 @@ async function loadMedia(media) {
     texRight = media.stereo ? new THREE.VideoTexture(videoEl) : null;
     logDebug('🎥 VideoTexture criada');
   } else {
-    const loader = new THREE.TextureLoader();
-    const base   = await new Promise((res, rej) =>
-      loader.load(media.cachePath, res, undefined, rej)
+    const base = await new Promise((res, rej) =>
+      new THREE.TextureLoader().load(media.cachePath, res, undefined, rej)
     );
     texLeft  = base;
     texRight = media.stereo ? base.clone() : null;
@@ -236,12 +247,13 @@ async function loadMedia(media) {
 
   [texLeft, texRight].forEach(t => {
     if (!t) return;
-    t.minFilter = t.magFilter = THREE.LinearFilter;
+    t.minFilter       = THREE.LinearFilter;
+    t.magFilter       = THREE.LinearFilter;
     t.generateMipmaps = true;
-    t.mapping = THREE.EquirectangularReflectionMapping;
-    t.encoding = THREE.sRGBEncoding;
-    t.wrapS = THREE.ClampToEdgeWrapping;
-    t.wrapT = THREE.RepeatWrapping;
+    t.mapping         = THREE.EquirectangularReflectionMapping;
+    t.encoding        = THREE.sRGBEncoding;
+    t.wrapS           = THREE.ClampToEdgeWrapping;
+    t.wrapT           = THREE.RepeatWrapping;
   });
 
   if (media.stereo) {
@@ -266,13 +278,11 @@ async function loadMedia(media) {
     scene.add(sphereLeft);
     dumpMeshes(sphereLeft, 'SphereMono');
   } else {
-    sphereLeft = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
-    sphereLeft.layers.set(1);
-    scene.add(sphereLeft);
+    sphereLeft  = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texLeft }));
+    sphereLeft.layers.set(1); scene.add(sphereLeft);
     sphereRight = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texRight }));
-    sphereRight.layers.set(2);
-    scene.add(sphereRight);
-    dumpMeshes(sphereLeft, 'SphereL');
+    sphereRight.layers.set(2); scene.add(sphereRight);
+    dumpMeshes(sphereLeft,  'SphereL');
     dumpMeshes(sphereRight, 'SphereR');
   }
 
