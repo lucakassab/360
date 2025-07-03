@@ -1,14 +1,15 @@
 // platforms/vr_inputs.js
 const prevStates = new Map();
+const lastLog = {};  // ⏱️ Anti-flood nos logs
 
 /**
  * Configura polling de inputs VR (controllers e hand-tracking).
  *
  * @param {THREE.WebGLRenderer} renderer
  * @param {Object} handlers
- *   @param onNext()       — botão A
- *   @param onPrev()       — botão B
- *   @param onToggleHUD()  — stick-press (índice 2 ou 3)
+ *   @param onNext()         — botão A
+ *   @param onPrev()         — botão B
+ *   @param onToggleHUD()    — stick-press (índice 2 ou 3)
  *   @param onSnap(hand,dir) — snap-turn
  *   @param onDebugLog(hand,idxOrMsg) — log genérico
  */
@@ -28,6 +29,7 @@ export function setupVRInputs(renderer, {
     });
 
     function poll() {
+      const now = performance.now();
       for (const src of session.inputSources) {
         // — hand-tracking só log de detection —
         if (src.hand && !src.gamepad) {
@@ -42,10 +44,7 @@ export function setupVRInputs(renderer, {
         const gp = src.gamepad;
         if (!gp) continue;
 
-        // log de estrutura
-        onDebugLog(src.handedness,
-          `buttons:${gp.buttons.length} axes:${gp.axes.length}`);
-
+        // Só loga a estrutura uma vez por conexão (não flooda)
         const id = `${src.handedness}|${gp.id}`;
         let prev = prevStates.get(id)
                 || { buttons:Array(gp.buttons.length).fill(false), _snapDone:false };
@@ -54,8 +53,12 @@ export function setupVRInputs(renderer, {
 
         // — botões —
         curr.forEach((pressed, idx) => {
+          const logKey = `${src.handedness}:button${idx}`;
           if (pressed && !prev.buttons[idx]) {
-            onDebugLog(src.handedness, `button${idx}`);
+            if (!lastLog[logKey] || (now - lastLog[logKey]) > 100) {
+              onDebugLog(src.handedness, `button${idx}`);
+              lastLog[logKey] = now;
+            }
             if (idx===4) onNext?.();
             else if (idx===5) onPrev?.();
             else if (idx===2||idx===3) onToggleHUD?.();
@@ -64,16 +67,19 @@ export function setupVRInputs(renderer, {
 
         // — snap turn (X do thumbstick) —
         const x = gp.axes[2] ?? gp.axes[0] ?? 0;
+        const snapKey = `${src.handedness}:snap`;
         if (Math.abs(x)<0.7) {
           prev._snapDone = false;
         } else if (!prev._snapDone) {
-          const dir = x>0?1:-1;
-          onSnap?.(src.handedness,dir);
-          onDebugLog(src.handedness, `snap ${dir>0?'▶':'◀'}`);
+          if (!lastLog[snapKey] || (now - lastLog[snapKey]) > 100) {
+            const dir = x>0?1:-1;
+            onSnap?.(src.handedness,dir);
+            onDebugLog(src.handedness, `snap ${dir>0?'▶':'◀'}`);
+            lastLog[snapKey] = now;
+          }
           prev._snapDone = true;
         }
 
-        // atualiza
         prev.buttons = curr;
         prevStates.set(id, prev);
       }
