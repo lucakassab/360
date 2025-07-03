@@ -30,9 +30,9 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
   function handleSession(session) {
     prevStates.clear();
 
-    // quando conectam/desconectam controllers ou handtracking
     session.addEventListener('inputsourceschange', () => {
       prevStates.clear();
+      // loga conexões
       session.inputSources.forEach(src => {
         if (src.hand) {
           onDebugLog && onDebugLog(src.handedness, 'hand-connected');
@@ -44,8 +44,7 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
 
     function poll() {
       for (const src of session.inputSources) {
-
-        // === hand tracking ===
+        // hand‐tracking
         if (src.hand && !src.gamepad) {
           const hid = `hand|${src.handedness}`;
           if (!prevStates.has(hid)) {
@@ -61,30 +60,22 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
         const id = `${src.handedness}|${gp.id}`;
         let prev = prevStates.get(id);
         if (!prev) {
-          prev = {
-            buttons: Array(gp.buttons.length).fill(false),
-            _snapDone: false
-          };
+          prev = { buttons: Array(gp.buttons.length).fill(false), _snapDone: false };
         }
 
-        // === botões ===
+        // 1) Botões
         const curr = gp.buttons.map(b => b.pressed);
         curr.forEach((pressed, idx) => {
           if (pressed && !prev.buttons[idx]) {
-            // log genérico
             onDebugLog && onDebugLog(src.handedness, idx);
-
-            // A e B
-            if (idx === 4) onNext && onNext();
-            if (idx === 5) onPrev && onPrev();
-
-            // toggle HUD no thumbstick‐press (índice 2), fallback 3
-            if (idx === 2 || idx === 3) onToggleHUD && onToggleHUD();
+            if (idx === 4) onNext && onNext();       // A
+            if (idx === 5) onPrev && onPrev();       // B
+            if (idx === 3) onToggleHUD && onToggleHUD(); // stick‐press
           }
         });
 
-        // === snap turn ===
-        const x = gp.axes[0] ?? 0;
+        // 2) Snap turn (pega eixo X do stick direito, se existir)
+        const x = gp.axes.length >= 4 ? gp.axes[2] : (gp.axes[0] ?? 0);
         if (Math.abs(x) < 0.7) {
           prev._snapDone = false;
         } else if (!prev._snapDone) {
@@ -101,15 +92,16 @@ export function setupVRInputs(renderer, handlersOrNext, maybePrev, maybeDebugLog
       session.requestAnimationFrame(poll);
     }
 
-    session.requestReferenceSpace('local')
-      .then(() => session.requestAnimationFrame(poll));
+    session.requestReferenceSpace('local').then(() => {
+      session.requestAnimationFrame(poll);
+    });
   }
 
-  // Se já estivermos no VR
+  // já em VR?
   if (renderer.xr.isPresenting) {
     handleSession(renderer.xr.getSession());
   }
-  // Quando entrar em VR
+  // quando iniciar sessão
   renderer.xr.addEventListener('sessionstart', () => {
     handleSession(renderer.xr.getSession());
   });
