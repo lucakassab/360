@@ -18,9 +18,12 @@ let debugLogs = [];
 const MAX_LOGS = 10;
 let prevButtonPressed = false;
 
-// buffers pros eixos do stick, pra não spammar
 let prevAxesL = [0, 0];
 let prevAxesR = [0, 0];
+
+let snappedLeft = false;
+let snappedRight = false;
+const SNAP_THRESHOLD = 0.7; // 70%
 
 let gripL = null, gripR = null;
 let leftPresent  = false;
@@ -131,7 +134,7 @@ export async function initXR(externalRenderer) {
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // Toggle debug HUD com botão 3
+    // toggle debug HUD
     let btnPressedNow = false;
     session.inputSources.forEach(src => {
       const gp = src.gamepad;
@@ -143,7 +146,7 @@ export async function initXR(externalRenderer) {
     }
     prevButtonPressed = btnPressedNow;
 
-    // Detecta controle left/right
+    // detecta controllers
     let foundLeft = false, foundRight = false;
     session.inputSources.forEach(src => {
       if (src.handedness === 'left')  foundLeft  = true;
@@ -160,19 +163,38 @@ export async function initXR(externalRenderer) {
     if (gripL) gripL.visible = foundLeft;
     if (gripR) gripR.visible = foundRight;
 
-    // Lê thumbstick e só loga se mudou mais de 0.1
+    // thumbstick + snap rotate
     session.inputSources.forEach(src => {
       const gp = src.gamepad;
       if (!gp || gp.axes.length < 2) return;
-      // usa axes[2,3] se tiver, senão axes[0,1]
       const x = gp.axes.length >= 4 ? gp.axes[2] : gp.axes[0];
       const y = gp.axes.length >= 4 ? gp.axes[3] : gp.axes[1];
       const label = src.handedness === 'left' ? 'stick esquerdo' : 'stick direito';
       const prev = src.handedness === 'left' ? prevAxesL : prevAxesR;
+
+      // log normal
       if (Math.abs(x - prev[0]) > 0.1 || Math.abs(y - prev[1]) > 0.1) {
         logDebug(`🎮 ${label}: x=${x.toFixed(2)}, y=${y.toFixed(2)}`);
         if (src.handedness === 'left') prevAxesL = [x, y];
         else prevAxesR = [x, y];
+      }
+
+      // snap rotate na camera
+      if (src.handedness === 'left') {
+        if (x >= SNAP_THRESHOLD && !snappedRight) {
+          camera.rotation.y -= Math.PI / 2;
+          snappedRight = true; snappedLeft = false;
+          logDebug('➡️ Snap right 90°');
+        }
+        else if (x <= -SNAP_THRESHOLD && !snappedLeft) {
+          camera.rotation.y += Math.PI / 2;
+          snappedLeft = true; snappedRight = false;
+          logDebug('⬅️ Snap left 90°');
+        }
+        // reset flag quando sair da zona
+        if (x < SNAP_THRESHOLD && x > -SNAP_THRESHOLD) {
+          snappedLeft = snappedRight = false;
+        }
       }
     });
 
@@ -181,6 +203,8 @@ export async function initXR(externalRenderer) {
   inited = true;
   logDebug('🚀 initXR concluído');
 }
+
+
 
   export async function load(media) {
     if (!inited) throw new Error('initXR(renderer) deve rodar antes de load()');
