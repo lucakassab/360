@@ -11,7 +11,7 @@ let inited = false;
 // Configurações
 const SHOW_VR_DEBUG = true;
 const SNAP_THRESHOLD = 0.7;
-const SNAP_ANGLE     = 90;
+const SNAP_ANGLE     = 20;
 const SNAP_RAD       = THREE.MathUtils.degToRad(SNAP_ANGLE);
 
 let snappedLeft = false;
