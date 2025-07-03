@@ -63,7 +63,7 @@ export async function initXR(externalRenderer) {
   camera.position.set(0, 0, 0.1);
   scene.add(camera);
 
-  const spot = new THREE.SpotLight(0xffffff, 5, 15, Math.PI/6, 0.25); // raio aumentado em 150%
+  const spot = new THREE.SpotLight(0xffffff, 5, 30, Math.PI/6, 0.25); // raio aumentado em 150%
   spot.position.set(0, 1.0, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot, spot.target);
