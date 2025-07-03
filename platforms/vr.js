@@ -1,7 +1,7 @@
 // platforms/vr.js
 import * as THREE from '../libs/three.module.js';
-import { XRControllerModelFactory } from 'https://unpkg.com/three@0.158.0/examples/jsm/webxr/XRControllerModelFactory.js';
-import { XRHandModelFactory }      from 'https://unpkg.com/three@0.158.0/examples/jsm/webxr/XRHandModelFactory.js';
+import { XRControllerModelFactory } from '../libs/XRControllerModelFactory.js';
+import { XRHandModelFactory }      from '../libs/XRHandModelFactory.js';
 
 let scene, camera, mediaGroup;
 export let renderer;
