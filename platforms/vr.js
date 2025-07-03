@@ -16,12 +16,11 @@ const SNAP_RAD     = THREE.MathUtils.degToRad(SNAP_DEGREES);
 const INVERTER_OLHOS = true;
 const SHOW_VR_DEBUG  = true;
 
-// Aqui ficam todos os logs completos salvos pra baixar depois
 window._vrLogDump = window._vrLogDump || [];
 
 function logDebug(msg) {
   if (!SHOW_VR_DEBUG) return;
-  const timestamp = (new Date()).toISOString().slice(11,23); // HH:MM:SS.mmm
+  const timestamp = (new Date()).toISOString().slice(11,23);
   const entry = `[${timestamp}] ${msg}`;
   debugLogs.push(entry);
   window._vrLogDump.push(entry);
@@ -36,7 +35,6 @@ function logDebug(msg) {
   debugTexture.needsUpdate = true;
 }
 
-// Função global pra baixar o log em TXT
 window.baixarVRLog = function() {
   const txt = window._vrLogDump.join('\n');
   const blob = new Blob([txt], {type: 'text/plain'});
@@ -50,7 +48,6 @@ window.baixarVRLog = function() {
   setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 2000);
 };
 
-// Adiciona no topo do vr.js:
 const BUTTON_NAMES = {
   "right-controller": {
     0: "Trigger",
@@ -76,11 +73,8 @@ const BUTTON_NAMES = {
   }
 };
 
-
 export function debugLog(hand, idxOrMsg) {
   let label = idxOrMsg;
-
-  // Se for "buttonX", tenta traduzir o nome bonito
   if (typeof idxOrMsg === "string" && idxOrMsg.startsWith("button")) {
     const idx = idxOrMsg.replace("button", "");
     const pretty = BUTTON_NAMES[hand]?.[idx];
@@ -97,7 +91,6 @@ export async function load(media) {
   if (!renderer || !renderer.xr.enabled) {
     throw new Error('initXR(renderer) deve rodar antes de load()');
   }
-  // limpa
   mediaGroup.children.slice().forEach(c => {
     mediaGroup.remove(c);
     c.geometry?.dispose?.();
@@ -123,7 +116,6 @@ export async function load(media) {
     texRight = media.stereo ? tex.clone() : null;
   }
 
-  // mapeamento de texturas
   const maxA = renderer.capabilities.getMaxAnisotropy();
   [texLeft, texRight].forEach(t => {
     if (!t) return;
@@ -136,7 +128,6 @@ export async function load(media) {
     t.anisotropy     = maxA;
   });
 
-  // stereo split / mono
   if (texRight) {
     const top = INVERTER_OLHOS ? 0.5 : 0;
     texLeft.repeat.set(1,0.5); texLeft.offset.set(0,top);   texLeft.needsUpdate = true;
@@ -160,7 +151,6 @@ export async function load(media) {
     mediaGroup.add(sphereLeft, sphereRight);
   }
 
-  // garante camadas
   camera.layers.enable(1); camera.layers.enable(2);
   const xrCam = renderer.xr.getCamera(camera);
   xrCam.layers.enable(1); xrCam.layers.enable(2);
@@ -203,7 +193,6 @@ export async function initXR(externalRenderer) {
     debugMesh.visible = true;
     camera.add(debugMesh);
 
-    // Adiciona o botão flutuante de baixar log (só se não existir)
     if (!document.getElementById('btnBaixarLogVR')) {
       const btn = document.createElement('button');
       btn.id = 'btnBaixarLogVR';
@@ -252,6 +241,22 @@ export async function initXR(externalRenderer) {
     hand.add(mesh);
     scene.add(hand);
   });
+
+  // PATCH AQUI: Força evento 'connected' nos grips, caso inputSource já exista
+  const session = renderer.xr.getSession && renderer.xr.getSession();
+  if (session) {
+    session.inputSources.forEach((src) => {
+      if (src.targetRayMode === 'tracked-pointer' && !src.hand && src.gamepad) {
+        [0, 1].forEach(i => {
+          const grip = renderer.xr.getControllerGrip(i);
+          if (grip && grip.dispatchEvent) {
+            grip.dispatchEvent({ type: 'connected', data: src });
+          }
+        });
+      }
+    });
+  }
+  // ---- FIM DO PATCH ----
 
   renderer.setAnimationLoop(() => renderer.render(scene, camera));
   window.addEventListener('resize', () => {
