@@ -16,7 +16,7 @@ const SNAP_RAD     = THREE.MathUtils.degToRad(SNAP_DEGREES);
 const INVERTER_OLHOS = true;
 const SHOW_VR_DEBUG  = true;
 
-// URL do seu servidor WebSocket de depuração
+// URL do seu servidor WebSocket de depuração (opcional)
 const WS_URL = 'ws://192.168.15.5:8090';
 let ws;
 
@@ -102,7 +102,7 @@ export async function load(media) {
   // stereo split ou mono
   if (texRight) {
     const top = INVERTER_OLHOS ? 0.5 : 0;
-    texLeft.repeat.set(1, 0.5);   texLeft.offset.set(0, top);  texLeft.needsUpdate = true;
+    texLeft.repeat.set(1, 0.5);   texLeft.offset.set(0, top);   texLeft.needsUpdate = true;
     texRight.repeat.set(1, 0.5);  texRight.offset.set(0, top===0?0.5:0); texRight.needsUpdate = true;
     logDebug('🔀 Stereo split OK');
   } else {
@@ -126,7 +126,7 @@ export async function load(media) {
     mediaGroup.add(sphereLeft, sphereRight);
   }
 
-  // garante que a câmera principal e a XRCamera vejam a esfera
+  // ativa camadas em ambas câmeras
   camera.layers.enable(1);
   camera.layers.enable(2);
   const xrCam = renderer.xr.getCamera(camera);
@@ -137,12 +137,12 @@ export async function load(media) {
 }
 
 export async function initXR(externalRenderer) {
-  // tenta abrir WebSocket sem bloquear
+  // inicializa WS (opcional)
   if (!ws) {
     try {
       ws = new WebSocket(WS_URL);
       ws.addEventListener('open',  () => logDebug('🛰️ WS conectado'));
-      ws.addEventListener('error', e => logDebug('🛰️ WS erro:'+e.message));
+      ws.addEventListener('error', e => logDebug('🛰️ WS erro: '+ e.message));
     } catch (e) {
       console.warn('WS init falhou:', e);
     }
@@ -174,22 +174,22 @@ export async function initXR(externalRenderer) {
   light.position.set(0, 0, 0);
   camera.add(light);
 
-  // HUD debug
+  // HUD debug — AGORA VISÍVEL POR PADRÃO
   if (SHOW_VR_DEBUG) {
     debugCanvas  = document.createElement('canvas');
     debugCanvas.width  = 2048;
     debugCanvas.height = 1024;
     debugTexture = new THREE.CanvasTexture(debugCanvas);
-    const mat = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
-    const geo2 = new THREE.PlaneGeometry(0.6, 0.3);
-    debugMesh = new THREE.Mesh(geo2, mat);
+    const mat   = new THREE.MeshBasicMaterial({ map: debugTexture, transparent: true });
+    const geo2  = new THREE.PlaneGeometry(0.6, 0.3);
+    debugMesh   = new THREE.Mesh(geo2, mat);
     debugMesh.position.set(0, -0.1, -0.5);
-    debugMesh.visible = false;
+    debugMesh.visible = true;          // <-- sempre visível na init
     camera.add(debugMesh);
     logDebug('version:1.23');
   }
 
-  // controllers e mãos
+  // controllers & hands
   const cf = new XRControllerModelFactory();
   const hf = new XRHandModelFactory();
 
@@ -225,7 +225,7 @@ export async function initXR(externalRenderer) {
 
   // render loop
   renderer.setAnimationLoop(() => renderer.render(scene, camera));
-  window.addEventListener('resize', ()=>{
+  window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
   });
