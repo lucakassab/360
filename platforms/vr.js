@@ -20,7 +20,6 @@ let prevButtonPressed = false;
 
 let prevAxesL = [0, 0];
 let prevAxesR = [0, 0];
-
 let snappedLeft = false;
 let snappedRight = false;
 const SNAP_THRESHOLD = 0.7; // 70%
@@ -52,10 +51,12 @@ function dumpMeshes(root, label) {
 export async function initXR(externalRenderer) {
   if (inited) return;
 
+  // cria cena e câmera
   scene  = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 0.1);
 
+  // renderer XR
   renderer = externalRenderer;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.xr.enabled = true;
@@ -63,12 +64,14 @@ export async function initXR(externalRenderer) {
   renderer.toneMapping    = THREE.NoToneMapping;
   renderer.outputEncoding = THREE.sRGBEncoding;
 
+  // luz
   const spot = new THREE.SpotLight(0xffffff, 5, 10, Math.PI / 6, 0.25);
   spot.position.set(0, 2.2, 0);
   spot.target.position.set(0, 0, -1);
   camera.add(spot, spot.target);
   scene.add(camera);
 
+  // HUD debug
   if (SHOW_VR_DEBUG) {
     debugCanvas  = document.createElement('canvas');
     debugCanvas.width  = 2048;
@@ -91,118 +94,96 @@ export async function initXR(externalRenderer) {
     logDebug(`🎮 Dispositivo XR: ${device}`);
   }
 
+  // controllers
   const factory = new XRControllerModelFactory();
-  [0, 1].forEach(i => renderer.xr.getController(i).visible = false);
+  [0,1].forEach(i => renderer.xr.getController(i).visible = false);
+  const whiteMat = model => model.traverse(o => {
+    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:0.3, metalness:0.4 });
+  });
 
-  const whiteMat = model => {
-    model.traverse(o => {
-      if (o.isMesh) o.material = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        roughness: 0.3,
-        metalness: 0.4
-      });
-    });
-  };
-
-  function spawnGrip(index, label) {
-    const grip = renderer.xr.getControllerGrip(index);
+  function spawnGrip(idx,label) {
+    const grip = renderer.xr.getControllerGrip(idx);
     grip.visible = false;
     const model = factory.createControllerModel(grip);
     whiteMat(model);
     grip.add(model);
-
-    model.addEventListener('connected', () => {
-      dumpMeshes(model, `${label} (model ready)`);
-    });
-    grip.addEventListener('connected', (e) => {
+    model.addEventListener('connected', () => dumpMeshes(model, `${label} ready`));
+    grip.addEventListener('connected', e => {
       grip.visible = true;
-      logDebug(`🟢 ${label} detectado (profile: ${e.data?.profiles?.[0] || '??'})`);
+      logDebug(`🟢 ${label} conectado (${e.data?.profiles?.[0]||'??'})`);
     });
     grip.addEventListener('disconnected', () => {
       grip.visible = false;
-      logDebug(`🔴 ${label} perdido`);
+      logDebug(`🔴 ${label} desconectado`);
     });
     scene.add(grip);
     return grip;
   }
+  if (SHOW_LEFT_CONTROLLER)  gripL = spawnGrip(0,'esquerdo');
+  if (SHOW_RIGHT_CONTROLLER) gripR = spawnGrip(1,'direito');
 
-  if (SHOW_LEFT_CONTROLLER)  gripL  = spawnGrip(0, 'controle esquerdo');
-  if (SHOW_RIGHT_CONTROLLER) gripR = spawnGrip(1, 'controle direito');
-
+  // loop XR
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
     const session = renderer.xr.getSession();
     if (!session) return;
 
-    // toggle debug HUD
-    let btnPressedNow = false;
+    // toggle HUD
+    let btnNow=false;
     session.inputSources.forEach(src => {
-      const gp = src.gamepad;
-      if (gp && gp.buttons[3]?.pressed) btnPressedNow = true;
+      const gp=src.gamepad;
+      if(gp&&gp.buttons[3]?.pressed) btnNow=true;
     });
-    if (btnPressedNow && !prevButtonPressed && debugMesh) {
+    if(btnNow && !prevButtonPressed && debugMesh) {
       debugMesh.visible = !debugMesh.visible;
-      logDebug(`🟢 Debug HUD ${debugMesh.visible ? 'ativado' : 'desativado'}`);
+      logDebug(`🟢 HUD ${debugMesh.visible?'on':'off'}`);
     }
-    prevButtonPressed = btnPressedNow;
+    prevButtonPressed = btnNow;
 
-    // detecta controllers
-    let foundLeft = false, foundRight = false;
-    session.inputSources.forEach(src => {
-      if (src.handedness === 'left')  foundLeft  = true;
-      if (src.handedness === 'right') foundRight = true;
+    // detect controllers
+    let fL=false,fR=false;
+    session.inputSources.forEach(src=>{
+      if(src.handedness==='left') fL=true;
+      if(src.handedness==='right') fR=true;
     });
-    if (foundLeft !== leftPresent) {
-      logDebug(foundLeft ? '🟢 controle esquerdo detectado' : '🔴 controle esquerdo perdido');
-      leftPresent = foundLeft;
-    }
-    if (foundRight !== rightPresent) {
-      logDebug(foundRight ? '🟢 controle direito detectado' : '🔴 controle direito perdido');
-      rightPresent = foundRight;
-    }
-    if (gripL) gripL.visible = foundLeft;
-    if (gripR) gripR.visible = foundRight;
+    if(fL!==leftPresent){ logDebug(fL?'🟢 L detectado':'🔴 L sumiu'); leftPresent=fL; }
+    if(fR!==rightPresent){ logDebug(fR?'🟢 R detectado':'🔴 R sumiu'); rightPresent=fR; }
+    if(gripL) gripL.visible=fL;
+    if(gripR) gripR.visible=fR;
 
-    // thumbstick + snap rotate
-    session.inputSources.forEach(src => {
-      const gp = src.gamepad;
-      if (!gp || gp.axes.length < 2) return;
-      const x = gp.axes.length >= 4 ? gp.axes[2] : gp.axes[0];
-      const y = gp.axes.length >= 4 ? gp.axes[3] : gp.axes[1];
-      const label = src.handedness === 'left' ? 'stick esquerdo' : 'stick direito';
-      const prev = src.handedness === 'left' ? prevAxesL : prevAxesR;
-
-      // log normal
-      if (Math.abs(x - prev[0]) > 0.1 || Math.abs(y - prev[1]) > 0.1) {
-        logDebug(`🎮 ${label}: x=${x.toFixed(2)}, y=${y.toFixed(2)}`);
-        if (src.handedness === 'left') prevAxesL = [x, y];
-        else prevAxesR = [x, y];
+    // thumbstick + snap rotate mundo
+    session.inputSources.forEach(src=>{
+      const gp=src.gamepad;
+      if(!gp||gp.axes.length<2) return;
+      const x = gp.axes.length>=4 ? gp.axes[2] : gp.axes[0];
+      const y = gp.axes.length>=4 ? gp.axes[3] : gp.axes[1];
+      const prev = src.handedness==='left' ? prevAxesL : prevAxesR;
+      if(Math.abs(x-prev[0])>0.1||Math.abs(y-prev[1])>0.1){
+        logDebug(`🎮 ${src.handedness} x=${x.toFixed(2)},y=${y.toFixed(2)}`);
+        if(src.handedness==='left') prevAxesL=[x,y]; else prevAxesR=[x,y];
       }
-
-      // snap rotate na camera
-      if (src.handedness === 'left') {
-        if (x >= SNAP_THRESHOLD && !snappedRight) {
-          camera.rotation.y -= Math.PI / 2;
-          snappedRight = true; snappedLeft = false;
-          logDebug('➡️ Snap right 90°');
+      if(src.handedness==='left'){
+        if(x>=SNAP_THRESHOLD && !snappedRight){
+          scene.rotation.y -= Math.PI/2;
+          snappedRight=true; snappedLeft=false;
+          logDebug('➡️ Snap right');
         }
-        else if (x <= -SNAP_THRESHOLD && !snappedLeft) {
-          camera.rotation.y += Math.PI / 2;
-          snappedLeft = true; snappedRight = false;
-          logDebug('⬅️ Snap left 90°');
+        else if(x<=-SNAP_THRESHOLD && !snappedLeft){
+          scene.rotation.y += Math.PI/2;
+          snappedLeft=true; snappedRight=false;
+          logDebug('⬅️ Snap left');
         }
-        // reset flag quando sair da zona
-        if (x < SNAP_THRESHOLD && x > -SNAP_THRESHOLD) {
-          snappedLeft = snappedRight = false;
+        if(x<SNAP_THRESHOLD && x>-SNAP_THRESHOLD){
+          snappedLeft=snappedRight=false;
         }
       }
     });
-
   });
 
   inited = true;
-  logDebug('🚀 initXR concluído');
+  logDebug('🚀 initXR ok');
 }
+
 
 
 
