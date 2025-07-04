@@ -3,9 +3,9 @@
 import { setupVRInputs } from './platforms/vr_inputs.js';
 
 const loadingEl = document.getElementById('loading');
-const dropdown  = document.getElementById('mediaSelect');
-const btnPrev   = document.getElementById('prevBtn');
-const btnNext   = document.getElementById('nextBtn');
+const dropdown   = document.getElementById('mediaSelect');
+const btnPrev    = document.getElementById('prevBtn');
+const btnNext    = document.getElementById('nextBtn');
 
 let mediaList = [];
 let currentIndex = 0;
@@ -24,6 +24,7 @@ async function main() {
     dropdown.appendChild(opt);
   });
 
+  // Carrega módulo mobile ou desktop
   if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
     platformMod = await import('./platforms/mobile.js');
   } else {
@@ -33,10 +34,8 @@ async function main() {
   await platformMod.init();
   currentModule = platformMod;
 
-  dropdown.onchange = () => {
-    currentIndex = +dropdown.value;
-    loadMedia(currentIndex);
-  };
+  // Eventos de navegação
+  dropdown.onchange = () => loadMedia(+dropdown.value);
   btnPrev.onclick = async () => {
     if (isLoading) return;
     currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
@@ -52,17 +51,17 @@ async function main() {
 
   await loadMedia(currentIndex);
 
-  // Exibe botão VR para qualquer dispositivo que suporte WebXR
+  // Sempre adiciona o botão VR se houver API XR
   if (navigator.xr) {
     const renderer = platformMod.renderer;
     renderer.xr.enabled = true;
     const { VRButton } = await import('./libs/VRButton.js');
-    document.body.appendChild(
-      VRButton.createButton(renderer, {
-        referenceSpaceType: 'local-floor',
-        optionalFeatures: ['bounded-floor', 'hand-tracking']
-      })
-    );
+    const vrBtn = VRButton.createButton(renderer, {
+      referenceSpaceType: 'local-floor',
+      optionalFeatures: ['bounded-floor', 'hand-tracking']
+    });
+    document.body.appendChild(vrBtn);
+
     renderer.xr.addEventListener('sessionstart', onSessionStart);
     renderer.xr.addEventListener('sessionend',   onSessionEnd);
   }
@@ -88,15 +87,9 @@ async function onSessionStart() {
       dropdown.value = currentIndex;
       await loadMedia(currentIndex);
     },
-    onToggleHUD: () => {
-      vrMod._toggleDebug?.();
-    },
-    onSnap: (hand, dir) => {
-      vrMod.snapTurn?.(hand, dir);
-    },
-    onDebugLog: (hand, idxOrMsg) => {
-      vrMod.debugLog?.(hand, idxOrMsg);
-    }
+    onToggleHUD: () => vrMod._toggleDebug?.(),
+    onSnap:     (hand, dir)  => vrMod.snapTurn?.(hand, dir),
+    onDebugLog:(hand, msg)   => vrMod.debugLog?.(hand, msg)
   });
 }
 
