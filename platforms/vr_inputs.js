@@ -7,10 +7,10 @@ const lastLog = {};
  *
  * @param {THREE.WebGLRenderer} renderer
  * @param {Object} handlers
- *   @param onNext()       — botão A
- *   @param onPrev()       — botão B
- *   @param onToggleHUD()  — stick-press (índice 2 ou 3)
- *   @param onSnap(hand,dir) — snap-turn
+ *   @param onNext()           — botão A
+ *   @param onPrev()           — botão B
+ *   @param onToggleHUD()      — stick-press (índice 2 ou 3)
+ *   @param onSnap(hand,dir)   — snap-turn
  *   @param onDebugLog(hand,idxOrMsg) — log genérico
  */
 export function setupVRInputs(renderer, {
@@ -18,8 +18,9 @@ export function setupVRInputs(renderer, {
 }) {
   function deviceLabel(src) {
     // Retorna "left-controller", "right-hand", etc.
-    if (src.hand) return ${src.handedness}-hand;
-    if (src.targetRayMode === 'tracked-pointer') return ${src.handedness}-controller;
+    if (src.hand) return `${src.handedness}-hand`;
+    if (src.targetRayMode === 'tracked-pointer')
+      return `${src.handedness}-controller`;
     return src.handedness || 'unknown';
   }
 
@@ -38,7 +39,7 @@ export function setupVRInputs(renderer, {
       for (const src of session.inputSources) {
         // — HAND-TRACKING —
         if (src.hand && !src.gamepad) {
-          const hid = hand|${src.handedness};
+          const hid = `hand|${src.handedness}`;
           if (!prevStates.has(hid)) {
             onDebugLog(deviceLabel(src), 'hand-detected');
             prevStates.set(hid, { seen: true });
@@ -49,36 +50,38 @@ export function setupVRInputs(renderer, {
         const gp = src.gamepad;
         if (!gp) continue;
 
-        const id = ${src.handedness}|${gp.id};
-        let prev = prevStates.get(id)
-                || { buttons: Array(gp.buttons.length).fill(false), _snapDone: false };
+        const id = `${src.handedness}|${gp.id}`;
+        let prev = prevStates.get(id) || {
+          buttons: Array(gp.buttons.length).fill(false),
+          _snapDone: false
+        };
 
-        const curr = gp.buttons.map(b=>b.pressed);
+        const curr = gp.buttons.map(b => b.pressed);
 
-        // — botões —
+        // — BOTÕES —
         curr.forEach((pressed, idx) => {
-          const logKey = ${deviceLabel(src)}:button${idx};
+          const logKey = `${deviceLabel(src)}:button${idx}`;
           if (pressed && !prev.buttons[idx]) {
             if (!lastLog[logKey] || (now - lastLog[logKey]) > 100) {
-              onDebugLog(deviceLabel(src), button${idx});
+              onDebugLog(deviceLabel(src), `button${idx}`);
               lastLog[logKey] = now;
             }
-            if (idx===4) onNext?.();
-            else if (idx===5) onPrev?.();
-            else if (idx===2||idx===3) onToggleHUD?.();
+            if (idx === 4) onNext?.();
+            else if (idx === 5) onPrev?.();
+            else if (idx === 2 || idx === 3) onToggleHUD?.();
           }
         });
 
-        // — snap turn (X do thumbstick) —
+        // — SNAP-TURN (eixo X) —
         const x = gp.axes[2] ?? gp.axes[0] ?? 0;
-        const snapKey = ${deviceLabel(src)}:snap;
-        if (Math.abs(x)<0.7) {
+        const snapKey = `${deviceLabel(src)}:snap`;
+        if (Math.abs(x) < 0.7) {
           prev._snapDone = false;
         } else if (!prev._snapDone) {
           if (!lastLog[snapKey] || (now - lastLog[snapKey]) > 100) {
-            const dir = x>0?1:-1;
+            const dir = x > 0 ? 1 : -1;
             onSnap?.(src.handedness, dir);
-            onDebugLog(deviceLabel(src), snap ${dir>0?'▶':'◀'});
+            onDebugLog(deviceLabel(src), `snap ${dir > 0 ? '▶' : '◀'}`);
             lastLog[snapKey] = now;
           }
           prev._snapDone = true;
