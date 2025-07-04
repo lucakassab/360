@@ -52,11 +52,17 @@ async function main() {
 
   await loadMedia(currentIndex);
 
-  if (navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')) {
+  // Exibe botão VR para qualquer dispositivo que suporte WebXR
+  if (navigator.xr) {
     const renderer = platformMod.renderer;
     renderer.xr.enabled = true;
     const { VRButton } = await import('./libs/VRButton.js');
-    document.body.appendChild(VRButton.createButton(renderer));
+    document.body.appendChild(
+      VRButton.createButton(renderer, {
+        referenceSpaceType: 'local-floor',
+        optionalFeatures: ['bounded-floor', 'hand-tracking']
+      })
+    );
     renderer.xr.addEventListener('sessionstart', onSessionStart);
     renderer.xr.addEventListener('sessionend',   onSessionEnd);
   }
@@ -88,7 +94,6 @@ async function onSessionStart() {
     onSnap: (hand, dir) => {
       vrMod.snapTurn?.(hand, dir);
     },
-    // aqui idxOrMsg pode ser número ou string
     onDebugLog: (hand, idxOrMsg) => {
       vrMod.debugLog?.(hand, idxOrMsg);
     }
