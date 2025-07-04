@@ -1,100 +1,82 @@
-const STATIC_CACHE   = 'static-cache-v4';
-const DYNAMIC_CACHE  = 'dynamic-cache-v1';
+const STATIC_CACHE = 'static-cache-v2';
+const DYNAMIC_CACHE = 'dynamic-cache-v1';
 
-// tudo que precisa estar 100% offline
 const STATIC_ASSETS = [
   './',
   './index.html',
   './core.js',
   './service-worker.js',
-
-  // 3-JS & helpers
   './libs/three.module.js',
   './libs/OrbitControls.js',
   './libs/VRButton.js',
-
-  // XR extras
-  './libs/XRControllerModelFactory.js',
-  './libs/XRHandModelFactory.js',
-  './libs/motion-controllers.module.js',
-
-  // GLTF loader usado pelo factory
-  './loaders/GLTFLoader.js',
-
-  // A-Frame (caso você use)
-  './libs/aframe.min.js',
-  './libs/aframe-stereo-component.js',
-
-  // dados
   './media/media.json'
 ];
 
-// ---------- Install ----------
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
-      .then(cache =>
-        Promise.all(STATIC_ASSETS.map(async url => {
-          try { await cache.add(url); }
-          catch (e) { console.warn('Falhou baixar', url, e); }
-        }))
-      )
+      .then(cache => cache.addAll(STATIC_ASSETS))
       .then(() => self.skipWaiting())
   );
 });
 
-// ---------- Activate ----------
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
-        keys.filter(k => k !== STATIC_CACHE && k !== DYNAMIC_CACHE)
-            .map(k => caches.delete(k))
+        keys
+          .filter(key => key !== STATIC_CACHE && key !== DYNAMIC_CACHE)
+          .map(key => caches.delete(key))
       ).then(() => self.clients.claim())
     )
   );
 });
 
-// ---------- Fetch ----------
 self.addEventListener('fetch', event => {
   const req = event.request;
   const url = new URL(req.url);
-
   if (req.method !== 'GET') return;
 
-  // unpkg → cache-first (já funcionava)
+  // 🟢 Cache first para recursos do three.js via CDN (unpkg.com)
   if (url.hostname === 'unpkg.com') {
-    return event.respondWith(cacheFirst(req));
+    event.respondWith(cacheFirst(req));
+    return;
   }
 
-  // libs/  e  loaders/  — cache-first (são estáticos)
-  if (url.pathname.startsWith('/libs/') || url.pathname.startsWith('/loaders/')) {
-    return event.respondWith(cacheFirst(req));
+  // 📄 media.json usa network-first (pra ver novas mídias se tiver online)
+  if (url.pathname.endsWith('/media/media.json')) {
+    event.respondWith(networkFirst(req));
+    return;
   }
 
-  // dados mutáveis
-  if (url.pathname.endsWith('/media/media.json') ||
-      url.pathname.startsWith('/platforms/')) {
-    return event.respondWith(networkFirst(req));
-  }
-
-  // mídia pesada → cache-first
+  // 🖼️ Mídias cache-first
   if (url.pathname.startsWith('/media/')) {
-    return event.respondWith(cacheFirst(req));
+    event.respondWith(cacheFirst(req));
+    return;
   }
 
-  // fallback genérico
+  // 🧠 Scripts de plataforma preferem rede (pra facilitar hot reload)
+  if (url.pathname.startsWith('/platforms/')) {
+    event.respondWith(networkFirst(req));
+    return;
+  }
+
+  // 📦 Todo o resto: cache-first
   event.respondWith(cacheFirst(req));
 });
 
-// ---------- Estratégias ----------
 async function cacheFirst(req) {
   const cached = await caches.match(req);
   if (cached) return cached;
-  const fresh  = await fetch(req);
-  const cache  = await caches.open(DYNAMIC_CACHE);
-  cache.put(req, fresh.clone());
-  return fresh;
+  try {
+    const fresh = await fetch(req);
+    const cache = await caches.open(DYNAMIC_CACHE);
+    cache.put(req, fresh.clone());
+    return fresh;
+  } catch (err) {
+    if (req.destination === 'document') return caches.match('./');
+    throw err;
+  }
 }
 
 async function networkFirst(req) {
@@ -103,7 +85,8 @@ async function networkFirst(req) {
     const fresh = await fetch(req);
     cache.put(req, fresh.clone());
     return fresh;
-  } catch {
-    return (await cache.match(req)) || (await caches.match(req));
+  } catch (err) {
+    const cached = await cache.match(req);
+    return cached || caches.match(req);
   }
 }

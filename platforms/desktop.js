@@ -1,11 +1,9 @@
-// desktop.js
 import * as THREE from '../libs/three.module.js';
 import { OrbitControls } from '../libs/OrbitControls.js';
 
 export let renderer;
 let scene, camera, controls, sphereMesh, videoElement, texture;
 const canvas = document.getElementById('xr-canvas');
-const INVERTER_OLHOS = true;
 
 export function init() {
   scene = new THREE.Scene();
@@ -17,23 +15,13 @@ export function init() {
   );
   camera.position.set(0, 0, 0.1);
 
-  renderer = new THREE.WebGLRenderer({
-    canvas,
-    antialias: true,
-    powerPreference: 'high-performance'
-  });
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio * 2);
+  renderer.setPixelRatio(window.devicePixelRatio);
 
   controls = new OrbitControls(camera, canvas);
   controls.enableZoom = true;
   controls.enablePan = false;
-
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
 
   animate();
 }
@@ -79,30 +67,22 @@ export async function load(media) {
     });
   }
 
-  // configurações de qualidade máxima
-  const maxAniso = renderer.capabilities.getMaxAnisotropy();
-  texture.mapping = THREE.EquirectangularReflectionMapping;
-  texture.encoding = THREE.sRGBEncoding;
+  // corte top-bottom pra stereo
   texture.wrapS = THREE.ClampToEdgeWrapping;
-  texture.wrapT = THREE.ClampToEdgeWrapping;
-  texture.generateMipmaps = true;
-  texture.minFilter = THREE.LinearMipMapLinearFilter;
-  texture.magFilter = THREE.LinearFilter;
-  texture.anisotropy = maxAniso;
-
-  // split stereo top/bottom
+  texture.wrapT = THREE.RepeatWrapping;
   if (media.stereo) {
-    const top = INVERTER_OLHOS ? 0.5 : 0.0;
     texture.repeat.set(1, 0.5);
-    texture.offset.set(0, top);
+    texture.offset.set(0, 0);
   } else {
     texture.repeat.set(1, 1);
     texture.offset.set(0, 0);
   }
   texture.needsUpdate = true;
 
-  // esfera 360 de alta resolução
-  const geo = new THREE.SphereGeometry(500, 128, 64);
+  texture.mapping = THREE.EquirectangularReflectionMapping;
+  texture.encoding = THREE.sRGBEncoding;
+
+  const geo = new THREE.SphereGeometry(500, 60, 40);
   geo.scale(-1, 1, 1);
 
   sphereMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texture }));
