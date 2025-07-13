@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>WebXR 360 Viewer</title>
+
+  <!-- Import map para three.js local -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./libs/three.module.js",
+      "three/": "./libs/"
+    }
+  }
+  </script>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
+
+  <!-- iOS standalone meta -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="360Viewer">
+  <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #000;
+      font-family: sans-serif;
+    }
+    #xr-container {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #ui-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 10;
+    }
+    #ui-overlay select,
+    #ui-overlay button {
+      font-size: 14px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #222;
+      color: #fff;
+      cursor: pointer;
+    }
+    #ui-overlay select:hover,
+    #ui-overlay button:hover {
+      background-color: #444;
+    }
+    /* botão de instalação */
+    #btn-install-pwa {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      padding: 10px 15px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      z-index: 10000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="xr-container"></div>
+  <div id="ui-overlay">
+    <select id="media-select"></select>
+    <button id="prev-btn">Anterior ←</button>
+    <button id="next-btn">Próximo →</button>
+    <button id="enter-vr-btn">Enter VR</button>
+  </div>
+
+  <!-- botão customizado de instalar -->
+  <button id="btn-install-pwa">Instalar App</button>
+
+  <!-- App principal -->
+  <script type="module" src="core.js"></script>
+
+  <script>
+    // Captura o beforeinstallprompt pra mostrar botão de instalar
+    let deferredPrompt;
+    const installBtn = document.getElementById('btn-install-pwa');
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'block';
+    });
+    installBtn.addEventListener('click', async () => {
+      installBtn.style.display = 'none';
+      deferredPrompt.prompt();
+      const choice = await deferredPrompt.userChoice;
+      console.log('Instalação:', choice.outcome);
+      deferredPrompt = null;
+    });
+    window.addEventListener('appinstalled', () => {
+      console.log('PWA instalado');
+    });
+
+    // Registro do Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registrado:', reg.scope))
+          .catch(err => console.error('SW falhou:', err));
+      });
+    }
+  </script>
+</body>
+</html>
