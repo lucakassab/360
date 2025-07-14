@@ -57,6 +57,7 @@
       background: rgba(0,0,0,0.5);
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 8px;
       z-index: 10;
     }
@@ -75,17 +76,7 @@
       background: #444;
     }
     #btn-install-pwa {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
       display: none;
-      padding: 10px 15px;
-      background: #222;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      z-index: 11;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -97,9 +88,8 @@
     <button id="prev-btn">Anterior ←</button>
     <button id="next-btn">Próximo →</button>
     <button id="enter-vr-btn">Enter VR</button>
+    <button id="btn-install-pwa">Instalar App</button>
   </div>
-
-  <button id="btn-install-pwa">Instalar App</button>
 
   <script type="module" src="core.js"></script>
 
@@ -119,7 +109,7 @@
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       deferredPrompt = e;
-      installBtn.style.display = 'block';
+      installBtn.style.display = 'inline-block';
     });
     installBtn.addEventListener('click', async () => {
       installBtn.style.display = 'none';
