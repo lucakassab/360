@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>WebXR 360 Viewer</title>
 
-  <!-- Import map para three.js local -->
+  <!-- Import map para usar three.js local -->
   <script type="importmap">
   {
     "imports": {
@@ -24,71 +24,53 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="360Viewer" />
-
-  <!-- Apple Touch Icons -->
-  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-167x167.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png" />
-
-  <!-- Safari pinned tab -->
-  <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#000000" />
 
   <!-- Windows tile -->
   <meta name="msapplication-TileColor" content="#000000" />
   <meta name="msapplication-TileImage" content="icons/mstile-150x150.png" />
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="48x48"   href="icons/icon-48x48.png" />
-  <link rel="icon" type="image/png" sizes="72x72"   href="icons/icon-72x72.png" />
-  <link rel="icon" type="image/png" sizes="96x96"   href="icons/icon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="144x144" href="icons/icon-144x144.png" />
-  <link rel="icon" type="image/png" sizes="152x152" href="icons/icon-152x152.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="256x256" href="icons/icon-256x256.png" />
-  <link rel="icon" type="image/png" sizes="384x384" href="icons/icon-384x384.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512x512.png" />
-
-  <!-- Apple Splash Screens -->
-  <!-- iPhone SE, 5, 5S, 5C -->
-  <link rel="apple-touch-startup-image" href="icons/splash-640x1136.png"
-        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />
-  <!-- iPhone 6, 6S, 7, 8 -->
-  <link rel="apple-touch-startup-image" href="icons/splash-750x1334.png"
-        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" />
-  <!-- iPhone 6+,7+,8+ -->
-  <link rel="apple-touch-startup-image" href="icons/splash-1242x2208.png"
-        media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" />
-  <!-- iPhone X, XS -->
-  <link rel="apple-touch-startup-image" href="icons/splash-1125x2436.png"
-        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" />
-  <!-- iPhone XR, 11 -->
-  <link rel="apple-touch-startup-image" href="icons/splash-828x1792.png"
-        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" />
-  <!-- iPhone XS Max, 11 Pro Max -->
-  <link rel="apple-touch-startup-image" href="icons/splash-1242x2688.png"
-        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" />
-  <!-- iPad Mini, Air -->(portrait)
-  <link rel="apple-touch-startup-image" href="icons/splash-1536x2048.png"
-        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
-  <!-- iPad Mini, Air -->(landscape)
-  <link rel="apple-touch-startup-image" href="icons/splash-2048x1536.png"
-        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
-  <!-- iPad Pro 10.5" -->(portrait)
-  <link rel="apple-touch-startup-image" href="icons/splash-1668x2224.png"
-        media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
-  <!-- iPad Pro 10.5" -->(landscape)
-  <link rel="apple-touch-startup-image" href="icons/splash-2224x1668.png"
-        media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
-  <!-- iPad Pro 12.9" -->(portrait)
-  <link rel="apple-touch-startup-image" href="icons/splash-2048x2732.png"
-        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
-  <!-- iPad Pro 12.9" -->(landscape)
-  <link rel="apple-touch-startup-image" href="icons/splash-2732x2048.png"
-        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
-
-  <!-- Estilos inline para botão customizado (opcional) -->
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000;
+      font-family: sans-serif;
+    }
+    #xr-container {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #ui-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      padding: 8px 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 10;
+    }
+    #ui-overlay select,
+    #ui-overlay button {
+      font-size: 14px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      background: #222;
+      color: #fff;
+      cursor: pointer;
+    }
+    #ui-overlay select:hover,
+    #ui-overlay button:hover {
+      background: #444;
+    }
     #btn-install-pwa {
       position: fixed;
       bottom: 20px;
@@ -99,13 +81,14 @@
       color: #fff;
       border: none;
       border-radius: 5px;
-      z-index: 10000;
+      z-index: 11;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div id="xr-container"></div>
+
   <div id="ui-overlay">
     <select id="media-select"></select>
     <button id="prev-btn">Anterior ←</button>
@@ -117,7 +100,7 @@
 
   <script type="module" src="core.js"></script>
   <script>
-    // Service Worker
+    // Service Worker registration
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -126,21 +109,23 @@
       });
     }
 
-    // beforeinstallprompt (Android/VisionOS)
+    // beforeinstallprompt for Android/VisionOS
     let deferredPrompt;
-    const btn = document.getElementById('btn-install-pwa');
+    const installBtn = document.getElementById('btn-install-pwa');
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       deferredPrompt = e;
-      btn.style.display = 'block';
+      installBtn.style.display = 'block';
     });
-    btn.addEventListener('click', async () => {
-      btn.style.display = 'none';
+    installBtn.addEventListener('click', async () => {
+      installBtn.style.display = 'none';
       deferredPrompt.prompt();
       await deferredPrompt.userChoice;
       deferredPrompt = null;
     });
-    window.addEventListener('appinstalled', () => console.log('PWA instalado'));
+    window.addEventListener('appinstalled', () => {
+      console.log('PWA instalado');
+    });
   </script>
 </body>
 </html>
