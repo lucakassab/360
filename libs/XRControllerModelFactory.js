@@ -1,1 +1,403 @@
-const a0_0x13e138=a0_0x2cb0;(function(_0x5ddd48,_0xde7647){const _0x3549ff=a0_0x2cb0,_0x346023=_0x5ddd48();while(!![]){try{const _0x20b937=-parseInt(_0x3549ff(0x151))/0x1*(-parseInt(_0x3549ff(0x14d))/0x2)+-parseInt(_0x3549ff(0x18a))/0x3+parseInt(_0x3549ff(0x186))/0x4*(parseInt(_0x3549ff(0x17f))/0x5)+parseInt(_0x3549ff(0x158))/0x6+parseInt(_0x3549ff(0x15f))/0x7+parseInt(_0x3549ff(0x14e))/0x8+-parseInt(_0x3549ff(0x146))/0x9;if(_0x20b937===_0xde7647)break;else _0x346023['push'](_0x346023['shift']());}catch(_0x791724){_0x346023['push'](_0x346023['shift']());}}}(a0_0x6f31,0x3c5ec));import{Mesh,MeshBasicMaterial,Object3D,SphereGeometry}from'three';import{GLTFLoader}from'../loaders/GLTFLoader.js';function a0_0x6f31(){const _0x5c6487=['zw52twfW','Dg91y2HqB2LUDe5Vzgu','mJq1ndG4mMLZr2X6vq','DxbKyxrLrNjVBuDHBwvWywq','z2v0t2jQzwn0qNLoyw1L','DMfSDwvoB2rL','B25mB2fK','CMvTB3zL','ywrIyuu','mZC5nty4EvrcEKnI','yxnZzxrvCMW','y29UBMvJDgvK','r0XurKXVywrLCIbUB3qGC2v0lG','C3bSAxq','D2fYBG','DMfSDwvZ','y0PiAwG','y2f0y2G','Bwf4tM9Kzq','Cg9ZAxrPB24','q291BgqGBM90igzPBMqG','DMLZAwjSzq','ig1PC3nPBMCGB3iGBwfSzM9YBwvKlG','DgHLBG','lcbPBIb0B3vJAhbHzcbJB21WB25LBNqG','A1fsr1K','C2v0ugf0Aa','ALP2ALi','AxnnzxnO','Cgf0Aa','zMfjs1q','BMvLzhnvCgrHDgu','Ahr0Chm6lY9Jzg4UANnKzwXPDNiUBMv0l25WBs9aD2vIEhiTAw5WDxqTChjVzMLSzxmVyxnZzxrZqdeUmc9KAxn0l3bYB2zPBgvZ','wNHctwS','mNWZFdf8mhW0','igLUihrOzsbTB2rLBa','ywrKrxzLBNrmAxn0zw5LCG','z2X0zKXVywrLCG','DxbKyxrLtwf0CML4v29YBgq','ywrK','qxnZzxqG','mtvpCgL3ru0','y3jLyxrLq29UDhjVBgXLCK1VzgvS','BwLUtM9Kzq','y2XVBMu','zM9YrwfJAa','DhjHDMvYC2u','vfjbtLngt1jn','mtCZnZG4rLPpyNji','Exb3CuO','zfDRDfO','ve9vq0Hqquq','mtq1mdi2m3DyEw5ZCG','tvDmANa','mtyWnZa1ohz3wuvnyW','vMLZDwfSuMvZCg9UC2vqCM9Wzxj0Eq','DgfYz2v0uMf5tw9Kzq','z2vUzxjPyY10CMLNz2vY','Bwf0zxjPywW','y29TCg9Uzw50CW','q291BgqGBM90igzPBMqGDg91y2GGzg90lca','mtbOBLfWv2m','mtaWmZKZnMHjDuTkEa','zgf0yq','Bw90Aw9Uq29UDhjVBgXLCG','mZGWmtfhrK9uDwS','vKLtsujjteLuwq','x2fZC2v0q2fJAgu','CxvHDgvYBMLVBG','sgjIzhm'];a0_0x6f31=function(){return _0x5c6487;};return a0_0x6f31();}import{Constants as a0_0x2e7342,fetchProfile,MotionController}from'../libs/motion-controllers.module.js';const DEFAULT_PROFILES_PATH=a0_0x13e138(0x176),DEFAULT_PROFILE=a0_0x13e138(0x149);function a0_0x2cb0(_0x187b53,_0x56c245){const _0x6f31c5=a0_0x6f31();return a0_0x2cb0=function(_0x2cb0b6,_0x21c8ca){_0x2cb0b6=_0x2cb0b6-0x146;let _0x55c09d=_0x6f31c5[_0x2cb0b6];if(a0_0x2cb0['EVhnFH']===undefined){var _0x181fcf=function(_0x39cdc6){const _0x97e0b0='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x2a586d='',_0x3c58fd='';for(let _0x533c72=0x0,_0x1c4a8f,_0x1a5279,_0x98fc9b=0x0;_0x1a5279=_0x39cdc6['charAt'](_0x98fc9b++);~_0x1a5279&&(_0x1c4a8f=_0x533c72%0x4?_0x1c4a8f*0x40+_0x1a5279:_0x1a5279,_0x533c72++%0x4)?_0x2a586d+=String['fromCharCode'](0xff&_0x1c4a8f>>(-0x2*_0x533c72&0x6)):0x0){_0x1a5279=_0x97e0b0['indexOf'](_0x1a5279);}for(let _0x49dd98=0x0,_0x42136b=_0x2a586d['length'];_0x49dd98<_0x42136b;_0x49dd98++){_0x3c58fd+='%'+('00'+_0x2a586d['charCodeAt'](_0x49dd98)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x3c58fd);};a0_0x2cb0['fWULIp']=_0x181fcf,_0x187b53=arguments,a0_0x2cb0['EVhnFH']=!![];}const _0x147ed4=_0x6f31c5[0x0],_0x4679d0=_0x2cb0b6+_0x147ed4,_0x29e624=_0x187b53[_0x4679d0];return!_0x29e624?(_0x55c09d=a0_0x2cb0['fWULIp'](_0x55c09d),_0x187b53[_0x4679d0]=_0x55c09d):_0x55c09d=_0x29e624,_0x55c09d;},a0_0x2cb0(_0x187b53,_0x56c245);}class XRControllerModel extends Object3D{constructor(){const _0x551d0d=a0_0x13e138;super(),this[_0x551d0d(0x150)]=null,this['envMap']=null;}['setEnvironmentMap'](_0x1660a7){const _0x4bf33a=a0_0x13e138,_0x3c180a={'pTWOe':function(_0x4926a5,_0x51c7ce){return _0x4926a5==_0x51c7ce;}};if(_0x3c180a['pTWOe'](this[_0x4bf33a(0x156)],_0x1660a7))return this;return this[_0x4bf33a(0x156)]=_0x1660a7,this['traverse'](_0x52ea22=>{const _0x52be21=_0x4bf33a;_0x52ea22[_0x52be21(0x172)]&&(_0x52ea22['material'][_0x52be21(0x156)]=this[_0x52be21(0x156)],_0x52ea22[_0x52be21(0x14a)][_0x52be21(0x175)]=!![]);}),this;}[a0_0x13e138(0x17c)](_0x34ac37){const _0x45003d=a0_0x13e138,_0x342328={'dWktZ':function(_0x25123f,_0xded807){return _0x25123f===_0xded807;},'jZvjR':function(_0x3ed3f5,_0x657e47){return _0x3ed3f5===_0x657e47;}};super['updateMatrixWorld'](_0x34ac37);if(!this[_0x45003d(0x150)])return;this[_0x45003d(0x150)][_0x45003d(0x159)](),Object[_0x45003d(0x165)](this['motionController'][_0x45003d(0x14b)])[_0x45003d(0x183)](_0x582da8=>{const _0x3bbb18={'kQRGY':function(_0x1d8b37,_0x4edcc7){const _0x25e63e=a0_0x2cb0;return _0x342328[_0x25e63e(0x188)](_0x1d8b37,_0x4edcc7);},'MWLjp':function(_0x1922b5,_0x188fba){const _0x4058ba=a0_0x2cb0;return _0x342328[_0x4058ba(0x171)](_0x1922b5,_0x188fba);}};Object['values'](_0x582da8['visualResponses'])['forEach'](_0x5c8ea8=>{const _0x2f242a=a0_0x2cb0,{valueNode:_0xbaa220,minNode:_0xfc930,maxNode:_0x10e934,value:_0x375cf4,valueNodeProperty:_0x1a5094}=_0x5c8ea8;if(!_0xbaa220)return;if(_0x3bbb18[_0x2f242a(0x16f)](_0x1a5094,a0_0x2e7342[_0x2f242a(0x147)][_0x2f242a(0x152)]))_0xbaa220[_0x2f242a(0x16b)]=_0x375cf4;else _0x3bbb18[_0x2f242a(0x18b)](_0x1a5094,a0_0x2e7342[_0x2f242a(0x147)][_0x2f242a(0x185)])&&(_0xbaa220[_0x2f242a(0x154)]['slerpQuaternions'](_0xfc930[_0x2f242a(0x154)],_0x10e934[_0x2f242a(0x154)],_0x375cf4),_0xbaa220[_0x2f242a(0x169)]['lerpVectors'](_0xfc930[_0x2f242a(0x169)],_0x10e934[_0x2f242a(0x169)],_0x375cf4));});});}}function findNodes(_0x4ff958,_0x34dcf4){const _0x279d4c=a0_0x13e138,_0x106e30={'cJHih':function(_0x2141be,_0x1e24c2){return _0x2141be===_0x1e24c2;}};Object[_0x279d4c(0x165)](_0x4ff958['components'])[_0x279d4c(0x183)](_0xa0412c=>{const _0x534e25=_0x279d4c,{type:_0x14e0b0,touchPointNodeName:_0x5c0bfe,visualResponses:_0x15c987}=_0xa0412c;if(_0x106e30[_0x534e25(0x166)](_0x14e0b0,a0_0x2e7342['ComponentType'][_0x534e25(0x189)])){_0xa0412c[_0x534e25(0x157)]=_0x34dcf4[_0x534e25(0x15a)](_0x5c0bfe);if(_0xa0412c['touchPointNode']){const _0x3475cb=new SphereGeometry(0.001),_0x1625de=new MeshBasicMaterial({'color':0xff}),_0x2dc687=new Mesh(_0x3475cb,_0x1625de);_0xa0412c[_0x534e25(0x157)][_0x534e25(0x17d)](_0x2dc687);}else console[_0x534e25(0x164)](_0x534e25(0x14c)+_0xa0412c['touchPointNodeName']+_0x534e25(0x16e)+_0xa0412c['id']);}Object[_0x534e25(0x165)](_0x15c987)[_0x534e25(0x183)](_0x544d07=>{const _0xad5e11=_0x534e25,{valueNodeName:_0x3e58e8,minNodeName:_0x222203,maxNodeName:_0x37e435,valueNodeProperty:_0x337a4d}=_0x544d07;if(_0x337a4d===a0_0x2e7342[_0xad5e11(0x147)]['TRANSFORM']){_0x544d07[_0xad5e11(0x181)]=_0x34dcf4[_0xad5e11(0x15a)](_0x222203),_0x544d07[_0xad5e11(0x168)]=_0x34dcf4[_0xad5e11(0x15a)](_0x37e435);if(!_0x544d07['minNode']){console[_0xad5e11(0x164)](_0xad5e11(0x16a)+_0x222203+'\x20in\x20the\x20model');return;}if(!_0x544d07[_0xad5e11(0x168)]){console[_0xad5e11(0x164)](_0xad5e11(0x16a)+_0x37e435+_0xad5e11(0x179));return;}}_0x544d07['valueNode']=_0x34dcf4[_0xad5e11(0x15a)](_0x3e58e8),!_0x544d07[_0xad5e11(0x15b)]&&console[_0xad5e11(0x164)](_0xad5e11(0x16a)+_0x3e58e8+_0xad5e11(0x179));});});}function addAssetSceneToControllerModel(_0xaeda4e,_0x529b7d){const _0x1cd9c8=a0_0x13e138,_0x41a3d6={'drjEf':function(_0x6dc97b,_0x4d8883,_0x2c8557){return _0x6dc97b(_0x4d8883,_0x2c8557);}};_0x41a3d6['drjEf'](findNodes,_0xaeda4e[_0x1cd9c8(0x150)],_0x529b7d),_0xaeda4e[_0x1cd9c8(0x156)]&&_0x529b7d[_0x1cd9c8(0x184)](_0x479b81=>{const _0x4878d4=_0x1cd9c8;_0x479b81[_0x4878d4(0x172)]&&(_0x479b81[_0x4878d4(0x14a)]['envMap']=_0xaeda4e[_0x4878d4(0x156)],_0x479b81[_0x4878d4(0x14a)][_0x4878d4(0x175)]=!![]);}),_0xaeda4e[_0x1cd9c8(0x17d)](_0x529b7d);}class XRControllerModelFactory{constructor(_0x444a56=null,_0x142634=null){const _0x33bc28=a0_0x13e138,_0x35c922={'Hbbds':_0x33bc28(0x178)},_0x4a5650=_0x35c922[_0x33bc28(0x155)][_0x33bc28(0x163)]('|');let _0x12e704=0x0;while(!![]){switch(_0x4a5650[_0x12e704++]){case'0':this[_0x33bc28(0x15c)]=_0x142634;continue;case'1':this[_0x33bc28(0x153)]={};continue;case'2':this[_0x33bc28(0x17b)]=_0x444a56;continue;case'3':this[_0x33bc28(0x173)]=DEFAULT_PROFILES_PATH;continue;case'4':!this[_0x33bc28(0x17b)]&&(this[_0x33bc28(0x17b)]=new GLTFLoader());continue;}break;}}['setPath'](_0x269e0f){const _0x48676c=a0_0x13e138;return this[_0x48676c(0x173)]=_0x269e0f,this;}[a0_0x13e138(0x180)](_0x5b8e88){const _0xd03b82=a0_0x13e138,_0x224391={'ZxBMk':'tracked-pointer','UStGJ':function(_0x4e238a,_0x2c6d3c,_0x414705,_0x564ceb){return _0x4e238a(_0x2c6d3c,_0x414705,_0x564ceb);},'adbaE':_0xd03b82(0x161),'faIKT':'disconnected'},_0x4cbdd6=new XRControllerModel();let _0x3d7846=null;return _0x5b8e88[_0xd03b82(0x17a)](_0x224391[_0xd03b82(0x15e)],_0x227483=>{const _0x182c8e=_0xd03b82,_0x56c2f3={'ypwqJ':function(_0x3d23f5,_0x3f5cbf,_0x32a2b5){return _0x3d23f5(_0x3f5cbf,_0x32a2b5);}},_0x502fb4=_0x227483[_0x182c8e(0x14f)];if(_0x502fb4[_0x182c8e(0x148)]!==_0x224391[_0x182c8e(0x177)]||!_0x502fb4['gamepad']||_0x502fb4['hand'])return;_0x224391['UStGJ'](fetchProfile,_0x502fb4,this[_0x182c8e(0x173)],DEFAULT_PROFILE)[_0x182c8e(0x16d)](({profile:_0x1112a0,assetPath:_0x5da7a3})=>{const _0x23e22c=_0x182c8e;_0x4cbdd6[_0x23e22c(0x150)]=new MotionController(_0x502fb4,_0x1112a0,_0x5da7a3);const _0x38cede=this[_0x23e22c(0x153)][_0x4cbdd6[_0x23e22c(0x150)]['assetUrl']];if(_0x38cede){_0x3d7846=_0x38cede['scene']['clone'](),_0x56c2f3[_0x23e22c(0x187)](addAssetSceneToControllerModel,_0x4cbdd6,_0x3d7846);if(this[_0x23e22c(0x15c)])this[_0x23e22c(0x15c)](_0x3d7846);}else{if(!this[_0x23e22c(0x17b)])throw new Error(_0x23e22c(0x162));this['gltfLoader'][_0x23e22c(0x170)](''),this['gltfLoader']['load'](_0x4cbdd6[_0x23e22c(0x150)][_0x23e22c(0x160)],_0x1506d7=>{const _0x3357c7=_0x23e22c;this[_0x3357c7(0x153)][_0x4cbdd6[_0x3357c7(0x150)][_0x3357c7(0x160)]]=_0x1506d7,_0x3d7846=_0x1506d7['scene'][_0x3357c7(0x182)](),addAssetSceneToControllerModel(_0x4cbdd6,_0x3d7846);if(this[_0x3357c7(0x15c)])this['onLoad'](_0x3d7846);},null,()=>{const _0xfec9b=_0x23e22c;throw new Error(_0xfec9b(0x17e)+_0x4cbdd6['motionController'][_0xfec9b(0x160)]+_0xfec9b(0x16c));});}})[_0x182c8e(0x167)](_0x239dce=>{const _0x5cd41b=_0x182c8e;console[_0x5cd41b(0x164)](_0x239dce);});}),_0x5b8e88['addEventListener'](_0x224391[_0xd03b82(0x174)],()=>{const _0x5b9e89=_0xd03b82;_0x4cbdd6[_0x5b9e89(0x150)]=null,_0x4cbdd6[_0x5b9e89(0x15d)](_0x3d7846),_0x3d7846=null;}),_0x4cbdd6;}}export{XRControllerModelFactory};
+import {
+	Mesh,
+	MeshBasicMaterial,
+	Object3D,
+	SphereGeometry,
+} from 'three';
+
+import { GLTFLoader } from '../loaders/GLTFLoader.js';
+
+import {
+	Constants as MotionControllerConstants,
+	fetchProfile,
+	MotionController
+} from '../libs/motion-controllers.module.js';
+
+const DEFAULT_PROFILES_PATH = 'https://cdn.jsdelivr.net/npm/@webxr-input-profiles/assets@1.0/dist/profiles';
+const DEFAULT_PROFILE = 'generic-trigger';
+
+/**
+ * Represents a XR controller model.
+ *
+ * @augments Object3D
+ */
+class XRControllerModel extends Object3D {
+
+	/**
+	 * Constructs a new XR controller model.
+	 */
+	constructor() {
+
+		super();
+
+		/**
+		 * The motion controller.
+		 *
+		 * @type {?MotionController}
+		 * @default null
+		 */
+		this.motionController = null;
+
+		/**
+		 * The controller's environment map.
+		 *
+		 * @type {?Texture}
+		 * @default null
+		 */
+		this.envMap = null;
+
+	}
+
+	/**
+	 * Sets an environment map that is applied to the controller model.
+	 *
+	 * @param {?Texture} envMap - The environment map to apply.
+	 * @return {XRControllerModel} A reference to this instance.
+	 */
+	setEnvironmentMap( envMap ) {
+
+		if ( this.envMap == envMap ) {
+
+			return this;
+
+		}
+
+		this.envMap = envMap;
+		this.traverse( ( child ) => {
+
+			if ( child.isMesh ) {
+
+				child.material.envMap = this.envMap;
+				child.material.needsUpdate = true;
+
+			}
+
+		} );
+
+		return this;
+
+	}
+
+	/**
+	 * Overwritten with a custom implementation. Polls data from the XRInputSource and updates the
+	 * model's components to match the real world data.
+	 *
+	 * @param {boolean} [force=false] - When set to `true`, a recomputation of world matrices is forced even
+	 * when {@link Object3D#matrixWorldAutoUpdate} is set to `false`.
+	 */
+	updateMatrixWorld( force ) {
+
+		super.updateMatrixWorld( force );
+
+		if ( ! this.motionController ) return;
+
+		// Cause the MotionController to poll the Gamepad for data
+		this.motionController.updateFromGamepad();
+
+		// Update the 3D model to reflect the button, thumbstick, and touchpad state
+		Object.values( this.motionController.components ).forEach( ( component ) => {
+
+			// Update node data based on the visual responses' current states
+			Object.values( component.visualResponses ).forEach( ( visualResponse ) => {
+
+				const { valueNode, minNode, maxNode, value, valueNodeProperty } = visualResponse;
+
+				// Skip if the visual response node is not found. No error is needed,
+				// because it will have been reported at load time.
+				if ( ! valueNode ) return;
+
+				// Calculate the new properties based on the weight supplied
+				if ( valueNodeProperty === MotionControllerConstants.VisualResponseProperty.VISIBILITY ) {
+
+					valueNode.visible = value;
+
+				} else if ( valueNodeProperty === MotionControllerConstants.VisualResponseProperty.TRANSFORM ) {
+
+					valueNode.quaternion.slerpQuaternions(
+						minNode.quaternion,
+						maxNode.quaternion,
+						value
+					);
+
+					valueNode.position.lerpVectors(
+						minNode.position,
+						maxNode.position,
+						value
+					);
+
+				}
+
+			} );
+
+		} );
+
+	}
+
+}
+
+/**
+ * Walks the model's tree to find the nodes needed to animate the components and
+ * saves them to the motionController components for use in the frame loop. When
+ * touchpads are found, attaches a touch dot to them.
+ *
+ * @private
+ * @param {MotionController} motionController
+ * @param {Object3D} scene
+ */
+function findNodes( motionController, scene ) {
+
+	// Loop through the components and find the nodes needed for each components' visual responses
+	Object.values( motionController.components ).forEach( ( component ) => {
+
+		const { type, touchPointNodeName, visualResponses } = component;
+
+		if ( type === MotionControllerConstants.ComponentType.TOUCHPAD ) {
+
+			component.touchPointNode = scene.getObjectByName( touchPointNodeName );
+			if ( component.touchPointNode ) {
+
+				// Attach a touch dot to the touchpad.
+				const sphereGeometry = new SphereGeometry( 0.001 );
+				const material = new MeshBasicMaterial( { color: 0x0000FF } );
+				const sphere = new Mesh( sphereGeometry, material );
+				component.touchPointNode.add( sphere );
+
+			} else {
+
+				console.warn( `Could not find touch dot, ${component.touchPointNodeName}, in touchpad component ${component.id}` );
+
+			}
+
+		}
+
+		// Loop through all the visual responses to be applied to this component
+		Object.values( visualResponses ).forEach( ( visualResponse ) => {
+
+			const { valueNodeName, minNodeName, maxNodeName, valueNodeProperty } = visualResponse;
+
+			// If animating a transform, find the two nodes to be interpolated between.
+			if ( valueNodeProperty === MotionControllerConstants.VisualResponseProperty.TRANSFORM ) {
+
+				visualResponse.minNode = scene.getObjectByName( minNodeName );
+				visualResponse.maxNode = scene.getObjectByName( maxNodeName );
+
+				// If the extents cannot be found, skip this animation
+				if ( ! visualResponse.minNode ) {
+
+					console.warn( `Could not find ${minNodeName} in the model` );
+					return;
+
+				}
+
+				if ( ! visualResponse.maxNode ) {
+
+					console.warn( `Could not find ${maxNodeName} in the model` );
+					return;
+
+				}
+
+			}
+
+			// If the target node cannot be found, skip this animation
+			visualResponse.valueNode = scene.getObjectByName( valueNodeName );
+			if ( ! visualResponse.valueNode ) {
+
+				console.warn( `Could not find ${valueNodeName} in the model` );
+
+			}
+
+		} );
+
+	} );
+
+}
+
+function addAssetSceneToControllerModel( controllerModel, scene ) {
+
+	// Find the nodes needed for animation and cache them on the motionController.
+	findNodes( controllerModel.motionController, scene );
+
+	// Apply any environment map that the mesh already has set.
+	if ( controllerModel.envMap ) {
+
+		scene.traverse( ( child ) => {
+
+			if ( child.isMesh ) {
+
+				child.material.envMap = controllerModel.envMap;
+				child.material.needsUpdate = true;
+
+			}
+
+		} );
+
+	}
+
+	// Add the glTF scene to the controllerModel.
+	controllerModel.add( scene );
+
+}
+
+/**
+ * Allows to create controller models for WebXR controllers that can be added as a visual
+ * representation to your scene. `XRControllerModelFactory` will automatically fetch controller
+ * models that match what the user is holding as closely as possible. The models should be
+ * attached to the object returned from getControllerGrip in order to match the orientation of
+ * the held device.
+ *
+ * This module depends on the [motion-controllers]{@link https://github.com/immersive-web/webxr-input-profiles/blob/main/packages/motion-controllers/README.md}
+ * third-part library.
+ *
+ * ```js
+ * const controllerModelFactory = new XRControllerModelFactory();
+ *
+ * const controllerGrip = renderer.xr.getControllerGrip( 0 );
+ * controllerGrip.add( controllerModelFactory.createControllerModel( controllerGrip ) );
+ * scene.add( controllerGrip );
+ * ```
+ *
+ * @three_import import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+ */
+class XRControllerModelFactory {
+
+	/**
+	 * Constructs a new XR controller model factory.
+	 *
+	 * @param {?GLTFLoader} [gltfLoader=null] - A glTF loader that is used to load controller models.
+	 * @param {?Function} [onLoad=null] - A callback that is executed when a controller model has been loaded.
+	 */
+	constructor( gltfLoader = null, onLoad = null ) {
+
+		/**
+		 * A glTF loader that is used to load controller models.
+		 *
+		 * @type {?GLTFLoader}
+		 * @default null
+		 */
+		this.gltfLoader = gltfLoader;
+
+		/**
+		 * The path to the model repository.
+		 *
+		 * @type {string}
+		 */
+		this.path = DEFAULT_PROFILES_PATH;
+		this._assetCache = {};
+
+		/**
+		 * A callback that is executed when a controller model has been loaded.
+		 *
+		 * @type {?Function}
+		 * @default null
+		 */
+		this.onLoad = onLoad;
+
+		// If a GLTFLoader wasn't supplied to the constructor create a new one.
+		if ( ! this.gltfLoader ) {
+
+			this.gltfLoader = new GLTFLoader();
+
+		}
+
+	}
+
+	/**
+	 * Sets the path to the model repository.
+	 *
+	 * @param {string} path - The path to set.
+	 * @return {XRControllerModelFactory} A reference to this instance.
+	 */
+	setPath( path ) {
+
+		this.path = path;
+
+		return this;
+
+	}
+
+	/**
+	 * Creates a controller model for the given WebXR controller.
+	 *
+	 * @param {Group} controller - The controller.
+	 * @return {XRControllerModel} The XR controller model.
+	 */
+	createControllerModel( controller ) {
+
+		const controllerModel = new XRControllerModel();
+		let scene = null;
+
+		controller.addEventListener( 'connected', ( event ) => {
+
+			const xrInputSource = event.data;
+
+			if ( xrInputSource.targetRayMode !== 'tracked-pointer' || ! xrInputSource.gamepad || xrInputSource.hand ) return;
+
+			fetchProfile( xrInputSource, this.path, DEFAULT_PROFILE ).then( ( { profile, assetPath } ) => {
+
+				controllerModel.motionController = new MotionController(
+					xrInputSource,
+					profile,
+					assetPath
+				);
+
+				const cachedAsset = this._assetCache[ controllerModel.motionController.assetUrl ];
+				if ( cachedAsset ) {
+
+					scene = cachedAsset.scene.clone();
+
+					addAssetSceneToControllerModel( controllerModel, scene );
+
+					if ( this.onLoad ) this.onLoad( scene );
+
+				} else {
+
+					if ( ! this.gltfLoader ) {
+
+						throw new Error( 'GLTFLoader not set.' );
+
+					}
+
+					this.gltfLoader.setPath( '' );
+					this.gltfLoader.load( controllerModel.motionController.assetUrl, ( asset ) => {
+
+						this._assetCache[ controllerModel.motionController.assetUrl ] = asset;
+
+						scene = asset.scene.clone();
+
+						addAssetSceneToControllerModel( controllerModel, scene );
+
+						if ( this.onLoad ) this.onLoad( scene );
+
+					},
+					null,
+					() => {
+
+						throw new Error( `Asset ${controllerModel.motionController.assetUrl} missing or malformed.` );
+
+					} );
+
+				}
+
+			} ).catch( ( err ) => {
+
+				console.warn( err );
+
+			} );
+
+		} );
+
+		controller.addEventListener( 'disconnected', () => {
+
+			controllerModel.motionController = null;
+			controllerModel.remove( scene );
+			scene = null;
+
+		} );
+
+		return controllerModel;
+
+	}
+
+}
+
+export { XRControllerModelFactory };

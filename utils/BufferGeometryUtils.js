@@ -1,1 +1,1435 @@
-(function(_0x364b55,_0x117a7b){const _0x39de4a=a0_0x2e1f,_0x56db3b=_0x364b55();while(!![]){try{const _0x420cc2=parseInt(_0x39de4a(0x287))/0x1+parseInt(_0x39de4a(0x245))/0x2*(parseInt(_0x39de4a(0x289))/0x3)+-parseInt(_0x39de4a(0x215))/0x4*(-parseInt(_0x39de4a(0x267))/0x5)+parseInt(_0x39de4a(0x264))/0x6*(parseInt(_0x39de4a(0x230))/0x7)+parseInt(_0x39de4a(0x23f))/0x8*(parseInt(_0x39de4a(0x26b))/0x9)+-parseInt(_0x39de4a(0x2a6))/0xa+-parseInt(_0x39de4a(0x20c))/0xb*(parseInt(_0x39de4a(0x293))/0xc);if(_0x420cc2===_0x117a7b)break;else _0x56db3b['push'](_0x56db3b['shift']());}catch(_0x1ba15c){_0x56db3b['push'](_0x56db3b['shift']());}}}(a0_0x1e30,0x79974));import{BufferAttribute,BufferGeometry,Float32BufferAttribute,InstancedBufferAttribute,InterleavedBuffer,InterleavedBufferAttribute,TriangleFanDrawMode,TriangleStripDrawMode,TrianglesDrawMode,Vector3}from'three';function computeMikkTSpaceTangents(_0x1e1312,_0x15dec9,_0x2ee48c=!![]){const _0x3b48bf=a0_0x2e1f,_0x3d1cfc={'EJUYU':function(_0x247369,_0x358e2b){return _0x247369<_0x358e2b;},'iIMJg':'position','cZTeY':'normal','UELMh':function(_0x5c6efd,_0x271fb1){return _0x5c6efd(_0x271fb1);},'nFPll':function(_0xb8dfec,_0x5e829c){return _0xb8dfec(_0x5e829c);},'jHAIQ':function(_0x21a707,_0x45cd5b){return _0x21a707<_0x45cd5b;},'DLKkI':_0x3b48bf(0x22c),'SxPAe':function(_0x5146fc,_0x299472){return _0x5146fc!==_0x299472;}};if(!_0x15dec9||!_0x15dec9[_0x3b48bf(0x27c)])throw new Error('BufferGeometryUtils:\x20Initialized\x20MikkTSpace\x20library\x20required.');if(!_0x1e1312['hasAttribute'](_0x3d1cfc['iIMJg'])||!_0x1e1312[_0x3b48bf(0x246)](_0x3d1cfc[_0x3b48bf(0x21d)])||!_0x1e1312[_0x3b48bf(0x246)]('uv'))throw new Error(_0x3b48bf(0x259));function _0x69cd6b(_0x33abc9){const _0x42dd88=_0x3b48bf;if(_0x33abc9[_0x42dd88(0x221)]||_0x33abc9['isInterleavedBufferAttribute']){const _0x2a477b=new Float32Array(_0x33abc9[_0x42dd88(0x1ff)]*_0x33abc9[_0x42dd88(0x260)]);for(let _0x1c7514=0x0,_0x556caf=0x0;_0x3d1cfc['EJUYU'](_0x1c7514,_0x33abc9[_0x42dd88(0x1ff)]);_0x1c7514++){_0x2a477b[_0x556caf++]=_0x33abc9[_0x42dd88(0x21f)](_0x1c7514),_0x2a477b[_0x556caf++]=_0x33abc9[_0x42dd88(0x298)](_0x1c7514),_0x33abc9['itemSize']>0x2&&(_0x2a477b[_0x556caf++]=_0x33abc9['getZ'](_0x1c7514));}return _0x2a477b;}if(_0x33abc9[_0x42dd88(0x24d)]instanceof Float32Array)return _0x33abc9[_0x42dd88(0x24d)];return new Float32Array(_0x33abc9[_0x42dd88(0x24d)]);}const _0x43fe7f=_0x1e1312[_0x3b48bf(0x292)]?_0x1e1312['toNonIndexed']():_0x1e1312,_0x360344=_0x15dec9[_0x3b48bf(0x258)](_0x3d1cfc[_0x3b48bf(0x2a1)](_0x69cd6b,_0x43fe7f['attributes'][_0x3b48bf(0x1f4)]),_0x3d1cfc[_0x3b48bf(0x2a1)](_0x69cd6b,_0x43fe7f[_0x3b48bf(0x27b)]['normal']),_0x3d1cfc['nFPll'](_0x69cd6b,_0x43fe7f[_0x3b48bf(0x27b)]['uv']));if(_0x2ee48c)for(let _0xdb3735=0x3;_0x3d1cfc['jHAIQ'](_0xdb3735,_0x360344[_0x3b48bf(0x2a9)]);_0xdb3735+=0x4){_0x360344[_0xdb3735]*=-0x1;}return _0x43fe7f['setAttribute'](_0x3d1cfc[_0x3b48bf(0x28d)],new BufferAttribute(_0x360344,0x4)),_0x3d1cfc[_0x3b48bf(0x2a2)](_0x1e1312,_0x43fe7f)&&_0x1e1312['copy'](_0x43fe7f),_0x1e1312;}function a0_0x1e30(){const _0x2cf19c=['yvzlq1m','C2v0wq','B1nlu1y','CLn6CLy','ANHhCwO','DwziwKO','yxr0CMLIDxrLCW','AxnszwfKEq','ig1VCNbOqxr0CMLIDxrLlG','BM9YBwfS','AhfyvuO','C3vI','B2HMrLy','BM9YBwfSAxPL','rM5ewKC','whr0vuW','DxrLquS','swP3uLq','ndeXnLfpvwfbAG','vezUwwG','mJKYodG0nNHWqMzfrq','BLPOwhi','y3jVC3nwzwn0B3jZ','Ewr2q3a','reXlA0K','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCZOGlM1LCMDLr2vVBwv0CMLLCYGPigzHAwXLzcb3AxrOigDLB21LDhj5igf0igLUzgv4ia','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCZOGlM1LCMDLqxr0CMLIDxrLCYGPigzHAwXLzc4GqNvMzMvYqxr0CMLIDxrLlMDWDvr5CguGBxvZDcbIzsbJB25ZAxn0zw50igfJCM9ZCYbTyxrJAgLUzYbHDhrYAwj1DgvZlG','CNLjv3e','u3vwEgK','Aw5KzxG','nJeYCgTnANfI','u0ziv0K','r1Les1m','ugDjs0e','DgHAAMu','z2v0wq','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCZOGlM1LCMDLr2vVBwv0CMLLCYGPigzHAwXLzcb3AgLSzsb0CNLPBMCGDg8GBwvYz2uGDgHLia','AxnjBNn0yw5JzwrjBNrLCMXLyxzLzej1zMzLCKf0DhjPyNv0zq','Bwf0zxjPywW','ChvZAa','z3b1vhLWzq','Au9kCxa','y3DAu0i','z2v0q29TCg9Uzw50','vuvmtwG','u3Hqqwu','z3vqvwS','C29YDa','twjmrfq','ntu2nZm1mfbRBLzJzG','y29Z','AwjZrKK','BgvUz3rO','CxPWwfy','Dfv1z0m','C2v0sw5KzxG','zxveDKe','C3bSAxq','rMzqDvq','Bw9YCgHuyxjNzxrZ','C3vIvMvJDg9YCW','z2v0sw5KzxG','C2v0wa','lIbuAguGz2vVBwv0CNKGBxvZDcbOyxzLigvPDgHLCIbHBIbPBMrLEcbVCIbHihbVC2L0Aw9Uigf0DhjPyNv0zq','rvfoBeG','zvLPA2q','u1fHq3O','uuDTu08','we1HzKu','tNvfseC','r2DqBKK','zgf0yq','AxnjBNrLCMXLyxzLzej1zMzLCKf0DhjPyNv0zq','Cg93','tufkyNG','Bw9YCgHuyxjNzxrZuMvSyxrPDMu','y05ZyKG','z2v0vW','Bw9YCgHuyxjNzxrjBMzSDwvUy2vZ','C2v0qxr0CMLIDxrL','z2v0wG','uNbMBNe','Cg9ZAxrPB24','C3rHCNq','CujHzgy','C1bUzwq','z2v0','A2v5CW','C2L6zq','uvDNrue','B3zhvgS','ywrK','AxnbCNjHEq','y291BNq','rvbtsuXptG','D2fYBG','y2XLyxjhCM91Chm','AMv1q2e','shPPEgq','y2XVBMu','y3buyva','zNjVBuj1zMzLCKf0DhjPyNv0zq','qujoCvm','u2z6ueW','u2vMsxO','sKrYuhO','mZG0mJC0t0DKzvHd','C2Tczhy','AevqDvm','rLfzy2W','q3z3DuC','BK9AwuG','qxr0CMLIDxrLqNvMzMvYCYbVzIbKAwzMzxjLBNqGDhLWzxmGy2fUBM90igjLigLUDgvYBgvHDMvK','u3LVyw0','BgnxrKG','mtj5rhbRC2S','C2v0vW','DLbhwvC','AxnjBNn0yw5JzwrcDwzMzxjbDhrYAwj1Dgu','sNbjBgm','tuDYqLu','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCY50B1rYAwfUz2XLC0rYyxDnB2rLkcK6ifvUywjSzsb0BYbNzw5LCMf0zsbJB3jYzwn0igfTB3vUDcbVzIb0CMLHBMDSzxmU','BMD4CvO','y1PuzvK','Bw9YCgHbDhrYAwj1DgvZ','z2v0wa','zwjHsKi','BM9YBwfSAxPLza','vNPOyKy','EgfkEKq','rNv1AwO','ywvzvMe','ywrKr3jVDxa','DLrXy1y','C2v0wG','ywrKu2nHBgvKvMvJDg9Y','zuvbvee','v29tEhC','DgfUz2vUDa','DxzptNe','zxjYB3i','zNDuqNK','mty1mJyWmKvLBNDVyW','tMPUr2S','swvMvKy','sKzXtum','BwLU','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCZOGlM1LCMDLqxr0CMLIDxrLCYGPigzHAwXLzc4GqNvMzMvYqxr0CMLIDxrLlML0zw1tAxPLig11C3qGyMuGy29UC2LZDgvUDcbHy3jVC3mGBwf0y2HPBMCGyxr0CMLIDxrLCY4','lIbbBgWGz2vVBwv0CMLLCYbTDxn0igHHDMuGy29TCgf0AwjSzsbHDhrYAwj1DgvZoYbTywTLihn1CMuGiG','zgLZCg9Zzq','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCY50B1rYAwfUz2XLC0rYyxDnB2rLkcK6ieDLB21LDhj5igfSCMvHzhKGzgvMAw5LzcbHCYb0CMLHBMDSzxmU','q3vfBeW','ue9su3O','wMX0tNm','DgzLD1i','B1bitNm','z2v0qxr0CMLIDxrL','mZG4mJi3mMrVvMrksG','tgPXrLC','Bwf0zxjPywXjBMrLEa','Bg9Nmta','t01quKu','AxntA2LUBMvKtwvZAa','mMH6uNHWvq','AgfZqxr0CMLIDxrL','y3f4wLK','BwvZAfbLCKf0DhjPyNv0zq','Bwf4','wgDqtw8','Dw9WDem','B2LNqLG','yxjYyxK','y29UC3rYDwn0B3i','iIbHDhrYAwj1DguGzxHPC3rZigfTB25NigfSBcbNzw9TzxrYAwvZlcbVCIbPBIbUB25Lig9MihrOzw0U','uuzTzeK','v1LVs08','mxW0Fdb8m3WY','zxv0u28','y0XcvLm','zgHcvKC','s0H4uvi','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCZOGlM1LCMDLqxr0CMLIDxrLCYGPigzHAwXLzc4GqNvMzMvYqxr0CMLIDxrLlMfYCMf5ig11C3qGyMuGB2yGy29UC2LZDgvUDcbHCNjHEsb0ExbLCYbHy3jVC3mGBwf0y2HPBMCGyxr0CMLIDxrLCY4','z2vUzxjHDgvuyw5Nzw50CW','qNvMzMvYr2vVBwv0CNLvDgLSCZOGvgfUz2vUDhmGCMvXDwLYzsaICg9ZAxrPB24IlcaIBM9YBwfSiIWGyw5Kicj1DIiGyxr0CMLIDxrLCY4','sevLqvu','uufvrgS','AxfVzuG','yxbWBhLcB25LvhjHBNnMB3jT','qMLhEeC','qLLurvnFuevsx0vmru1ftLq','AxrLBvnPEMu','A1nPuuG','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCY50B1rYAwfUz2XLC0rYyxDnB2rLkcK6ifvUA25VD24GzhjHDYbTB2rLoG','sLLQrKO','nNzeyujZwG','veHsruuUqNvMzMvYr2vVBwv0CNLvDgLSCY5TzxjNzuDYB3vWCYGPoIboBYbNCM91ChmGyxjLigrLzMLUzwqUie5VDgHPBMCGDg8GBwvYz2uU','z3jVDxbZ','mta4mJi1nuHivgD2yG','zg90','lIbbBgWGz2vVBwv0CMLLCYbTDxn0igHHDMuGy29TCgf0AwjSzsbHDhrYAwj1DgvZoYbTywTLihn1CMuGAw5KzxGGyxr0CMLIDxrLigv4Axn0CYbHBw9UzYbHBgWGz2vVBwv0CMLLCYWGB3iGAw4GBM9UzsbVzIb0AgvTlG','rerNsem','mtHotM5gu3m','BxjiC2O','C2v0q29TCg9Uzw50','BMPtrvy','y29WEq','AgfZ','C2v0','r3zntLu','yMPwwhy','yMrpu1i'];a0_0x1e30=function(){return _0x2cf19c;};return a0_0x1e30();}function mergeGeometries(_0xf7c906,_0x288ea4=![]){const _0x3c9771=a0_0x2e1f,_0x1d022f={'WiGQF':function(_0x192b2d,_0x4190ca){return _0x192b2d!==_0x4190ca;},'ngxqZ':function(_0x2a2eb7,_0x5a5aff){return _0x2a2eb7!==_0x5a5aff;},'qzpXV':function(_0x4c6765,_0x324bfd){return _0x4c6765!==_0x324bfd;},'jxGqj':function(_0x4dd172,_0x3be61b){return _0x4dd172+_0x3be61b;},'JpIlc':'THREE.BufferGeometryUtils:\x20.mergeGeometries()\x20failed\x20with\x20geometry\x20at\x20index\x20','iqoeH':function(_0x36fb08,_0x321aa8){return _0x36fb08+_0x321aa8;},'JDrPz':function(_0x2adb7c,_0x24a877){return _0x2adb7c===_0x24a877;},'IefVF':function(_0x346894,_0x4362ae){return _0x346894!==_0x4362ae;},'iOSoM':'.\x20Make\x20sure\x20all\x20geometries\x20have\x20the\x20same\x20number\x20of\x20attributes.','MsRMi':'.\x20.morphTargetsRelative\x20must\x20be\x20consistent\x20throughout\x20all\x20geometries.','OMPRE':function(_0x180721,_0x8a01a7){return _0x180721!==_0x8a01a7;},'uteAK':function(_0x4c8127,_0x324f1c){return _0x4c8127<_0x324f1c;},'FfPuT':function(_0x1b2c97,_0x20a808){return _0x1b2c97(_0x20a808);},'mrHsj':function(_0x1a5fa3,_0x1655cd){return _0x1a5fa3+_0x1655cd;},'lcWFH':function(_0x312a9a,_0x2a2e58){return _0x312a9a+_0x2a2e58;},'skBdv':_0x3c9771(0x299),'QAUDk':'\x20attribute.','hqXUJ':function(_0x5a7d84,_0x3b3159){return _0x5a7d84<_0x3b3159;},'POtYn':function(_0x5a37c8,_0x396c3c){return _0x5a37c8<_0x396c3c;},'CvwuG':_0x3c9771(0x27d)},_0x429ec6=_0x1d022f['WiGQF'](_0xf7c906[0x0][_0x3c9771(0x292)],null),_0x4f91c1=new Set(Object[_0x3c9771(0x1f9)](_0xf7c906[0x0][_0x3c9771(0x27b)])),_0x40b5f8=new Set(Object[_0x3c9771(0x1f9)](_0xf7c906[0x0][_0x3c9771(0x21e)])),_0x354174={},_0x4348cf={},_0x3e7631=_0xf7c906[0x0]['morphTargetsRelative'],_0x380b25=new BufferGeometry();let _0x2d1e06=0x0;for(let _0x17d16c=0x0;_0x17d16c<_0xf7c906[_0x3c9771(0x2a9)];++_0x17d16c){const _0x48d7c1=_0xf7c906[_0x17d16c];let _0x41cef0=0x0;if(_0x1d022f[_0x3c9771(0x21c)](_0x429ec6,_0x1d022f[_0x3c9771(0x2aa)](_0x48d7c1['index'],null)))return console[_0x3c9771(0x22e)](_0x1d022f[_0x3c9771(0x279)](_0x1d022f[_0x3c9771(0x219)],_0x17d16c)+_0x3c9771(0x269)),null;for(const _0x335512 in _0x48d7c1[_0x3c9771(0x27b)]){if(!_0x4f91c1[_0x3c9771(0x270)](_0x335512))return console[_0x3c9771(0x22e)](_0x1d022f[_0x3c9771(0x279)](_0x1d022f['iqoeH'](_0x1d022f['JpIlc']+_0x17d16c,_0x3c9771(0x236)),_0x335512)+_0x3c9771(0x24f)),null;if(_0x1d022f[_0x3c9771(0x20b)](_0x354174[_0x335512],undefined))_0x354174[_0x335512]=[];_0x354174[_0x335512][_0x3c9771(0x29c)](_0x48d7c1['attributes'][_0x335512]),_0x41cef0++;}if(_0x1d022f[_0x3c9771(0x232)](_0x41cef0,_0x4f91c1[_0x3c9771(0x1fa)]))return console['error'](_0x1d022f[_0x3c9771(0x25c)](_0x3c9771(0x28e)+_0x17d16c,_0x1d022f['iOSoM'])),null;if(_0x1d022f[_0x3c9771(0x232)](_0x3e7631,_0x48d7c1['morphTargetsRelative']))return console[_0x3c9771(0x22e)](_0x1d022f[_0x3c9771(0x279)](_0x1d022f[_0x3c9771(0x219)],_0x17d16c)+_0x1d022f['MsRMi']),null;for(const _0x557208 in _0x48d7c1[_0x3c9771(0x21e)]){if(!_0x40b5f8['has'](_0x557208))return console['error'](_0x1d022f[_0x3c9771(0x279)](_0x1d022f[_0x3c9771(0x279)](_0x1d022f['JpIlc'],_0x17d16c),'.\x20\x20.morphAttributes\x20must\x20be\x20consistent\x20throughout\x20all\x20geometries.')),null;if(_0x4348cf[_0x557208]===undefined)_0x4348cf[_0x557208]=[];_0x4348cf[_0x557208][_0x3c9771(0x29c)](_0x48d7c1[_0x3c9771(0x21e)][_0x557208]);}if(_0x288ea4){let _0x50eb77;if(_0x429ec6)_0x50eb77=_0x48d7c1[_0x3c9771(0x292)]['count'];else{if(_0x1d022f[_0x3c9771(0x243)](_0x48d7c1[_0x3c9771(0x27b)][_0x3c9771(0x1f4)],undefined))_0x50eb77=_0x48d7c1[_0x3c9771(0x27b)][_0x3c9771(0x1f4)]['count'];else return console['error'](_0x1d022f['JpIlc']+_0x17d16c+_0x3c9771(0x2b4)),null;}_0x380b25[_0x3c9771(0x226)](_0x2d1e06,_0x50eb77,_0x17d16c),_0x2d1e06+=_0x50eb77;}}if(_0x429ec6){let _0x35a4ea=0x0;const _0x2cf53f=[];for(let _0x32dbb1=0x0;_0x1d022f[_0x3c9771(0x285)](_0x32dbb1,_0xf7c906[_0x3c9771(0x2a9)]);++_0x32dbb1){const _0x5c8f2b=_0xf7c906[_0x32dbb1]['index'];for(let _0x2232fd=0x0;_0x2232fd<_0x5c8f2b['count'];++_0x2232fd){_0x2cf53f[_0x3c9771(0x29c)](_0x1d022f[_0x3c9771(0x279)](_0x5c8f2b[_0x3c9771(0x21f)](_0x2232fd),_0x35a4ea));}_0x35a4ea+=_0xf7c906[_0x32dbb1][_0x3c9771(0x27b)][_0x3c9771(0x1f4)][_0x3c9771(0x1ff)];}_0x380b25[_0x3c9771(0x2ac)](_0x2cf53f);}for(const _0x42ae0e in _0x354174){const _0x3ef8c1=_0x1d022f[_0x3c9771(0x2af)](mergeAttributes,_0x354174[_0x42ae0e]);if(!_0x3ef8c1)return console[_0x3c9771(0x22e)](_0x1d022f[_0x3c9771(0x26c)](_0x1d022f[_0x3c9771(0x214)](_0x1d022f[_0x3c9771(0x20d)],_0x42ae0e),_0x1d022f[_0x3c9771(0x25b)])),null;_0x380b25[_0x3c9771(0x1f1)](_0x42ae0e,_0x3ef8c1);}for(const _0x1a58a6 in _0x4348cf){const _0x2670f7=_0x4348cf[_0x1a58a6][0x0][_0x3c9771(0x2a9)];if(_0x2670f7===0x0)break;_0x380b25[_0x3c9771(0x21e)]=_0x380b25['morphAttributes']||{},_0x380b25[_0x3c9771(0x21e)][_0x1a58a6]=[];for(let _0x422a7d=0x0;_0x1d022f[_0x3c9771(0x27f)](_0x422a7d,_0x2670f7);++_0x422a7d){const _0x21c48f=[];for(let _0x1b8ff7=0x0;_0x1d022f['POtYn'](_0x1b8ff7,_0x4348cf[_0x1a58a6][_0x3c9771(0x2a9)]);++_0x1b8ff7){_0x21c48f[_0x3c9771(0x29c)](_0x4348cf[_0x1a58a6][_0x1b8ff7][_0x422a7d]);}const _0xb4275a=_0x1d022f[_0x3c9771(0x2af)](mergeAttributes,_0x21c48f);if(!_0xb4275a)return console[_0x3c9771(0x22e)](_0x1d022f['mrHsj'](_0x1d022f[_0x3c9771(0x26c)](_0x1d022f[_0x3c9771(0x20d)],_0x1a58a6),_0x1d022f[_0x3c9771(0x210)])),null;_0x380b25[_0x3c9771(0x21e)][_0x1a58a6][_0x3c9771(0x29c)](_0xb4275a);}}return _0x380b25;}function mergeAttributes(_0x578c57){const _0x2b63a1=a0_0x2e1f,_0x468550={'GgPnI':function(_0x32af1c,_0x2eebdb){return _0x32af1c<_0x2eebdb;},'sNWfA':function(_0x357087,_0x567ed0){return _0x357087===_0x567ed0;},'SefIz':function(_0x18d1eb,_0x1e7620){return _0x18d1eb!==_0x1e7620;},'ufHZJ':function(_0x491c96,_0x2c9c5b){return _0x491c96!==_0x2c9c5b;},'euDvA':_0x2b63a1(0x235),'aVKCS':function(_0x1c9024,_0x5c9367){return _0x1c9024===_0x5c9367;},'guPUk':function(_0x1ca7f8,_0x147403){return _0x1ca7f8!==_0x147403;},'IjwRT':function(_0x2584bb,_0x1b6f71){return _0x2584bb*_0x1b6f71;},'vPGYW':function(_0x1dbf5d,_0x45c93c){return _0x1dbf5d/_0x45c93c;},'oSKSV':function(_0x55669c,_0x16e9a9){return _0x55669c<_0x16e9a9;}};let _0x9be886,_0x21cad5,_0x2778c3,_0x5f8e95=-0x1,_0x29c111=0x0;for(let _0x196c4a=0x0;_0x468550[_0x2b63a1(0x1e8)](_0x196c4a,_0x578c57[_0x2b63a1(0x2a9)]);++_0x196c4a){const _0x277482=_0x578c57[_0x196c4a];if(_0x468550['sNWfA'](_0x9be886,undefined))_0x9be886=_0x277482['array'][_0x2b63a1(0x24e)];if(_0x468550[_0x2b63a1(0x20a)](_0x9be886,_0x277482[_0x2b63a1(0x24d)]['constructor']))return console['error'](_0x2b63a1(0x257)),null;if(_0x21cad5===undefined)_0x21cad5=_0x277482[_0x2b63a1(0x260)];if(_0x468550['ufHZJ'](_0x21cad5,_0x277482[_0x2b63a1(0x260)]))return console[_0x2b63a1(0x22e)](_0x468550[_0x2b63a1(0x2ad)]),null;if(_0x468550[_0x2b63a1(0x275)](_0x2778c3,undefined))_0x2778c3=_0x277482[_0x2b63a1(0x221)];if(_0x468550[_0x2b63a1(0x2a3)](_0x2778c3,_0x277482['normalized']))return console[_0x2b63a1(0x22e)]('THREE.BufferGeometryUtils:\x20.mergeAttributes()\x20failed.\x20BufferAttribute.normalized\x20must\x20be\x20consistent\x20across\x20matching\x20attributes.'),null;if(_0x5f8e95===-0x1)_0x5f8e95=_0x277482[_0x2b63a1(0x29d)];if(_0x468550['guPUk'](_0x5f8e95,_0x277482['gpuType']))return console['error'](_0x2b63a1(0x28f)),null;_0x29c111+=_0x468550[_0x2b63a1(0x286)](_0x277482[_0x2b63a1(0x1ff)],_0x21cad5);}const _0x9484a9=new _0x9be886(_0x29c111),_0x1029a7=new BufferAttribute(_0x9484a9,_0x21cad5,_0x2778c3);let _0x5523a3=0x0;for(let _0x29c4e7=0x0;_0x29c4e7<_0x578c57[_0x2b63a1(0x2a9)];++_0x29c4e7){const _0x5263d3=_0x578c57[_0x29c4e7];if(_0x5263d3[_0x2b63a1(0x1ea)]){const _0x3dce5f=_0x468550[_0x2b63a1(0x217)](_0x5523a3,_0x21cad5);for(let _0xf9794e=0x0,_0x3e14e0=_0x5263d3[_0x2b63a1(0x1ff)];_0x468550[_0x2b63a1(0x1e8)](_0xf9794e,_0x3e14e0);_0xf9794e++){for(let _0x59ca2e=0x0;_0x468550[_0x2b63a1(0x277)](_0x59ca2e,_0x21cad5);_0x59ca2e++){const _0x1d8e7f=_0x5263d3[_0x2b63a1(0x2a0)](_0xf9794e,_0x59ca2e);_0x1029a7[_0x2b63a1(0x26d)](_0xf9794e+_0x3dce5f,_0x59ca2e,_0x1d8e7f);}}}else _0x9484a9[_0x2b63a1(0x271)](_0x5263d3[_0x2b63a1(0x24d)],_0x5523a3);_0x5523a3+=_0x468550[_0x2b63a1(0x286)](_0x5263d3[_0x2b63a1(0x1ff)],_0x21cad5);}return _0x468550[_0x2b63a1(0x27a)](_0x5f8e95,undefined)&&(_0x1029a7[_0x2b63a1(0x29d)]=_0x5f8e95),_0x1029a7;}function deepCloneAttribute(_0x29c85f){const _0x2c79ad=a0_0x2e1f,_0x9eba8e={'LjqFW':function(_0x593d6c,_0x5f0ad0){return _0x593d6c(_0x5f0ad0);}};if(_0x29c85f[_0x2c79ad(0x29a)]||_0x29c85f['isInterleavedBufferAttribute'])return _0x9eba8e[_0x2c79ad(0x240)](deinterleaveAttribute,_0x29c85f);if(_0x29c85f[_0x2c79ad(0x218)])return new InstancedBufferAttribute()[_0x2c79ad(0x26f)](_0x29c85f);return new BufferAttribute()['copy'](_0x29c85f);}function interleaveAttributes(_0x55f31d){const _0x2a1e45=a0_0x2e1f,_0x91b77b={'lFWIo':function(_0x36e7ba,_0x23c899){return _0x36e7ba===_0x23c899;},'SQaCz':function(_0x34e24d,_0x5bf1da){return _0x34e24d!==_0x5bf1da;},'dhBVG':_0x2a1e45(0x212),'ZltNs':_0x2a1e45(0x298),'xcTYP':_0x2a1e45(0x1f2),'oigBX':_0x2a1e45(0x1ef),'cqxZY':_0x2a1e45(0x2b3),'SFHWI':'setY','CuElL':_0x2a1e45(0x228),'qBadf':function(_0x4f2844,_0x2f7881){return _0x4f2844<_0x2f7881;}};let _0x171a37,_0x3e1551=0x0,_0xd64691=0x0;for(let _0x49d333=0x0,_0x206815=_0x55f31d['length'];_0x49d333<_0x206815;++_0x49d333){const _0x42cd69=_0x55f31d[_0x49d333];if(_0x91b77b['lFWIo'](_0x171a37,undefined))_0x171a37=_0x42cd69[_0x2a1e45(0x24d)][_0x2a1e45(0x24e)];if(_0x91b77b[_0x2a1e45(0x2b7)](_0x171a37,_0x42cd69[_0x2a1e45(0x24d)][_0x2a1e45(0x24e)]))return console[_0x2a1e45(0x22e)](_0x91b77b[_0x2a1e45(0x255)]),null;_0x3e1551+=_0x42cd69[_0x2a1e45(0x24d)][_0x2a1e45(0x2a9)],_0xd64691+=_0x42cd69[_0x2a1e45(0x260)];}const _0x57fe53=new InterleavedBuffer(new _0x171a37(_0x3e1551),_0xd64691);let _0x17f9ce=0x0;const _0x4a4be0=[],_0x999699=[_0x2a1e45(0x21f),_0x91b77b[_0x2a1e45(0x23b)],_0x91b77b['xcTYP'],_0x91b77b[_0x2a1e45(0x24c)]],_0x245303=[_0x91b77b[_0x2a1e45(0x247)],_0x91b77b[_0x2a1e45(0x294)],_0x91b77b[_0x2a1e45(0x239)],_0x2a1e45(0x216)];for(let _0x3f6d36=0x0,_0x5859b3=_0x55f31d[_0x2a1e45(0x2a9)];_0x91b77b[_0x2a1e45(0x1f6)](_0x3f6d36,_0x5859b3);_0x3f6d36++){const _0xb7fa79=_0x55f31d[_0x3f6d36],_0x5d7245=_0xb7fa79['itemSize'],_0x42a36a=_0xb7fa79[_0x2a1e45(0x1ff)],_0x1def75=new InterleavedBufferAttribute(_0x57fe53,_0x5d7245,_0x17f9ce,_0xb7fa79[_0x2a1e45(0x221)]);_0x4a4be0['push'](_0x1def75),_0x17f9ce+=_0x5d7245;for(let _0xbe2098=0x0;_0x91b77b[_0x2a1e45(0x1f6)](_0xbe2098,_0x42a36a);_0xbe2098++){for(let _0x4a1e1b=0x0;_0x4a1e1b<_0x5d7245;_0x4a1e1b++){_0x1def75[_0x245303[_0x4a1e1b]](_0xbe2098,_0xb7fa79[_0x999699[_0x4a1e1b]](_0xbe2098));}}}return _0x4a4be0;}function a0_0x2e1f(_0x25c96e,_0xd9a5a4){const _0x1e304a=a0_0x1e30();return a0_0x2e1f=function(_0x2e1faa,_0x9a2baf){_0x2e1faa=_0x2e1faa-0x1e8;let _0x4b14e8=_0x1e304a[_0x2e1faa];if(a0_0x2e1f['heXDTk']===undefined){var _0x202813=function(_0x1c0ad1){const _0x2586b6='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x29a34f='',_0x82584c='';for(let _0x3b8382=0x0,_0x55068d,_0x34b4ab,_0x5d589c=0x0;_0x34b4ab=_0x1c0ad1['charAt'](_0x5d589c++);~_0x34b4ab&&(_0x55068d=_0x3b8382%0x4?_0x55068d*0x40+_0x34b4ab:_0x34b4ab,_0x3b8382++%0x4)?_0x29a34f+=String['fromCharCode'](0xff&_0x55068d>>(-0x2*_0x3b8382&0x6)):0x0){_0x34b4ab=_0x2586b6['indexOf'](_0x34b4ab);}for(let _0x30eddb=0x0,_0x44f8ad=_0x29a34f['length'];_0x30eddb<_0x44f8ad;_0x30eddb++){_0x82584c+='%'+('00'+_0x29a34f['charCodeAt'](_0x30eddb)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x82584c);};a0_0x2e1f['mcthGO']=_0x202813,_0x25c96e=arguments,a0_0x2e1f['heXDTk']=!![];}const _0x377ab7=_0x1e304a[0x0],_0x11081b=_0x2e1faa+_0x377ab7,_0x17df6e=_0x25c96e[_0x11081b];return!_0x17df6e?(_0x4b14e8=a0_0x2e1f['mcthGO'](_0x4b14e8),_0x25c96e[_0x11081b]=_0x4b14e8):_0x4b14e8=_0x17df6e,_0x4b14e8;},a0_0x2e1f(_0x25c96e,_0xd9a5a4);}function deinterleaveAttribute(_0x2fc119){const _0x2df526=a0_0x2e1f,_0x333f5d={'Zvqlw':function(_0x32bd1f,_0x22492d){return _0x32bd1f*_0x22492d;},'oPHNs':function(_0x36c204,_0x1b5da3){return _0x36c204<_0x1b5da3;},'QFmdI':function(_0x11cd26,_0x4a2156){return _0x11cd26>=_0x4a2156;}},_0x5b55f=_0x2fc119[_0x2df526(0x1e9)][_0x2df526(0x24d)][_0x2df526(0x24e)],_0xaf86b1=_0x2fc119[_0x2df526(0x1ff)],_0x19a539=_0x2fc119['itemSize'],_0x417484=_0x2fc119[_0x2df526(0x221)],_0x203b2d=new _0x5b55f(_0x333f5d['Zvqlw'](_0xaf86b1,_0x19a539));let _0x1ca254;_0x2fc119['isInstancedInterleavedBufferAttribute']?_0x1ca254=new InstancedBufferAttribute(_0x203b2d,_0x19a539,_0x417484,_0x2fc119[_0x2df526(0x248)]):_0x1ca254=new BufferAttribute(_0x203b2d,_0x19a539,_0x417484);for(let _0x2fd6d8=0x0;_0x333f5d[_0x2df526(0x23d)](_0x2fd6d8,_0xaf86b1);_0x2fd6d8++){_0x1ca254[_0x2df526(0x2b3)](_0x2fd6d8,_0x2fc119[_0x2df526(0x21f)](_0x2fd6d8)),_0x333f5d['QFmdI'](_0x19a539,0x2)&&_0x1ca254[_0x2df526(0x276)](_0x2fd6d8,_0x2fc119[_0x2df526(0x298)](_0x2fd6d8)),_0x19a539>=0x3&&_0x1ca254[_0x2df526(0x228)](_0x2fd6d8,_0x2fc119[_0x2df526(0x1f2)](_0x2fd6d8)),_0x333f5d[_0x2df526(0x250)](_0x19a539,0x4)&&_0x1ca254[_0x2df526(0x216)](_0x2fd6d8,_0x2fc119[_0x2df526(0x1ef)](_0x2fd6d8));}return _0x1ca254;}function deinterleaveGeometry(_0x5eac69){const _0x318474=a0_0x2e1f,_0x258059={'EQNlH':function(_0x42599c,_0x54e0db){return _0x42599c(_0x54e0db);}},_0x246b62=_0x5eac69['attributes'],_0xbf4aa3=_0x5eac69[_0x318474(0x2b0)],_0x21aa9c=new Map();for(const _0x1693eb in _0x246b62){const _0x10b301=_0x246b62[_0x1693eb];_0x10b301['isInterleavedBufferAttribute']&&(!_0x21aa9c[_0x318474(0x270)](_0x10b301)&&_0x21aa9c[_0x318474(0x271)](_0x10b301,deinterleaveAttribute(_0x10b301)),_0x246b62[_0x1693eb]=_0x21aa9c[_0x318474(0x1f8)](_0x10b301));}for(const _0x4909be in _0xbf4aa3){const _0xe210b2=_0xbf4aa3[_0x4909be];_0xe210b2[_0x318474(0x1ea)]&&(!_0x21aa9c[_0x318474(0x270)](_0xe210b2)&&_0x21aa9c[_0x318474(0x271)](_0xe210b2,_0x258059[_0x318474(0x2b5)](deinterleaveAttribute,_0xe210b2)),_0xbf4aa3[_0x4909be]=_0x21aa9c[_0x318474(0x1f8)](_0xe210b2));}}function estimateBytesUsed(_0x57bcf5){const _0x43be4f=a0_0x2e1f,_0x137fbd={'thZje':function(_0x3a694c,_0x5f1445){return _0x3a694c*_0x5f1445;},'aeYVa':function(_0x49fd60,_0x11f9d8){return _0x49fd60*_0x11f9d8;}};let _0x41a657=0x0;for(const _0xe1db84 in _0x57bcf5['attributes']){const _0x2d3153=_0x57bcf5[_0x43be4f(0x23e)](_0xe1db84);_0x41a657+=_0x137fbd[_0x43be4f(0x297)](_0x2d3153[_0x43be4f(0x1ff)]*_0x2d3153[_0x43be4f(0x260)],_0x2d3153[_0x43be4f(0x24d)][_0x43be4f(0x25f)]);}const _0x2ea6d0=_0x57bcf5['getIndex']();return _0x41a657+=_0x2ea6d0?_0x137fbd[_0x43be4f(0x297)](_0x137fbd[_0x43be4f(0x225)](_0x2ea6d0[_0x43be4f(0x1ff)],_0x2ea6d0[_0x43be4f(0x260)]),_0x2ea6d0[_0x43be4f(0x24d)]['BYTES_PER_ELEMENT']):0x0,_0x41a657;}function mergeVertices(_0x44d3e1,_0x2466f8=0.0001){const _0x2bf37a=a0_0x2e1f,_0x558f2a={'FnDZG':function(_0x4c071d,_0x69829){return _0x4c071d*_0x69829;},'oIxeA':_0x2bf37a(0x1f4),'Fuuij':_0x2bf37a(0x21f),'GYDKS':_0x2bf37a(0x1f2),'Syoam':_0x2bf37a(0x1ef),'eutSo':_0x2bf37a(0x276),'kSiQH':_0x2bf37a(0x228),'eQGnK':_0x2bf37a(0x216),'WoSxw':function(_0x4c56a7,_0x37881d){return _0x4c56a7<_0x37881d;},'PgIKA':function(_0x22ecab,_0xab6fbf){return _0x22ecab*_0xab6fbf;},'uvONq':function(_0x36013a,_0x5f5754){return _0x36013a<_0x5f5754;},'eEATA':function(_0x26c308,_0x3368bc){return _0x26c308+_0x3368bc;},'eYikd':function(_0x1768f7,_0x1caa4f){return _0x1768f7<_0x1caa4f;},'YJRDx':function(_0xe1655c,_0x3a4407){return _0xe1655c in _0x3a4407;},'ohfFV':function(_0x3aabeb,_0x6b69d7){return _0x3aabeb<_0x6b69d7;}};_0x2466f8=Math['max'](_0x2466f8,Number[_0x2bf37a(0x200)]);const _0xae14a1={},_0x222716=_0x44d3e1[_0x2bf37a(0x2b2)](),_0x5576e3=_0x44d3e1[_0x2bf37a(0x23e)](_0x558f2a['oIxeA']),_0x37db19=_0x222716?_0x222716[_0x2bf37a(0x1ff)]:_0x5576e3[_0x2bf37a(0x1ff)];let _0x4dd85f=0x0;const _0x1726a0=Object['keys'](_0x44d3e1[_0x2bf37a(0x27b)]),_0x17f388={},_0x2c9334={},_0x2f8734=[],_0x4b299d=[_0x558f2a[_0x2bf37a(0x224)],_0x2bf37a(0x298),_0x558f2a[_0x2bf37a(0x295)],_0x558f2a[_0x2bf37a(0x213)]],_0x309b2e=[_0x2bf37a(0x2b3),_0x558f2a[_0x2bf37a(0x253)],_0x558f2a[_0x2bf37a(0x261)],_0x558f2a['eQGnK']];for(let _0x319317=0x0,_0x57b401=_0x1726a0[_0x2bf37a(0x2a9)];_0x558f2a[_0x2bf37a(0x22b)](_0x319317,_0x57b401);_0x319317++){const _0x361286=_0x1726a0[_0x319317],_0x2cad2e=_0x44d3e1[_0x2bf37a(0x27b)][_0x361286];_0x17f388[_0x361286]=new _0x2cad2e[(_0x2bf37a(0x24e))](new _0x2cad2e[(_0x2bf37a(0x24d))][(_0x2bf37a(0x24e))](_0x558f2a[_0x2bf37a(0x283)](_0x2cad2e[_0x2bf37a(0x1ff)],_0x2cad2e[_0x2bf37a(0x260)])),_0x2cad2e[_0x2bf37a(0x260)],_0x2cad2e[_0x2bf37a(0x221)]);const _0x305da8=_0x44d3e1[_0x2bf37a(0x21e)][_0x361286];if(_0x305da8){if(!_0x2c9334[_0x361286])_0x2c9334[_0x361286]=[];_0x305da8['forEach']((_0x1a50b4,_0x125375)=>{const _0x36af21=_0x2bf37a,_0x244940=new _0x1a50b4[(_0x36af21(0x24d))]['constructor'](_0x558f2a[_0x36af21(0x283)](_0x1a50b4['count'],_0x1a50b4[_0x36af21(0x260)]));_0x2c9334[_0x361286][_0x125375]=new _0x1a50b4[(_0x36af21(0x24e))](_0x244940,_0x1a50b4['itemSize'],_0x1a50b4[_0x36af21(0x221)]);});}}const _0x2ed588=_0x558f2a[_0x2bf37a(0x296)](_0x2466f8,0.5),_0x212481=Math[_0x2bf37a(0x242)](0x1/_0x2466f8),_0x2179d9=Math[_0x2bf37a(0x1eb)](0xa,_0x212481),_0x214002=_0x558f2a['PgIKA'](_0x2ed588,_0x2179d9);for(let _0x15fb74=0x0;_0x558f2a[_0x2bf37a(0x22d)](_0x15fb74,_0x37db19);_0x15fb74++){const _0x380942=_0x222716?_0x222716[_0x2bf37a(0x21f)](_0x15fb74):_0x15fb74;let _0x58ad9d='';for(let _0x4d1dc6=0x0,_0xc7b398=_0x1726a0[_0x2bf37a(0x2a9)];_0x558f2a[_0x2bf37a(0x22d)](_0x4d1dc6,_0xc7b398);_0x4d1dc6++){const _0x164c5d=_0x1726a0[_0x4d1dc6],_0x5b0b0e=_0x44d3e1[_0x2bf37a(0x23e)](_0x164c5d),_0x219abd=_0x5b0b0e[_0x2bf37a(0x260)];for(let _0x57e3ae=0x0;_0x57e3ae<_0x219abd;_0x57e3ae++){_0x58ad9d+=~~_0x558f2a[_0x2bf37a(0x22a)](_0x558f2a['FnDZG'](_0x5b0b0e[_0x4b299d[_0x57e3ae]](_0x380942),_0x2179d9),_0x214002)+',';}}if(_0x58ad9d in _0xae14a1)_0x2f8734[_0x2bf37a(0x29c)](_0xae14a1[_0x58ad9d]);else{for(let _0x3500a8=0x0,_0x772611=_0x1726a0[_0x2bf37a(0x2a9)];_0x558f2a[_0x2bf37a(0x22b)](_0x3500a8,_0x772611);_0x3500a8++){const _0x5e11d3=_0x1726a0[_0x3500a8],_0x350f17=_0x44d3e1[_0x2bf37a(0x23e)](_0x5e11d3),_0x1e087e=_0x44d3e1['morphAttributes'][_0x5e11d3],_0x45f4ea=_0x350f17['itemSize'],_0x1ce0f7=_0x17f388[_0x5e11d3],_0x367b2f=_0x2c9334[_0x5e11d3];for(let _0x857c66=0x0;_0x857c66<_0x45f4ea;_0x857c66++){const _0x364e31=_0x4b299d[_0x857c66],_0x5077a9=_0x309b2e[_0x857c66];_0x1ce0f7[_0x5077a9](_0x4dd85f,_0x350f17[_0x364e31](_0x380942));if(_0x1e087e)for(let _0x49ed46=0x0,_0x2b9232=_0x1e087e[_0x2bf37a(0x2a9)];_0x558f2a[_0x2bf37a(0x2b6)](_0x49ed46,_0x2b9232);_0x49ed46++){_0x367b2f[_0x49ed46][_0x5077a9](_0x4dd85f,_0x1e087e[_0x49ed46][_0x364e31](_0x380942));}}}_0xae14a1[_0x58ad9d]=_0x4dd85f,_0x2f8734[_0x2bf37a(0x29c)](_0x4dd85f),_0x4dd85f++;}}const _0x1d3548=_0x44d3e1[_0x2bf37a(0x205)]();for(const _0x358955 in _0x44d3e1['attributes']){const _0x3cf830=_0x17f388[_0x358955];_0x1d3548['setAttribute'](_0x358955,new _0x3cf830[(_0x2bf37a(0x24e))](_0x3cf830['array']['slice'](0x0,_0x558f2a[_0x2bf37a(0x283)](_0x4dd85f,_0x3cf830[_0x2bf37a(0x260)])),_0x3cf830[_0x2bf37a(0x260)],_0x3cf830[_0x2bf37a(0x221)]));if(!_0x558f2a['YJRDx'](_0x358955,_0x2c9334))continue;for(let _0x21168d=0x0;_0x558f2a[_0x2bf37a(0x281)](_0x21168d,_0x2c9334[_0x358955][_0x2bf37a(0x2a9)]);_0x21168d++){const _0x2112e4=_0x2c9334[_0x358955][_0x21168d];_0x1d3548[_0x2bf37a(0x21e)][_0x358955][_0x21168d]=new _0x2112e4[(_0x2bf37a(0x24e))](_0x2112e4[_0x2bf37a(0x24d)]['slice'](0x0,_0x558f2a[_0x2bf37a(0x283)](_0x4dd85f,_0x2112e4[_0x2bf37a(0x260)])),_0x2112e4[_0x2bf37a(0x260)],_0x2112e4[_0x2bf37a(0x221)]);}}return _0x1d3548[_0x2bf37a(0x2ac)](_0x2f8734),_0x1d3548;}function toTrianglesDrawMode(_0x18d73a,_0x5d0b4b){const _0x20e4c4=a0_0x2e1f,_0x45fab3={'WYoKO':_0x20e4c4(0x238),'ibsFI':function(_0x2391d1,_0x5f7d1d){return _0x2391d1===_0x5f7d1d;},'cLBVS':function(_0x49271,_0x35e079){return _0x49271===_0x35e079;},'cNsbH':'position','SuVxi':function(_0x20d76e,_0x2cbde3){return _0x20d76e!==_0x2cbde3;},'YxHIY':function(_0x2662b1,_0x3424d3){return _0x2662b1<_0x3424d3;},'rSzrV':'THREE.BufferGeometryUtils.toTrianglesDrawMode():\x20Undefined\x20position\x20attribute.\x20Processing\x20not\x20possible.','nZhXr':function(_0x2c955e,_0x3c49bc){return _0x2c955e===_0x3c49bc;},'xaJzD':function(_0x3d89a2,_0x27d8ff){return _0x3d89a2+_0x27d8ff;},'SfzPL':function(_0x631559,_0xdbfc23){return _0x631559<_0xdbfc23;},'bdOSR':function(_0x5bbbe0,_0x781081){return _0x5bbbe0/_0x781081;},'KHxQR':_0x20e4c4(0x21b),'XttUL':_0x20e4c4(0x262)};if(_0x5d0b4b===TrianglesDrawMode)return console[_0x20e4c4(0x201)](_0x45fab3[_0x20e4c4(0x251)]),_0x18d73a;if(_0x45fab3[_0x20e4c4(0x2a8)](_0x5d0b4b,TriangleFanDrawMode)||_0x45fab3[_0x20e4c4(0x254)](_0x5d0b4b,TriangleStripDrawMode)){let _0x222192=_0x18d73a['getIndex']();if(_0x45fab3[_0x20e4c4(0x2a8)](_0x222192,null)){const _0x2faa17=[],_0x53b420=_0x18d73a[_0x20e4c4(0x23e)](_0x45fab3[_0x20e4c4(0x1ee)]);if(_0x45fab3[_0x20e4c4(0x291)](_0x53b420,undefined)){for(let _0x7ec503=0x0;_0x45fab3['YxHIY'](_0x7ec503,_0x53b420[_0x20e4c4(0x1ff)]);_0x7ec503++){_0x2faa17[_0x20e4c4(0x29c)](_0x7ec503);}_0x18d73a[_0x20e4c4(0x2ac)](_0x2faa17),_0x222192=_0x18d73a[_0x20e4c4(0x2b2)]();}else return console['error'](_0x45fab3[_0x20e4c4(0x278)]),_0x18d73a;}const _0x216925=_0x222192[_0x20e4c4(0x1ff)]-0x2,_0x3a7043=[];if(_0x45fab3[_0x20e4c4(0x28a)](_0x5d0b4b,TriangleFanDrawMode))for(let _0x1b06de=0x1;_0x1b06de<=_0x216925;_0x1b06de++){_0x3a7043[_0x20e4c4(0x29c)](_0x222192['getX'](0x0)),_0x3a7043[_0x20e4c4(0x29c)](_0x222192['getX'](_0x1b06de)),_0x3a7043[_0x20e4c4(0x29c)](_0x222192['getX'](_0x45fab3[_0x20e4c4(0x223)](_0x1b06de,0x1)));}else for(let _0x356b96=0x0;_0x45fab3[_0x20e4c4(0x209)](_0x356b96,_0x216925);_0x356b96++){_0x45fab3[_0x20e4c4(0x254)](_0x356b96%0x2,0x0)?(_0x3a7043['push'](_0x222192[_0x20e4c4(0x21f)](_0x356b96)),_0x3a7043[_0x20e4c4(0x29c)](_0x222192[_0x20e4c4(0x21f)](_0x356b96+0x1)),_0x3a7043['push'](_0x222192[_0x20e4c4(0x21f)](_0x45fab3['xaJzD'](_0x356b96,0x2)))):(_0x3a7043[_0x20e4c4(0x29c)](_0x222192[_0x20e4c4(0x21f)](_0x45fab3[_0x20e4c4(0x223)](_0x356b96,0x2))),_0x3a7043[_0x20e4c4(0x29c)](_0x222192[_0x20e4c4(0x21f)](_0x45fab3['xaJzD'](_0x356b96,0x1))),_0x3a7043[_0x20e4c4(0x29c)](_0x222192[_0x20e4c4(0x21f)](_0x356b96)));}_0x45fab3[_0x20e4c4(0x274)](_0x3a7043[_0x20e4c4(0x2a9)],0x3)!==_0x216925&&console[_0x20e4c4(0x22e)](_0x45fab3[_0x20e4c4(0x256)]);const _0x4067df=_0x18d73a['clone']();return _0x4067df[_0x20e4c4(0x2ac)](_0x3a7043),_0x4067df[_0x20e4c4(0x202)](),_0x4067df;}else return console[_0x20e4c4(0x22e)](_0x45fab3[_0x20e4c4(0x284)],_0x5d0b4b),_0x18d73a;}function computeMorphedAttributes(_0x47c191){const _0x248add=a0_0x2e1f,_0x2825e2={'ebaJB':function(_0xd4b15,_0x85d7d9){return _0xd4b15&&_0x85d7d9;},'zgIkT':function(_0x4efa20,_0x119fa1){return _0x4efa20===_0x119fa1;},'uoptC':function(_0x12d2f6,_0x27d6d3){return _0x12d2f6+_0x27d6d3;},'XMafE':function(_0x36173e,_0x3d6ffe){return _0x36173e*_0x3d6ffe;},'jeuCa':function(_0x35d35d,_0xfa373f){return _0x35d35d*_0xfa373f;},'HEeAU':function(_0x425f88,_0x12ce3b){return _0x425f88+_0x12ce3b;},'bcjpN':function(_0x33fe91,_0x2dcfb1){return _0x33fe91*_0x2dcfb1;},'VzhbF':function(_0x12d07c,_0x17f601){return _0x12d07c*_0x17f601;},'keEPN':function(_0x492606,_0x11194d){return _0x492606*_0x11194d;},'ydvCp':function(_0x1dd562,_0x15218a){return _0x1dd562!==_0x15218a;},'TFnYh':function(_0x324647,_0x173983){return _0x324647<_0x173983;},'fRRvE':'4|2|1|3|0','fwTBy':function(_0x1d4e1f,_0x43e99d,_0x515dc1,_0x44609f,_0x23db3a,_0x36dab0,_0x612b51,_0x38a999,_0x4b9e31){return _0x1d4e1f(_0x43e99d,_0x515dc1,_0x44609f,_0x23db3a,_0x36dab0,_0x612b51,_0x38a999,_0x4b9e31);},'BiGxG':function(_0x3ce91a,_0x5adbd1){return _0x3ce91a+_0x5adbd1;},'MAJbx':function(_0x469012,_0x513015){return _0x469012<_0x513015;},'NuEHG':_0x248add(0x252),'DDgHC':function(_0x555e30,_0x192f0a,_0x35cb4f,_0x44b717,_0x5876e9,_0xc99601,_0x2f0648,_0x442047,_0x105626){return _0x555e30(_0x192f0a,_0x35cb4f,_0x44b717,_0x5876e9,_0xc99601,_0x2f0648,_0x442047,_0x105626);},'tUugC':function(_0xb46622,_0x159c11,_0x3e073f,_0x356b75,_0x429939,_0x35b6ff,_0xa3d4b8,_0x4e07fb,_0x21f335){return _0xb46622(_0x159c11,_0x3e073f,_0x356b75,_0x429939,_0x35b6ff,_0xa3d4b8,_0x4e07fb,_0x21f335);},'QGmSO':function(_0x387540,_0x16a4eb){return _0x387540+_0x16a4eb;},'zxPgA':function(_0x5a8e85,_0xef8f07){return _0x5a8e85+_0xef8f07;},'hEPuS':function(_0x1cedb5,_0x39f0f6){return _0x1cedb5+_0x39f0f6;}},_0x5cf3e1=new Vector3(),_0xd84830=new Vector3(),_0x5c04d3=new Vector3(),_0xeadc3c=new Vector3(),_0x37b811=new Vector3(),_0x112a2d=new Vector3(),_0xe254b5=new Vector3(),_0x31f3c3=new Vector3(),_0x46f0a6=new Vector3();function _0x439e72(_0x44d0f9,_0x44a104,_0x10ad83,_0x16e875,_0x29dad9,_0x24a2f5,_0x6496d8,_0x3ec004){const _0x63b9c7=_0x248add;_0x5cf3e1['fromBufferAttribute'](_0x44a104,_0x29dad9),_0xd84830['fromBufferAttribute'](_0x44a104,_0x24a2f5),_0x5c04d3[_0x63b9c7(0x207)](_0x44a104,_0x6496d8);const _0x2db355=_0x44d0f9[_0x63b9c7(0x1f0)];if(_0x2825e2[_0x63b9c7(0x220)](_0x10ad83,_0x2db355)){_0xe254b5['set'](0x0,0x0,0x0),_0x31f3c3[_0x63b9c7(0x271)](0x0,0x0,0x0),_0x46f0a6[_0x63b9c7(0x271)](0x0,0x0,0x0);for(let _0x360e0a=0x0,_0x173def=_0x10ad83[_0x63b9c7(0x2a9)];_0x360e0a<_0x173def;_0x360e0a++){const _0x3749e9=_0x2db355[_0x360e0a],_0x4dd384=_0x10ad83[_0x360e0a];if(_0x2825e2['zgIkT'](_0x3749e9,0x0))continue;_0xeadc3c[_0x63b9c7(0x207)](_0x4dd384,_0x29dad9),_0x37b811[_0x63b9c7(0x207)](_0x4dd384,_0x24a2f5),_0x112a2d[_0x63b9c7(0x207)](_0x4dd384,_0x6496d8),_0x16e875?(_0xe254b5['addScaledVector'](_0xeadc3c,_0x3749e9),_0x31f3c3[_0x63b9c7(0x229)](_0x37b811,_0x3749e9),_0x46f0a6['addScaledVector'](_0x112a2d,_0x3749e9)):(_0xe254b5['addScaledVector'](_0xeadc3c[_0x63b9c7(0x280)](_0x5cf3e1),_0x3749e9),_0x31f3c3[_0x63b9c7(0x229)](_0x37b811[_0x63b9c7(0x280)](_0xd84830),_0x3749e9),_0x46f0a6[_0x63b9c7(0x229)](_0x112a2d[_0x63b9c7(0x280)](_0x5c04d3),_0x3749e9));}_0x5cf3e1[_0x63b9c7(0x1fd)](_0xe254b5),_0xd84830[_0x63b9c7(0x1fd)](_0x31f3c3),_0x5c04d3[_0x63b9c7(0x1fd)](_0x46f0a6);}_0x44d0f9[_0x63b9c7(0x244)]&&(_0x44d0f9[_0x63b9c7(0x25d)](_0x29dad9,_0x5cf3e1),_0x44d0f9[_0x63b9c7(0x25d)](_0x24a2f5,_0xd84830),_0x44d0f9[_0x63b9c7(0x25d)](_0x6496d8,_0x5c04d3)),_0x3ec004[_0x2825e2[_0x63b9c7(0x24b)](_0x29dad9*0x3,0x0)]=_0x5cf3e1['x'],_0x3ec004[_0x2825e2[_0x63b9c7(0x24b)](_0x29dad9*0x3,0x1)]=_0x5cf3e1['y'],_0x3ec004[_0x2825e2[_0x63b9c7(0x24b)](_0x29dad9*0x3,0x2)]=_0x5cf3e1['z'],_0x3ec004[_0x2825e2[_0x63b9c7(0x24b)](_0x2825e2['XMafE'](_0x24a2f5,0x3),0x0)]=_0xd84830['x'],_0x3ec004[_0x2825e2[_0x63b9c7(0x24b)](_0x2825e2[_0x63b9c7(0x203)](_0x24a2f5,0x3),0x1)]=_0xd84830['y'],_0x3ec004[_0x2825e2['XMafE'](_0x24a2f5,0x3)+0x2]=_0xd84830['z'],_0x3ec004[_0x2825e2[_0x63b9c7(0x25a)](_0x2825e2[_0x63b9c7(0x203)](_0x6496d8,0x3),0x0)]=_0x5c04d3['x'],_0x3ec004[_0x2825e2[_0x63b9c7(0x24b)](_0x2825e2[_0x63b9c7(0x2b9)](_0x6496d8,0x3),0x1)]=_0x5c04d3['y'],_0x3ec004[_0x2825e2['bcjpN'](_0x6496d8,0x3)+0x2]=_0x5c04d3['z'];}const _0x5daab2=_0x47c191['geometry'],_0x1ea2a0=_0x47c191[_0x248add(0x29b)];let _0x373bf3,_0x1c33c5,_0x1d3935;const _0x4020e0=_0x5daab2[_0x248add(0x292)],_0x46dc70=_0x5daab2['attributes']['position'],_0x4ec245=_0x5daab2[_0x248add(0x21e)]['position'],_0x55e1f2=_0x5daab2[_0x248add(0x1ed)],_0x51c3ef=_0x5daab2[_0x248add(0x27b)][_0x248add(0x27e)],_0x398e7d=_0x5daab2[_0x248add(0x21e)][_0x248add(0x1f4)],_0x452d80=_0x5daab2[_0x248add(0x266)],_0x4569ac=_0x5daab2['drawRange'];let _0x22e3b5,_0x5b3b4c,_0x27e864,_0x2706b1,_0x36e175,_0x4db7e3,_0x2cfa68;const _0x4d3f2c=new Float32Array(_0x2825e2[_0x248add(0x222)](_0x46dc70['count'],_0x46dc70['itemSize'])),_0x2781f8=new Float32Array(_0x2825e2['keEPN'](_0x51c3ef[_0x248add(0x1ff)],_0x51c3ef['itemSize']));if(_0x2825e2[_0x248add(0x28c)](_0x4020e0,null)){if(Array['isArray'](_0x1ea2a0))for(_0x22e3b5=0x0,_0x27e864=_0x452d80[_0x248add(0x2a9)];_0x2825e2[_0x248add(0x288)](_0x22e3b5,_0x27e864);_0x22e3b5++){_0x36e175=_0x452d80[_0x22e3b5],_0x4db7e3=Math[_0x248add(0x249)](_0x36e175[_0x248add(0x1f5)],_0x4569ac[_0x248add(0x1f5)]),_0x2cfa68=Math['min'](_0x2825e2['uoptC'](_0x36e175[_0x248add(0x1f5)],_0x36e175['count']),_0x4569ac[_0x248add(0x1f5)]+_0x4569ac[_0x248add(0x1ff)]);for(_0x5b3b4c=_0x4db7e3,_0x2706b1=_0x2cfa68;_0x5b3b4c<_0x2706b1;_0x5b3b4c+=0x3){const _0xed9a16=_0x2825e2['fRRvE'][_0x248add(0x2ae)]('|');let _0x4f270f=0x0;while(!![]){switch(_0xed9a16[_0x4f270f++]){case'0':_0x2825e2[_0x248add(0x22f)](_0x439e72,_0x47c191,_0x51c3ef,_0x398e7d,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x2781f8);continue;case'1':_0x1d3935=_0x4020e0[_0x248add(0x21f)](_0x2825e2['uoptC'](_0x5b3b4c,0x2));continue;case'2':_0x1c33c5=_0x4020e0[_0x248add(0x21f)](_0x2825e2[_0x248add(0x24b)](_0x5b3b4c,0x1));continue;case'3':_0x439e72(_0x47c191,_0x46dc70,_0x4ec245,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x4d3f2c);continue;case'4':_0x373bf3=_0x4020e0[_0x248add(0x21f)](_0x5b3b4c);continue;}break;}}}else{_0x4db7e3=Math['max'](0x0,_0x4569ac[_0x248add(0x1f5)]),_0x2cfa68=Math[_0x248add(0x234)](_0x4020e0[_0x248add(0x1ff)],_0x2825e2[_0x248add(0x25e)](_0x4569ac[_0x248add(0x1f5)],_0x4569ac['count']));for(_0x22e3b5=_0x4db7e3,_0x27e864=_0x2cfa68;_0x2825e2[_0x248add(0x1ec)](_0x22e3b5,_0x27e864);_0x22e3b5+=0x3){const _0x28a83f=_0x2825e2[_0x248add(0x2ba)][_0x248add(0x2ae)]('|');let _0x9eb78=0x0;while(!![]){switch(_0x28a83f[_0x9eb78++]){case'0':_0x1d3935=_0x4020e0[_0x248add(0x21f)](_0x2825e2[_0x248add(0x25e)](_0x22e3b5,0x2));continue;case'1':_0x373bf3=_0x4020e0[_0x248add(0x21f)](_0x22e3b5);continue;case'2':_0x2825e2[_0x248add(0x26a)](_0x439e72,_0x47c191,_0x51c3ef,_0x398e7d,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x2781f8);continue;case'3':_0x2825e2['tUugC'](_0x439e72,_0x47c191,_0x46dc70,_0x4ec245,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x4d3f2c);continue;case'4':_0x1c33c5=_0x4020e0[_0x248add(0x21f)](_0x2825e2[_0x248add(0x25e)](_0x22e3b5,0x1));continue;}break;}}}}else{if(Array[_0x248add(0x1fe)](_0x1ea2a0))for(_0x22e3b5=0x0,_0x27e864=_0x452d80[_0x248add(0x2a9)];_0x2825e2[_0x248add(0x1ec)](_0x22e3b5,_0x27e864);_0x22e3b5++){_0x36e175=_0x452d80[_0x22e3b5],_0x4db7e3=Math['max'](_0x36e175[_0x248add(0x1f5)],_0x4569ac['start']),_0x2cfa68=Math['min'](_0x2825e2[_0x248add(0x2b8)](_0x36e175[_0x248add(0x1f5)],_0x36e175[_0x248add(0x1ff)]),_0x2825e2['zxPgA'](_0x4569ac[_0x248add(0x1f5)],_0x4569ac['count']));for(_0x5b3b4c=_0x4db7e3,_0x2706b1=_0x2cfa68;_0x2825e2[_0x248add(0x288)](_0x5b3b4c,_0x2706b1);_0x5b3b4c+=0x3){_0x373bf3=_0x5b3b4c,_0x1c33c5=_0x2825e2[_0x248add(0x20e)](_0x5b3b4c,0x1),_0x1d3935=_0x2825e2[_0x248add(0x24b)](_0x5b3b4c,0x2),_0x2825e2[_0x248add(0x2ab)](_0x439e72,_0x47c191,_0x46dc70,_0x4ec245,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x4d3f2c),_0x439e72(_0x47c191,_0x51c3ef,_0x398e7d,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x2781f8);}}else{_0x4db7e3=Math['max'](0x0,_0x4569ac[_0x248add(0x1f5)]),_0x2cfa68=Math['min'](_0x46dc70[_0x248add(0x1ff)],_0x4569ac[_0x248add(0x1f5)]+_0x4569ac['count']);for(_0x22e3b5=_0x4db7e3,_0x27e864=_0x2cfa68;_0x22e3b5<_0x27e864;_0x22e3b5+=0x3){_0x373bf3=_0x22e3b5,_0x1c33c5=_0x2825e2[_0x248add(0x2b8)](_0x22e3b5,0x1),_0x1d3935=_0x2825e2[_0x248add(0x25a)](_0x22e3b5,0x2),_0x2825e2[_0x248add(0x22f)](_0x439e72,_0x47c191,_0x46dc70,_0x4ec245,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x4d3f2c),_0x439e72(_0x47c191,_0x51c3ef,_0x398e7d,_0x55e1f2,_0x373bf3,_0x1c33c5,_0x1d3935,_0x2781f8);}}}const _0x2c94b2=new Float32BufferAttribute(_0x4d3f2c,0x3),_0x4553c8=new Float32BufferAttribute(_0x2781f8,0x3);return{'positionAttribute':_0x46dc70,'normalAttribute':_0x51c3ef,'morphedPositionAttribute':_0x2c94b2,'morphedNormalAttribute':_0x4553c8};}function mergeGroups(_0x2dd884){const _0x50ce6f=a0_0x2e1f,_0x360e92={'cwZSB':function(_0x320cf8,_0x6510ea){return _0x320cf8!==_0x6510ea;},'vTqcV':function(_0x4c0ee9,_0x444eae){return _0x4c0ee9-_0x444eae;},'XgPMo':function(_0x369d6f,_0x3eb681){return _0x369d6f-_0x3eb681;},'Hzixd':function(_0x20eaf2,_0x4aa2d1){return _0x20eaf2===_0x4aa2d1;},'MbLDT':_0x50ce6f(0x265),'tfewR':function(_0x3b750e,_0x4c0017){return _0x3b750e===_0x4c0017;},'ovGTk':function(_0x3613bd,_0x16f975){return _0x3613bd<_0x16f975;},'FQYcl':function(_0x4c70bf,_0x1e4167){return _0x4c70bf+_0x1e4167;},'bjVXv':function(_0x5b1308,_0x1a978c){return _0x5b1308<_0x1a978c;},'NjnGk':function(_0x2b1dae,_0xf47b64){return _0x2b1dae<_0xf47b64;},'IyeKu':function(_0x5255cb,_0x4b8b0e){return _0x5255cb<_0x4b8b0e;}};if(_0x360e92[_0x50ce6f(0x204)](_0x2dd884[_0x50ce6f(0x266)][_0x50ce6f(0x2a9)],0x0))return console[_0x50ce6f(0x201)](_0x360e92[_0x50ce6f(0x2a5)]),_0x2dd884;let _0x2eda7c=_0x2dd884[_0x50ce6f(0x266)];_0x2eda7c=_0x2eda7c[_0x50ce6f(0x2a4)]((_0x4a82a8,_0x446ea4)=>{const _0x5476b3=_0x50ce6f;if(_0x360e92[_0x5476b3(0x29f)](_0x4a82a8['materialIndex'],_0x446ea4['materialIndex']))return _0x360e92[_0x5476b3(0x227)](_0x4a82a8[_0x5476b3(0x241)],_0x446ea4[_0x5476b3(0x241)]);return _0x360e92[_0x5476b3(0x24a)](_0x4a82a8[_0x5476b3(0x1f5)],_0x446ea4['start']);});if(_0x360e92[_0x50ce6f(0x23c)](_0x2dd884[_0x50ce6f(0x2b2)](),null)){const _0x4399e9=_0x2dd884[_0x50ce6f(0x23e)](_0x50ce6f(0x1f4)),_0x37587e=[];for(let _0x17b561=0x0;_0x360e92[_0x50ce6f(0x1fc)](_0x17b561,_0x4399e9['count']);_0x17b561+=0x3){_0x37587e[_0x50ce6f(0x29c)](_0x17b561,_0x360e92[_0x50ce6f(0x20f)](_0x17b561,0x1),_0x360e92[_0x50ce6f(0x20f)](_0x17b561,0x2));}_0x2dd884[_0x50ce6f(0x2ac)](_0x37587e);}const _0x193070=_0x2dd884['getIndex'](),_0x3fa93b=[];for(let _0xe676fa=0x0;_0x360e92[_0x50ce6f(0x1fc)](_0xe676fa,_0x2eda7c['length']);_0xe676fa++){const _0x462c4a=_0x2eda7c[_0xe676fa],_0x3ed515=_0x462c4a[_0x50ce6f(0x1f5)],_0x5ec8d1=_0x360e92['FQYcl'](_0x3ed515,_0x462c4a['count']);for(let _0x5e8a84=_0x3ed515;_0x360e92[_0x50ce6f(0x273)](_0x5e8a84,_0x5ec8d1);_0x5e8a84++){_0x3fa93b['push'](_0x193070[_0x50ce6f(0x21f)](_0x5e8a84));}}_0x2dd884[_0x50ce6f(0x237)](),_0x2dd884[_0x50ce6f(0x2ac)](_0x3fa93b);let _0x5cb779=0x0;for(let _0x23fef2=0x0;_0x360e92[_0x50ce6f(0x231)](_0x23fef2,_0x2eda7c[_0x50ce6f(0x2a9)]);_0x23fef2++){const _0x7c88e2=_0x2eda7c[_0x23fef2];_0x7c88e2[_0x50ce6f(0x1f5)]=_0x5cb779,_0x5cb779+=_0x7c88e2[_0x50ce6f(0x1ff)];}let _0x554776=_0x2eda7c[0x0];_0x2dd884[_0x50ce6f(0x266)]=[_0x554776];for(let _0x255012=0x1;_0x360e92['IyeKu'](_0x255012,_0x2eda7c[_0x50ce6f(0x2a9)]);_0x255012++){const _0x4ed27a=_0x2eda7c[_0x255012];_0x360e92['Hzixd'](_0x554776[_0x50ce6f(0x241)],_0x4ed27a[_0x50ce6f(0x241)])?_0x554776[_0x50ce6f(0x1ff)]+=_0x4ed27a[_0x50ce6f(0x1ff)]:(_0x554776=_0x4ed27a,_0x2dd884[_0x50ce6f(0x266)][_0x50ce6f(0x29c)](_0x554776));}return _0x2dd884;}function toCreasedNormals(_0x2bbd45,_0x50153a=Math['PI']/0x3){const _0x50aa1f=a0_0x2e1f,_0x387ed9={'nOZYH':function(_0x3e1777,_0x5390fd){return _0x3e1777*_0x5390fd;},'njSEV':function(_0x5f096c,_0x3036f8){return _0x5f096c*_0x3036f8;},'sPned':function(_0x336a53,_0x42df8e){return _0x336a53/_0x42df8e;},'cpTaP':function(_0x180af2,_0x96a37d){return _0x180af2<_0x96a37d;},'QWgEA':function(_0x31c70f,_0x2754b5){return _0x31c70f+_0x2754b5;},'JFqMC':function(_0x47afaf,_0x119e7c){return _0x47afaf+_0x119e7c;},'PORSz':function(_0x5d7ff6,_0x2d695b){return _0x5d7ff6+_0x2d695b;},'GvMNU':function(_0x4bd093,_0x196e75){return _0x4bd093<_0x196e75;},'ABNqS':function(_0x5bf0ae,_0x713d8b){return _0x5bf0ae(_0x713d8b);},'iOJqp':function(_0x35a758,_0x51b857){return _0x35a758 in _0x51b857;},'ryIWq':function(_0x131e5b,_0x40cc6c){return _0x131e5b/_0x40cc6c;},'wCvXN':function(_0x899d07,_0x26fc98){return _0x899d07+_0x26fc98;},'Rpfnq':function(_0x305783,_0x1b8036){return _0x305783+_0x1b8036;},'MGrBU':function(_0x5f0480,_0x54108f){return _0x5f0480(_0x54108f);},'rpSDT':function(_0xf36816,_0x5c7283){return _0xf36816>_0x5c7283;},'JYjFJ':_0x50aa1f(0x27e)},_0x593ce6=Math[_0x50aa1f(0x2a7)](_0x50153a),_0x37fd17=(0x1+1e-10)*0x64,_0x16183f=[new Vector3(),new Vector3(),new Vector3()],_0x419a10=new Vector3(),_0x25db34=new Vector3(),_0x21ed6d=new Vector3(),_0x5c611a=new Vector3();function _0x440267(_0x2ebec8){const _0x46dc54=_0x50aa1f,_0x25bf7c=~~_0x387ed9['nOZYH'](_0x2ebec8['x'],_0x37fd17),_0x5a3d68=~~_0x387ed9[_0x46dc54(0x211)](_0x2ebec8['y'],_0x37fd17),_0x7e980d=~~_0x387ed9[_0x46dc54(0x26e)](_0x2ebec8['z'],_0x37fd17);return _0x25bf7c+','+_0x5a3d68+','+_0x7e980d;}const _0x3d2503=_0x2bbd45['index']?_0x2bbd45['toNonIndexed']():_0x2bbd45,_0x143768=_0x3d2503['attributes'][_0x50aa1f(0x1f4)],_0x1769a4={};for(let _0x47e83f=0x0,_0x390a99=_0x387ed9[_0x50aa1f(0x1f7)](_0x143768[_0x50aa1f(0x1ff)],0x3);_0x387ed9[_0x50aa1f(0x206)](_0x47e83f,_0x390a99);_0x47e83f++){const _0x5b7a21=_0x387ed9[_0x50aa1f(0x211)](0x3,_0x47e83f),_0x2799bb=_0x16183f[0x0][_0x50aa1f(0x207)](_0x143768,_0x387ed9[_0x50aa1f(0x1fb)](_0x5b7a21,0x0)),_0x3c9976=_0x16183f[0x1][_0x50aa1f(0x207)](_0x143768,_0x387ed9[_0x50aa1f(0x233)](_0x5b7a21,0x1)),_0x575da2=_0x16183f[0x2]['fromBufferAttribute'](_0x143768,_0x387ed9[_0x50aa1f(0x23a)](_0x5b7a21,0x2));_0x419a10[_0x50aa1f(0x2b1)](_0x575da2,_0x3c9976),_0x25db34[_0x50aa1f(0x2b1)](_0x2799bb,_0x3c9976);const _0x45098a=new Vector3()[_0x50aa1f(0x28b)](_0x419a10,_0x25db34)[_0x50aa1f(0x282)]();for(let _0x448ab2=0x0;_0x387ed9['GvMNU'](_0x448ab2,0x3);_0x448ab2++){const _0x1f7606=_0x16183f[_0x448ab2],_0x37497c=_0x387ed9[_0x50aa1f(0x208)](_0x440267,_0x1f7606);!_0x387ed9[_0x50aa1f(0x29e)](_0x37497c,_0x1769a4)&&(_0x1769a4[_0x37497c]=[]),_0x1769a4[_0x37497c][_0x50aa1f(0x29c)](_0x45098a);}}const _0x5bc958=new Float32Array(_0x143768['count']*0x3),_0x35cde6=new BufferAttribute(_0x5bc958,0x3,![]);for(let _0x501db6=0x0,_0x2f6346=_0x387ed9[_0x50aa1f(0x290)](_0x143768[_0x50aa1f(0x1ff)],0x3);_0x387ed9['cpTaP'](_0x501db6,_0x2f6346);_0x501db6++){const _0x3f92e3=_0x387ed9['nOZYH'](0x3,_0x501db6),_0x5cc1bd=_0x16183f[0x0][_0x50aa1f(0x207)](_0x143768,_0x3f92e3+0x0),_0x3fca1d=_0x16183f[0x1][_0x50aa1f(0x207)](_0x143768,_0x387ed9['wCvXN'](_0x3f92e3,0x1)),_0x5f4850=_0x16183f[0x2][_0x50aa1f(0x207)](_0x143768,_0x387ed9[_0x50aa1f(0x1f3)](_0x3f92e3,0x2));_0x419a10[_0x50aa1f(0x2b1)](_0x5f4850,_0x3fca1d),_0x25db34[_0x50aa1f(0x2b1)](_0x5cc1bd,_0x3fca1d),_0x21ed6d[_0x50aa1f(0x28b)](_0x419a10,_0x25db34)[_0x50aa1f(0x282)]();for(let _0x2d3722=0x0;_0x387ed9[_0x50aa1f(0x272)](_0x2d3722,0x3);_0x2d3722++){const _0x4ed48a=_0x16183f[_0x2d3722],_0x35a7d5=_0x387ed9[_0x50aa1f(0x21a)](_0x440267,_0x4ed48a),_0x4412c7=_0x1769a4[_0x35a7d5];_0x5c611a['set'](0x0,0x0,0x0);for(let _0x37bf50=0x0,_0x246168=_0x4412c7[_0x50aa1f(0x2a9)];_0x37bf50<_0x246168;_0x37bf50++){const _0x1c117a=_0x4412c7[_0x37bf50];_0x387ed9['rpSDT'](_0x21ed6d[_0x50aa1f(0x268)](_0x1c117a),_0x593ce6)&&_0x5c611a[_0x50aa1f(0x1fd)](_0x1c117a);}_0x5c611a[_0x50aa1f(0x282)](),_0x35cde6['setXYZ'](_0x387ed9['PORSz'](_0x3f92e3,_0x2d3722),_0x5c611a['x'],_0x5c611a['y'],_0x5c611a['z']);}}return _0x3d2503['setAttribute'](_0x387ed9[_0x50aa1f(0x263)],_0x35cde6),_0x3d2503;}export{computeMikkTSpaceTangents,mergeGeometries,mergeAttributes,deepCloneAttribute,deinterleaveAttribute,deinterleaveGeometry,interleaveAttributes,estimateBytesUsed,mergeVertices,toTrianglesDrawMode,computeMorphedAttributes,mergeGroups,toCreasedNormals};
+import {
+	BufferAttribute,
+	BufferGeometry,
+	Float32BufferAttribute,
+	InstancedBufferAttribute,
+	InterleavedBuffer,
+	InterleavedBufferAttribute,
+	TriangleFanDrawMode,
+	TriangleStripDrawMode,
+	TrianglesDrawMode,
+	Vector3,
+} from 'three';
+
+/**
+ * @module BufferGeometryUtils
+ * @three_import import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
+ */
+
+/**
+ * Computes vertex tangents using the MikkTSpace algorithm. MikkTSpace generates the same tangents consistently,
+ * and is used in most modelling tools and normal map bakers. Use MikkTSpace for materials with normal maps,
+ * because inconsistent tangents may lead to subtle visual issues in the normal map, particularly around mirrored
+ * UV seams.
+ *
+ * In comparison to this method, {@link BufferGeometry#computeTangents} (a custom algorithm) generates tangents that
+ * probably will not match the tangents in other software. The custom algorithm is sufficient for general use with a
+ * custom material, and may be faster than MikkTSpace.
+ *
+ * Returns the original BufferGeometry. Indexed geometries will be de-indexed. Requires position, normal, and uv attributes.
+ *
+ * @param {BufferGeometry} geometry - The geometry to compute tangents for.
+ * @param {Object} MikkTSpace - Instance of `examples/jsm/libs/mikktspace.module.js`, or `mikktspace` npm package.
+ * Await `MikkTSpace.ready` before use.
+ * @param {boolean} [negateSign=true] - Whether to negate the sign component (.w) of each tangent.
+ * Required for normal map conventions in some formats, including glTF.
+ * @return {BufferGeometry} The updated geometry.
+ */
+function computeMikkTSpaceTangents( geometry, MikkTSpace, negateSign = true ) {
+
+	if ( ! MikkTSpace || ! MikkTSpace.isReady ) {
+
+		throw new Error( 'BufferGeometryUtils: Initialized MikkTSpace library required.' );
+
+	}
+
+	if ( ! geometry.hasAttribute( 'position' ) || ! geometry.hasAttribute( 'normal' ) || ! geometry.hasAttribute( 'uv' ) ) {
+
+		throw new Error( 'BufferGeometryUtils: Tangents require "position", "normal", and "uv" attributes.' );
+
+	}
+
+	function getAttributeArray( attribute ) {
+
+		if ( attribute.normalized || attribute.isInterleavedBufferAttribute ) {
+
+			const dstArray = new Float32Array( attribute.count * attribute.itemSize );
+
+			for ( let i = 0, j = 0; i < attribute.count; i ++ ) {
+
+				dstArray[ j ++ ] = attribute.getX( i );
+				dstArray[ j ++ ] = attribute.getY( i );
+
+				if ( attribute.itemSize > 2 ) {
+
+					dstArray[ j ++ ] = attribute.getZ( i );
+
+				}
+
+			}
+
+			return dstArray;
+
+		}
+
+		if ( attribute.array instanceof Float32Array ) {
+
+			return attribute.array;
+
+		}
+
+		return new Float32Array( attribute.array );
+
+	}
+
+	// MikkTSpace algorithm requires non-indexed input.
+
+	const _geometry = geometry.index ? geometry.toNonIndexed() : geometry;
+
+	// Compute vertex tangents.
+
+	const tangents = MikkTSpace.generateTangents(
+
+		getAttributeArray( _geometry.attributes.position ),
+		getAttributeArray( _geometry.attributes.normal ),
+		getAttributeArray( _geometry.attributes.uv )
+
+	);
+
+	// Texture coordinate convention of glTF differs from the apparent
+	// default of the MikkTSpace library; .w component must be flipped.
+
+	if ( negateSign ) {
+
+		for ( let i = 3; i < tangents.length; i += 4 ) {
+
+			tangents[ i ] *= - 1;
+
+		}
+
+	}
+
+	//
+
+	_geometry.setAttribute( 'tangent', new BufferAttribute( tangents, 4 ) );
+
+	if ( geometry !== _geometry ) {
+
+		geometry.copy( _geometry );
+
+	}
+
+	return geometry;
+
+}
+
+/**
+ * Merges a set of geometries into a single instance. All geometries must have compatible attributes.
+ *
+ * @param {Array<BufferGeometry>} geometries - The geometries to merge.
+ * @param {boolean} [useGroups=false] - Whether to use groups or not.
+ * @return {?BufferGeometry} The merged geometry. Returns `null` if the merge does not succeed.
+ */
+function mergeGeometries( geometries, useGroups = false ) {
+
+	const isIndexed = geometries[ 0 ].index !== null;
+
+	const attributesUsed = new Set( Object.keys( geometries[ 0 ].attributes ) );
+	const morphAttributesUsed = new Set( Object.keys( geometries[ 0 ].morphAttributes ) );
+
+	const attributes = {};
+	const morphAttributes = {};
+
+	const morphTargetsRelative = geometries[ 0 ].morphTargetsRelative;
+
+	const mergedGeometry = new BufferGeometry();
+
+	let offset = 0;
+
+	for ( let i = 0; i < geometries.length; ++ i ) {
+
+		const geometry = geometries[ i ];
+		let attributesCount = 0;
+
+		// ensure that all geometries are indexed, or none
+
+		if ( isIndexed !== ( geometry.index !== null ) ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed with geometry at index ' + i + '. All geometries must have compatible attributes; make sure index attribute exists among all geometries, or in none of them.' );
+			return null;
+
+		}
+
+		// gather attributes, exit early if they're different
+
+		for ( const name in geometry.attributes ) {
+
+			if ( ! attributesUsed.has( name ) ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed with geometry at index ' + i + '. All geometries must have compatible attributes; make sure "' + name + '" attribute exists among all geometries, or in none of them.' );
+				return null;
+
+			}
+
+			if ( attributes[ name ] === undefined ) attributes[ name ] = [];
+
+			attributes[ name ].push( geometry.attributes[ name ] );
+
+			attributesCount ++;
+
+		}
+
+		// ensure geometries have the same number of attributes
+
+		if ( attributesCount !== attributesUsed.size ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed with geometry at index ' + i + '. Make sure all geometries have the same number of attributes.' );
+			return null;
+
+		}
+
+		// gather morph attributes, exit early if they're different
+
+		if ( morphTargetsRelative !== geometry.morphTargetsRelative ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed with geometry at index ' + i + '. .morphTargetsRelative must be consistent throughout all geometries.' );
+			return null;
+
+		}
+
+		for ( const name in geometry.morphAttributes ) {
+
+			if ( ! morphAttributesUsed.has( name ) ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed with geometry at index ' + i + '.  .morphAttributes must be consistent throughout all geometries.' );
+				return null;
+
+			}
+
+			if ( morphAttributes[ name ] === undefined ) morphAttributes[ name ] = [];
+
+			morphAttributes[ name ].push( geometry.morphAttributes[ name ] );
+
+		}
+
+		if ( useGroups ) {
+
+			let count;
+
+			if ( isIndexed ) {
+
+				count = geometry.index.count;
+
+			} else if ( geometry.attributes.position !== undefined ) {
+
+				count = geometry.attributes.position.count;
+
+			} else {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed with geometry at index ' + i + '. The geometry must have either an index or a position attribute' );
+				return null;
+
+			}
+
+			mergedGeometry.addGroup( offset, count, i );
+
+			offset += count;
+
+		}
+
+	}
+
+	// merge indices
+
+	if ( isIndexed ) {
+
+		let indexOffset = 0;
+		const mergedIndex = [];
+
+		for ( let i = 0; i < geometries.length; ++ i ) {
+
+			const index = geometries[ i ].index;
+
+			for ( let j = 0; j < index.count; ++ j ) {
+
+				mergedIndex.push( index.getX( j ) + indexOffset );
+
+			}
+
+			indexOffset += geometries[ i ].attributes.position.count;
+
+		}
+
+		mergedGeometry.setIndex( mergedIndex );
+
+	}
+
+	// merge attributes
+
+	for ( const name in attributes ) {
+
+		const mergedAttribute = mergeAttributes( attributes[ name ] );
+
+		if ( ! mergedAttribute ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed while trying to merge the ' + name + ' attribute.' );
+			return null;
+
+		}
+
+		mergedGeometry.setAttribute( name, mergedAttribute );
+
+	}
+
+	// merge morph attributes
+
+	for ( const name in morphAttributes ) {
+
+		const numMorphTargets = morphAttributes[ name ][ 0 ].length;
+
+		if ( numMorphTargets === 0 ) break;
+
+		mergedGeometry.morphAttributes = mergedGeometry.morphAttributes || {};
+		mergedGeometry.morphAttributes[ name ] = [];
+
+		for ( let i = 0; i < numMorphTargets; ++ i ) {
+
+			const morphAttributesToMerge = [];
+
+			for ( let j = 0; j < morphAttributes[ name ].length; ++ j ) {
+
+				morphAttributesToMerge.push( morphAttributes[ name ][ j ][ i ] );
+
+			}
+
+			const mergedMorphAttribute = mergeAttributes( morphAttributesToMerge );
+
+			if ( ! mergedMorphAttribute ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeGeometries() failed while trying to merge the ' + name + ' morphAttribute.' );
+				return null;
+
+			}
+
+			mergedGeometry.morphAttributes[ name ].push( mergedMorphAttribute );
+
+		}
+
+	}
+
+	return mergedGeometry;
+
+}
+
+/**
+ * Merges a set of attributes into a single instance. All attributes must have compatible properties and types.
+ * Instances of {@link InterleavedBufferAttribute} are not supported.
+ *
+ * @param {Array<BufferAttribute>} attributes - The attributes to merge.
+ * @return {?BufferAttribute} The merged attribute. Returns `null` if the merge does not succeed.
+ */
+function mergeAttributes( attributes ) {
+
+	let TypedArray;
+	let itemSize;
+	let normalized;
+	let gpuType = - 1;
+	let arrayLength = 0;
+
+	for ( let i = 0; i < attributes.length; ++ i ) {
+
+		const attribute = attributes[ i ];
+
+		if ( TypedArray === undefined ) TypedArray = attribute.array.constructor;
+		if ( TypedArray !== attribute.array.constructor ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeAttributes() failed. BufferAttribute.array must be of consistent array types across matching attributes.' );
+			return null;
+
+		}
+
+		if ( itemSize === undefined ) itemSize = attribute.itemSize;
+		if ( itemSize !== attribute.itemSize ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeAttributes() failed. BufferAttribute.itemSize must be consistent across matching attributes.' );
+			return null;
+
+		}
+
+		if ( normalized === undefined ) normalized = attribute.normalized;
+		if ( normalized !== attribute.normalized ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeAttributes() failed. BufferAttribute.normalized must be consistent across matching attributes.' );
+			return null;
+
+		}
+
+		if ( gpuType === - 1 ) gpuType = attribute.gpuType;
+		if ( gpuType !== attribute.gpuType ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .mergeAttributes() failed. BufferAttribute.gpuType must be consistent across matching attributes.' );
+			return null;
+
+		}
+
+		arrayLength += attribute.count * itemSize;
+
+	}
+
+	const array = new TypedArray( arrayLength );
+	const result = new BufferAttribute( array, itemSize, normalized );
+	let offset = 0;
+
+	for ( let i = 0; i < attributes.length; ++ i ) {
+
+		const attribute = attributes[ i ];
+		if ( attribute.isInterleavedBufferAttribute ) {
+
+			const tupleOffset = offset / itemSize;
+			for ( let j = 0, l = attribute.count; j < l; j ++ ) {
+
+				for ( let c = 0; c < itemSize; c ++ ) {
+
+					const value = attribute.getComponent( j, c );
+					result.setComponent( j + tupleOffset, c, value );
+
+				}
+
+			}
+
+		} else {
+
+			array.set( attribute.array, offset );
+
+		}
+
+		offset += attribute.count * itemSize;
+
+	}
+
+	if ( gpuType !== undefined ) {
+
+		result.gpuType = gpuType;
+
+	}
+
+	return result;
+
+}
+
+/**
+ * Performs a deep clone of the given buffer attribute.
+ *
+ * @param {BufferAttribute} attribute - The attribute to clone.
+ * @return {BufferAttribute} The cloned attribute.
+ */
+function deepCloneAttribute( attribute ) {
+
+	if ( attribute.isInstancedInterleavedBufferAttribute || attribute.isInterleavedBufferAttribute ) {
+
+		return deinterleaveAttribute( attribute );
+
+	}
+
+	if ( attribute.isInstancedBufferAttribute ) {
+
+		return new InstancedBufferAttribute().copy( attribute );
+
+	}
+
+	return new BufferAttribute().copy( attribute );
+
+}
+
+/**
+ * Interleaves a set of attributes and returns a new array of corresponding attributes that share a
+ * single {@link InterleavedBuffer} instance. All attributes must have compatible types.
+ *
+ * @param {Array<BufferAttribute>} attributes - The attributes to interleave.
+ * @return {Array<InterleavedBufferAttribute>} An array of interleaved attributes. If interleave does not succeed, the method returns `null`.
+ */
+function interleaveAttributes( attributes ) {
+
+	// Interleaves the provided attributes into an InterleavedBuffer and returns
+	// a set of InterleavedBufferAttributes for each attribute
+	let TypedArray;
+	let arrayLength = 0;
+	let stride = 0;
+
+	// calculate the length and type of the interleavedBuffer
+	for ( let i = 0, l = attributes.length; i < l; ++ i ) {
+
+		const attribute = attributes[ i ];
+
+		if ( TypedArray === undefined ) TypedArray = attribute.array.constructor;
+		if ( TypedArray !== attribute.array.constructor ) {
+
+			console.error( 'AttributeBuffers of different types cannot be interleaved' );
+			return null;
+
+		}
+
+		arrayLength += attribute.array.length;
+		stride += attribute.itemSize;
+
+	}
+
+	// Create the set of buffer attributes
+	const interleavedBuffer = new InterleavedBuffer( new TypedArray( arrayLength ), stride );
+	let offset = 0;
+	const res = [];
+	const getters = [ 'getX', 'getY', 'getZ', 'getW' ];
+	const setters = [ 'setX', 'setY', 'setZ', 'setW' ];
+
+	for ( let j = 0, l = attributes.length; j < l; j ++ ) {
+
+		const attribute = attributes[ j ];
+		const itemSize = attribute.itemSize;
+		const count = attribute.count;
+		const iba = new InterleavedBufferAttribute( interleavedBuffer, itemSize, offset, attribute.normalized );
+		res.push( iba );
+
+		offset += itemSize;
+
+		// Move the data for each attribute into the new interleavedBuffer
+		// at the appropriate offset
+		for ( let c = 0; c < count; c ++ ) {
+
+			for ( let k = 0; k < itemSize; k ++ ) {
+
+				iba[ setters[ k ] ]( c, attribute[ getters[ k ] ]( c ) );
+
+			}
+
+		}
+
+	}
+
+	return res;
+
+}
+
+/**
+ * Returns a new, non-interleaved version of the given attribute.
+ *
+ * @param {InterleavedBufferAttribute} attribute - The interleaved attribute.
+ * @return {BufferAttribute} The non-interleaved attribute.
+ */
+function deinterleaveAttribute( attribute ) {
+
+	const cons = attribute.data.array.constructor;
+	const count = attribute.count;
+	const itemSize = attribute.itemSize;
+	const normalized = attribute.normalized;
+
+	const array = new cons( count * itemSize );
+	let newAttribute;
+	if ( attribute.isInstancedInterleavedBufferAttribute ) {
+
+		newAttribute = new InstancedBufferAttribute( array, itemSize, normalized, attribute.meshPerAttribute );
+
+	} else {
+
+		newAttribute = new BufferAttribute( array, itemSize, normalized );
+
+	}
+
+	for ( let i = 0; i < count; i ++ ) {
+
+		newAttribute.setX( i, attribute.getX( i ) );
+
+		if ( itemSize >= 2 ) {
+
+			newAttribute.setY( i, attribute.getY( i ) );
+
+		}
+
+		if ( itemSize >= 3 ) {
+
+			newAttribute.setZ( i, attribute.getZ( i ) );
+
+		}
+
+		if ( itemSize >= 4 ) {
+
+			newAttribute.setW( i, attribute.getW( i ) );
+
+		}
+
+	}
+
+	return newAttribute;
+
+}
+
+/**
+ * Deinterleaves all attributes on the given geometry.
+ *
+ * @param {BufferGeometry} geometry - The geometry to deinterleave.
+ */
+function deinterleaveGeometry( geometry ) {
+
+	const attributes = geometry.attributes;
+	const morphTargets = geometry.morphTargets;
+	const attrMap = new Map();
+
+	for ( const key in attributes ) {
+
+		const attr = attributes[ key ];
+		if ( attr.isInterleavedBufferAttribute ) {
+
+			if ( ! attrMap.has( attr ) ) {
+
+				attrMap.set( attr, deinterleaveAttribute( attr ) );
+
+			}
+
+			attributes[ key ] = attrMap.get( attr );
+
+		}
+
+	}
+
+	for ( const key in morphTargets ) {
+
+		const attr = morphTargets[ key ];
+		if ( attr.isInterleavedBufferAttribute ) {
+
+			if ( ! attrMap.has( attr ) ) {
+
+				attrMap.set( attr, deinterleaveAttribute( attr ) );
+
+			}
+
+			morphTargets[ key ] = attrMap.get( attr );
+
+		}
+
+	}
+
+}
+
+/**
+ * Returns the amount of bytes used by all attributes to represent the geometry.
+ *
+ * @param {BufferGeometry} geometry - The geometry.
+ * @return {number} The estimate bytes used.
+ */
+function estimateBytesUsed( geometry ) {
+
+	// Return the estimated memory used by this geometry in bytes
+	// Calculate using itemSize, count, and BYTES_PER_ELEMENT to account
+	// for InterleavedBufferAttributes.
+	let mem = 0;
+	for ( const name in geometry.attributes ) {
+
+		const attr = geometry.getAttribute( name );
+		mem += attr.count * attr.itemSize * attr.array.BYTES_PER_ELEMENT;
+
+	}
+
+	const indices = geometry.getIndex();
+	mem += indices ? indices.count * indices.itemSize * indices.array.BYTES_PER_ELEMENT : 0;
+	return mem;
+
+}
+
+/**
+ * Returns a new geometry with vertices for which all similar vertex attributes (within tolerance) are merged.
+ *
+ * @param {BufferGeometry} geometry - The geometry to merge vertices for.
+ * @param {number} [tolerance=1e-4] - The tolerance value.
+ * @return {BufferGeometry} - The new geometry with merged vertices.
+ */
+function mergeVertices( geometry, tolerance = 1e-4 ) {
+
+	tolerance = Math.max( tolerance, Number.EPSILON );
+
+	// Generate an index buffer if the geometry doesn't have one, or optimize it
+	// if it's already available.
+	const hashToIndex = {};
+	const indices = geometry.getIndex();
+	const positions = geometry.getAttribute( 'position' );
+	const vertexCount = indices ? indices.count : positions.count;
+
+	// next value for triangle indices
+	let nextIndex = 0;
+
+	// attributes and new attribute arrays
+	const attributeNames = Object.keys( geometry.attributes );
+	const tmpAttributes = {};
+	const tmpMorphAttributes = {};
+	const newIndices = [];
+	const getters = [ 'getX', 'getY', 'getZ', 'getW' ];
+	const setters = [ 'setX', 'setY', 'setZ', 'setW' ];
+
+	// Initialize the arrays, allocating space conservatively. Extra
+	// space will be trimmed in the last step.
+	for ( let i = 0, l = attributeNames.length; i < l; i ++ ) {
+
+		const name = attributeNames[ i ];
+		const attr = geometry.attributes[ name ];
+
+		tmpAttributes[ name ] = new attr.constructor(
+			new attr.array.constructor( attr.count * attr.itemSize ),
+			attr.itemSize,
+			attr.normalized
+		);
+
+		const morphAttributes = geometry.morphAttributes[ name ];
+		if ( morphAttributes ) {
+
+			if ( ! tmpMorphAttributes[ name ] ) tmpMorphAttributes[ name ] = [];
+			morphAttributes.forEach( ( morphAttr, i ) => {
+
+				const array = new morphAttr.array.constructor( morphAttr.count * morphAttr.itemSize );
+				tmpMorphAttributes[ name ][ i ] = new morphAttr.constructor( array, morphAttr.itemSize, morphAttr.normalized );
+
+			} );
+
+		}
+
+	}
+
+	// convert the error tolerance to an amount of decimal places to truncate to
+	const halfTolerance = tolerance * 0.5;
+	const exponent = Math.log10( 1 / tolerance );
+	const hashMultiplier = Math.pow( 10, exponent );
+	const hashAdditive = halfTolerance * hashMultiplier;
+	for ( let i = 0; i < vertexCount; i ++ ) {
+
+		const index = indices ? indices.getX( i ) : i;
+
+		// Generate a hash for the vertex attributes at the current index 'i'
+		let hash = '';
+		for ( let j = 0, l = attributeNames.length; j < l; j ++ ) {
+
+			const name = attributeNames[ j ];
+			const attribute = geometry.getAttribute( name );
+			const itemSize = attribute.itemSize;
+
+			for ( let k = 0; k < itemSize; k ++ ) {
+
+				// double tilde truncates the decimal value
+				hash += `${ ~ ~ ( attribute[ getters[ k ] ]( index ) * hashMultiplier + hashAdditive ) },`;
+
+			}
+
+		}
+
+		// Add another reference to the vertex if it's already
+		// used by another index
+		if ( hash in hashToIndex ) {
+
+			newIndices.push( hashToIndex[ hash ] );
+
+		} else {
+
+			// copy data to the new index in the temporary attributes
+			for ( let j = 0, l = attributeNames.length; j < l; j ++ ) {
+
+				const name = attributeNames[ j ];
+				const attribute = geometry.getAttribute( name );
+				const morphAttributes = geometry.morphAttributes[ name ];
+				const itemSize = attribute.itemSize;
+				const newArray = tmpAttributes[ name ];
+				const newMorphArrays = tmpMorphAttributes[ name ];
+
+				for ( let k = 0; k < itemSize; k ++ ) {
+
+					const getterFunc = getters[ k ];
+					const setterFunc = setters[ k ];
+					newArray[ setterFunc ]( nextIndex, attribute[ getterFunc ]( index ) );
+
+					if ( morphAttributes ) {
+
+						for ( let m = 0, ml = morphAttributes.length; m < ml; m ++ ) {
+
+							newMorphArrays[ m ][ setterFunc ]( nextIndex, morphAttributes[ m ][ getterFunc ]( index ) );
+
+						}
+
+					}
+
+				}
+
+			}
+
+			hashToIndex[ hash ] = nextIndex;
+			newIndices.push( nextIndex );
+			nextIndex ++;
+
+		}
+
+	}
+
+	// generate result BufferGeometry
+	const result = geometry.clone();
+	for ( const name in geometry.attributes ) {
+
+		const tmpAttribute = tmpAttributes[ name ];
+
+		result.setAttribute( name, new tmpAttribute.constructor(
+			tmpAttribute.array.slice( 0, nextIndex * tmpAttribute.itemSize ),
+			tmpAttribute.itemSize,
+			tmpAttribute.normalized,
+		) );
+
+		if ( ! ( name in tmpMorphAttributes ) ) continue;
+
+		for ( let j = 0; j < tmpMorphAttributes[ name ].length; j ++ ) {
+
+			const tmpMorphAttribute = tmpMorphAttributes[ name ][ j ];
+
+			result.morphAttributes[ name ][ j ] = new tmpMorphAttribute.constructor(
+				tmpMorphAttribute.array.slice( 0, nextIndex * tmpMorphAttribute.itemSize ),
+				tmpMorphAttribute.itemSize,
+				tmpMorphAttribute.normalized,
+			);
+
+		}
+
+	}
+
+	// indices
+
+	result.setIndex( newIndices );
+
+	return result;
+
+}
+
+/**
+ * Returns a new indexed geometry based on `TrianglesDrawMode` draw mode.
+ * This mode corresponds to the `gl.TRIANGLES` primitive in WebGL.
+ *
+ * @param {BufferGeometry} geometry - The geometry to convert.
+ * @param {number} drawMode - The current draw mode.
+ * @return {BufferGeometry} The new geometry using `TrianglesDrawMode`.
+ */
+function toTrianglesDrawMode( geometry, drawMode ) {
+
+	if ( drawMode === TrianglesDrawMode ) {
+
+		console.warn( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Geometry already defined as triangles.' );
+		return geometry;
+
+	}
+
+	if ( drawMode === TriangleFanDrawMode || drawMode === TriangleStripDrawMode ) {
+
+		let index = geometry.getIndex();
+
+		// generate index if not present
+
+		if ( index === null ) {
+
+			const indices = [];
+
+			const position = geometry.getAttribute( 'position' );
+
+			if ( position !== undefined ) {
+
+				for ( let i = 0; i < position.count; i ++ ) {
+
+					indices.push( i );
+
+				}
+
+				geometry.setIndex( indices );
+				index = geometry.getIndex();
+
+			} else {
+
+				console.error( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Undefined position attribute. Processing not possible.' );
+				return geometry;
+
+			}
+
+		}
+
+		//
+
+		const numberOfTriangles = index.count - 2;
+		const newIndices = [];
+
+		if ( drawMode === TriangleFanDrawMode ) {
+
+			// gl.TRIANGLE_FAN
+
+			for ( let i = 1; i <= numberOfTriangles; i ++ ) {
+
+				newIndices.push( index.getX( 0 ) );
+				newIndices.push( index.getX( i ) );
+				newIndices.push( index.getX( i + 1 ) );
+
+			}
+
+		} else {
+
+			// gl.TRIANGLE_STRIP
+
+			for ( let i = 0; i < numberOfTriangles; i ++ ) {
+
+				if ( i % 2 === 0 ) {
+
+					newIndices.push( index.getX( i ) );
+					newIndices.push( index.getX( i + 1 ) );
+					newIndices.push( index.getX( i + 2 ) );
+
+				} else {
+
+					newIndices.push( index.getX( i + 2 ) );
+					newIndices.push( index.getX( i + 1 ) );
+					newIndices.push( index.getX( i ) );
+
+				}
+
+			}
+
+		}
+
+		if ( ( newIndices.length / 3 ) !== numberOfTriangles ) {
+
+			console.error( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Unable to generate correct amount of triangles.' );
+
+		}
+
+		// build final geometry
+
+		const newGeometry = geometry.clone();
+		newGeometry.setIndex( newIndices );
+		newGeometry.clearGroups();
+
+		return newGeometry;
+
+	} else {
+
+		console.error( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Unknown draw mode:', drawMode );
+		return geometry;
+
+	}
+
+}
+
+/**
+ * Calculates the morphed attributes of a morphed/skinned BufferGeometry.
+ *
+ * Helpful for Raytracing or Decals (i.e. a `DecalGeometry` applied to a morphed Object with a `BufferGeometry`
+ * will use the original `BufferGeometry`, not the morphed/skinned one, generating an incorrect result.
+ * Using this function to create a shadow `Object3`D the `DecalGeometry` can be correctly generated).
+ *
+ * @param {Mesh|Line|Points} object - The 3D object to compute morph attributes for.
+ * @return {Object} An object with original position/normal attributes and morphed ones.
+ */
+function computeMorphedAttributes( object ) {
+
+	const _vA = new Vector3();
+	const _vB = new Vector3();
+	const _vC = new Vector3();
+
+	const _tempA = new Vector3();
+	const _tempB = new Vector3();
+	const _tempC = new Vector3();
+
+	const _morphA = new Vector3();
+	const _morphB = new Vector3();
+	const _morphC = new Vector3();
+
+	function _calculateMorphedAttributeData(
+		object,
+		attribute,
+		morphAttribute,
+		morphTargetsRelative,
+		a,
+		b,
+		c,
+		modifiedAttributeArray
+	) {
+
+		_vA.fromBufferAttribute( attribute, a );
+		_vB.fromBufferAttribute( attribute, b );
+		_vC.fromBufferAttribute( attribute, c );
+
+		const morphInfluences = object.morphTargetInfluences;
+
+		if ( morphAttribute && morphInfluences ) {
+
+			_morphA.set( 0, 0, 0 );
+			_morphB.set( 0, 0, 0 );
+			_morphC.set( 0, 0, 0 );
+
+			for ( let i = 0, il = morphAttribute.length; i < il; i ++ ) {
+
+				const influence = morphInfluences[ i ];
+				const morph = morphAttribute[ i ];
+
+				if ( influence === 0 ) continue;
+
+				_tempA.fromBufferAttribute( morph, a );
+				_tempB.fromBufferAttribute( morph, b );
+				_tempC.fromBufferAttribute( morph, c );
+
+				if ( morphTargetsRelative ) {
+
+					_morphA.addScaledVector( _tempA, influence );
+					_morphB.addScaledVector( _tempB, influence );
+					_morphC.addScaledVector( _tempC, influence );
+
+				} else {
+
+					_morphA.addScaledVector( _tempA.sub( _vA ), influence );
+					_morphB.addScaledVector( _tempB.sub( _vB ), influence );
+					_morphC.addScaledVector( _tempC.sub( _vC ), influence );
+
+				}
+
+			}
+
+			_vA.add( _morphA );
+			_vB.add( _morphB );
+			_vC.add( _morphC );
+
+		}
+
+		if ( object.isSkinnedMesh ) {
+
+			object.applyBoneTransform( a, _vA );
+			object.applyBoneTransform( b, _vB );
+			object.applyBoneTransform( c, _vC );
+
+		}
+
+		modifiedAttributeArray[ a * 3 + 0 ] = _vA.x;
+		modifiedAttributeArray[ a * 3 + 1 ] = _vA.y;
+		modifiedAttributeArray[ a * 3 + 2 ] = _vA.z;
+		modifiedAttributeArray[ b * 3 + 0 ] = _vB.x;
+		modifiedAttributeArray[ b * 3 + 1 ] = _vB.y;
+		modifiedAttributeArray[ b * 3 + 2 ] = _vB.z;
+		modifiedAttributeArray[ c * 3 + 0 ] = _vC.x;
+		modifiedAttributeArray[ c * 3 + 1 ] = _vC.y;
+		modifiedAttributeArray[ c * 3 + 2 ] = _vC.z;
+
+	}
+
+	const geometry = object.geometry;
+	const material = object.material;
+
+	let a, b, c;
+	const index = geometry.index;
+	const positionAttribute = geometry.attributes.position;
+	const morphPosition = geometry.morphAttributes.position;
+	const morphTargetsRelative = geometry.morphTargetsRelative;
+	const normalAttribute = geometry.attributes.normal;
+	const morphNormal = geometry.morphAttributes.position;
+
+	const groups = geometry.groups;
+	const drawRange = geometry.drawRange;
+	let i, j, il, jl;
+	let group;
+	let start, end;
+
+	const modifiedPosition = new Float32Array( positionAttribute.count * positionAttribute.itemSize );
+	const modifiedNormal = new Float32Array( normalAttribute.count * normalAttribute.itemSize );
+
+	if ( index !== null ) {
+
+		// indexed buffer geometry
+
+		if ( Array.isArray( material ) ) {
+
+			for ( i = 0, il = groups.length; i < il; i ++ ) {
+
+				group = groups[ i ];
+
+				start = Math.max( group.start, drawRange.start );
+				end = Math.min( ( group.start + group.count ), ( drawRange.start + drawRange.count ) );
+
+				for ( j = start, jl = end; j < jl; j += 3 ) {
+
+					a = index.getX( j );
+					b = index.getX( j + 1 );
+					c = index.getX( j + 2 );
+
+					_calculateMorphedAttributeData(
+						object,
+						positionAttribute,
+						morphPosition,
+						morphTargetsRelative,
+						a, b, c,
+						modifiedPosition
+					);
+
+					_calculateMorphedAttributeData(
+						object,
+						normalAttribute,
+						morphNormal,
+						morphTargetsRelative,
+						a, b, c,
+						modifiedNormal
+					);
+
+				}
+
+			}
+
+		} else {
+
+			start = Math.max( 0, drawRange.start );
+			end = Math.min( index.count, ( drawRange.start + drawRange.count ) );
+
+			for ( i = start, il = end; i < il; i += 3 ) {
+
+				a = index.getX( i );
+				b = index.getX( i + 1 );
+				c = index.getX( i + 2 );
+
+				_calculateMorphedAttributeData(
+					object,
+					positionAttribute,
+					morphPosition,
+					morphTargetsRelative,
+					a, b, c,
+					modifiedPosition
+				);
+
+				_calculateMorphedAttributeData(
+					object,
+					normalAttribute,
+					morphNormal,
+					morphTargetsRelative,
+					a, b, c,
+					modifiedNormal
+				);
+
+			}
+
+		}
+
+	} else {
+
+		// non-indexed buffer geometry
+
+		if ( Array.isArray( material ) ) {
+
+			for ( i = 0, il = groups.length; i < il; i ++ ) {
+
+				group = groups[ i ];
+
+				start = Math.max( group.start, drawRange.start );
+				end = Math.min( ( group.start + group.count ), ( drawRange.start + drawRange.count ) );
+
+				for ( j = start, jl = end; j < jl; j += 3 ) {
+
+					a = j;
+					b = j + 1;
+					c = j + 2;
+
+					_calculateMorphedAttributeData(
+						object,
+						positionAttribute,
+						morphPosition,
+						morphTargetsRelative,
+						a, b, c,
+						modifiedPosition
+					);
+
+					_calculateMorphedAttributeData(
+						object,
+						normalAttribute,
+						morphNormal,
+						morphTargetsRelative,
+						a, b, c,
+						modifiedNormal
+					);
+
+				}
+
+			}
+
+		} else {
+
+			start = Math.max( 0, drawRange.start );
+			end = Math.min( positionAttribute.count, ( drawRange.start + drawRange.count ) );
+
+			for ( i = start, il = end; i < il; i += 3 ) {
+
+				a = i;
+				b = i + 1;
+				c = i + 2;
+
+				_calculateMorphedAttributeData(
+					object,
+					positionAttribute,
+					morphPosition,
+					morphTargetsRelative,
+					a, b, c,
+					modifiedPosition
+				);
+
+				_calculateMorphedAttributeData(
+					object,
+					normalAttribute,
+					morphNormal,
+					morphTargetsRelative,
+					a, b, c,
+					modifiedNormal
+				);
+
+			}
+
+		}
+
+	}
+
+	const morphedPositionAttribute = new Float32BufferAttribute( modifiedPosition, 3 );
+	const morphedNormalAttribute = new Float32BufferAttribute( modifiedNormal, 3 );
+
+	return {
+
+		positionAttribute: positionAttribute,
+		normalAttribute: normalAttribute,
+		morphedPositionAttribute: morphedPositionAttribute,
+		morphedNormalAttribute: morphedNormalAttribute
+
+	};
+
+}
+
+/**
+ * Merges the {@link BufferGeometry#groups} for the given geometry.
+ *
+ * @param {BufferGeometry} geometry - The geometry to modify.
+ * @return {BufferGeometry} - The updated geometry
+ */
+function mergeGroups( geometry ) {
+
+	if ( geometry.groups.length === 0 ) {
+
+		console.warn( 'THREE.BufferGeometryUtils.mergeGroups(): No groups are defined. Nothing to merge.' );
+		return geometry;
+
+	}
+
+	let groups = geometry.groups;
+
+	// sort groups by material index
+
+	groups = groups.sort( ( a, b ) => {
+
+		if ( a.materialIndex !== b.materialIndex ) return a.materialIndex - b.materialIndex;
+
+		return a.start - b.start;
+
+	} );
+
+	// create index for non-indexed geometries
+
+	if ( geometry.getIndex() === null ) {
+
+		const positionAttribute = geometry.getAttribute( 'position' );
+		const indices = [];
+
+		for ( let i = 0; i < positionAttribute.count; i += 3 ) {
+
+			indices.push( i, i + 1, i + 2 );
+
+		}
+
+		geometry.setIndex( indices );
+
+	}
+
+	// sort index
+
+	const index = geometry.getIndex();
+
+	const newIndices = [];
+
+	for ( let i = 0; i < groups.length; i ++ ) {
+
+		const group = groups[ i ];
+
+		const groupStart = group.start;
+		const groupLength = groupStart + group.count;
+
+		for ( let j = groupStart; j < groupLength; j ++ ) {
+
+			newIndices.push( index.getX( j ) );
+
+		}
+
+	}
+
+	geometry.dispose(); // Required to force buffer recreation
+	geometry.setIndex( newIndices );
+
+	// update groups indices
+
+	let start = 0;
+
+	for ( let i = 0; i < groups.length; i ++ ) {
+
+		const group = groups[ i ];
+
+		group.start = start;
+		start += group.count;
+
+	}
+
+	// merge groups
+
+	let currentGroup = groups[ 0 ];
+
+	geometry.groups = [ currentGroup ];
+
+	for ( let i = 1; i < groups.length; i ++ ) {
+
+		const group = groups[ i ];
+
+		if ( currentGroup.materialIndex === group.materialIndex ) {
+
+			currentGroup.count += group.count;
+
+		} else {
+
+			currentGroup = group;
+			geometry.groups.push( currentGroup );
+
+		}
+
+	}
+
+	return geometry;
+
+}
+
+/**
+ * Modifies the supplied geometry if it is non-indexed, otherwise creates a new,
+ * non-indexed geometry. Returns the geometry with smooth normals everywhere except
+ * faces that meet at an angle greater than the crease angle.
+ *
+ * @param {BufferGeometry} geometry - The geometry to modify.
+ * @param {number} [creaseAngle=Math.PI/3] - The crease angle in radians.
+ * @return {BufferGeometry} - The updated geometry
+ */
+function toCreasedNormals( geometry, creaseAngle = Math.PI / 3 /* 60 degrees */ ) {
+
+	const creaseDot = Math.cos( creaseAngle );
+	const hashMultiplier = ( 1 + 1e-10 ) * 1e2;
+
+	// reusable vectors
+	const verts = [ new Vector3(), new Vector3(), new Vector3() ];
+	const tempVec1 = new Vector3();
+	const tempVec2 = new Vector3();
+	const tempNorm = new Vector3();
+	const tempNorm2 = new Vector3();
+
+	// hashes a vector
+	function hashVertex( v ) {
+
+		const x = ~ ~ ( v.x * hashMultiplier );
+		const y = ~ ~ ( v.y * hashMultiplier );
+		const z = ~ ~ ( v.z * hashMultiplier );
+		return `${x},${y},${z}`;
+
+	}
+
+	// BufferGeometry.toNonIndexed() warns if the geometry is non-indexed
+	// and returns the original geometry
+	const resultGeometry = geometry.index ? geometry.toNonIndexed() : geometry;
+	const posAttr = resultGeometry.attributes.position;
+	const vertexMap = {};
+
+	// find all the normals shared by commonly located vertices
+	for ( let i = 0, l = posAttr.count / 3; i < l; i ++ ) {
+
+		const i3 = 3 * i;
+		const a = verts[ 0 ].fromBufferAttribute( posAttr, i3 + 0 );
+		const b = verts[ 1 ].fromBufferAttribute( posAttr, i3 + 1 );
+		const c = verts[ 2 ].fromBufferAttribute( posAttr, i3 + 2 );
+
+		tempVec1.subVectors( c, b );
+		tempVec2.subVectors( a, b );
+
+		// add the normal to the map for all vertices
+		const normal = new Vector3().crossVectors( tempVec1, tempVec2 ).normalize();
+		for ( let n = 0; n < 3; n ++ ) {
+
+			const vert = verts[ n ];
+			const hash = hashVertex( vert );
+			if ( ! ( hash in vertexMap ) ) {
+
+				vertexMap[ hash ] = [];
+
+			}
+
+			vertexMap[ hash ].push( normal );
+
+		}
+
+	}
+
+	// average normals from all vertices that share a common location if they are within the
+	// provided crease threshold
+	const normalArray = new Float32Array( posAttr.count * 3 );
+	const normAttr = new BufferAttribute( normalArray, 3, false );
+	for ( let i = 0, l = posAttr.count / 3; i < l; i ++ ) {
+
+		// get the face normal for this vertex
+		const i3 = 3 * i;
+		const a = verts[ 0 ].fromBufferAttribute( posAttr, i3 + 0 );
+		const b = verts[ 1 ].fromBufferAttribute( posAttr, i3 + 1 );
+		const c = verts[ 2 ].fromBufferAttribute( posAttr, i3 + 2 );
+
+		tempVec1.subVectors( c, b );
+		tempVec2.subVectors( a, b );
+
+		tempNorm.crossVectors( tempVec1, tempVec2 ).normalize();
+
+		// average all normals that meet the threshold and set the normal value
+		for ( let n = 0; n < 3; n ++ ) {
+
+			const vert = verts[ n ];
+			const hash = hashVertex( vert );
+			const otherNormals = vertexMap[ hash ];
+			tempNorm2.set( 0, 0, 0 );
+
+			for ( let k = 0, lk = otherNormals.length; k < lk; k ++ ) {
+
+				const otherNorm = otherNormals[ k ];
+				if ( tempNorm.dot( otherNorm ) > creaseDot ) {
+
+					tempNorm2.add( otherNorm );
+
+				}
+
+			}
+
+			tempNorm2.normalize();
+			normAttr.setXYZ( i3 + n, tempNorm2.x, tempNorm2.y, tempNorm2.z );
+
+		}
+
+	}
+
+	resultGeometry.setAttribute( 'normal', normAttr );
+	return resultGeometry;
+
+}
+
+export {
+	computeMikkTSpaceTangents,
+	mergeGeometries,
+	mergeAttributes,
+	deepCloneAttribute,
+	deinterleaveAttribute,
+	deinterleaveGeometry,
+	interleaveAttributes,
+	estimateBytesUsed,
+	mergeVertices,
+	toTrianglesDrawMode,
+	computeMorphedAttributes,
+	mergeGroups,
+	toCreasedNormals
+};

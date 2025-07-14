@@ -1,1 +1,147 @@
-function a0_0x279a(_0x3adaa9,_0xd63798){const _0x798187=a0_0x7981();return a0_0x279a=function(_0x279a22,_0x3997e5){_0x279a22=_0x279a22-0x66;let _0x165b3f=_0x798187[_0x279a22];if(a0_0x279a['AGEPxR']===undefined){var _0x273636=function(_0x4e4f32){const _0x176693='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4838d1='',_0x505bc2='';for(let _0x4fabc5=0x0,_0x5ba90d,_0x293e81,_0x35516e=0x0;_0x293e81=_0x4e4f32['charAt'](_0x35516e++);~_0x293e81&&(_0x5ba90d=_0x4fabc5%0x4?_0x5ba90d*0x40+_0x293e81:_0x293e81,_0x4fabc5++%0x4)?_0x4838d1+=String['fromCharCode'](0xff&_0x5ba90d>>(-0x2*_0x4fabc5&0x6)):0x0){_0x293e81=_0x176693['indexOf'](_0x293e81);}for(let _0x46e913=0x0,_0x366cb5=_0x4838d1['length'];_0x46e913<_0x366cb5;_0x46e913++){_0x505bc2+='%'+('00'+_0x4838d1['charCodeAt'](_0x46e913)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x505bc2);};a0_0x279a['ZWonIB']=_0x273636,_0x3adaa9=arguments,a0_0x279a['AGEPxR']=!![];}const _0x52f6e6=_0x798187[0x0],_0x331328=_0x279a22+_0x52f6e6,_0x4cbd1a=_0x3adaa9[_0x331328];return!_0x4cbd1a?(_0x165b3f=a0_0x279a['ZWonIB'](_0x165b3f),_0x3adaa9[_0x331328]=_0x165b3f):_0x165b3f=_0x4cbd1a,_0x165b3f;},a0_0x279a(_0x3adaa9,_0xd63798);}const a0_0x84e6cf=a0_0x279a;(function(_0x17d50a,_0x3b38be){const _0x2deaa4=a0_0x279a,_0x5ab377=_0x17d50a();while(!![]){try{const _0x57f5ae=parseInt(_0x2deaa4(0x9d))/0x1+-parseInt(_0x2deaa4(0x89))/0x2+-parseInt(_0x2deaa4(0x85))/0x3*(parseInt(_0x2deaa4(0x7f))/0x4)+-parseInt(_0x2deaa4(0x88))/0x5*(parseInt(_0x2deaa4(0xae))/0x6)+-parseInt(_0x2deaa4(0x76))/0x7+parseInt(_0x2deaa4(0xa2))/0x8*(-parseInt(_0x2deaa4(0x70))/0x9)+-parseInt(_0x2deaa4(0x83))/0xa*(-parseInt(_0x2deaa4(0x94))/0xb);if(_0x57f5ae===_0x3b38be)break;else _0x5ab377['push'](_0x5ab377['shift']());}catch(_0x13484e){_0x5ab377['push'](_0x5ab377['shift']());}}}(a0_0x7981,0xd2aba));import{DynamicDrawUsage,SphereGeometry,BoxGeometry,MeshStandardMaterial,InstancedMesh,Matrix4,Vector3}from'three';const _matrix=new Matrix4(),_vector=new Vector3();function a0_0x7981(){const _0x35e5e6=['BuvPsfm','uuXeALe','AgfUze1LC2G','uhvZwfm','CMLUzY1MAw5NzxiTDgLW','mtj1ufLwEgO','AfDgsKG','C2v0twf0CML4qxq','v3jeDxG','mZm3nZiYmtbPEM9VAgO','BwLKzgXLlwzPBMDLCI1TzxrHy2fYCgfS','mty5mJi3rMvAy1jR','Cg9ZAxrPB24','CgLUA3KTzMLUz2vYlxbOywXHBNGTAw50zxjTzwrPyxrL','otm5me1RCNPnta','mZi1mJy0ohjkAuvPsq','zw52twfW','CgLUA3KTzMLUz2vYlxbOywXHBNGTzgLZDgfS','CMvJzwL2zvnOywrVDW','v1bbyMS','Aw5KzxGTzMLUz2vYlxbOywXHBNGTzgLZDgfS','v0ngs0i','ELbsAfe','zeHTC3a','CgLUA3KTzMLUz2vYlxrPCa','CxvHDgvYBMLVBG','mtf2vKzPyuq','CMLUzY1MAw5NzxiTCgHHBgfUEc1KAxn0ywW','yM94','AgfUze1VzgvS','BwLKzgXLlwzPBMDLCI10Axa','y291BNq','DgH1BwiTDgLW','CMLUzY1MAw5NzxiTCgHHBgfUEc1WCM94Aw1HBa','EvfVsgG','mtu0odm4nxrUyujPwa','Aw5KzxGTzMLUz2vYlxbOywXHBNGTAw50zxjTzwrPyxrL','ywrK','BhvdvLa','C2v0u2nHBgfY','ndbuB2Lsswi','Aw5KzxGTzMLUz2vYlw1LDgfJyxjWywW','D21pzMm','CMLUzY1MAw5NzxiTBwv0ywnHCNbHBa','DgH1BwiTBwv0ywnHCNbHBa','C2v0vxnHz2u','C3bOzxjL','CgLUA3KTzMLUz2vYlw1LDgfJyxjWywW','EhPpAuq','D1rKwwq','zNj1C3r1Bun1BgXLza','BwLKzgXLlwzPBMDLCI1WAgfSyw54lwrPC3rHBa','mti2nMPequzyCW','DMLZAwjSzq','ChjPBwL0AxzL','BMvLzhnvCgrHDgu','zw16s28','y29UDhjVBgXLCG','AM9PBNrZ','Evnktu0','BwLKzgXLlwzPBMDLCI1WAgfSyw54lxbYB3HPBwfS','rMPHq3q','BwLKzgXLlwzPBMDLCI1WAgfSyw54lwLUDgvYBwvKAwf0zq','BxHWueC','mJe0nJi3nxvmr1LkCG','DxbKyxrLtwvZAa','Aw5ZDgfUy2vnyxrYAxG','rLzHvLG','AM9PBNrsywrPDxm','CMLUzY1MAw5NzxiTCgHHBgfUEc1PBNrLCM1LzgLHDgu','ndC0otyXmK1fy2XewG','CgLUA3KTzMLUz2vYlxbOywXHBNGTChjVEgLTywW','y2fZDfnOywrVDW','Aw5KzxGTzMLUz2vYlxrPCa'];a0_0x7981=function(){return _0x35e5e6;};return a0_0x7981();}class XRHandPrimitiveModel{constructor(_0x529e44,_0x2cc439,_0x573dd3,_0x307a09,_0xef9e73){const _0x431de8=a0_0x279a,_0x16f814={'FjaCt':function(_0x8780a7,_0x4eac6c){return _0x8780a7===_0x4eac6c;},'emzKo':_0x431de8(0xa8),'Ynmcd':_0x431de8(0x96),'FVaVX':'wrist','WrDux':_0x431de8(0xa6),'hWFJH':'thumb-phalanx-distal','xzOiD':_0x431de8(0x9a),'cOrzH':'index-finger-phalanx-proximal','Anpks':_0x431de8(0x9e),'HrLoX':_0x431de8(0x8e),'WPAbk':_0x431de8(0x6c),'zPRhQ':_0x431de8(0x6e),'yQoHh':_0x431de8(0xad),'WCFKB':_0x431de8(0x98),'wTdYd':_0x431de8(0xa5),'PusXS':_0x431de8(0x75),'obsPO':_0x431de8(0x95),'QLDjQ':_0x431de8(0x7e),'wmOfc':_0x431de8(0xa9),'mEiHS':_0x431de8(0x77),'mxpPG':_0x431de8(0x87),'luCVP':_0x431de8(0x8b),'ySJMM':_0x431de8(0x92)};this[_0x431de8(0x69)]=_0x2cc439,this[_0x431de8(0x97)]=_0x529e44,this[_0x431de8(0x8a)]=null;let _0x2d82e6;if(!_0xef9e73||!_0xef9e73[_0x431de8(0x66)]||_0x16f814[_0x431de8(0x6d)](_0xef9e73['primitive'],_0x16f814[_0x431de8(0x68)]))_0x2d82e6=new SphereGeometry(0x1,0xa,0xa);else _0xef9e73[_0x431de8(0x66)]===_0x16f814['Ynmcd']&&(_0x2d82e6=new BoxGeometry(0x1,0x1,0x1));const _0x409009=new MeshStandardMaterial();this[_0x431de8(0x7c)]=new InstancedMesh(_0x2d82e6,_0x409009,0x1e),this[_0x431de8(0x7c)][_0x431de8(0xac)]=![],this[_0x431de8(0x7c)][_0x431de8(0x72)][_0x431de8(0xa7)](DynamicDrawUsage),this[_0x431de8(0x7c)][_0x431de8(0x78)]=!![],this[_0x431de8(0x7c)][_0x431de8(0x8c)]=!![],this[_0x431de8(0x97)][_0x431de8(0x9f)](this['handMesh']),this[_0x431de8(0x6a)]=[_0x16f814[_0x431de8(0x73)],_0x16f814[_0x431de8(0x82)],'thumb-phalanx-proximal',_0x16f814[_0x431de8(0x80)],_0x16f814[_0x431de8(0xaa)],_0x431de8(0xa3),_0x16f814['cOrzH'],_0x16f814['Anpks'],_0x16f814['HrLoX'],_0x431de8(0x79),_0x431de8(0x84),_0x16f814[_0x431de8(0x8d)],_0x16f814[_0x431de8(0x90)],_0x16f814[_0x431de8(0x9c)],_0x16f814[_0x431de8(0x8f)],_0x16f814[_0x431de8(0xab)],_0x431de8(0x9b),_0x16f814[_0x431de8(0x7d)],_0x16f814['obsPO'],_0x16f814[_0x431de8(0x7b)],_0x16f814[_0x431de8(0xa4)],_0x16f814[_0x431de8(0x7a)],_0x16f814[_0x431de8(0x6f)],_0x16f814[_0x431de8(0xa0)],_0x16f814[_0x431de8(0x6b)]];}[a0_0x84e6cf(0x71)](){const _0x213fcb=a0_0x84e6cf,_0x26c99e={'dHmsp':function(_0x4c545d,_0x4619ae){return _0x4c545d<_0x4619ae;}},_0x581920=0.008,_0x1918ce=this['controller'][_0x213fcb(0x6a)];let _0x4ae926=0x0;for(let _0xa10bc1=0x0;_0x26c99e[_0x213fcb(0x91)](_0xa10bc1,this[_0x213fcb(0x6a)]['length']);_0xa10bc1++){const _0x5d3155=_0x1918ce[this[_0x213fcb(0x6a)][_0xa10bc1]];_0x5d3155[_0x213fcb(0xaf)]&&(_vector[_0x213fcb(0xa1)](_0x5d3155[_0x213fcb(0x74)]||_0x581920),_matrix['compose'](_0x5d3155[_0x213fcb(0x86)],_0x5d3155[_0x213fcb(0x93)],_vector),this[_0x213fcb(0x7c)][_0x213fcb(0x81)](_0xa10bc1,_matrix),_0x4ae926++);}this[_0x213fcb(0x7c)][_0x213fcb(0x99)]=_0x4ae926,this[_0x213fcb(0x7c)][_0x213fcb(0x72)][_0x213fcb(0x67)]=!![];}}export{XRHandPrimitiveModel};
+import {
+	DynamicDrawUsage,
+	SphereGeometry,
+	BoxGeometry,
+	MeshStandardMaterial,
+	InstancedMesh,
+	Matrix4,
+	Vector3
+} from 'three';
+
+const _matrix = new Matrix4();
+const _vector = new Vector3();
+
+/**
+ * Represents one of the hand model types {@link XRHandModelFactory} might produce
+ * depending on the selected profile. `XRHandPrimitiveModel` represents a hand
+ * with sphere or box primitives according to the selected `primitive` option.
+ *
+ * @three_import import { XRHandPrimitiveModel } from 'three/addons/webxr/XRHandPrimitiveModel.js';
+ */
+class XRHandPrimitiveModel {
+
+	/**
+	 * Constructs a new XR hand primitive model.
+	 *
+	 * @param {XRHandModel} handModel - The hand model.
+	 * @param {Group} controller - The WebXR controller.
+	 * @param {string} path - The model path.
+	 * @param {XRHandedness} handedness - The handedness of the XR input source.
+	 * @param {XRHandPrimitiveModel~Options} options - The model options.
+	 */
+	constructor( handModel, controller, path, handedness, options ) {
+
+		/**
+		 * The WebXR controller.
+		 *
+		 * @type {Group}
+		 */
+		this.controller = controller;
+
+		/**
+		 * The hand model.
+		 *
+		 * @type {XRHandModel}
+		 */
+		this.handModel = handModel;
+
+		/**
+		 * The model's environment map.
+		 *
+		 * @type {?Texture}
+		 * @default null
+		 */
+		this.envMap = null;
+
+		let geometry;
+
+		if ( ! options || ! options.primitive || options.primitive === 'sphere' ) {
+
+			geometry = new SphereGeometry( 1, 10, 10 );
+
+		} else if ( options.primitive === 'box' ) {
+
+			geometry = new BoxGeometry( 1, 1, 1 );
+
+		}
+
+		const material = new MeshStandardMaterial();
+
+		this.handMesh = new InstancedMesh( geometry, material, 30 );
+		this.handMesh.frustumCulled = false;
+		this.handMesh.instanceMatrix.setUsage( DynamicDrawUsage ); // will be updated every frame
+		this.handMesh.castShadow = true;
+		this.handMesh.receiveShadow = true;
+		this.handModel.add( this.handMesh );
+
+		this.joints = [
+			'wrist',
+			'thumb-metacarpal',
+			'thumb-phalanx-proximal',
+			'thumb-phalanx-distal',
+			'thumb-tip',
+			'index-finger-metacarpal',
+			'index-finger-phalanx-proximal',
+			'index-finger-phalanx-intermediate',
+			'index-finger-phalanx-distal',
+			'index-finger-tip',
+			'middle-finger-metacarpal',
+			'middle-finger-phalanx-proximal',
+			'middle-finger-phalanx-intermediate',
+			'middle-finger-phalanx-distal',
+			'middle-finger-tip',
+			'ring-finger-metacarpal',
+			'ring-finger-phalanx-proximal',
+			'ring-finger-phalanx-intermediate',
+			'ring-finger-phalanx-distal',
+			'ring-finger-tip',
+			'pinky-finger-metacarpal',
+			'pinky-finger-phalanx-proximal',
+			'pinky-finger-phalanx-intermediate',
+			'pinky-finger-phalanx-distal',
+			'pinky-finger-tip'
+		];
+
+	}
+
+	/**
+	 * Updates the mesh based on the tracked XR joints data.
+	 */
+	updateMesh() {
+
+		const defaultRadius = 0.008;
+		const joints = this.controller.joints;
+
+		let count = 0;
+
+		for ( let i = 0; i < this.joints.length; i ++ ) {
+
+			const joint = joints[ this.joints[ i ] ];
+
+			if ( joint.visible ) {
+
+				_vector.setScalar( joint.jointRadius || defaultRadius );
+				_matrix.compose( joint.position, joint.quaternion, _vector );
+				this.handMesh.setMatrixAt( i, _matrix );
+
+				count ++;
+
+			}
+
+		}
+
+		this.handMesh.count = count;
+		this.handMesh.instanceMatrix.needsUpdate = true;
+
+	}
+
+}
+
+/**
+ * Constructor options of `XRHandPrimitiveModel`.
+ *
+ * @typedef {Object} XRHandPrimitiveModel~Options
+ * @property {('box'|'sphere')} [primitive] - The primitive type.
+ **/
+
+export { XRHandPrimitiveModel };

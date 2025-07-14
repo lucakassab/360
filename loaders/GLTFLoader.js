@@ -1,1 +1,4886 @@
-const a0_0x1e632d=a0_0x4344;function a0_0x4af9(){const _0x2991ad=['Bg9HzfnJzw5L','C09ItuG','igLZig1PC3nPBMCGvvjjigfUzcbIDwzMzxjwAwv3','AxnmAw5L','Bg9Hze1LC2G','s0LWvhu','C2v0wG','CMvHzhK','y29UDgvUDa','AuXyD28','z2v0sgfUzgXLCG','B2jQzwn0','Bg9HzeLTywDLu291CMnL','s0Hsx01bvevssufmu19tuevdvuXbuG','Aw1Hz2uVANbLzW','DhjHDMvYC2u','y2HHBM5LBa','CgvYC3bLy3rPDMu','tfnHy0e','DhjHBNnWyxjLBNq','s0Hsx21HDgvYAwfSC19PB3i','whnXyvC','BMrHuKG','s0Hsx1rfwfrvuKvFqKftsvnv','veHsruuUr0XurKXVywrLCJOGC2v0s1rymKXVywrLCIbTDxn0igjLignHBgXLzcbIzwzVCMuGBg9HzgLUzYblvfGYihrLEhr1CMvZ','ywXS','Bg9HzfrLEhr1CMu','uNzyA1m','CM91z2HUzxnZrMfJDg9Y','x21HCMTezwzZ','vu1yAMS','rxr3EuS','AxnjBNrLCNbVBgfUDezHy3rVCNLnzxrOB2rhtfrgq3vIAwntCgXPBMu','y29WEvnHBxbSzvzHBhvLxW','BwLUrMLSDgvY','Dgv4DhvYzuXVywrLCG','zMXVB3i','y3jLyxrLt2jQzwn0vvjm','CM91z2HUzxnZtwfW','x2LUDM9Rzu9Uzq','t1fdDxO','BM9Kzq','ELzWzu4','DuXxEKC','vvn4AKS','DgHLBG','BwfUywDLCG','DunTBuC','A0Xctwu','CgTgENm','Bg9HzfnRAw4','Aw5WDxq','zgvJB2rLr2X0zKj1zMzLCKfZEw5J','A0zjDKG','y29TCg9Uzw50vhLWzq','z2vUzxjHDgvnAxbTyxbZ','z0n4vxu','s0Hsx21HDgvYAwfSC19ZAgvLBG','DhjHBNnTAxnZAw9Uvgv4DhvYzq','BwvZAgvZ','vfjjqu5htevFu1rssva','q09mt1jFma','ug9PBNrZtwf0zxjPywW6','s0Hsx01bvevssufmu19esvnqrvjtsu9o','txb4CNu','zxH0zw5KugfYyw1Z','yw5PC290CM9WEvn0CMvUz3rO','A0jVr0q','q1vcsuntueXjtKu','Cg9PBNq','DgHPy2TUzxnZtwfW','BgvUz3rO','zMHprfm','BgLNAhq','yNvMzMvYvMLLD3m','yNL0zu9MzNnLDa','s0Hsx21LC2HFCxvHBNrPEMf0Aw9U','Dw5KzwzPBMvK','zxH0CMfJDfvYBejHC2u','C3bLy3vSyxjdB2XVCK1HCa','CKzVtLm','vfjjqu5htevt','tNvLuKC','vK9oyNq','Aw9Y','v25Ptfi','rKrsAxK','CMvTB3zLqwXS','AxjPzgvZy2vUy2vjB3i','yMfZzunVBg9YrMfJDg9Y','AgDuz3a','C2nHBgu','yw5PC290CM9WEq','yuL6zvy','z3fOwhu','zxjYB3i','iIbUB3qGC3vWCg9YDgvKlG','x2nYzwf0zun1yMLJu3bSAw5LvhjHy2TjBNrLCNbVBgfUDa','yw5PC290CM9WEvjVDgf0Aw9U','qwTSwfe','C3rYzw5NDgG','zfviz2W','veHsruuUr0XurKXVywrLCJOG','C2HLzw5sB3vNAg5LC3nuzxH0DxjL','wLHIqwu','CMfUz2u','ChLmALa','C2v0sw5KzxG','CMvNAxn0zxi','BM9YBwfSAxPL','ruLpqu8','zM9YrwfJAa','veHsruuUr0XurKXVywrLCJOGvw5ZDxbWB3j0zwqGyxnZzxqUigDSveyGDMvYC2LVBNmGpJ0YlJaGyxjLihn1ChbVCNrLzc4','D2fYBG','v2PUu2u','rK9NCuq','C2HLzw5sB3vNAg5LC3nnyxa','BwLU','Bwf0zxjPywXZ','Dg1fq3y','s0Hsx0Xjr0Huu19qvu5dvfvbta','Ahj3u3a','sMfOwKy','weDpqva','yxr0CMLIDxrLCW','veHsruuUr0XurKXVywrLCJOGrMfPBgvKihrVigXVywqGyNvMzMvYici','C2TPBLDLAwDODa','s0Hsx21HDgvYAwfSC19ZCgvJDwXHCG','C2XPy2u','ue9tsvrjt04','s0Hsx01bvevssufmu19uuKfou01ju1njt04','C3bLy3vSyxjdB2XVCKzHy3rVCG','BKvyy0e','Dg9mB3DLCKnHC2u','C3rYAw5N','BNfrtvK','EMHLvNO','DxnLlwnYzwrLBNrPywXZ','zgvJB2rL','D3jHCfm','Cg9ZAxrPB24','EMzHCG','C09pBKO','ugP5ALm','Bw9Kzq','AxnjBwfNzujPDg1HCeXVywrLCG','y29SB3i','sLn2EKG','DgfYz2v0','s0Hsx0rsqunpx01fu0HFq09nufjfu1njt04','x0npte9sxZa','Aw5UzxjdB25Lqw5NBgu','Bwf0y2G','x2fKze5Vzgvszwy','Bg9HzenHBwvYyq','EK9WAfu','vfjbtLnmqvrjt04','yMvMB3jLuM9VDa','vKfPr2m','C2nVqKu','rvHux1rfwfrvuKvFqvzjrG','yw5PBwf0Aw9UxW','BM9YBwfS','yMfZzunVBg9Yvgv4DhvYzq','ChjVBwLZzq','yNvMzMvY','veHsruuUr0XurKXVywrLCJOGtwLZC2LUzYbJyw1LCMeGCgfYyw1LDgvYCY4','AKv6vKu','uhPxwvq','mNW3Fdf8nxW0Fdb8m3W2','C3bLy3vSyxjjBNrLBNnPDhLnyxa','C2v0q3jVC3npCMLNAw4','shHiwuK','y2XLyxjJB2f0uM91z2HUzxnZtwfW','rgvMyxvSDe1HDgvYAwfS','y2vAEM8','y2DJDuy','BM9YBwfStwfW','zhjHy286','C2v0uKDc','zMXHDfnOywrPBMC','yxr0zw51yxrPB25eAxn0yw5Jzq','odK0odq0CKPtAhrd','veHsruuUr0XurKXVywrLCJOGvw5ZDxbWB3j0zwqGBM9YBwfSAxPLzcbHy2nLC3nVCIbJB21WB25LBNqGDhLWzs4','C3bHCNnL','C29YDa','s0Hsx3rLEhr1CMvFDhjHBNnMB3jT','Bwv0ywXSAwngywn0B3i','yxfLsM8','yNvTCfrLEhr1CMu','sgzLuMy','y2XLyxjJB2f0tM9YBwfSvgv4DhvYzq','BfjcwMC','C2LKzq','ywXWAgfuzxn0','y2XLyxjJB2f0uM91z2HUzxnZvgv4DhvYzq','s0Hsx0jjtKfswv9htfrg','C3rHCNrZv2L0Aa','DhPJD2e','zw1PC3nPDMvnyxa','DgfUz2vUDa','Aw1Hz2uVA3r4mG','igj1zMzLCIb0ExbLigLZig5VDcbZDxbWB3j0zwqU','CgfYC2u','DxbKyxrLtw9YCgHuyxjNzxrZ','zhjHy29mB2fKzxi','ywDKA04','ChjVDg90ExbL','CMvXDwvZDeHLywrLCG','y3jLyxrLvw5PCxvLtMfTzq','DMfSDwvZ','vuvzqva','s3vdCwi','s0Hsx21HDgvYAwfSC192B2X1Bwu','AxjPzgvZy2vUy2vuAgLJA25LC3nuzxH0DxjL','z3HQDK4','C2L6zuf0DgvUDwf0Aw9U','ue9jtLrt','BxvSDgLWBhLty2fSyxi','yw9nyxa','qLPesva','B1HkyMG','veHsruuUr0XurKXVywrLCJOGuhjPBwL0AxzLig1VzguGDw5ZDxbWB3j0zwq6ia','yLHNBM0','yw5PBwf0Aw9UCW','y2XVBMu','CLnfDva','CgfYC2vbC3LUyW','Aw5KzxHpzG','BM9KzunHy2HL','Bwf0CML4','s0Hsx2jPBMfYEv9NBfrg','CMfKvg9ezwC','zMXPCfK','CvrWzg8','Dw5ZAgLMDa','s0Hsx01fu0HFuvvbtLrjwKfusu9o','tK9stufm','yM9KEq','tfHqEwe','Aw1Hz2uVD2vICa','Bg9Hze1HDgvYAwfS','rvHux01fu0HpufrFq09nufjfu1njt04','D25mtvC','DgfYz2v0tMfTzxm','yxbWBhLnyxrYAxG0','s0Hsx01bvevssufmu19ftuLtu0Lwrv9tvfjftKDusa','y2fTzxjHCW','C2HLzw5dB2XVCK1HCa','DLP0AM0','BwfW','tgLUzujHC2LJtwf0zxjPywW6','C3bLy3vSyxjuzxH0DxjL','C2HLzw5dB2XVCG','veHsruuUr0XurKXVywrLCJOGswDUB3jPBMCGChjPBwL0AxzLihr5CguGlMv4DhjHCYWG','uNjpy3q','uK9uqvrjt04','y29SB3jtCgfJzq','s0Hsx3rLEhr1CMvFyMfZAxn1','rMH0q1a','s0Hsx21HDgvYAwfSC19HBMLZB3rYB3b5','C2v0s1rymKXVywrLCG','s0Hsx01bvevssufmu19vtKXjva','veHsruuUr0XurKXVywrLCJOGq291BgrUj3qGBg9Hzcb0zxH0DxjL','t1bbuvvf','CM91z2HUzxnZ','A29UBve','C3bSAxq','DxyY','veHsruuUr0XurKXVywrLCJOGsM9PBNqGiIvZiIbJB3vSzcbUB3qGyMuGzM91BMqU','nZqXmJu1nMvtruzhBG','Denur3C','C2v0twf0CML4qxq','AM9PBNrZ','Cvv5A3m','B2nJBhvZAw9Uvgv4DhvYzq','BwvZAf8','vvjm','A3r4mKXVywrLCG','nxWXFdr8mhWYFdm','x2LUC3rHBMnLxW','y2f0y2G','wKrQChq','BwfNAwm','y2XmvhC','DxyZ','oti3nZbetgnAA0S','veHsruuUr0XurKXVywrLCJOGvw5ZDxbWB3j0zwqGAxrLBvnPEMuGAw4GC3bHCNnLiej1zMzLCKf0DhjPyNv0zs4','te53s3u','DgHPy2TUzxnZ','rMLHrK8','wu5hwvK','BMfqCKO','yM91BMrPBMDcB3G','y3jLyxrLtM9Kzu1LC2G','veHsruuUr0XurKXVywrLCJOGvw5LEhbLy3rLzcbSAwDODcb0ExbLoIa','t1LZEgS','B3bHy2L0Eq','ChjLBg9Hza','tLLZv3m','CMvZB2X2zq','zNjVBufYCMf5','C3bLy3vSyxjdB2XVCG','zuDRwKK','yuz4uMe','BwvhqNa','rKjsEuW','yxnZzxq','veHsruuUr0XurKXVywrLCJOGtwLZC2LUzYbTAw4VBwf4ihbYB3bLCNrPzxmGzM9YigfJy2vZC29Yifbpu0Lusu9olG','tKLAAvq','s0Hsx1rfwfrvuKvFvfjbtLngt1jn','zgvYAxzHDgL2zs10yw5Nzw50CZO','CufQCfO','rwfvzgS','DxjP','DM5Hsvy','vuj0B0i','qNLODuS','CgX1z2LUq2fSBgjHy2TZ','B2fjrxC','zgLYzwn0Aw9UywW','C2v0wq','q2jfshq','sK51tee','ALLZBxK','AxD6yxy','CMnkqKe','Dgv4DhvYzxm','CNnOrM0','BM9YBwfSAxPLu2TPBLDLAwDODhm','Bg9Hzej1zMzLCLzPzxC','BwLTzvr5Cgu','rMLYzwzVEa','CMvMCW','EwzVDG','EMfZCLe','txHxseK','y2fJAgu','y2XLyxjJB2f0rMfJDg9Y','rKjjyKW','DxHYC2u','DMfSDwvtAxPL','Cgf0Aa','Cg9W','D0H6qxC','vKLeEuW','x2LUDM9RzufSBa','y3jLyxrLtM9Kzuf0DgfJAg1LBNq','rMT5r2y','y2X2vwy','mtblsNjhywy','yw5PC290CM9WEvrLEhr1CMu','rhvfDLe','shPIruq','swvQAvC','BM9YBwfSvgv4DhvYzq','zxHWyw5KqNLwzwn0B3i','BM9Kzxm','B2zMC2v0','AxncB25L','z2v0','EejeCLq','AxrLBvnPEMu','C2nLBMvZ','z2v0q2vUDgvY','yNvMzMvYvMLLDW','zxH0zw5ZAw9UCW','q2XVBMvKtwf0zxjPywW6','DgHPy2TUzxnZvgv4DhvYzq','vu1urgq','m3WXFdb8mNW0','C2v0rxH0zw5ZAw9UCW','zLbdvKi','A2HhC3O','qKzZuvm','wunnD2O','s0Hsx21HDgvYAwfSC190CMfUC21PC3nPB24','ywXWAgfnB2rL','z2v0rgvWzw5Kzw5JEq','yuDMD0O','ngzjDKXUvq','ALbXuK8','Aw5KzxG','quLOsuG','zxH0zw5ZAw9UC1vZzwq','y291BNq','CM90yxrPB24','veHsruuUr0XurKXVywrLCJOGq29UDMvYDgLUzYb2zxj0zxGGy29SB3jZigzYB20GiNnYz2iTBgLUzwfYiIb0BYaI','AxnhCM91Ca','rKz1yNq','z2v0vwLUDdmY','AxjPzgvZy2vUy2u','qKjuu08','vNziwvu','mZi0oxn6wKruAq','y2HUvgi','Bg9Hze5Vzgu','EffVC1u','rvHux01bvevssufmu19cvu1q','CgX1z2LUCW','DhjHBNnTAxnZAw9U','DgLTzxm','BgLNAhrZ','AxjVv0W','DhjHBNnTAxnZAw9UtwfW','zgvJB2rLuhjPBwL0AxzL','AxjPzgvZy2vUy2vgywn0B3i','AwjJCKi','AfjtsNm','ru5Ws1G','seLVwxu','EejNzui','C2v0uMvXDwvZDeHLywrLCG','A2v5CW','D0vKuxm','C2v0twvZAg9WDerLy29Kzxi','EgfqANG','zg91yMXLu2LKzwq','zMLSzuXVywrLCG','C3bLy3vSyxjgywn0B3i','veHsruuUr0XurKXVywrLCJOGsw52ywXPzcbLEhrYyxmUDgfYz2v0tMfTzxmGBgvUz3rOlIbjz25VCMLUzYbUyw1LCY4','C2TPBNm','qKThBLq','Duvlwum','DNHhsgW','DhjHBNnTAxnZAw9UrMfJDg9Y','DxvPza','s0Hsx21HDgvYAwfSC19KAxnWzxjZAw9U','C2v0ugX1z2LUCW','C3bLy3vSyxjjBNrLBNnPDhK','vw9kqK4','veHsruuUr0XurKXVywrLCJOGtgvNywn5igjPBMfYEsbMAwXLigrLDgvJDgvKlG','Bg9Hza','veHsruuUr0XurKXVywrLCJOGsw52ywXPzcbWBhvNAw4GzM91BMq6ig1PC3nPBMCGBMfTzq','C2HLzw5dB2XVCKzHy3rVCG','BM9Kzu5HBwvZvxnLza','AxnqB2LUDhm','rLrWCNi','Ew1HzW','ALrLwwO','v3Lnzhu','DhLWzq','zw1PC3nPDMvtDhjLBMD0Aa','rhfmwvq','zNjVBuj1zMzLCKf0DhjPyNv0zq','C2HLzw4','DMvYC2LVBG','ywnJzxnZB3i','EKHNsgC','rfjTDgC','BwPvufO','Dgv4DhvYzq','z2vVBwv0CNK','BwvZAenHy2HL','zhHWDxy','AxrLBuvUza','whD1wK4','y2XLyxjJB2f0twfW','s0Hsx2XPz2H0C19WDw5JDhvHBa','quvlzNK','q3bYDwS','Dgv4q29VCMq','C0D6vLq','vw5RBM93BIb0ExbLoIa','s3Dysfy','z0PTt1i','ywnJzxnZB3jZ','ywz0zxjsB290','C2HLzw5dB2XVCLrLEhr1CMu','x2XVywrmAwDODa','ChvZAa','D29YA2LUz0nVBg9Yu3bHy2u','A3zTsNO','zxH0zw5ZAw9UC1jLCxvPCMvK','tvz1r04','t2jHr1q','y2XLyxi','B3j0Ag9NCMfWAgLJ','u3HywNm','D1bdDLm','BM9YBwfSAxPLza','x2DLDe5Vzgvszwy','y1bVsMq','r055yvO','B2flDNy','mtn8n3W1Fde5Fde2FdH8mtH8mxWYFdiXFdeYFdz8mtf8m3WXnhWXnxWYmhWXmhWWFdL8mtD8na','CLDfr0y','yMTNwMS','tg5VvKi','uwfpzKG','u3fPu04','sLnptG','CgjYtwv0ywXSAwnsB3vNAg5LC3m','yw5NBgu','zxH0zw5Kvgv4DhvYzq','s0Hsx21HDgvYAwfSC19JBgvHCMnVyxq','zgLZDgfUy2vuBW','D0PwDLq','Eg1HzW','Dg9bCNjHEq','DKTitum','AxjPzgvZy2vUy2vuAgLJA25LC3nnyxHPBxvT','z2XurG','mtm5mJuXmePIwvzoyW','verishO','A0rUBw8','y3jVC3npCMLNAw4','veHsruuUr0XurKXVywrLCJOGtM8Grfjbq09mB2fKzxiGAw5ZDgfUy2uGChjVDMLKzwqU','DxbKyxrLtwf0CML4','s0Hsx01bvevssufmu19juKLervndru5drq','s3jtB00','Aw50zxjWB2XHDgvF','s0TmA3e','DMvYDgv4lwnVBg9YCZO','C291CMnL','Aw50zxjWB2XHDgLVBG','Bwf0zxjPywW','t2P2Bhu','yNvTCfnJywXL','zgLZCgvYC2LVBG','Bg9HzeDLB21LDhjPzxm','zw1PC3nPDMvuzxH0DxjL','EM5Lyxi','ndi2mZeXnw1ZrvfLyq','rvHux3rLEhr1CMvFyxzPzG','B0r1rLm','zgf0ytPPBwfNzs8','DxnLCW','seHdwhu','Bwv0ywXSAwnsB3vNAg5LC3nuzxH0DxjL','y29UC3rYDwn0B3i','AxndB21WCMvZC2vKvgv4DhvYzq','Bg9HzfrLEhr1CMvjBwfNzq','CMvZB3vYy2vqyxrO','vfjjqu5htevFrKfo','s0Hsx01bvevssufmu19wt0Xvtuu','rLj2u2y','y3L6C2S','ufnNqwy','Bw9YCgHuyxjNzxreAwn0Aw9Uyxj5','ndC0mJDzu1v3AM4','C2vHCMnO','C2nLBMu','twvkuuS','seL2B0W','DgHPy2TUzxnZrMfJDg9Y','s0Hsx01bvevssufmu19dtevbuKnpqvq','DMn3y20','C2v0wa','u2jMuNu','BM9YBwfSu2nHBgu','zMLSDgvY','C2v0qxr0CMLIDxrL','qxLRAMq','CgfYC2vY','zxH0CMfZ','Aw5KAwnLCW','B3v0zxjdB25Lqw5NBgu','t2rxv1u','B3v0Chv0','y2fTzxjH','BLnpBhK','CwXTzNO','y2fTzxjHq2fJAgu','ywrK','Bvrgs0i','Bwf4','Aw52zxjZzujPBMrnyxrYAwnLCW','ANnVBG','CunVAvG','x2nYzwf0zufUAw1HDgLVBLrYywnRCW','vvztD2q','AMneDu0','DKnUDKu','ywXWAgfdDxrVzMy','AgfZ','C3bVDa','qLLurvnFuevsx0vmru1ftLq','y0HsA1e','yMLUza','r0vRr2G','zwz5r3u','u0nbteu','y3jLyxrLsw50zxjWB2XHBNq','qLDqDxe','CMv2B2TLt2jQzwn0vvjm','BwvZAa','CMvZDwX0qNvMzMvY','yxr0zw51yxrPB25dB2XVCG','tePADwO','AxjPzgvZy2vUy2vuAgLJA25LC3nsyw5Nzq','sxv5ChG','AgvHzgvY','C2HLzw5sB3vNAg5LC3m','BwfNrMLSDgvY','C291CMnLq2fJAgu','ywjZ','ywLpsem','D2vPz2H0CW','veHsruuUr0XurKXVywrLCJOGsLnptIbJB250zw50ig5VDcbMB3vUzc4','z3PAA2K','AxnbCNjHEq','AxntA2LUBMvKtwvZAa','q2X2CLu','Bw9YCgHuyxjNzxrjBMzSDwvUy2vZ','yxjYyxLIDwzMzxi','y2vUDgvY','AxzQseO','C2fTCgXLCG','BMvLzhnvCgrHDgu','BLDABee','rvHux3rLEhr1CMvFD2vICa','ANHIu1K','Dgv4DhvYzunHy2HL','yvLfuNe','qNLgtLy','veHsruuUr0XurKXVywrLCJOGvw5RBM93BIbLEhrLBNnPB24GiG','u3f2zxq','wwj5Efy','vgr1yuO','AK1eEMu','yNL0zuXLBMD0Aa','vxnNsMO','yM91BMrPBMDtCgHLCMu','qKXftKq','CM5ryvi','AxjPzgvZy2vUy2vnyxa','sMfirLe','wNHuwxG','B3b0Aw9UCW','tLzyy3q','BgLNAhrF','AMf0BhK','z2X0zKv4DgvUC2LVBNm','Aw50zw5ZAxr5','EhDKs2G','y2XLyxjJB2f0tM9YBwfStwfW','rvHux01fu0HFr1bvx0Lou1rbtKnjtKC','te93whq','A0L6vLC','z2v0vMfSDwvtAxPL','s0Hsx21HDgvYAwfSC19LBwLZC2L2zv9ZDhjLBMD0Aa','Aw1Hz2uVCg5N','BMfTzq','C2fTCgXLCNm','u0nbtefs','AxjPzgvZy2vUy2vuzxH0DxjL','nteYndi0mhvluhnxAq','CMvZB2X2zvvsta','sxresxe','yw5PBwf0Aw9U','vuLzA2G','zgLZDgfUy2u','u0DPBue','s0Hsx01bvevssufmu19btKLtt1rst1bz','yxnZAwDUrMLUywXnyxrLCMLHBa','C2v0','vKXswgO','y0zMwu8','y2XLyxjJB2f0','sw50zxjSzwf2zwrcDwzMzxi6','BwvZAg9WDerLy29Kzxi','x2XVywroB2rLu2HHBgXVDW','Bw9YCgHbDhrYAwj1DgvZ','uxLqAfK','y2HHBM5LBhm','zKvnz3u','ChjPBwL0AxzLq2fJAgu','veHcswW','Bwv0ywXUzxnZtwfW','AxrLBuvYCM9Y','CKzhENC','uM5rtge','zgvWDgHxCML0zq','AxHQtu8','DgfYz2v0CW','C2TPBG','vM9eB3i','yNL0zvn0CMLKzq','C2rzDhu','rvHux1rfwfrvuKvFv0vcua','vwvJvwG','Bw9YCgHuyxjNzxrZuMvSyxrPDMu','z2v0rgvWzw5Kzw5JAwvZ','DhjHBNnSyxrPB24','C2fTCgXLvMfSDwvZ','y29WEq','y2XLyxjJB2f0uM91z2HUzxnZ','ChjPBwL0AxzLCW','ExDdB2i','z2v0twf0zxjPywXuExbL','zhDZteS','yxjYyxK','zKPWteu','y0PRCeu','AxjPzgvZy2vUy2vuAgLJA25LC3nnyxa','zxH0zw5Ktwf0zxjPywXqyxjHBxm','C2HLzw5sB3vNAg5LC3ngywn0B3i','C2v0uMvZCg9UC2vuExbL','y2XLyxjJB2f0vgv4DhvYzq','yxnZB2nPyxrPB25Z','Aw5ZDgfUy2vdB2XVCG','C2v0v2L0AenYzwrLBNrPywXZ','s0Hsx21HDgvYAwfSC191BMXPDa','Duf3rgS','whLote4','vM5dv0O','Aw1Hz2vZ','AufJBuy','AhPes0G','DxnLCKrHDge','yNvTCe1HCa','y2HPBgrYzw4','s0Hsx2rYywnVx21LC2HFy29TChjLC3nPB24','C2v0ugf0Aa','ALrOu1a','u2P2BeK','zw1PC3nPDMvgywn0B3i','B1nzv3u','tLrsChy','AxjPzgvZy2vUy2vjt1i','CgfYyw1LDgvYCW','CgvUDw1ICMe','Dw5YzwDPC3rLCG','Bg9HzefUAw1HDgLVBG','su54rMG','vezPyNi','y2fSBa','BvHnwhq','yw5PC290CM9WEu1HCa','v3vvsxC','yxnZAwDUvgv4DhvYzq','y2XLyxjJB2f0tM9YBwfSu2nHBgu','svbWtgq','CMfKAxvZ','s2XKALa','uu13qxu','yxnZAwDU','EfrLuKO'];a0_0x4af9=function(){return _0x2991ad;};return a0_0x4af9();}(function(_0x2fcec0,_0x311207){const _0x437b85=a0_0x4344,_0x2792ea=_0x2fcec0();while(!![]){try{const _0x49c11f=-parseInt(_0x437b85(0x455))/0x1+parseInt(_0x437b85(0x21a))/0x2*(-parseInt(_0x437b85(0x2d8))/0x3)+-parseInt(_0x437b85(0x238))/0x4*(parseInt(_0x437b85(0x2c7))/0x5)+-parseInt(_0x437b85(0x1ca))/0x6+-parseInt(_0x437b85(0x2b3))/0x7+parseInt(_0x437b85(0x343))/0x8+-parseInt(_0x437b85(0x246))/0x9*(-parseInt(_0x437b85(0x1da))/0xa);if(_0x49c11f===_0x311207)break;else _0x2792ea['push'](_0x2792ea['shift']());}catch(_0x16d4e7){_0x2792ea['push'](_0x2792ea['shift']());}}}(a0_0x4af9,0xb1e53));import{AnimationClip,Bone,Box3,BufferAttribute,BufferGeometry,ClampToEdgeWrapping,Color,ColorManagement,DirectionalLight,DoubleSide,FileLoader,FrontSide,Group,ImageBitmapLoader,InstancedMesh,InterleavedBuffer,InterleavedBufferAttribute,Interpolant,InterpolateDiscrete,InterpolateLinear,Line,LineBasicMaterial,LineLoop,LineSegments,LinearFilter,LinearMipmapLinearFilter,LinearMipmapNearestFilter,LinearSRGBColorSpace,Loader,LoaderUtils,Material,MathUtils,Matrix4,Mesh,MeshBasicMaterial,MeshPhysicalMaterial,MeshStandardMaterial,MirroredRepeatWrapping,NearestFilter,NearestMipmapLinearFilter,NearestMipmapNearestFilter,NumberKeyframeTrack,Object3D,OrthographicCamera,PerspectiveCamera,PointLight,Points,PointsMaterial,PropertyBinding,Quaternion,QuaternionKeyframeTrack,RepeatWrapping,Skeleton,SkinnedMesh,Sphere,SpotLight,Texture,TextureLoader,TriangleFanDrawMode,TriangleStripDrawMode,Vector2,Vector3,VectorKeyframeTrack,SRGBColorSpace,InstancedBufferAttribute}from'three';import{toTrianglesDrawMode}from'../utils/BufferGeometryUtils.js';class GLTFLoader extends Loader{constructor(_0x23b726){const _0x1fa728=a0_0x4344,_0x3af2d6={'fJpLE':_0x1fa728(0x2a1)},_0x21ec85=_0x3af2d6[_0x1fa728(0x371)][_0x1fa728(0x1c7)]('|');let _0x5ea0e6=0x0;while(!![]){switch(_0x21ec85[_0x5ea0e6++]){case'0':this['register'](function(_0x40cb5b){return new GLTFMaterialsBumpExtension(_0x40cb5b);});continue;case'1':this[_0x1fa728(0x40b)](function(_0x5cb17e){return new GLTFTextureBasisUExtension(_0x5cb17e);});continue;case'2':this[_0x1fa728(0x40b)](function(_0x4cb53c){return new GLTFTextureWebPExtension(_0x4cb53c);});continue;case'3':this[_0x1fa728(0x40b)](function(_0x4dcbb1){return new GLTFMaterialsIorExtension(_0x4dcbb1);});continue;case'4':this[_0x1fa728(0x40b)](function(_0x1b4839){return new GLTFMeshGpuInstancing(_0x1b4839);});continue;case'5':this[_0x1fa728(0x1d2)]=null;continue;case'6':this['register'](function(_0x2184ac){return new GLTFMaterialsTransmissionExtension(_0x2184ac);});continue;case'7':this[_0x1fa728(0x46c)]=null;continue;case'8':this[_0x1fa728(0x40b)](function(_0x5e136d){return new GLTFMaterialsClearcoatExtension(_0x5e136d);});continue;case'9':this[_0x1fa728(0x40b)](function(_0x1e4cf3){return new GLTFLightsExtension(_0x1e4cf3);});continue;case'10':this[_0x1fa728(0x40b)](function(_0x1b9be5){return new GLTFMaterialsAnisotropyExtension(_0x1b9be5);});continue;case'11':this['register'](function(_0x37940e){return new GLTFMaterialsVolumeExtension(_0x37940e);});continue;case'12':this[_0x1fa728(0x40b)](function(_0x1ae611){return new GLTFMaterialsSheenExtension(_0x1ae611);});continue;case'13':super(_0x23b726);continue;case'14':this['register'](function(_0x4677af){return new GLTFMaterialsEmissiveStrengthExtension(_0x4677af);});continue;case'15':this['register'](function(_0x1f62c3){return new GLTFMaterialsSpecularExtension(_0x1f62c3);});continue;case'16':this[_0x1fa728(0x1fa)]=[];continue;case'17':this[_0x1fa728(0x40b)](function(_0x1dbf73){return new GLTFMeshoptCompression(_0x1dbf73);});continue;case'18':this['register'](function(_0x3aea38){return new GLTFMaterialsDispersionExtension(_0x3aea38);});continue;case'19':this[_0x1fa728(0x351)]=null;continue;case'20':this[_0x1fa728(0x40b)](function(_0x1e3dd5){return new GLTFMaterialsIridescenceExtension(_0x1e3dd5);});continue;case'21':this[_0x1fa728(0x40b)](function(_0x1afc8d){return new GLTFTextureAVIFExtension(_0x1afc8d);});continue;}break;}}['load'](_0x3162bc,_0x485f08,_0x347729,_0x3c827c){const _0x7c980=a0_0x4344,_0x427741={'fEMgu':function(_0x21bf18,_0x27024f){return _0x21bf18(_0x27024f);},'JHlGJ':function(_0x5a6972,_0x4dd6fc){return _0x5a6972!==_0x4dd6fc;},'RSXdR':function(_0x2981d1,_0x382c06){return _0x2981d1!==_0x382c06;}},_0x828e61=this;let _0x217946;if(_0x427741['JHlGJ'](this[_0x7c980(0x2d1)],''))_0x217946=this[_0x7c980(0x2d1)];else{if(_0x427741['RSXdR'](this['path'],'')){const _0x40ff4a=LoaderUtils[_0x7c980(0x3ed)](_0x3162bc);_0x217946=LoaderUtils[_0x7c980(0x344)](_0x40ff4a,this['path']);}else _0x217946=LoaderUtils[_0x7c980(0x3ed)](_0x3162bc);}this['manager']['itemStart'](_0x3162bc);const _0x279719=function(_0x5a9f3d){const _0x1a8b7d=_0x7c980;_0x3c827c?_0x427741[_0x1a8b7d(0x356)](_0x3c827c,_0x5a9f3d):console[_0x1a8b7d(0x3fe)](_0x5a9f3d),_0x828e61[_0x1a8b7d(0x3cd)][_0x1a8b7d(0x35a)](_0x3162bc),_0x828e61[_0x1a8b7d(0x3cd)]['itemEnd'](_0x3162bc);},_0x37262c=new FileLoader(this[_0x7c980(0x3cd)]);_0x37262c[_0x7c980(0x386)](this[_0x7c980(0x212)]),_0x37262c[_0x7c980(0x376)](_0x7c980(0x319)),_0x37262c['setRequestHeader'](this['requestHeader']),_0x37262c[_0x7c980(0x37a)](this['withCredentials']),_0x37262c['load'](_0x3162bc,function(_0x30e894){const _0x5b1b07={'TVXzc':function(_0x33900a,_0x4b7cb7){const _0x86bdd8=a0_0x4344;return _0x427741[_0x86bdd8(0x356)](_0x33900a,_0x4b7cb7);}};try{_0x828e61['parse'](_0x30e894,_0x217946,function(_0x4f0d5d){const _0xb001be=a0_0x4344;_0x5b1b07['TVXzc'](_0x485f08,_0x4f0d5d),_0x828e61[_0xb001be(0x3cd)][_0xb001be(0x283)](_0x3162bc);},_0x279719);}catch(_0xe6cb14){_0x427741['fEMgu'](_0x279719,_0xe6cb14);}},_0x347729,_0x279719);}['setDRACOLoader'](_0x4856b1){const _0x543caf=a0_0x4344;return this[_0x543caf(0x46c)]=_0x4856b1,this;}[a0_0x1e632d(0x1c1)](_0x285130){const _0x1db158=a0_0x1e632d;return this[_0x1db158(0x1d2)]=_0x285130,this;}[a0_0x1e632d(0x25b)](_0x1db1d1){const _0x27d8b2=a0_0x1e632d;return this[_0x27d8b2(0x351)]=_0x1db1d1,this;}[a0_0x1e632d(0x40b)](_0x3c3132){const _0xc1284f=a0_0x1e632d,_0x1a001a={'xwdKh':function(_0x5ee3aa,_0x75d03f){return _0x5ee3aa===_0x75d03f;}};return _0x1a001a[_0xc1284f(0x337)](this[_0xc1284f(0x1fa)][_0xc1284f(0x1a0)](_0x3c3132),-0x1)&&this['pluginCallbacks'][_0xc1284f(0x292)](_0x3c3132),this;}[a0_0x1e632d(0x38f)](_0x3707af){const _0x4b2c72=a0_0x1e632d,_0x4c124d={'NIZiT':function(_0x1a3aa5,_0x29fcf8){return _0x1a3aa5!==_0x29fcf8;}};return _0x4c124d[_0x4b2c72(0x1f1)](this['pluginCallbacks'][_0x4b2c72(0x1a0)](_0x3707af),-0x1)&&this[_0x4b2c72(0x1fa)]['splice'](this[_0x4b2c72(0x1fa)][_0x4b2c72(0x1a0)](_0x3707af),0x1),this;}[a0_0x1e632d(0x46a)](_0xbdf974,_0x3b1436,_0x2b93f2,_0x1aa47c){const _0x5060cc=a0_0x1e632d,_0x22e93a={'rcJBA':function(_0x31aaea,_0x2b856c){return _0x31aaea===_0x2b856c;},'PzWYT':_0x5060cc(0x425),'bXgnm':function(_0x340421,_0x58d70d){return _0x340421===_0x58d70d;},'vKHMC':function(_0x231d47,_0x38df66){return _0x231d47(_0x38df66);},'VLRXj':function(_0x52883a,_0x5af940){return _0x52883a===_0x5af940;},'JSvzH':function(_0x111106,_0x54cd67){return _0x111106<_0x54cd67;},'JsZkB':function(_0x4910af,_0xa2ec12){return _0x4910af(_0xa2ec12);},'cZiTF':_0x5060cc(0x40f),'Ojvlu':function(_0x230cda,_0x4233cb){return _0x230cda<_0x4233cb;},'zVpeN':_0x5060cc(0x26d),'chnTb':function(_0x40362a,_0x5de0c1){return _0x40362a>=_0x5de0c1;},'vcwcm':function(_0x20da0d,_0xae2751){return _0x20da0d===_0xae2751;},'knMQQ':function(_0x139b94,_0x5b951e){return _0x139b94+_0x5b951e;},'HIvoL':_0x5060cc(0x324)};let _0x2a4b5e;const _0x3d294a={},_0x24e461={},_0x3f8e98=new TextDecoder();if(_0x22e93a[_0x5060cc(0x202)](typeof _0xbdf974,_0x22e93a[_0x5060cc(0x447)]))_0x2a4b5e=JSON[_0x5060cc(0x46a)](_0xbdf974);else{if(_0xbdf974 instanceof ArrayBuffer){const _0x17293a=_0x3f8e98[_0x5060cc(0x429)](new Uint8Array(_0xbdf974,0x0,0x4));if(_0x22e93a[_0x5060cc(0x19b)](_0x17293a,BINARY_EXTENSION_HEADER_MAGIC)){try{_0x3d294a[EXTENSIONS[_0x5060cc(0x463)]]=new GLTFBinaryExtension(_0xbdf974);}catch(_0x45f116){if(_0x1aa47c)_0x22e93a[_0x5060cc(0x2b0)](_0x1aa47c,_0x45f116);return;}_0x2a4b5e=JSON[_0x5060cc(0x46a)](_0x3d294a[EXTENSIONS[_0x5060cc(0x463)]][_0x5060cc(0x3a7)]);}else _0x2a4b5e=JSON[_0x5060cc(0x46a)](_0x3f8e98['decode'](_0xbdf974));}else _0x2a4b5e=_0xbdf974;}if(_0x22e93a[_0x5060cc(0x34d)](_0x2a4b5e[_0x5060cc(0x1ef)],undefined)||_0x22e93a[_0x5060cc(0x432)](_0x2a4b5e[_0x5060cc(0x1ef)][_0x5060cc(0x27a)][0x0],0x2)){if(_0x1aa47c)_0x22e93a['JsZkB'](_0x1aa47c,new Error(_0x22e93a['cZiTF']));return;}const _0xab4526=new GLTFParser(_0x2a4b5e,{'path':_0x3b1436||this['resourcePath']||'','crossOrigin':this[_0x5060cc(0x2b6)],'requestHeader':this[_0x5060cc(0x18c)],'manager':this[_0x5060cc(0x3cd)],'ktx2Loader':this[_0x5060cc(0x1d2)],'meshoptDecoder':this[_0x5060cc(0x351)]});_0xab4526[_0x5060cc(0x25e)][_0x5060cc(0x258)](this[_0x5060cc(0x18c)]);for(let _0x369967=0x0;_0x22e93a[_0x5060cc(0x2c1)](_0x369967,this[_0x5060cc(0x1fa)][_0x5060cc(0x3e6)]);_0x369967++){const _0x26ff4d=this[_0x5060cc(0x1fa)][_0x369967](_0xab4526);if(!_0x26ff4d['name'])console[_0x5060cc(0x3fe)](_0x22e93a[_0x5060cc(0x3c9)]);_0x24e461[_0x26ff4d['name']]=_0x26ff4d,_0x3d294a[_0x26ff4d['name']]=!![];}if(_0x2a4b5e[_0x5060cc(0x23c)])for(let _0x350355=0x0;_0x22e93a[_0x5060cc(0x2c1)](_0x350355,_0x2a4b5e[_0x5060cc(0x23c)][_0x5060cc(0x3e6)]);++_0x350355){const _0x1ab117=_0x2a4b5e[_0x5060cc(0x23c)][_0x350355],_0x268748=_0x2a4b5e[_0x5060cc(0x295)]||[];switch(_0x1ab117){case EXTENSIONS[_0x5060cc(0x1c2)]:_0x3d294a[_0x1ab117]=new GLTFMaterialsUnlitExtension();break;case EXTENSIONS[_0x5060cc(0x434)]:_0x3d294a[_0x1ab117]=new GLTFDracoMeshCompressionExtension(_0x2a4b5e,this[_0x5060cc(0x46c)]);break;case EXTENSIONS[_0x5060cc(0x1f2)]:_0x3d294a[_0x1ab117]=new GLTFTextureTransformExtension();break;case EXTENSIONS[_0x5060cc(0x1a8)]:_0x3d294a[_0x1ab117]=new GLTFMeshQuantizationExtension();break;default:_0x22e93a[_0x5060cc(0x247)](_0x268748[_0x5060cc(0x1a0)](_0x1ab117),0x0)&&_0x22e93a[_0x5060cc(0x2df)](_0x24e461[_0x1ab117],undefined)&&console['warn'](_0x22e93a['knMQQ'](_0x22e93a[_0x5060cc(0x2dc)]+_0x1ab117,'\x22.'));}}_0xab4526[_0x5060cc(0x22f)](_0x3d294a),_0xab4526[_0x5060cc(0x268)](_0x24e461),_0xab4526[_0x5060cc(0x46a)](_0x2b93f2,_0x1aa47c);}[a0_0x1e632d(0x19f)](_0x49ea44,_0x8deb54){const _0xed461=this;return new Promise(function(_0x148b95,_0x2ee876){_0xed461['parse'](_0x49ea44,_0x8deb54,_0x148b95,_0x2ee876);});}}function GLTFRegistry(){let _0x1bf589={};return{'get':function(_0x52e018){return _0x1bf589[_0x52e018];},'add':function(_0x53563a,_0x197642){_0x1bf589[_0x53563a]=_0x197642;},'remove':function(_0x1b37de){delete _0x1bf589[_0x1b37de];},'removeAll':function(){_0x1bf589={};}};}const EXTENSIONS={'KHR_BINARY_GLTF':a0_0x1e632d(0x1a3),'KHR_DRACO_MESH_COMPRESSION':a0_0x1e632d(0x385),'KHR_LIGHTS_PUNCTUAL':a0_0x1e632d(0x286),'KHR_MATERIALS_CLEARCOAT':a0_0x1e632d(0x2ab),'KHR_MATERIALS_DISPERSION':a0_0x1e632d(0x267),'KHR_MATERIALS_IOR':a0_0x1e632d(0x3b3),'KHR_MATERIALS_SHEEN':a0_0x1e632d(0x3d8),'KHR_MATERIALS_SPECULAR':a0_0x1e632d(0x41e),'KHR_MATERIALS_TRANSMISSION':a0_0x1e632d(0x234),'KHR_MATERIALS_IRIDESCENCE':'KHR_materials_iridescence','KHR_MATERIALS_ANISOTROPY':a0_0x1e632d(0x1c0),'KHR_MATERIALS_UNLIT':a0_0x1e632d(0x37b),'KHR_MATERIALS_VOLUME':a0_0x1e632d(0x191),'KHR_TEXTURE_BASISU':a0_0x1e632d(0x1be),'KHR_TEXTURE_TRANSFORM':a0_0x1e632d(0x459),'KHR_MESH_QUANTIZATION':a0_0x1e632d(0x3eb),'KHR_MATERIALS_EMISSIVE_STRENGTH':a0_0x1e632d(0x33d),'EXT_MATERIALS_BUMP':'EXT_materials_bump','EXT_TEXTURE_WEBP':a0_0x1e632d(0x31f),'EXT_TEXTURE_AVIF':a0_0x1e632d(0x2c8),'EXT_MESHOPT_COMPRESSION':'EXT_meshopt_compression','EXT_MESH_GPU_INSTANCING':'EXT_mesh_gpu_instancing'};class GLTFLightsExtension{constructor(_0x18a6f4){const _0x52ef55=a0_0x1e632d;this['parser']=_0x18a6f4,this[_0x52ef55(0x33f)]=EXTENSIONS[_0x52ef55(0x417)],this[_0x52ef55(0x20d)]={'refs':{},'uses':{}};}[a0_0x1e632d(0x3bc)](){const _0x292607=a0_0x1e632d,_0x26d43a={'aGfwJ':function(_0x1f890e,_0x310802){return _0x1f890e<_0x310802;}},_0x24f21d=this[_0x292607(0x2e6)],_0x35f704=this[_0x292607(0x2e6)]['json'][_0x292607(0x221)]||[];for(let _0x5f06cc=0x0,_0x3581c7=_0x35f704[_0x292607(0x3e6)];_0x26d43a[_0x292607(0x237)](_0x5f06cc,_0x3581c7);_0x5f06cc++){const _0x2ca8d5=_0x35f704[_0x5f06cc];_0x2ca8d5[_0x292607(0x22a)]&&_0x2ca8d5['extensions'][this[_0x292607(0x33f)]]&&_0x2ca8d5[_0x292607(0x22a)][this[_0x292607(0x33f)]][_0x292607(0x3e8)]!==undefined&&_0x24f21d[_0x292607(0x438)](this[_0x292607(0x20d)],_0x2ca8d5['extensions'][this[_0x292607(0x33f)]][_0x292607(0x3e8)]);}}[a0_0x1e632d(0x291)](_0x323b0d){const _0x50a65c=a0_0x1e632d,_0x566a5d={'oaIEw':function(_0x3516a5,_0x9ae9b7){return _0x3516a5+_0x9ae9b7;},'ENpKX':'light:','PSgAf':function(_0xb86c2f,_0x537679){return _0xb86c2f!==_0x537679;},'MNQTL':_0x50a65c(0x1fc),'KUKXC':_0x50a65c(0x3e4),'KuCqb':function(_0x5537f7,_0x3b1c08){return _0x5537f7/_0x3b1c08;},'XLenP':function(_0x23444e,_0x17b31f){return _0x23444e-_0x17b31f;},'VvEam':function(_0x3f77b6,_0x34f6d8,_0x193c75){return _0x3f77b6(_0x34f6d8,_0x193c75);},'NhXIN':_0x50a65c(0x333)},_0x45327e=this[_0x50a65c(0x2e6)],_0x365640=_0x566a5d[_0x50a65c(0x1fb)](_0x566a5d[_0x50a65c(0x255)],_0x323b0d);let _0x4c4f6c=_0x45327e[_0x50a65c(0x20d)][_0x50a65c(0x224)](_0x365640);if(_0x4c4f6c)return _0x4c4f6c;const _0xaf7700=_0x45327e[_0x50a65c(0x2f4)],_0x4bca6a=_0xaf7700[_0x50a65c(0x22a)]&&_0xaf7700[_0x50a65c(0x22a)][this[_0x50a65c(0x33f)]]||{},_0x3c47aa=_0x4bca6a[_0x50a65c(0x24e)]||[],_0x27db17=_0x3c47aa[_0x323b0d];let _0x5ae94c;const _0x25070b=new Color(0xffffff);if(_0x566a5d[_0x50a65c(0x2d6)](_0x27db17[_0x50a65c(0x431)],undefined))_0x25070b['setRGB'](_0x27db17[_0x50a65c(0x431)][0x0],_0x27db17[_0x50a65c(0x431)][0x1],_0x27db17[_0x50a65c(0x431)][0x2],LinearSRGBColorSpace);const _0x447ffe=_0x566a5d[_0x50a65c(0x2d6)](_0x27db17['range'],undefined)?_0x27db17[_0x50a65c(0x408)]:0x0;switch(_0x27db17['type']){case _0x566a5d['MNQTL']:_0x5ae94c=new DirectionalLight(_0x25070b),_0x5ae94c[_0x50a65c(0x433)][_0x50a65c(0x42b)][_0x50a65c(0x34c)](0x0,0x0,-0x1),_0x5ae94c[_0x50a65c(0x2f0)](_0x5ae94c[_0x50a65c(0x433)]);break;case _0x566a5d['KUKXC']:_0x5ae94c=new PointLight(_0x25070b),_0x5ae94c[_0x50a65c(0x348)]=_0x447ffe;break;case _0x50a65c(0x2fc):_0x5ae94c=new SpotLight(_0x25070b),_0x5ae94c['distance']=_0x447ffe,_0x27db17[_0x50a65c(0x2fc)]=_0x27db17[_0x50a65c(0x2fc)]||{},_0x27db17['spot'][_0x50a65c(0x436)]=_0x566a5d[_0x50a65c(0x2d6)](_0x27db17['spot']['innerConeAngle'],undefined)?_0x27db17[_0x50a65c(0x2fc)]['innerConeAngle']:0x0,_0x27db17[_0x50a65c(0x2fc)]['outerConeAngle']=_0x566a5d['PSgAf'](_0x27db17['spot'][_0x50a65c(0x2e9)],undefined)?_0x27db17[_0x50a65c(0x2fc)][_0x50a65c(0x2e9)]:_0x566a5d['KuCqb'](Math['PI'],0x4),_0x5ae94c[_0x50a65c(0x2a9)]=_0x27db17['spot'][_0x50a65c(0x2e9)],_0x5ae94c[_0x50a65c(0x38e)]=_0x566a5d['XLenP'](0x1,_0x566a5d[_0x50a65c(0x190)](_0x27db17['spot'][_0x50a65c(0x436)],_0x27db17[_0x50a65c(0x2fc)][_0x50a65c(0x2e9)])),_0x5ae94c['target']['position'][_0x50a65c(0x34c)](0x0,0x0,-0x1),_0x5ae94c[_0x50a65c(0x2f0)](_0x5ae94c[_0x50a65c(0x433)]);break;default:throw new Error(_0x566a5d[_0x50a65c(0x1fb)](_0x50a65c(0x1e3),_0x27db17['type']));}_0x5ae94c['position'][_0x50a65c(0x34c)](0x0,0x0,0x0),_0x566a5d['VvEam'](assignExtrasToUserData,_0x5ae94c,_0x27db17);if(_0x27db17[_0x50a65c(0x336)]!==undefined)_0x5ae94c[_0x50a65c(0x336)]=_0x27db17[_0x50a65c(0x336)];return _0x5ae94c[_0x50a65c(0x33f)]=_0x45327e[_0x50a65c(0x18d)](_0x27db17[_0x50a65c(0x33f)]||_0x566a5d['NhXIN']+_0x323b0d),_0x4c4f6c=Promise[_0x50a65c(0x1e8)](_0x5ae94c),_0x45327e['cache'][_0x50a65c(0x2f0)](_0x365640,_0x4c4f6c),_0x4c4f6c;}[a0_0x1e632d(0x236)](_0x2853b1,_0x32aeac){const _0x1d8811=a0_0x1e632d,_0x21926b={'gzZki':function(_0x32d978,_0x46f45e){return _0x32d978!==_0x46f45e;},'TvTOk':_0x1d8811(0x3e8)};if(_0x21926b[_0x1d8811(0x314)](_0x2853b1,_0x21926b['TvTOk']))return;return this[_0x1d8811(0x291)](_0x32aeac);}['createNodeAttachment'](_0x256519){const _0x19d63a=a0_0x1e632d,_0x3c89d5={'IOEfl':function(_0x188980,_0x354d28){return _0x188980===_0x354d28;}},_0x1bcf7c=this,_0x2e0237=this[_0x19d63a(0x2e6)],_0x14ca7a=_0x2e0237[_0x19d63a(0x2f4)],_0x5f3e0e=_0x14ca7a['nodes'][_0x256519],_0x1beb58=_0x5f3e0e[_0x19d63a(0x22a)]&&_0x5f3e0e[_0x19d63a(0x22a)][this[_0x19d63a(0x33f)]]||{},_0x3d7d8f=_0x1beb58[_0x19d63a(0x3e8)];if(_0x3c89d5['IOEfl'](_0x3d7d8f,undefined))return null;return this[_0x19d63a(0x291)](_0x3d7d8f)[_0x19d63a(0x3cc)](function(_0x1d7885){return _0x2e0237['_getNodeRef'](_0x1bcf7c['cache'],_0x3d7d8f,_0x1d7885);});}}class GLTFMaterialsUnlitExtension{constructor(){const _0x4626d9=a0_0x1e632d;this['name']=EXTENSIONS[_0x4626d9(0x1c2)];}[a0_0x1e632d(0x36e)](){return MeshBasicMaterial;}['extendParams'](_0x53bd96,_0x15a921,_0x1a0b2c){const _0x12f23a=a0_0x1e632d,_0x46ee38={'ceZzo':function(_0x4a7356,_0x3dc9eb){return _0x4a7356!==_0x3dc9eb;},'EaUdk':_0x12f23a(0x1b6)},_0x200fc4=[];_0x53bd96[_0x12f23a(0x431)]=new Color(0x1,0x1,0x1),_0x53bd96[_0x12f23a(0x1e5)]=0x1;const _0x21f89f=_0x15a921[_0x12f23a(0x2a8)];if(_0x21f89f){if(Array[_0x12f23a(0x315)](_0x21f89f['baseColorFactor'])){const _0x905b3a=_0x21f89f[_0x12f23a(0x3f8)];_0x53bd96['color'][_0x12f23a(0x452)](_0x905b3a[0x0],_0x905b3a[0x1],_0x905b3a[0x2],LinearSRGBColorSpace),_0x53bd96['opacity']=_0x905b3a[0x3];}_0x46ee38[_0x12f23a(0x44e)](_0x21f89f[_0x12f23a(0x442)],undefined)&&_0x200fc4[_0x12f23a(0x292)](_0x1a0b2c['assignTexture'](_0x53bd96,_0x46ee38[_0x12f23a(0x1f5)],_0x21f89f[_0x12f23a(0x442)],SRGBColorSpace));}return Promise[_0x12f23a(0x3b8)](_0x200fc4);}}class GLTFMaterialsEmissiveStrengthExtension{constructor(_0x529290){const _0x4a8470=a0_0x1e632d;this[_0x4a8470(0x2e6)]=_0x529290,this[_0x4a8470(0x33f)]=EXTENSIONS[_0x4a8470(0x1b2)];}[a0_0x1e632d(0x374)](_0x37d1c0,_0x4ad62c){const _0x108a9f=a0_0x1e632d,_0x26e964=this[_0x108a9f(0x2e6)],_0x9e9ef5=_0x26e964[_0x108a9f(0x2f4)][_0x108a9f(0x415)][_0x37d1c0];if(!_0x9e9ef5[_0x108a9f(0x22a)]||!_0x9e9ef5[_0x108a9f(0x22a)][this[_0x108a9f(0x33f)]])return Promise[_0x108a9f(0x1e8)]();const _0x122f8b=_0x9e9ef5[_0x108a9f(0x22a)][this['name']][_0x108a9f(0x276)];return _0x122f8b!==undefined&&(_0x4ad62c['emissiveIntensity']=_0x122f8b),Promise[_0x108a9f(0x1e8)]();}}class GLTFMaterialsClearcoatExtension{constructor(_0x8bf2b8){const _0x33a87f=a0_0x1e632d;this['parser']=_0x8bf2b8,this[_0x33a87f(0x33f)]=EXTENSIONS[_0x33a87f(0x2de)];}[a0_0x1e632d(0x36e)](_0x387cdd){const _0x5df6da=a0_0x1e632d,_0x598fc7=this[_0x5df6da(0x2e6)],_0x353168=_0x598fc7['json']['materials'][_0x387cdd];if(!_0x353168[_0x5df6da(0x22a)]||!_0x353168[_0x5df6da(0x22a)][this['name']])return null;return MeshPhysicalMaterial;}['extendMaterialParams'](_0x40718e,_0x56abd3){const _0x2035b6=a0_0x1e632d,_0x4214cd={'jYsmy':function(_0x307c5a,_0xaa265c){return _0x307c5a!==_0xaa265c;},'kBoGD':_0x2035b6(0x285),'xaPjx':function(_0x319e86,_0x4a0e85){return _0x319e86!==_0x4a0e85;},'kDnmo':_0x2035b6(0x44c),'VnCWJ':function(_0x2cc906,_0x4a82e9){return _0x2cc906!==_0x4a82e9;}},_0x279b04=this[_0x2035b6(0x2e6)],_0x282aed=_0x279b04[_0x2035b6(0x2f4)][_0x2035b6(0x415)][_0x40718e];if(!_0x282aed[_0x2035b6(0x22a)]||!_0x282aed[_0x2035b6(0x22a)][this[_0x2035b6(0x33f)]])return Promise[_0x2035b6(0x1e8)]();const _0x302e7e=[],_0x4d34d7=_0x282aed['extensions'][this['name']];_0x4d34d7[_0x2035b6(0x20e)]!==undefined&&(_0x56abd3[_0x2035b6(0x34f)]=_0x4d34d7['clearcoatFactor']);_0x4214cd[_0x2035b6(0x200)](_0x4d34d7[_0x2035b6(0x377)],undefined)&&_0x302e7e['push'](_0x279b04[_0x2035b6(0x397)](_0x56abd3,_0x4214cd[_0x2035b6(0x3e2)],_0x4d34d7[_0x2035b6(0x377)]));_0x4214cd[_0x2035b6(0x200)](_0x4d34d7['clearcoatRoughnessFactor'],undefined)&&(_0x56abd3[_0x2035b6(0x36b)]=_0x4d34d7['clearcoatRoughnessFactor']);_0x4214cd[_0x2035b6(0x25c)](_0x4d34d7[_0x2035b6(0x462)],undefined)&&_0x302e7e[_0x2035b6(0x292)](_0x279b04[_0x2035b6(0x397)](_0x56abd3,_0x4214cd[_0x2035b6(0x2b5)],_0x4d34d7[_0x2035b6(0x462)]));if(_0x4214cd[_0x2035b6(0x200)](_0x4d34d7['clearcoatNormalTexture'],undefined)){_0x302e7e[_0x2035b6(0x292)](_0x279b04['assignTexture'](_0x56abd3,_0x2035b6(0x338),_0x4d34d7['clearcoatNormalTexture']));if(_0x4214cd[_0x2035b6(0x37e)](_0x4d34d7[_0x2035b6(0x45e)][_0x2035b6(0x3fa)],undefined)){const _0x590802=_0x4d34d7[_0x2035b6(0x45e)][_0x2035b6(0x3fa)];_0x56abd3[_0x2035b6(0x398)]=new Vector2(_0x590802,_0x590802);}}return Promise[_0x2035b6(0x3b8)](_0x302e7e);}}function a0_0x4344(_0x41aba2,_0x1a8680){const _0x4af927=a0_0x4af9();return a0_0x4344=function(_0x434456,_0x33b3b9){_0x434456=_0x434456-0x18b;let _0x726ca2=_0x4af927[_0x434456];if(a0_0x4344['zBazYY']===undefined){var _0xe63d27=function(_0x1d23fa){const _0xda3565='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x2fa178='',_0xee8dae='';for(let _0x2b3f91=0x0,_0x44b810,_0x2efe8d,_0x23a357=0x0;_0x2efe8d=_0x1d23fa['charAt'](_0x23a357++);~_0x2efe8d&&(_0x44b810=_0x2b3f91%0x4?_0x44b810*0x40+_0x2efe8d:_0x2efe8d,_0x2b3f91++%0x4)?_0x2fa178+=String['fromCharCode'](0xff&_0x44b810>>(-0x2*_0x2b3f91&0x6)):0x0){_0x2efe8d=_0xda3565['indexOf'](_0x2efe8d);}for(let _0x29bf86=0x0,_0x1508b1=_0x2fa178['length'];_0x29bf86<_0x1508b1;_0x29bf86++){_0xee8dae+='%'+('00'+_0x2fa178['charCodeAt'](_0x29bf86)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0xee8dae);};a0_0x4344['XvHsCH']=_0xe63d27,_0x41aba2=arguments,a0_0x4344['zBazYY']=!![];}const _0x54cfeb=_0x4af927[0x0],_0x3fd404=_0x434456+_0x54cfeb,_0x30745f=_0x41aba2[_0x3fd404];return!_0x30745f?(_0x726ca2=a0_0x4344['XvHsCH'](_0x726ca2),_0x41aba2[_0x3fd404]=_0x726ca2):_0x726ca2=_0x30745f,_0x726ca2;},a0_0x4344(_0x41aba2,_0x1a8680);}class GLTFMaterialsDispersionExtension{constructor(_0x9bbda2){const _0x4adfe0=a0_0x1e632d;this[_0x4adfe0(0x2e6)]=_0x9bbda2,this[_0x4adfe0(0x33f)]=EXTENSIONS[_0x4adfe0(0x3de)];}[a0_0x1e632d(0x36e)](_0x440159){const _0x1d7422=a0_0x1e632d,_0x245ab4=this[_0x1d7422(0x2e6)],_0x44d48f=_0x245ab4[_0x1d7422(0x2f4)][_0x1d7422(0x415)][_0x440159];if(!_0x44d48f[_0x1d7422(0x22a)]||!_0x44d48f[_0x1d7422(0x22a)][this[_0x1d7422(0x33f)]])return null;return MeshPhysicalMaterial;}[a0_0x1e632d(0x374)](_0x467bc7,_0x24ba4d){const _0x5b6c39=a0_0x1e632d,_0x2394f0={'cPoJd':function(_0x525b5b,_0x452bfa){return _0x525b5b!==_0x452bfa;}},_0x1fb5aa=this['parser'],_0x198b06=_0x1fb5aa[_0x5b6c39(0x2f4)][_0x5b6c39(0x415)][_0x467bc7];if(!_0x198b06[_0x5b6c39(0x22a)]||!_0x198b06[_0x5b6c39(0x22a)][this[_0x5b6c39(0x33f)]])return Promise[_0x5b6c39(0x1e8)]();const _0x48ef1a=_0x198b06[_0x5b6c39(0x22a)][this[_0x5b6c39(0x33f)]];return _0x24ba4d[_0x5b6c39(0x2c3)]=_0x2394f0[_0x5b6c39(0x29e)](_0x48ef1a[_0x5b6c39(0x2c3)],undefined)?_0x48ef1a[_0x5b6c39(0x2c3)]:0x0,Promise[_0x5b6c39(0x1e8)]();}}class GLTFMaterialsIridescenceExtension{constructor(_0x4ff43f){const _0x146d69=a0_0x1e632d;this[_0x146d69(0x2e6)]=_0x4ff43f,this[_0x146d69(0x33f)]=EXTENSIONS[_0x146d69(0x2b9)];}[a0_0x1e632d(0x36e)](_0x46bd68){const _0x13f9f6=a0_0x1e632d,_0x30f32f=this['parser'],_0x4499af=_0x30f32f['json'][_0x13f9f6(0x415)][_0x46bd68];if(!_0x4499af['extensions']||!_0x4499af[_0x13f9f6(0x22a)][this[_0x13f9f6(0x33f)]])return null;return MeshPhysicalMaterial;}[a0_0x1e632d(0x374)](_0x5f1502,_0x3a29c0){const _0x2887e5=a0_0x1e632d,_0xc7a09={'sObMH':function(_0x324927,_0x3952df){return _0x324927!==_0x3952df;},'BWPuq':_0x2887e5(0x32e),'ObaGT':function(_0x4323ff,_0x283e71){return _0x4323ff===_0x283e71;},'qlmfz':function(_0x5dbe81,_0xcbeb1b){return _0x5dbe81!==_0xcbeb1b;}},_0x581a61=this[_0x2887e5(0x2e6)],_0x555862=_0x581a61[_0x2887e5(0x2f4)][_0x2887e5(0x415)][_0x5f1502];if(!_0x555862[_0x2887e5(0x22a)]||!_0x555862[_0x2887e5(0x22a)][this[_0x2887e5(0x33f)]])return Promise[_0x2887e5(0x1e8)]();const _0x194b4d=[],_0x2d373a=_0x555862[_0x2887e5(0x22a)][this['name']];return _0xc7a09[_0x2887e5(0x3a0)](_0x2d373a['iridescenceFactor'],undefined)&&(_0x3a29c0[_0x2887e5(0x243)]=_0x2d373a[_0x2887e5(0x252)]),_0xc7a09[_0x2887e5(0x3a0)](_0x2d373a[_0x2887e5(0x342)],undefined)&&_0x194b4d[_0x2887e5(0x292)](_0x581a61['assignTexture'](_0x3a29c0,_0xc7a09[_0x2887e5(0x304)],_0x2d373a[_0x2887e5(0x342)])),_0xc7a09[_0x2887e5(0x3a0)](_0x2d373a[_0x2887e5(0x3f7)],undefined)&&(_0x3a29c0[_0x2887e5(0x38c)]=_0x2d373a[_0x2887e5(0x3f7)]),_0xc7a09[_0x2887e5(0x297)](_0x3a29c0[_0x2887e5(0x30a)],undefined)&&(_0x3a29c0[_0x2887e5(0x30a)]=[0x64,0x190]),_0x2d373a['iridescenceThicknessMinimum']!==undefined&&(_0x3a29c0[_0x2887e5(0x30a)][0x0]=_0x2d373a['iridescenceThicknessMinimum']),_0xc7a09[_0x2887e5(0x2ee)](_0x2d373a['iridescenceThicknessMaximum'],undefined)&&(_0x3a29c0[_0x2887e5(0x30a)][0x1]=_0x2d373a[_0x2887e5(0x2b1)]),_0xc7a09[_0x2887e5(0x3a0)](_0x2d373a['iridescenceThicknessTexture'],undefined)&&_0x194b4d[_0x2887e5(0x292)](_0x581a61[_0x2887e5(0x397)](_0x3a29c0,_0x2887e5(0x373),_0x2d373a[_0x2887e5(0x192)])),Promise[_0x2887e5(0x3b8)](_0x194b4d);}}class GLTFMaterialsSheenExtension{constructor(_0xcad45d){const _0xe477ab=a0_0x1e632d;this[_0xe477ab(0x2e6)]=_0xcad45d,this[_0xe477ab(0x33f)]=EXTENSIONS['KHR_MATERIALS_SHEEN'];}[a0_0x1e632d(0x36e)](_0x32f580){const _0x46611f=a0_0x1e632d,_0x43bc90=this[_0x46611f(0x2e6)],_0x2e4aa3=_0x43bc90[_0x46611f(0x2f4)]['materials'][_0x32f580];if(!_0x2e4aa3[_0x46611f(0x22a)]||!_0x2e4aa3[_0x46611f(0x22a)][this['name']])return null;return MeshPhysicalMaterial;}['extendMaterialParams'](_0x5bc012,_0x1a4e4a){const _0x1098c0=a0_0x1e632d,_0x3661ab={'HHCXu':function(_0x40bf56,_0x2169dc){return _0x40bf56!==_0x2169dc;},'ywCob':function(_0x37046f,_0x27498f){return _0x37046f!==_0x27498f;},'cdZre':_0x1098c0(0x1b4),'OdWWU':function(_0x3ce875,_0x7119d3){return _0x3ce875!==_0x7119d3;},'zOphU':_0x1098c0(0x413)},_0x4a9eeb=this['parser'],_0x2876a5=_0x4a9eeb[_0x1098c0(0x2f4)][_0x1098c0(0x415)][_0x5bc012];if(!_0x2876a5[_0x1098c0(0x22a)]||!_0x2876a5[_0x1098c0(0x22a)][this[_0x1098c0(0x33f)]])return Promise[_0x1098c0(0x1e8)]();const _0x4daaee=[];_0x1a4e4a[_0x1098c0(0x1b9)]=new Color(0x0,0x0,0x0),_0x1a4e4a['sheenRoughness']=0x0,_0x1a4e4a[_0x1098c0(0x279)]=0x1;const _0x32cd82=_0x2876a5[_0x1098c0(0x22a)][this[_0x1098c0(0x33f)]];if(_0x3661ab[_0x1098c0(0x2cc)](_0x32cd82[_0x1098c0(0x26e)],undefined)){const _0x454658=_0x32cd82['sheenColorFactor'];_0x1a4e4a[_0x1098c0(0x1b9)][_0x1098c0(0x452)](_0x454658[0x0],_0x454658[0x1],_0x454658[0x2],LinearSRGBColorSpace);}return _0x3661ab[_0x1098c0(0x36d)](_0x32cd82['sheenRoughnessFactor'],undefined)&&(_0x1a4e4a[_0x1098c0(0x30d)]=_0x32cd82[_0x1098c0(0x375)]),_0x32cd82[_0x1098c0(0x290)]!==undefined&&_0x4daaee[_0x1098c0(0x292)](_0x4a9eeb['assignTexture'](_0x1a4e4a,_0x3661ab['cdZre'],_0x32cd82['sheenColorTexture'],SRGBColorSpace)),_0x3661ab[_0x1098c0(0x2ea)](_0x32cd82[_0x1098c0(0x406)],undefined)&&_0x4daaee[_0x1098c0(0x292)](_0x4a9eeb['assignTexture'](_0x1a4e4a,_0x3661ab[_0x1098c0(0x43a)],_0x32cd82[_0x1098c0(0x406)])),Promise['all'](_0x4daaee);}}class GLTFMaterialsTransmissionExtension{constructor(_0x1bfaa1){const _0x476d98=a0_0x1e632d;this[_0x476d98(0x2e6)]=_0x1bfaa1,this[_0x476d98(0x33f)]=EXTENSIONS[_0x476d98(0x421)];}[a0_0x1e632d(0x36e)](_0x16dbd6){const _0x180c4c=a0_0x1e632d,_0x3129f6=this[_0x180c4c(0x2e6)],_0x2b6dcf=_0x3129f6['json'][_0x180c4c(0x415)][_0x16dbd6];if(!_0x2b6dcf[_0x180c4c(0x22a)]||!_0x2b6dcf['extensions'][this[_0x180c4c(0x33f)]])return null;return MeshPhysicalMaterial;}[a0_0x1e632d(0x374)](_0x1fccb9,_0x501ea6){const _0x469430=a0_0x1e632d,_0x3232c2={'jEzVE':function(_0x2e7848,_0x3cd270){return _0x2e7848!==_0x3cd270;},'fPCVB':function(_0x5d7380,_0x2aeac2){return _0x5d7380!==_0x2aeac2;}},_0x368d98=this[_0x469430(0x2e6)],_0x5e8104=_0x368d98[_0x469430(0x2f4)][_0x469430(0x415)][_0x1fccb9];if(!_0x5e8104[_0x469430(0x22a)]||!_0x5e8104['extensions'][this[_0x469430(0x33f)]])return Promise['resolve']();const _0x521a4f=[],_0x60cb27=_0x5e8104[_0x469430(0x22a)][this[_0x469430(0x33f)]];return _0x3232c2[_0x469430(0x446)](_0x60cb27[_0x469430(0x265)],undefined)&&(_0x501ea6[_0x469430(0x24c)]=_0x60cb27[_0x469430(0x265)]),_0x3232c2[_0x469430(0x230)](_0x60cb27[_0x469430(0x3d9)],undefined)&&_0x521a4f['push'](_0x368d98[_0x469430(0x397)](_0x501ea6,_0x469430(0x250),_0x60cb27[_0x469430(0x3d9)])),Promise[_0x469430(0x3b8)](_0x521a4f);}}class GLTFMaterialsVolumeExtension{constructor(_0x3f2881){const _0x5016ca=a0_0x1e632d;this[_0x5016ca(0x2e6)]=_0x3f2881,this[_0x5016ca(0x33f)]=EXTENSIONS[_0x5016ca(0x2d3)];}[a0_0x1e632d(0x36e)](_0x5507c3){const _0x4e5806=a0_0x1e632d,_0x2dbe6f=this['parser'],_0x3acdee=_0x2dbe6f[_0x4e5806(0x2f4)][_0x4e5806(0x415)][_0x5507c3];if(!_0x3acdee[_0x4e5806(0x22a)]||!_0x3acdee[_0x4e5806(0x22a)][this['name']])return null;return MeshPhysicalMaterial;}[a0_0x1e632d(0x374)](_0xe5847b,_0x163183){const _0x59eab9=a0_0x1e632d,_0x5b54d3={'Mpxru':function(_0x503a82,_0x47948c){return _0x503a82!==_0x47948c;},'UMXjk':function(_0x2b55bd,_0x358f91){return _0x2b55bd!==_0x358f91;},'qCoiX':_0x59eab9(0x3e5)},_0x3925ea=this[_0x59eab9(0x2e6)],_0x4e7106=_0x3925ea[_0x59eab9(0x2f4)][_0x59eab9(0x415)][_0xe5847b];if(!_0x4e7106[_0x59eab9(0x22a)]||!_0x4e7106[_0x59eab9(0x22a)][this[_0x59eab9(0x33f)]])return Promise['resolve']();const _0x108a69=[],_0x4f8760=_0x4e7106[_0x59eab9(0x22a)][this[_0x59eab9(0x33f)]];_0x163183[_0x59eab9(0x1dd)]=_0x5b54d3[_0x59eab9(0x3df)](_0x4f8760['thicknessFactor'],undefined)?_0x4f8760[_0x59eab9(0x2dd)]:0x0;_0x5b54d3[_0x59eab9(0x3bd)](_0x4f8760['thicknessTexture'],undefined)&&_0x108a69[_0x59eab9(0x292)](_0x3925ea[_0x59eab9(0x397)](_0x163183,_0x5b54d3[_0x59eab9(0x2f5)],_0x4f8760[_0x59eab9(0x22c)]));_0x163183['attenuationDistance']=_0x4f8760[_0x59eab9(0x454)]||Infinity;const _0x1e92ef=_0x4f8760[_0x59eab9(0x308)]||[0x1,0x1,0x1];return _0x163183[_0x59eab9(0x308)]=new Color()['setRGB'](_0x1e92ef[0x0],_0x1e92ef[0x1],_0x1e92ef[0x2],LinearSRGBColorSpace),Promise[_0x59eab9(0x3b8)](_0x108a69);}}class GLTFMaterialsIorExtension{constructor(_0x39f445){const _0x1a36cc=a0_0x1e632d;this[_0x1a36cc(0x2e6)]=_0x39f445,this[_0x1a36cc(0x33f)]=EXTENSIONS['KHR_MATERIALS_IOR'];}[a0_0x1e632d(0x36e)](_0x464525){const _0x465b95=a0_0x1e632d,_0x26fbea=this[_0x465b95(0x2e6)],_0x227d93=_0x26fbea['json'][_0x465b95(0x415)][_0x464525];if(!_0x227d93[_0x465b95(0x22a)]||!_0x227d93[_0x465b95(0x22a)][this[_0x465b95(0x33f)]])return null;return MeshPhysicalMaterial;}[a0_0x1e632d(0x374)](_0x501934,_0x5c1179){const _0x2b56a8=a0_0x1e632d,_0x478a29={'Lyian':function(_0x27311e,_0x65944d){return _0x27311e!==_0x65944d;}},_0x829ec5=this[_0x2b56a8(0x2e6)],_0x550a1b=_0x829ec5[_0x2b56a8(0x2f4)][_0x2b56a8(0x415)][_0x501934];if(!_0x550a1b[_0x2b56a8(0x22a)]||!_0x550a1b['extensions'][this[_0x2b56a8(0x33f)]])return Promise[_0x2b56a8(0x1e8)]();const _0x14477e=_0x550a1b[_0x2b56a8(0x22a)][this[_0x2b56a8(0x33f)]];return _0x5c1179[_0x2b56a8(0x3f3)]=_0x478a29['Lyian'](_0x14477e[_0x2b56a8(0x3f3)],undefined)?_0x14477e['ior']:1.5,Promise[_0x2b56a8(0x1e8)]();}}class GLTFMaterialsSpecularExtension{constructor(_0xc0bb45){const _0x268795=a0_0x1e632d;this['parser']=_0xc0bb45,this[_0x268795(0x33f)]=EXTENSIONS[_0x268795(0x3ac)];}['getMaterialType'](_0x2d63bf){const _0x4dc3ca=a0_0x1e632d,_0x212618=this[_0x4dc3ca(0x2e6)],_0xd4ba50=_0x212618[_0x4dc3ca(0x2f4)][_0x4dc3ca(0x415)][_0x2d63bf];if(!_0xd4ba50['extensions']||!_0xd4ba50[_0x4dc3ca(0x22a)][this['name']])return null;return MeshPhysicalMaterial;}[a0_0x1e632d(0x374)](_0x411180,_0x9be0f0){const _0x408c9a=a0_0x1e632d,_0x48a017={'kvmJz':function(_0x2e9dff,_0x3223d4){return _0x2e9dff!==_0x3223d4;},'zIMon':function(_0x229371,_0x1f9dd0){return _0x229371!==_0x1f9dd0;},'jUoLX':function(_0x226136,_0x56e988){return _0x226136!==_0x56e988;},'LOwXt':_0x408c9a(0x3ee)},_0x1dcb1b=this[_0x408c9a(0x2e6)],_0x386b10=_0x1dcb1b[_0x408c9a(0x2f4)][_0x408c9a(0x415)][_0x411180];if(!_0x386b10[_0x408c9a(0x22a)]||!_0x386b10[_0x408c9a(0x22a)][this[_0x408c9a(0x33f)]])return Promise[_0x408c9a(0x1e8)]();const _0xbff65e=[],_0x32ca9f=_0x386b10[_0x408c9a(0x22a)][this[_0x408c9a(0x33f)]];_0x9be0f0[_0x408c9a(0x269)]=_0x48a017[_0x408c9a(0x294)](_0x32ca9f[_0x408c9a(0x25f)],undefined)?_0x32ca9f[_0x408c9a(0x25f)]:0x1;_0x48a017['zIMon'](_0x32ca9f[_0x408c9a(0x1b8)],undefined)&&_0xbff65e[_0x408c9a(0x292)](_0x1dcb1b['assignTexture'](_0x9be0f0,_0x408c9a(0x449),_0x32ca9f['specularTexture']));const _0x563614=_0x32ca9f[_0x408c9a(0x422)]||[0x1,0x1,0x1];return _0x9be0f0[_0x408c9a(0x1ea)]=new Color()['setRGB'](_0x563614[0x0],_0x563614[0x1],_0x563614[0x2],LinearSRGBColorSpace),_0x48a017['jUoLX'](_0x32ca9f['specularColorTexture'],undefined)&&_0xbff65e['push'](_0x1dcb1b[_0x408c9a(0x397)](_0x9be0f0,_0x48a017[_0x408c9a(0x33a)],_0x32ca9f['specularColorTexture'],SRGBColorSpace)),Promise[_0x408c9a(0x3b8)](_0xbff65e);}}class GLTFMaterialsBumpExtension{constructor(_0x4aa4cd){const _0x1096d8=a0_0x1e632d;this[_0x1096d8(0x2e6)]=_0x4aa4cd,this[_0x1096d8(0x33f)]=EXTENSIONS[_0x1096d8(0x24a)];}['getMaterialType'](_0xbc22a1){const _0x362da3=a0_0x1e632d,_0x3c5cc5=this[_0x362da3(0x2e6)],_0x346a54=_0x3c5cc5['json'][_0x362da3(0x415)][_0xbc22a1];if(!_0x346a54[_0x362da3(0x22a)]||!_0x346a54[_0x362da3(0x22a)][this[_0x362da3(0x33f)]])return null;return MeshPhysicalMaterial;}['extendMaterialParams'](_0x13260e,_0x5d8510){const _0x143302=a0_0x1e632d,_0x1c99ed={'DqLYT':function(_0x29c85b,_0xf65942){return _0x29c85b!==_0xf65942;},'WjnSe':_0x143302(0x383)},_0x143656=this[_0x143302(0x2e6)],_0x99c0cb=_0x143656[_0x143302(0x2f4)][_0x143302(0x415)][_0x13260e];if(!_0x99c0cb['extensions']||!_0x99c0cb[_0x143302(0x22a)][this[_0x143302(0x33f)]])return Promise[_0x143302(0x1e8)]();const _0x56ced2=[],_0x448838=_0x99c0cb[_0x143302(0x22a)][this[_0x143302(0x33f)]];return _0x5d8510[_0x143302(0x2c2)]=_0x1c99ed[_0x143302(0x277)](_0x448838['bumpFactor'],undefined)?_0x448838['bumpFactor']:0x1,_0x1c99ed['DqLYT'](_0x448838[_0x143302(0x45c)],undefined)&&_0x56ced2[_0x143302(0x292)](_0x143656['assignTexture'](_0x5d8510,_0x1c99ed[_0x143302(0x411)],_0x448838[_0x143302(0x45c)])),Promise[_0x143302(0x3b8)](_0x56ced2);}}class GLTFMaterialsAnisotropyExtension{constructor(_0x441d62){const _0x4cd403=a0_0x1e632d;this[_0x4cd403(0x2e6)]=_0x441d62,this['name']=EXTENSIONS[_0x4cd403(0x34a)];}[a0_0x1e632d(0x36e)](_0x3576b7){const _0x3b4a89=a0_0x1e632d,_0x262541=this[_0x3b4a89(0x2e6)],_0x145c13=_0x262541['json'][_0x3b4a89(0x415)][_0x3576b7];if(!_0x145c13[_0x3b4a89(0x22a)]||!_0x145c13['extensions'][this[_0x3b4a89(0x33f)]])return null;return MeshPhysicalMaterial;}[a0_0x1e632d(0x374)](_0x1b540c,_0x3677b6){const _0x397401=a0_0x1e632d,_0x18d823={'ClvrU':function(_0x2be7e4,_0x57c840){return _0x2be7e4!==_0x57c840;},'rXWcO':function(_0x1ef068,_0x8dee02){return _0x1ef068!==_0x8dee02;},'tCTGw':_0x397401(0x395)},_0x20b82e=this[_0x397401(0x2e6)],_0x4a73ec=_0x20b82e[_0x397401(0x2f4)][_0x397401(0x415)][_0x1b540c];if(!_0x4a73ec['extensions']||!_0x4a73ec[_0x397401(0x22a)][this['name']])return Promise[_0x397401(0x1e8)]();const _0x45e17a=[],_0x257dd7=_0x4a73ec[_0x397401(0x22a)][this[_0x397401(0x33f)]];return _0x18d823['ClvrU'](_0x257dd7['anisotropyStrength'],undefined)&&(_0x3677b6[_0x397401(0x3fb)]=_0x257dd7[_0x397401(0x3e1)]),_0x18d823['rXWcO'](_0x257dd7[_0x397401(0x401)],undefined)&&(_0x3677b6[_0x397401(0x401)]=_0x257dd7[_0x397401(0x401)]),_0x18d823[_0x397401(0x317)](_0x257dd7[_0x397401(0x21b)],undefined)&&_0x45e17a[_0x397401(0x292)](_0x20b82e[_0x397401(0x397)](_0x3677b6,_0x18d823[_0x397401(0x1cb)],_0x257dd7[_0x397401(0x21b)])),Promise[_0x397401(0x3b8)](_0x45e17a);}}class GLTFTextureBasisUExtension{constructor(_0x3744f5){const _0x4eb1bb=a0_0x1e632d;this['parser']=_0x3744f5,this['name']=EXTENSIONS[_0x4eb1bb(0x3b6)];}[a0_0x1e632d(0x3b9)](_0x1d627e){const _0x1c4e4a=a0_0x1e632d,_0xbbeed0={'xBgeB':_0x1c4e4a(0x3b7)},_0x49a816=this[_0x1c4e4a(0x2e6)],_0x2ecbd3=_0x49a816[_0x1c4e4a(0x2f4)],_0x2d428e=_0x2ecbd3[_0x1c4e4a(0x203)][_0x1d627e];if(!_0x2d428e[_0x1c4e4a(0x22a)]||!_0x2d428e[_0x1c4e4a(0x22a)][this[_0x1c4e4a(0x33f)]])return null;const _0x54cff9=_0x2d428e['extensions'][this[_0x1c4e4a(0x33f)]],_0x59baaa=_0x49a816[_0x1c4e4a(0x331)][_0x1c4e4a(0x1d2)];if(!_0x59baaa){if(_0x2ecbd3[_0x1c4e4a(0x295)]&&_0x2ecbd3[_0x1c4e4a(0x295)][_0x1c4e4a(0x1a0)](this['name'])>=0x0)throw new Error(_0xbbeed0[_0x1c4e4a(0x257)]);else return null;}return _0x49a816[_0x1c4e4a(0x2d0)](_0x1d627e,_0x54cff9[_0x1c4e4a(0x2be)],_0x59baaa);}}class GLTFTextureWebPExtension{constructor(_0x391363){const _0x55a1e9=a0_0x1e632d;this[_0x55a1e9(0x2e6)]=_0x391363,this[_0x55a1e9(0x33f)]=EXTENSIONS[_0x55a1e9(0x364)];}[a0_0x1e632d(0x3b9)](_0x21887a){const _0x5711a6=a0_0x1e632d,_0x2b8458=this[_0x5711a6(0x33f)],_0x210429=this[_0x5711a6(0x2e6)],_0x318fba=_0x210429[_0x5711a6(0x2f4)],_0x212b81=_0x318fba[_0x5711a6(0x203)][_0x21887a];if(!_0x212b81[_0x5711a6(0x22a)]||!_0x212b81[_0x5711a6(0x22a)][_0x2b8458])return null;const _0x7999d7=_0x212b81['extensions'][_0x2b8458],_0x29a922=_0x318fba[_0x5711a6(0x37f)][_0x7999d7[_0x5711a6(0x2be)]];let _0x1ec098=_0x210429['textureLoader'];if(_0x29a922[_0x5711a6(0x1f6)]){const _0x2f5f9a=_0x210429[_0x5711a6(0x331)]['manager'][_0x5711a6(0x3a9)](_0x29a922[_0x5711a6(0x1f6)]);if(_0x2f5f9a!==null)_0x1ec098=_0x2f5f9a;}return _0x210429[_0x5711a6(0x2d0)](_0x21887a,_0x7999d7['source'],_0x1ec098);}}class GLTFTextureAVIFExtension{constructor(_0x497551){const _0x194487=a0_0x1e632d;this[_0x194487(0x2e6)]=_0x497551,this[_0x194487(0x33f)]=EXTENSIONS[_0x194487(0x43f)];}['loadTexture'](_0x2613df){const _0x2a100d=a0_0x1e632d,_0x2f81f2=this[_0x2a100d(0x33f)],_0x1ef7e5=this[_0x2a100d(0x2e6)],_0x4aaa0b=_0x1ef7e5['json'],_0x584776=_0x4aaa0b['textures'][_0x2613df];if(!_0x584776[_0x2a100d(0x22a)]||!_0x584776[_0x2a100d(0x22a)][_0x2f81f2])return null;const _0x1e9cce=_0x584776[_0x2a100d(0x22a)][_0x2f81f2],_0x4ef080=_0x4aaa0b[_0x2a100d(0x37f)][_0x1e9cce['source']];let _0x45bfd9=_0x1ef7e5[_0x2a100d(0x3c2)];if(_0x4ef080[_0x2a100d(0x1f6)]){const _0x34c6de=_0x1ef7e5['options'][_0x2a100d(0x3cd)][_0x2a100d(0x3a9)](_0x4ef080[_0x2a100d(0x1f6)]);if(_0x34c6de!==null)_0x45bfd9=_0x34c6de;}return _0x1ef7e5[_0x2a100d(0x2d0)](_0x2613df,_0x1e9cce['source'],_0x45bfd9);}}class GLTFMeshoptCompression{constructor(_0x451b03){const _0xf050b1=a0_0x1e632d;this[_0xf050b1(0x33f)]=EXTENSIONS[_0xf050b1(0x1ae)],this[_0xf050b1(0x2e6)]=_0x451b03;}['loadBufferView'](_0x58a7ea){const _0x4d49b1=a0_0x1e632d,_0x5d2a6b={'IejiW':function(_0x2021c8,_0x2562b3){return _0x2021c8*_0x2562b3;},'EPrAU':'buffer','AEKfy':function(_0x3777df,_0x1c2ea7){return _0x3777df>=_0x1c2ea7;},'uRnbA':'THREE.GLTFLoader:\x20setMeshoptDecoder\x20must\x20be\x20called\x20before\x20loading\x20compressed\x20files'},_0x3505c8=this['parser']['json'],_0x145cc5=_0x3505c8[_0x4d49b1(0x3e9)][_0x58a7ea];if(_0x145cc5[_0x4d49b1(0x22a)]&&_0x145cc5[_0x4d49b1(0x22a)][this['name']]){const _0x3d9ad5=_0x145cc5[_0x4d49b1(0x22a)][this[_0x4d49b1(0x33f)]],_0x22f553=this[_0x4d49b1(0x2e6)][_0x4d49b1(0x236)](_0x5d2a6b['EPrAU'],_0x3d9ad5[_0x4d49b1(0x444)]),_0x2a2d0b=this[_0x4d49b1(0x2e6)][_0x4d49b1(0x331)][_0x4d49b1(0x351)];if(!_0x2a2d0b||!_0x2a2d0b['supported']){if(_0x3505c8['extensionsRequired']&&_0x5d2a6b[_0x4d49b1(0x287)](_0x3505c8[_0x4d49b1(0x295)][_0x4d49b1(0x1a0)](this[_0x4d49b1(0x33f)]),0x0))throw new Error(_0x5d2a6b['uRnbA']);else return null;}return _0x22f553['then'](function(_0x5b5bc8){const _0x44e288=_0x4d49b1,_0x4a9efb={'YEBDJ':function(_0x1c4270,_0x42980c){const _0x45c01a=a0_0x4344;return _0x5d2a6b[_0x45c01a(0x21e)](_0x1c4270,_0x42980c);}},_0xa8ec58=_0x3d9ad5[_0x44e288(0x3ea)]||0x0,_0x364fe3=_0x3d9ad5[_0x44e288(0x329)]||0x0,_0x3ae483=_0x3d9ad5[_0x44e288(0x23d)],_0x5dbcff=_0x3d9ad5[_0x44e288(0x362)],_0x3a23b2=new Uint8Array(_0x5b5bc8,_0xa8ec58,_0x364fe3);return _0x2a2d0b['decodeGltfBufferAsync']?_0x2a2d0b[_0x44e288(0x3d3)](_0x3ae483,_0x5dbcff,_0x3a23b2,_0x3d9ad5[_0x44e288(0x42f)],_0x3d9ad5[_0x44e288(0x2e3)])['then'](function(_0x74baf9){const _0x2f797e=_0x44e288;return _0x74baf9[_0x2f797e(0x444)];}):_0x2a2d0b[_0x44e288(0x3a6)][_0x44e288(0x3cc)](function(){const _0x161237=_0x44e288,_0x561468=new ArrayBuffer(_0x4a9efb['YEBDJ'](_0x3ae483,_0x5dbcff));return _0x2a2d0b['decodeGltfBuffer'](new Uint8Array(_0x561468),_0x3ae483,_0x5dbcff,_0x3a23b2,_0x3d9ad5[_0x161237(0x42f)],_0x3d9ad5[_0x161237(0x2e3)]),_0x561468;});});}else return null;}}class GLTFMeshGpuInstancing{constructor(_0x460778){const _0x1b1736=a0_0x1e632d;this[_0x1b1736(0x33f)]=EXTENSIONS[_0x1b1736(0x339)],this[_0x1b1736(0x2e6)]=_0x460778;}[a0_0x1e632d(0x1e2)](_0x5efdff){const _0x4d2983=a0_0x1e632d,_0x1258f5={'SGimA':function(_0x26d56c,_0x4596fd){return _0x26d56c===_0x4596fd;},'BZDIP':function(_0x2b78a8,_0x46fde5){return _0x2b78a8!==_0x46fde5;},'FohjE':_0x4d2983(0x43b),'HzbED':function(_0x2adf09,_0x29d349){return _0x2adf09!==_0x29d349;},'ulpaD':_0x4d2983(0x1bc),'tTACB':function(_0x40f968,_0x35c1a7){return _0x40f968!==_0x35c1a7;},'FBIbL':'SCALE','CmzJw':function(_0x25c03c,_0x2348a0){return _0x25c03c===_0x2348a0;},'yTnCF':function(_0x1b5ce8,_0x4f11e7){return _0x1b5ce8!==_0x4f11e7;},'QLRSO':function(_0x45081e,_0x175960){return _0x45081e<_0x175960;}},_0x41724e=this[_0x4d2983(0x2e6)][_0x4d2983(0x2f4)],_0x527897=_0x41724e[_0x4d2983(0x221)][_0x5efdff];if(!_0x527897['extensions']||!_0x527897[_0x4d2983(0x22a)][this[_0x4d2983(0x33f)]]||_0x1258f5['CmzJw'](_0x527897[_0x4d2983(0x306)],undefined))return null;const _0x4bbc30=_0x41724e[_0x4d2983(0x3da)][_0x527897['mesh']];for(const _0x3c4ac9 of _0x4bbc30[_0x4d2983(0x36c)]){if(_0x3c4ac9[_0x4d2983(0x42f)]!==WEBGL_CONSTANTS[_0x4d2983(0x3f0)]&&_0x1258f5[_0x4d2983(0x198)](_0x3c4ac9[_0x4d2983(0x42f)],WEBGL_CONSTANTS[_0x4d2983(0x3db)])&&_0x3c4ac9[_0x4d2983(0x42f)]!==WEBGL_CONSTANTS[_0x4d2983(0x2d2)]&&_0x1258f5['yTnCF'](_0x3c4ac9[_0x4d2983(0x42f)],undefined))return null;}const _0xae424d=_0x527897[_0x4d2983(0x22a)][this[_0x4d2983(0x33f)]],_0x404360=_0xae424d[_0x4d2983(0x41b)],_0x525c26=[],_0x508f96={};for(const _0x284915 in _0x404360){_0x525c26[_0x4d2983(0x292)](this[_0x4d2983(0x2e6)][_0x4d2983(0x236)]('accessor',_0x404360[_0x284915])[_0x4d2983(0x3cc)](_0x3642a8=>{return _0x508f96[_0x284915]=_0x3642a8,_0x508f96[_0x284915];}));}if(_0x1258f5['QLRSO'](_0x525c26[_0x4d2983(0x3e6)],0x1))return null;return _0x525c26[_0x4d2983(0x292)](this[_0x4d2983(0x2e6)]['createNodeMesh'](_0x5efdff)),Promise[_0x4d2983(0x3b8)](_0x525c26)[_0x4d2983(0x3cc)](_0x459c2a=>{const _0x5b0534=_0x4d2983,_0xfd1217=_0x459c2a[_0x5b0534(0x213)](),_0x177e75=_0xfd1217[_0x5b0534(0x240)]?_0xfd1217[_0x5b0534(0x384)]:[_0xfd1217],_0x380d9d=_0x459c2a[0x0][_0x5b0534(0x23d)],_0x467432=[];for(const _0x30df5f of _0x177e75){const _0xf96009=new Matrix4(),_0x595d5c=new Vector3(),_0x278d7d=new Quaternion(),_0x5b061e=new Vector3(0x1,0x1,0x1),_0x4fccc4=new InstancedMesh(_0x30df5f[_0x5b0534(0x280)],_0x30df5f[_0x5b0534(0x2c0)],_0x380d9d);for(let _0xd8e32f=0x0;_0xd8e32f<_0x380d9d;_0xd8e32f++){_0x508f96[_0x5b0534(0x43b)]&&_0x595d5c['fromBufferAttribute'](_0x508f96['TRANSLATION'],_0xd8e32f),_0x508f96['ROTATION']&&_0x278d7d[_0x5b0534(0x278)](_0x508f96[_0x5b0534(0x1bc)],_0xd8e32f),_0x508f96[_0x5b0534(0x302)]&&_0x5b061e[_0x5b0534(0x278)](_0x508f96[_0x5b0534(0x302)],_0xd8e32f),_0x4fccc4[_0x5b0534(0x1cc)](_0xd8e32f,_0xf96009['compose'](_0x595d5c,_0x278d7d,_0x5b061e));}for(const _0x12778b in _0x508f96){if(_0x1258f5[_0x5b0534(0x349)](_0x12778b,_0x5b0534(0x435))){const _0x140010=_0x508f96[_0x12778b];_0x4fccc4[_0x5b0534(0x379)]=new InstancedBufferAttribute(_0x140010[_0x5b0534(0x370)],_0x140010['itemSize'],_0x140010[_0x5b0534(0x29c)]);}else _0x1258f5[_0x5b0534(0x198)](_0x12778b,_0x1258f5['FohjE'])&&_0x1258f5[_0x5b0534(0x21d)](_0x12778b,_0x1258f5['ulpaD'])&&_0x1258f5['tTACB'](_0x12778b,_0x1258f5[_0x5b0534(0x20f)])&&_0x30df5f[_0x5b0534(0x280)][_0x5b0534(0x2e4)](_0x12778b,_0x508f96[_0x12778b]);}Object3D['prototype'][_0x5b0534(0x36a)][_0x5b0534(0x393)](_0x4fccc4,_0x30df5f),this['parser']['assignFinalMaterial'](_0x4fccc4),_0x467432[_0x5b0534(0x292)](_0x4fccc4);}if(_0xfd1217['isGroup'])return _0xfd1217[_0x5b0534(0x298)](),_0xfd1217[_0x5b0534(0x2f0)](..._0x467432),_0xfd1217;return _0x467432[0x0];});}}const BINARY_EXTENSION_HEADER_MAGIC=a0_0x1e632d(0x2b2),BINARY_EXTENSION_HEADER_LENGTH=0xc,BINARY_EXTENSION_CHUNK_TYPES={'JSON':0x4e4f534a,'BIN':0x4e4942};class GLTFBinaryExtension{constructor(_0x37c499){const _0x5cd3ff=a0_0x1e632d,_0x30e66f={'OKHgV':function(_0x33481d,_0x21397d){return _0x33481d!==_0x21397d;},'aiOHC':'THREE.GLTFLoader:\x20Unsupported\x20glTF-Binary\x20header.','WpPqW':function(_0x349272,_0x35f81d){return _0x349272<_0x35f81d;},'YhizX':_0x5cd3ff(0x26b),'fhODS':function(_0x2f0510,_0x36fbcd){return _0x2f0510<_0x36fbcd;},'khGsz':function(_0x1bc8d9,_0x484c6f){return _0x1bc8d9===_0x484c6f;},'sOOnJ':function(_0x5272f2,_0x3f9c04){return _0x5272f2+_0x3f9c04;},'LSacA':function(_0x314714,_0x58d8cb){return _0x314714===_0x58d8cb;},'EIOAO':_0x5cd3ff(0x313)};this[_0x5cd3ff(0x33f)]=EXTENSIONS['KHR_BINARY_GLTF'],this[_0x5cd3ff(0x3a7)]=null,this[_0x5cd3ff(0x1aa)]=null;const _0x5bbd2e=new DataView(_0x37c499,0x0,BINARY_EXTENSION_HEADER_LENGTH),_0xe2930b=new TextDecoder();this[_0x5cd3ff(0x30c)]={'magic':_0xe2930b[_0x5cd3ff(0x429)](new Uint8Array(_0x37c499[_0x5cd3ff(0x41f)](0x0,0x4))),'version':_0x5bbd2e[_0x5cd3ff(0x242)](0x4,!![]),'length':_0x5bbd2e[_0x5cd3ff(0x242)](0x8,!![])};if(_0x30e66f['OKHgV'](this[_0x5cd3ff(0x30c)][_0x5cd3ff(0x1d7)],BINARY_EXTENSION_HEADER_MAGIC))throw new Error(_0x30e66f[_0x5cd3ff(0x311)]);else{if(_0x30e66f['WpPqW'](this['header']['version'],0x2))throw new Error(_0x30e66f['YhizX']);}const _0x3b495a=this[_0x5cd3ff(0x30c)][_0x5cd3ff(0x3e6)]-BINARY_EXTENSION_HEADER_LENGTH,_0x37c1d5=new DataView(_0x37c499,BINARY_EXTENSION_HEADER_LENGTH);let _0x4c12fa=0x0;while(_0x30e66f[_0x5cd3ff(0x3e7)](_0x4c12fa,_0x3b495a)){const _0x5f3e79=_0x37c1d5['getUint32'](_0x4c12fa,!![]);_0x4c12fa+=0x4;const _0xe2cd52=_0x37c1d5[_0x5cd3ff(0x242)](_0x4c12fa,!![]);_0x4c12fa+=0x4;if(_0x30e66f[_0x5cd3ff(0x231)](_0xe2cd52,BINARY_EXTENSION_CHUNK_TYPES[_0x5cd3ff(0x2a7)])){const _0x44772f=new Uint8Array(_0x37c499,_0x30e66f['sOOnJ'](BINARY_EXTENSION_HEADER_LENGTH,_0x4c12fa),_0x5f3e79);this['content']=_0xe2930b['decode'](_0x44772f);}else{if(_0xe2cd52===BINARY_EXTENSION_CHUNK_TYPES['BIN']){const _0x219a25=_0x30e66f[_0x5cd3ff(0x42d)](BINARY_EXTENSION_HEADER_LENGTH,_0x4c12fa);this['body']=_0x37c499['slice'](_0x219a25,_0x219a25+_0x5f3e79);}}_0x4c12fa+=_0x5f3e79;}if(_0x30e66f[_0x5cd3ff(0x3b1)](this[_0x5cd3ff(0x3a7)],null))throw new Error(_0x30e66f[_0x5cd3ff(0x40d)]);}}class GLTFDracoMeshCompressionExtension{constructor(_0x108fba,_0x3b6544){const _0x174cb0=a0_0x1e632d,_0x44736f={'cUoJy':_0x174cb0(0x2b7)};if(!_0x3b6544)throw new Error(_0x44736f['cUoJy']);this[_0x174cb0(0x33f)]=EXTENSIONS[_0x174cb0(0x434)],this['json']=_0x108fba,this['dracoLoader']=_0x3b6544,this[_0x174cb0(0x46c)][_0x174cb0(0x1e6)]();}[a0_0x1e632d(0x251)](_0x1fbc5f,_0x5616de){const _0x14ebb2=a0_0x1e632d,_0x4fb030={'lRBZg':function(_0x1f127f,_0x35f4d1){return _0x1f127f(_0x35f4d1);},'aqeJo':function(_0x108730,_0x43821b){return _0x108730!==_0x43821b;},'xszkj':function(_0x5d80c9,_0x236d55){return _0x5d80c9===_0x236d55;}},_0x44edbc=this[_0x14ebb2(0x2f4)],_0x247aca=this[_0x14ebb2(0x46c)],_0x322846=_0x1fbc5f[_0x14ebb2(0x22a)][this[_0x14ebb2(0x33f)]][_0x14ebb2(0x229)],_0x407232=_0x1fbc5f['extensions'][this[_0x14ebb2(0x33f)]]['attributes'],_0xb78a83={},_0x291f10={},_0x4b3f7d={};for(const _0x56dd28 in _0x407232){const _0x5ea32a=ATTRIBUTES[_0x56dd28]||_0x56dd28[_0x14ebb2(0x424)]();_0xb78a83[_0x5ea32a]=_0x407232[_0x56dd28];}for(const _0x2046bd in _0x1fbc5f[_0x14ebb2(0x41b)]){const _0x356fad=ATTRIBUTES[_0x2046bd]||_0x2046bd[_0x14ebb2(0x424)]();if(_0x4fb030[_0x14ebb2(0x45b)](_0x407232[_0x2046bd],undefined)){const _0x23c370=_0x44edbc[_0x14ebb2(0x28e)][_0x1fbc5f['attributes'][_0x2046bd]],_0x589785=WEBGL_COMPONENT_TYPES[_0x23c370[_0x14ebb2(0x3d5)]];_0x4b3f7d[_0x356fad]=_0x589785['name'],_0x291f10[_0x356fad]=_0x4fb030['xszkj'](_0x23c370[_0x14ebb2(0x29c)],!![]);}}return _0x5616de[_0x14ebb2(0x236)](_0x14ebb2(0x229),_0x322846)['then'](function(_0xf2acb6){const _0x219754={'dReGR':function(_0x5c7244,_0x385aa6){const _0x559607=a0_0x4344;return _0x4fb030[_0x559607(0x45f)](_0x5c7244,_0x385aa6);}};return new Promise(function(_0x3cd654,_0x2e054e){_0x247aca['decodeDracoFile'](_0xf2acb6,function(_0x78adb5){const _0x1d9bfd=a0_0x4344;for(const _0x20908f in _0x78adb5[_0x1d9bfd(0x41b)]){const _0x1a42d5=_0x78adb5[_0x1d9bfd(0x41b)][_0x20908f],_0x49c70d=_0x291f10[_0x20908f];if(_0x49c70d!==undefined)_0x1a42d5[_0x1d9bfd(0x29c)]=_0x49c70d;}_0x219754['dReGR'](_0x3cd654,_0x78adb5);},_0xb78a83,_0x4b3f7d,LinearSRGBColorSpace,_0x2e054e);});});}}class GLTFTextureTransformExtension{constructor(){const _0x35ed61=a0_0x1e632d;this[_0x35ed61(0x33f)]=EXTENSIONS[_0x35ed61(0x1f2)];}[a0_0x1e632d(0x2aa)](_0x10230d,_0x4ba6e2){const _0xf96ada=a0_0x1e632d,_0x8c2108={'jjjsL':_0xf96ada(0x448),'THBIl':function(_0x16b6ba,_0x485a14){return _0x16b6ba!==_0x485a14;},'qTpdo':function(_0x10196a,_0x2a854d){return _0x10196a!==_0x2a854d;},'EtwyK':function(_0x80a276,_0x4871d8){return _0x80a276===_0x4871d8;},'jTeYj':function(_0x22c19c,_0x13cf99){return _0x22c19c===_0x13cf99;},'vxGHl':function(_0x4b93e9,_0x1e7fcd){return _0x4b93e9!==_0x1e7fcd;}},_0x49e589=_0x8c2108['jjjsL'][_0xf96ada(0x1c7)]('|');let _0x12737d=0x0;while(!![]){switch(_0x49e589[_0x12737d++]){case'0':_0x8c2108[_0xf96ada(0x358)](_0x4ba6e2[_0xf96ada(0x3fa)],undefined)&&_0x10230d['repeat'][_0xf96ada(0x1e9)](_0x4ba6e2[_0xf96ada(0x3fa)]);continue;case'1':_0x8c2108[_0xf96ada(0x1a6)](_0x4ba6e2['texCoord'],undefined)&&(_0x10230d[_0xf96ada(0x3af)]=_0x4ba6e2[_0xf96ada(0x289)]);continue;case'2':if((_0x8c2108[_0xf96ada(0x3be)](_0x4ba6e2[_0xf96ada(0x289)],undefined)||_0x8c2108[_0xf96ada(0x3be)](_0x4ba6e2[_0xf96ada(0x289)],_0x10230d[_0xf96ada(0x3af)]))&&_0x4ba6e2[_0xf96ada(0x222)]===undefined&&_0x8c2108[_0xf96ada(0x273)](_0x4ba6e2[_0xf96ada(0x23e)],undefined)&&_0x8c2108['EtwyK'](_0x4ba6e2[_0xf96ada(0x3fa)],undefined))return _0x10230d;continue;case'3':_0x10230d['needsUpdate']=!![];continue;case'4':_0x8c2108[_0xf96ada(0x264)](_0x4ba6e2[_0xf96ada(0x23e)],undefined)&&(_0x10230d['rotation']=_0x4ba6e2[_0xf96ada(0x23e)]);continue;case'5':_0x8c2108[_0xf96ada(0x358)](_0x4ba6e2[_0xf96ada(0x222)],undefined)&&_0x10230d[_0xf96ada(0x222)][_0xf96ada(0x1e9)](_0x4ba6e2[_0xf96ada(0x222)]);continue;case'6':return _0x10230d;case'7':_0x10230d=_0x10230d[_0xf96ada(0x19d)]();continue;}break;}}}class GLTFMeshQuantizationExtension{constructor(){this['name']=EXTENSIONS['KHR_MESH_QUANTIZATION'];}}class GLTFCubicSplineInterpolant extends Interpolant{constructor(_0x39551a,_0x1cd5ab,_0x132cd7,_0x1c24b6){super(_0x39551a,_0x1cd5ab,_0x132cd7,_0x1c24b6);}[a0_0x1e632d(0x3c0)](_0x135f82){const _0x4025c8=a0_0x1e632d,_0x41d98b={'NueRG':function(_0x488771,_0x39ff11){return _0x488771+_0x39ff11;},'KldjP':function(_0x1b5632,_0x1cb1c9){return _0x1b5632*_0x1cb1c9;},'XypGo':function(_0x3c450c,_0x134a22){return _0x3c450c*_0x134a22;},'vYjbp':function(_0x15893e,_0x2c6859){return _0x15893e!==_0x2c6859;}},_0x9e1648=this[_0x4025c8(0x307)],_0x48631b=this[_0x4025c8(0x369)],_0x2ddad2=this['valueSize'],_0x30fd88=_0x41d98b[_0x4025c8(0x3f1)](_0x41d98b[_0x4025c8(0x39b)](_0x41d98b['XypGo'](_0x135f82,_0x2ddad2),0x3),_0x2ddad2);for(let _0xfe95b6=0x0;_0x41d98b['vYjbp'](_0xfe95b6,_0x2ddad2);_0xfe95b6++){_0x9e1648[_0xfe95b6]=_0x48631b[_0x41d98b[_0x4025c8(0x3f1)](_0x30fd88,_0xfe95b6)];}return _0x9e1648;}['interpolate_'](_0x14745e,_0x58fae7,_0x2c34a4,_0x120f92){const _0x11c38d=a0_0x1e632d,_0x461232={'vZtjm':function(_0x26f010,_0x26f5dc){return _0x26f010*_0x26f5dc;},'GBmrx':function(_0x2ca015,_0x21022b){return _0x2ca015*_0x21022b;},'uCmmG':function(_0xa4446b,_0x5e0928){return _0xa4446b-_0x5e0928;},'UsgJj':function(_0x3882e3,_0x12ea6b){return _0x3882e3/_0x12ea6b;},'RrOct':function(_0x7df99a,_0x32842b){return _0x7df99a-_0x32842b;},'TDHHz':function(_0x3d0e9c,_0x20a5e1){return _0x3d0e9c*_0x20a5e1;},'ByhuK':function(_0x52da67,_0x1f675f){return _0x52da67-_0x1f675f;},'jcDuM':function(_0x5a8a3a,_0x56113f){return _0x5a8a3a+_0x56113f;},'xBDrT':function(_0x395322,_0x2dfd8e){return _0x395322*_0x2dfd8e;},'GEkGh':function(_0x1b944a,_0x157b3e){return _0x1b944a+_0x157b3e;},'PsaxA':function(_0x356ce4,_0x5b96df){return _0x356ce4+_0x5b96df;},'OqIFy':function(_0x5a689f,_0x505b72){return _0x5a689f*_0x505b72;},'FRvSf':function(_0x108f5d,_0x2b7302){return _0x108f5d+_0x2b7302;},'jMDze':function(_0x2c5074,_0x235baa){return _0x2c5074+_0x235baa;},'gqhXu':function(_0x4e9a38,_0x9a00eb){return _0x4e9a38*_0x9a00eb;},'TSvMc':function(_0x4708d1,_0x535892){return _0x4708d1*_0x535892;}},_0x2d20c7=this[_0x11c38d(0x307)],_0x44b1d6=this[_0x11c38d(0x369)],_0xb5591f=this[_0x11c38d(0x211)],_0x266218=_0x461232[_0x11c38d(0x1b5)](_0xb5591f,0x2),_0x392d17=_0x461232['GBmrx'](_0xb5591f,0x3),_0x367a48=_0x461232[_0x11c38d(0x3ce)](_0x120f92,_0x58fae7),_0x2e206c=_0x461232[_0x11c38d(0x32a)](_0x461232[_0x11c38d(0x1bb)](_0x2c34a4,_0x58fae7),_0x367a48),_0x41d500=_0x461232[_0x11c38d(0x2b4)](_0x2e206c,_0x2e206c),_0x2f18a2=_0x41d500*_0x2e206c,_0x57eefb=_0x461232[_0x11c38d(0x2b4)](_0x14745e,_0x392d17),_0x4bf44c=_0x461232[_0x11c38d(0x1f9)](_0x57eefb,_0x392d17),_0x330098=_0x461232[_0x11c38d(0x2f8)](_0x461232['GBmrx'](-0x2,_0x2f18a2),_0x461232[_0x11c38d(0x225)](0x3,_0x41d500)),_0x5bad4e=_0x2f18a2-_0x41d500,_0x1147b5=_0x461232['RrOct'](0x1,_0x330098),_0x2235cf=_0x5bad4e-_0x41d500+_0x2e206c;for(let _0x488e5d=0x0;_0x488e5d!==_0xb5591f;_0x488e5d++){const _0x1925cd=_0x44b1d6[_0x461232[_0x11c38d(0x300)](_0x461232['PsaxA'](_0x4bf44c,_0x488e5d),_0xb5591f)],_0x9a6186=_0x461232['OqIFy'](_0x44b1d6[_0x461232['jcDuM'](_0x461232[_0x11c38d(0x2d4)](_0x4bf44c,_0x488e5d),_0x266218)],_0x367a48),_0x34d255=_0x44b1d6[_0x461232[_0x11c38d(0x2d4)](_0x57eefb+_0x488e5d,_0xb5591f)],_0x1630ec=_0x44b1d6[_0x461232['PsaxA'](_0x57eefb,_0x488e5d)]*_0x367a48;_0x2d20c7[_0x488e5d]=_0x461232[_0x11c38d(0x328)](_0x461232[_0x11c38d(0x2d4)](_0x1147b5*_0x1925cd,_0x461232['gqhXu'](_0x2235cf,_0x9a6186)),_0x461232[_0x11c38d(0x3fd)](_0x330098,_0x34d255))+_0x461232['TSvMc'](_0x5bad4e,_0x1630ec);}return _0x2d20c7;}}const _quaternion=new Quaternion();class GLTFCubicSplineQuaternionInterpolant extends GLTFCubicSplineInterpolant{[a0_0x1e632d(0x2bb)](_0x297343,_0x188008,_0x510916,_0x411729){const _0xde43c3=a0_0x1e632d,_0x1b0569=super[_0xde43c3(0x2bb)](_0x297343,_0x188008,_0x510916,_0x411729);return _quaternion['fromArray'](_0x1b0569)[_0xde43c3(0x40c)]()[_0xde43c3(0x2af)](_0x1b0569),_0x1b0569;}}const WEBGL_CONSTANTS={'FLOAT':0x1406,'FLOAT_MAT3':0x8b5b,'FLOAT_MAT4':0x8b5c,'FLOAT_VEC2':0x8b50,'FLOAT_VEC3':0x8b51,'FLOAT_VEC4':0x8b52,'LINEAR':0x2601,'REPEAT':0x2901,'SAMPLER_2D':0x8b5e,'POINTS':0x0,'LINES':0x1,'LINE_LOOP':0x2,'LINE_STRIP':0x3,'TRIANGLES':0x4,'TRIANGLE_STRIP':0x5,'TRIANGLE_FAN':0x6,'UNSIGNED_BYTE':0x1401,'UNSIGNED_SHORT':0x1403},WEBGL_COMPONENT_TYPES={0x1400:Int8Array,0x1401:Uint8Array,0x1402:Int16Array,0x1403:Uint16Array,0x1405:Uint32Array,0x1406:Float32Array},WEBGL_FILTERS={0x2600:NearestFilter,0x2601:LinearFilter,0x2700:NearestMipmapNearestFilter,0x2701:LinearMipmapNearestFilter,0x2702:NearestMipmapLinearFilter,0x2703:LinearMipmapLinearFilter},WEBGL_WRAPPINGS={0x812f:ClampToEdgeWrapping,0x8370:MirroredRepeatWrapping,0x2901:RepeatWrapping},WEBGL_TYPE_SIZES={'SCALAR':0x1,'VEC2':0x2,'VEC3':0x3,'VEC4':0x4,'MAT2':0x4,'MAT3':0x9,'MAT4':0x10},ATTRIBUTES={'POSITION':a0_0x1e632d(0x42b),'NORMAL':'normal','TANGENT':a0_0x1e632d(0x467),'TEXCOORD_0':'uv','TEXCOORD_1':'uv1','TEXCOORD_2':a0_0x1e632d(0x1c8),'TEXCOORD_3':a0_0x1e632d(0x1d9),'COLOR_0':'color','WEIGHTS_0':a0_0x1e632d(0x41d),'JOINTS_0':'skinIndex'},PATH_PROPERTIES={'scale':a0_0x1e632d(0x3fa),'translation':a0_0x1e632d(0x42b),'rotation':'quaternion','weights':a0_0x1e632d(0x318)},INTERPOLATION={'CUBICSPLINE':undefined,'LINEAR':InterpolateLinear,'STEP':InterpolateDiscrete},ALPHA_MODES={'OPAQUE':'OPAQUE','MASK':'MASK','BLEND':a0_0x1e632d(0x32c)};function createDefaultMaterial(_0x5904da){const _0x4f1a7d=a0_0x1e632d,_0x5b615e={'FgyrC':function(_0x467c72,_0x368d71){return _0x467c72===_0x368d71;},'nEXcA':_0x4f1a7d(0x44d)};return _0x5b615e['FgyrC'](_0x5904da[_0x5b615e[_0x4f1a7d(0x423)]],undefined)&&(_0x5904da[_0x5b615e[_0x4f1a7d(0x423)]]=new MeshStandardMaterial({'color':0xffffff,'emissive':0x0,'metalness':0x1,'roughness':0x1,'transparent':![],'depthTest':!![],'side':FrontSide})),_0x5904da[_0x4f1a7d(0x44d)];}function addUnknownExtensionsToUserData(_0x40b28e,_0x59f8f9,_0x52c626){const _0x5babb4=a0_0x1e632d,_0x2589ac={'Cpruk':function(_0x199a89,_0x409e4b){return _0x199a89===_0x409e4b;}};for(const _0x5a91f4 in _0x52c626['extensions']){_0x2589ac[_0x5babb4(0x288)](_0x40b28e[_0x5a91f4],undefined)&&(_0x59f8f9[_0x5babb4(0x382)][_0x5babb4(0x335)]=_0x59f8f9[_0x5babb4(0x382)]['gltfExtensions']||{},_0x59f8f9[_0x5babb4(0x382)][_0x5babb4(0x335)][_0x5a91f4]=_0x52c626[_0x5babb4(0x22a)][_0x5a91f4]);}}function assignExtrasToUserData(_0x5f0ff0,_0x3be105){const _0x16cfa1=a0_0x1e632d,_0x28dceb={'qUyks':function(_0x3e85e3,_0x337e9a){return _0x3e85e3!==_0x337e9a;},'HxHYI':function(_0x376a54,_0x337b4d){return _0x376a54===_0x337b4d;},'iLXwo':_0x16cfa1(0x3aa),'cJkpE':function(_0x4344a3,_0x2a0e55){return _0x4344a3+_0x2a0e55;}};_0x28dceb[_0x16cfa1(0x1ce)](_0x3be105[_0x16cfa1(0x2e7)],undefined)&&(_0x28dceb[_0x16cfa1(0x44b)](typeof _0x3be105[_0x16cfa1(0x2e7)],_0x28dceb[_0x16cfa1(0x3a8)])?Object[_0x16cfa1(0x39d)](_0x5f0ff0[_0x16cfa1(0x382)],_0x3be105['extras']):console[_0x16cfa1(0x410)](_0x28dceb[_0x16cfa1(0x372)](_0x16cfa1(0x1ba),_0x3be105['extras'])));}function addMorphTargets(_0x913779,_0x54305d,_0x5aa8da){const _0x4e1a34=a0_0x1e632d,_0x492d3a={'WniLR':function(_0x2e5bd3,_0x1c7cf2){return _0x2e5bd3<_0x1c7cf2;},'ZDjpt':function(_0x159e2a,_0x21e042){return _0x159e2a!==_0x21e042;},'FBRyL':function(_0x2bce2c,_0x374239){return _0x2bce2c&&_0x374239;},'vCnvE':function(_0x378d0f,_0x441ac2){return _0x378d0f&&_0x441ac2;},'wQSkY':function(_0x552160,_0x2c369f){return _0x552160<_0x2c369f;},'gCxUu':'accessor'};let _0x56f71d=![],_0x51943a=![],_0x36a3a1=![];for(let _0x5bc070=0x0,_0x5d03f7=_0x54305d[_0x4e1a34(0x3e6)];_0x492d3a[_0x4e1a34(0x3f4)](_0x5bc070,_0x5d03f7);_0x5bc070++){const _0x52e244=_0x54305d[_0x5bc070];if(_0x492d3a[_0x4e1a34(0x1d6)](_0x52e244[_0x4e1a34(0x420)],undefined))_0x56f71d=!![];if(_0x52e244[_0x4e1a34(0x1a9)]!==undefined)_0x51943a=!![];if(_0x492d3a[_0x4e1a34(0x1d6)](_0x52e244[_0x4e1a34(0x3dc)],undefined))_0x36a3a1=!![];if(_0x492d3a[_0x4e1a34(0x1ee)](_0x56f71d,_0x51943a)&&_0x36a3a1)break;}if(_0x492d3a[_0x4e1a34(0x2f9)](!_0x56f71d,!_0x51943a)&&!_0x36a3a1)return Promise[_0x4e1a34(0x1e8)](_0x913779);const _0x19d8d5=[],_0x3f74a0=[],_0x1e3d4b=[];for(let _0x46530e=0x0,_0x3eec8d=_0x54305d[_0x4e1a34(0x3e6)];_0x492d3a['wQSkY'](_0x46530e,_0x3eec8d);_0x46530e++){const _0x43a8d2=_0x54305d[_0x46530e];if(_0x56f71d){const _0x4bb876=_0x492d3a['ZDjpt'](_0x43a8d2[_0x4e1a34(0x420)],undefined)?_0x5aa8da[_0x4e1a34(0x236)](_0x492d3a['gCxUu'],_0x43a8d2[_0x4e1a34(0x420)]):_0x913779[_0x4e1a34(0x41b)][_0x4e1a34(0x42b)];_0x19d8d5[_0x4e1a34(0x292)](_0x4bb876);}if(_0x51943a){const _0x3b11b1=_0x492d3a['ZDjpt'](_0x43a8d2[_0x4e1a34(0x1a9)],undefined)?_0x5aa8da[_0x4e1a34(0x236)](_0x492d3a[_0x4e1a34(0x3d7)],_0x43a8d2[_0x4e1a34(0x1a9)]):_0x913779[_0x4e1a34(0x41b)]['normal'];_0x3f74a0[_0x4e1a34(0x292)](_0x3b11b1);}if(_0x36a3a1){const _0xa99eca=_0x43a8d2[_0x4e1a34(0x3dc)]!==undefined?_0x5aa8da[_0x4e1a34(0x236)](_0x492d3a['gCxUu'],_0x43a8d2[_0x4e1a34(0x3dc)]):_0x913779[_0x4e1a34(0x41b)][_0x4e1a34(0x431)];_0x1e3d4b['push'](_0xa99eca);}}return Promise[_0x4e1a34(0x3b8)]([Promise['all'](_0x19d8d5),Promise[_0x4e1a34(0x3b8)](_0x3f74a0),Promise['all'](_0x1e3d4b)])[_0x4e1a34(0x3cc)](function(_0x485c05){const _0x32eeb3=_0x4e1a34,_0x25c055=_0x485c05[0x0],_0x368d10=_0x485c05[0x1],_0x7dffb1=_0x485c05[0x2];if(_0x56f71d)_0x913779[_0x32eeb3(0x353)]['position']=_0x25c055;if(_0x51943a)_0x913779['morphAttributes'][_0x32eeb3(0x441)]=_0x368d10;if(_0x36a3a1)_0x913779[_0x32eeb3(0x353)]['color']=_0x7dffb1;return _0x913779[_0x32eeb3(0x366)]=!![],_0x913779;});}function updateMorphTargets(_0x1f7112,_0x115735){const _0x594fb9=a0_0x1e632d,_0x35af73={'xQosU':function(_0x42353b,_0x4dac6e){return _0x42353b<_0x4dac6e;},'WyMdu':function(_0x4ce8a1,_0x11ff07){return _0x4ce8a1<_0x11ff07;},'ibcrB':_0x594fb9(0x260)};_0x1f7112[_0x594fb9(0x46b)]();if(_0x115735['weights']!==undefined)for(let _0x320910=0x0,_0x57adb5=_0x115735[_0x594fb9(0x312)][_0x594fb9(0x3e6)];_0x35af73[_0x594fb9(0x249)](_0x320910,_0x57adb5);_0x320910++){_0x1f7112[_0x594fb9(0x318)][_0x320910]=_0x115735[_0x594fb9(0x312)][_0x320910];}if(_0x115735[_0x594fb9(0x2e7)]&&Array[_0x594fb9(0x315)](_0x115735[_0x594fb9(0x2e7)][_0x594fb9(0x1b0)])){const _0x482c5d=_0x115735[_0x594fb9(0x2e7)]['targetNames'];if(_0x1f7112[_0x594fb9(0x318)][_0x594fb9(0x3e6)]===_0x482c5d[_0x594fb9(0x3e6)]){_0x1f7112[_0x594fb9(0x2d7)]={};for(let _0x1b78c5=0x0,_0x1ac44b=_0x482c5d[_0x594fb9(0x3e6)];_0x35af73[_0x594fb9(0x274)](_0x1b78c5,_0x1ac44b);_0x1b78c5++){_0x1f7112[_0x594fb9(0x2d7)][_0x482c5d[_0x1b78c5]]=_0x1b78c5;}}else console[_0x594fb9(0x410)](_0x35af73[_0x594fb9(0x253)]);}}function createPrimitiveKey(_0x4ce0dd){const _0x1661f2=a0_0x1e632d,_0x4888c8={'TduaJ':function(_0x7c5bd4,_0x5e9ff6){return _0x7c5bd4+_0x5e9ff6;},'pQogl':function(_0x4855cd,_0x2a2af9){return _0x4855cd+_0x2a2af9;},'XwuZN':function(_0x3e5579,_0x2279d2){return _0x3e5579+_0x2279d2;},'clLTw':_0x1661f2(0x451),'GNyaZ':function(_0x3affcc,_0x1140a3){return _0x3affcc+_0x1140a3;},'UoJBN':function(_0x889446,_0x5634e1){return _0x889446+_0x5634e1;},'FkyGf':function(_0x3ec3ae,_0xe6516){return _0x3ec3ae!==_0xe6516;},'KKLkq':function(_0x4c508e,_0x365ba2){return _0x4c508e<_0x365ba2;},'jrnqe':function(_0x4406df,_0x3d6c2f){return _0x4406df+_0x3d6c2f;},'gxjvN':function(_0x5ec0c0,_0x3ec4d0){return _0x5ec0c0(_0x3ec4d0);}};let _0x6d9689;const _0xd008f2=_0x4ce0dd[_0x1661f2(0x22a)]&&_0x4ce0dd[_0x1661f2(0x22a)][EXTENSIONS[_0x1661f2(0x434)]];_0xd008f2?_0x6d9689=_0x4888c8[_0x1661f2(0x327)](_0x4888c8[_0x1661f2(0x327)](_0x4888c8['pQogl'](_0x4888c8[_0x1661f2(0x284)](_0x4888c8[_0x1661f2(0x1d8)],_0xd008f2[_0x1661f2(0x229)])+':',_0xd008f2[_0x1661f2(0x2e8)]),':'),createAttributesKey(_0xd008f2[_0x1661f2(0x41b)])):_0x6d9689=_0x4888c8[_0x1661f2(0x29f)](_0x4888c8[_0x1661f2(0x26a)](_0x4888c8[_0x1661f2(0x29f)](_0x4ce0dd[_0x1661f2(0x2e8)],':'),createAttributesKey(_0x4ce0dd[_0x1661f2(0x41b)])),':')+_0x4ce0dd['mode'];if(_0x4888c8[_0x1661f2(0x218)](_0x4ce0dd[_0x1661f2(0x35f)],undefined))for(let _0x1c17b4=0x0,_0x18680d=_0x4ce0dd[_0x1661f2(0x35f)]['length'];_0x4888c8[_0x1661f2(0x2bc)](_0x1c17b4,_0x18680d);_0x1c17b4++){_0x6d9689+=_0x4888c8['jrnqe'](':',_0x4888c8[_0x1661f2(0x193)](createAttributesKey,_0x4ce0dd[_0x1661f2(0x35f)][_0x1c17b4]));}return _0x6d9689;}function createAttributesKey(_0x53a210){const _0x265dc1=a0_0x1e632d,_0x2f1bef={'dUHgl':function(_0x46820c,_0x4f4bfa){return _0x46820c<_0x4f4bfa;},'HIoYu':function(_0xb11e70,_0x3803cb){return _0xb11e70+_0x3803cb;},'JahZF':function(_0x39e492,_0x4105f9){return _0x39e492+_0x4105f9;}};let _0x4e6b08='';const _0x1d42fb=Object['keys'](_0x53a210)[_0x265dc1(0x458)]();for(let _0x1d266b=0x0,_0x2d8626=_0x1d42fb[_0x265dc1(0x3e6)];_0x2f1bef[_0x265dc1(0x404)](_0x1d266b,_0x2d8626);_0x1d266b++){_0x4e6b08+=_0x2f1bef[_0x265dc1(0x256)](_0x2f1bef[_0x265dc1(0x256)](_0x2f1bef[_0x265dc1(0x419)](_0x1d42fb[_0x1d266b],':'),_0x53a210[_0x1d42fb[_0x1d266b]]),';');}return _0x4e6b08;}function getNormalizedComponentScale(_0x3b67c9){const _0xae09d6=a0_0x1e632d,_0x580e75={'SjvlI':function(_0x2df75c,_0x226475){return _0x2df75c/_0x226475;},'jatly':function(_0x3d418a,_0x4327bc){return _0x3d418a/_0x4327bc;},'DsUQd':_0xae09d6(0x456)};switch(_0x3b67c9){case Int8Array:return _0x580e75[_0xae09d6(0x388)](0x1,0x7f);case Uint8Array:return 0x1/0xff;case Int16Array:return _0x580e75[_0xae09d6(0x334)](0x1,0x7fff);case Uint16Array:return _0x580e75['jatly'](0x1,0xffff);default:throw new Error(_0x580e75['DsUQd']);}}function getImageURIMimeType(_0x5bb275){const _0x55e66e=a0_0x1e632d,_0x4d7149={'jThSP':function(_0x24e78a,_0x4d35cb){return _0x24e78a>_0x4d35cb;},'JNuLA':function(_0x1e862c,_0x56d62c){return _0x1e862c===_0x56d62c;},'IIFAb':_0x55e66e(0x1ac),'Eqcor':function(_0x457ae8,_0x1ac736){return _0x457ae8===_0x1ac736;},'IPpLd':_0x55e66e(0x468),'LJZuj':_0x55e66e(0x33e)};if(_0x4d7149[_0x55e66e(0x387)](_0x5bb275['search'](/\.jpe?g($|\?)/i),0x0)||_0x4d7149[_0x55e66e(0x1ff)](_0x5bb275[_0x55e66e(0x2d9)](/^data\:image\/jpeg/),0x0))return _0x55e66e(0x3ad);if(_0x5bb275[_0x55e66e(0x2d9)](/\.webp($|\?)/i)>0x0||_0x5bb275[_0x55e66e(0x2d9)](/^data\:image\/webp/)===0x0)return _0x4d7149['IIFAb'];if(_0x4d7149['jThSP'](_0x5bb275['search'](/\.ktx2($|\?)/i),0x0)||_0x4d7149['Eqcor'](_0x5bb275['search'](/^data\:image\/ktx2/),0x0))return _0x4d7149[_0x55e66e(0x399)];return _0x4d7149[_0x55e66e(0x309)];}const _identityMatrix=new Matrix4();class GLTFParser{constructor(_0x1a294a={},_0x1c7267={}){const _0x3f12d1=a0_0x1e632d,_0x105b0d={'iKCXG':function(_0x5508a4,_0x2e4769){return _0x5508a4!==_0x2e4769;},'konmQ':_0x3f12d1(0x3ec),'Ievzn':function(_0x5251f0,_0x334485){return _0x5251f0===_0x334485;},'QMwAu':function(_0x9d8193,_0x303b59){return _0x9d8193&&_0x303b59;},'wEdQs':function(_0x9070d9,_0x45eeed){return _0x9070d9>_0x45eeed;},'OYsxk':_0x3f12d1(0x208),'agdkN':function(_0x3289f4,_0x442500){return _0x3289f4<_0x442500;},'nSOly':'arraybuffer','ItDIq':_0x3f12d1(0x428)};this[_0x3f12d1(0x2f4)]=_0x1a294a,this['extensions']={},this[_0x3f12d1(0x24b)]={},this['options']=_0x1c7267,this[_0x3f12d1(0x20d)]=new GLTFRegistry(),this[_0x3f12d1(0x378)]=new Map(),this[_0x3f12d1(0x357)]={},this['nodeCache']={},this[_0x3f12d1(0x281)]={'refs':{},'uses':{}},this[_0x3f12d1(0x2ef)]={'refs':{},'uses':{}},this['lightCache']={'refs':{},'uses':{}},this[_0x3f12d1(0x30f)]={},this[_0x3f12d1(0x321)]={},this[_0x3f12d1(0x26f)]={};let _0x5f22fc=![],_0x2faaa9=-0x1,_0x5396ff=![],_0x3c0d0b=-0x1;if(_0x105b0d['iKCXG'](typeof navigator,_0x105b0d[_0x3f12d1(0x1c6)])){const _0x1e0d9c=navigator['userAgent'];_0x5f22fc=_0x105b0d['Ievzn'](/^((?!chrome|android).)*safari/i['test'](_0x1e0d9c),!![]);const _0x4a1529=_0x1e0d9c[_0x3f12d1(0x437)](/Version\/(\d+)/);_0x2faaa9=_0x105b0d[_0x3f12d1(0x39c)](_0x5f22fc,_0x4a1529)?parseInt(_0x4a1529[0x1],0xa):-0x1,_0x5396ff=_0x105b0d[_0x3f12d1(0x25a)](_0x1e0d9c[_0x3f12d1(0x1a0)](_0x105b0d[_0x3f12d1(0x1e4)]),-0x1),_0x3c0d0b=_0x5396ff?_0x1e0d9c[_0x3f12d1(0x437)](/Firefox\/([0-9]+)\./)[0x1]:-0x1;}typeof createImageBitmap===_0x105b0d[_0x3f12d1(0x1c6)]||_0x5f22fc&&_0x105b0d[_0x3f12d1(0x46d)](_0x2faaa9,0x11)||_0x5396ff&&_0x105b0d[_0x3f12d1(0x46d)](_0x3c0d0b,0x62)?this[_0x3f12d1(0x3c2)]=new TextureLoader(this[_0x3f12d1(0x331)][_0x3f12d1(0x3cd)]):this[_0x3f12d1(0x3c2)]=new ImageBitmapLoader(this[_0x3f12d1(0x331)][_0x3f12d1(0x3cd)]),this[_0x3f12d1(0x3c2)][_0x3f12d1(0x44a)](this['options'][_0x3f12d1(0x2b6)]),this[_0x3f12d1(0x3c2)][_0x3f12d1(0x258)](this[_0x3f12d1(0x331)][_0x3f12d1(0x18c)]),this[_0x3f12d1(0x25e)]=new FileLoader(this[_0x3f12d1(0x331)][_0x3f12d1(0x3cd)]),this['fileLoader']['setResponseType'](_0x105b0d[_0x3f12d1(0x2ed)]),this[_0x3f12d1(0x331)]['crossOrigin']===_0x105b0d[_0x3f12d1(0x345)]&&this[_0x3f12d1(0x25e)][_0x3f12d1(0x37a)](!![]);}[a0_0x1e632d(0x22f)](_0x2f0c17){const _0x7f2f6c=a0_0x1e632d;this[_0x7f2f6c(0x22a)]=_0x2f0c17;}[a0_0x1e632d(0x268)](_0x4493b8){this['plugins']=_0x4493b8;}['parse'](_0x1d149e,_0x3d52bb){const _0x49da27=a0_0x1e632d,_0x38a7da={'LXPya':_0x49da27(0x2ec),'EgzRV':function(_0x14bb07,_0x5488e1){return _0x14bb07(_0x5488e1);},'nKkSn':function(_0x352ddd,_0x482bbc,_0x594180,_0x4d7dbb){return _0x352ddd(_0x482bbc,_0x594180,_0x4d7dbb);}},_0x1911e9=this,_0x34721b=this[_0x49da27(0x2f4)],_0x7fc726=this['extensions'];this[_0x49da27(0x20d)][_0x49da27(0x3f6)](),this[_0x49da27(0x1a1)]={},this[_0x49da27(0x216)](function(_0xd18cf5){return _0xd18cf5['_markDefs']&&_0xd18cf5['_markDefs']();}),Promise[_0x49da27(0x3b8)](this['_invokeAll'](function(_0x3c03e0){const _0x136bd1=_0x49da27;return _0x3c03e0[_0x136bd1(0x43c)]&&_0x3c03e0[_0x136bd1(0x43c)]();}))[_0x49da27(0x3cc)](function(){const _0x303f60=_0x49da27;return Promise['all']([_0x1911e9[_0x303f60(0x367)](_0x303f60(0x2da)),_0x1911e9[_0x303f60(0x367)](_0x303f60(0x346)),_0x1911e9[_0x303f60(0x367)](_0x38a7da[_0x303f60(0x1ab)])]);})[_0x49da27(0x3cc)](function(_0x28d447){const _0x1c5972=_0x49da27,_0xd6038e={'scene':_0x28d447[0x0][_0x34721b[_0x1c5972(0x2da)]||0x0],'scenes':_0x28d447[0x0],'animations':_0x28d447[0x1],'cameras':_0x28d447[0x2],'asset':_0x34721b['asset'],'parser':_0x1911e9,'userData':{}};return _0x38a7da['nKkSn'](addUnknownExtensionsToUserData,_0x7fc726,_0xd6038e,_0x34721b),assignExtrasToUserData(_0xd6038e,_0x34721b),Promise[_0x1c5972(0x3b8)](_0x1911e9['_invokeAll'](function(_0x18bd43){const _0x36ba5b=_0x1c5972;return _0x18bd43[_0x36ba5b(0x28f)]&&_0x18bd43[_0x36ba5b(0x28f)](_0xd6038e);}))[_0x1c5972(0x3cc)](function(){const _0x2285cb=_0x1c5972;for(const _0x2e4a7f of _0xd6038e[_0x2285cb(0x227)]){_0x2e4a7f['updateMatrixWorld']();}_0x38a7da['EgzRV'](_0x1d149e,_0xd6038e);});})[_0x49da27(0x1d5)](_0x3d52bb);}['_markDefs'](){const _0x3fd222=a0_0x1e632d,_0x21687a={'UIYkh':function(_0x547de1,_0xdbbbbf){return _0x547de1<_0xdbbbbf;},'VAiGc':function(_0x240f9e,_0x546d3f){return _0x240f9e!==_0x546d3f;},'UEYAP':function(_0x3da8be,_0x42afe0){return _0x3da8be!==_0x42afe0;}},_0xc75d4c=this[_0x3fd222(0x2f4)][_0x3fd222(0x221)]||[],_0x2bbb36=this[_0x3fd222(0x2f4)][_0x3fd222(0x261)]||[],_0x1351ef=this[_0x3fd222(0x2f4)][_0x3fd222(0x3da)]||[];for(let _0x5d1163=0x0,_0x194da3=_0x2bbb36[_0x3fd222(0x3e6)];_0x21687a['UIYkh'](_0x5d1163,_0x194da3);_0x5d1163++){const _0x2341c3=_0x2bbb36[_0x5d1163][_0x3fd222(0x1cd)];for(let _0x6ab19a=0x0,_0x731166=_0x2341c3[_0x3fd222(0x3e6)];_0x21687a[_0x3fd222(0x347)](_0x6ab19a,_0x731166);_0x6ab19a++){_0xc75d4c[_0x2341c3[_0x6ab19a]][_0x3fd222(0x223)]=!![];}}for(let _0x45277b=0x0,_0xe4fd89=_0xc75d4c[_0x3fd222(0x3e6)];_0x45277b<_0xe4fd89;_0x45277b++){const _0x2f0065=_0xc75d4c[_0x45277b];_0x2f0065['mesh']!==undefined&&(this['_addNodeRef'](this['meshCache'],_0x2f0065['mesh']),_0x21687a[_0x3fd222(0x43d)](_0x2f0065[_0x3fd222(0x360)],undefined)&&(_0x1351ef[_0x2f0065['mesh']][_0x3fd222(0x316)]=!![])),_0x21687a[_0x3fd222(0x18f)](_0x2f0065[_0x3fd222(0x2ec)],undefined)&&this[_0x3fd222(0x438)](this['cameraCache'],_0x2f0065[_0x3fd222(0x2ec)]);}}[a0_0x1e632d(0x438)](_0x18b9e2,_0x4ab4bd){const _0x553a33=a0_0x1e632d,_0x37ab45={'kDLiy':function(_0x5764fb,_0x55204c){return _0x5764fb===_0x55204c;}};if(_0x37ab45['kDLiy'](_0x4ab4bd,undefined))return;_0x18b9e2[_0x553a33(0x209)][_0x4ab4bd]===undefined&&(_0x18b9e2[_0x553a33(0x209)][_0x4ab4bd]=_0x18b9e2['uses'][_0x4ab4bd]=0x0),_0x18b9e2[_0x553a33(0x209)][_0x4ab4bd]++;}[a0_0x1e632d(0x29d)](_0x18604b,_0x352480,_0x5b3cf8){const _0x4d535c=a0_0x1e632d,_0x2fa59b={'bFuGG':function(_0x3e80ad,_0x359665){return _0x3e80ad!=_0x359665;},'MpZdV':function(_0x5cbae4,_0x4ff420,_0x381f07){return _0x5cbae4(_0x4ff420,_0x381f07);},'YNGYY':function(_0x29e4ff,_0x1db060){return _0x29e4ff+_0x1db060;},'rshFm':_0x4d535c(0x1d4)};if(_0x18604b[_0x4d535c(0x209)][_0x352480]<=0x1)return _0x5b3cf8;const _0x3762f3=_0x5b3cf8[_0x4d535c(0x19d)](),_0x4c5b8f=(_0x48e280,_0x5c478b)=>{const _0x2fe282=_0x4d535c,_0x3ae398=this['associations'][_0x2fe282(0x224)](_0x48e280);_0x2fa59b['bFuGG'](_0x3ae398,null)&&this[_0x2fe282(0x378)][_0x2fe282(0x34c)](_0x5c478b,_0x3ae398);for(const [_0xdd1d0f,_0x5b56d2]of _0x48e280[_0x2fe282(0x384)]['entries']()){_0x2fa59b['MpZdV'](_0x4c5b8f,_0x5b56d2,_0x5c478b[_0x2fe282(0x384)][_0xdd1d0f]);}};return _0x4c5b8f(_0x5b3cf8,_0x3762f3),_0x3762f3['name']+=_0x2fa59b[_0x4d535c(0x1df)](_0x2fa59b[_0x4d535c(0x204)],_0x18604b[_0x4d535c(0x2cb)][_0x352480]++),_0x3762f3;}[a0_0x1e632d(0x3c6)](_0x234808){const _0x46a217=a0_0x1e632d,_0x1728f5={'eoeYj':function(_0x400711,_0x3cd979){return _0x400711(_0x3cd979);}},_0x13222a=Object['values'](this[_0x46a217(0x24b)]);_0x13222a[_0x46a217(0x292)](this);for(let _0x3bf0aa=0x0;_0x3bf0aa<_0x13222a[_0x46a217(0x3e6)];_0x3bf0aa++){const _0x4433b1=_0x1728f5['eoeYj'](_0x234808,_0x13222a[_0x3bf0aa]);if(_0x4433b1)return _0x4433b1;}return null;}[a0_0x1e632d(0x216)](_0x3b1bfc){const _0xea38ed=a0_0x1e632d,_0x25d336={'UVSwd':function(_0x63c339,_0x1aa429){return _0x63c339<_0x1aa429;},'FDRiy':function(_0x168592,_0x3316d0){return _0x168592(_0x3316d0);}},_0x535e80=Object[_0xea38ed(0x18e)](this[_0xea38ed(0x24b)]);_0x535e80[_0xea38ed(0x1a7)](this);const _0x1aebf7=[];for(let _0x39a742=0x0;_0x25d336[_0xea38ed(0x2f7)](_0x39a742,_0x535e80[_0xea38ed(0x3e6)]);_0x39a742++){const _0x52bbe8=_0x25d336[_0xea38ed(0x3f5)](_0x3b1bfc,_0x535e80[_0x39a742]);if(_0x52bbe8)_0x1aebf7['push'](_0x52bbe8);}return _0x1aebf7;}['getDependency'](_0x1eef56,_0x3d0797){const _0x627a72=a0_0x1e632d,_0x5cab4f={'TMJUJ':function(_0x3e54f2,_0x5dbf76){return _0x3e54f2!=_0x5dbf76;},'dwsLK':function(_0x10b9d7,_0x174ee0){return _0x10b9d7+_0x174ee0;},'JWGyX':function(_0x2e21a1,_0x3a9ff8){return _0x2e21a1+_0x3a9ff8;},'UiFuh':_0x627a72(0x3c8),'tRSld':_0x627a72(0x306),'tzcwa':'accessor','WuUIw':_0x627a72(0x229),'jmxEU':_0x627a72(0x444),'dxpuv':_0x627a72(0x2c0),'GzTPt':_0x627a72(0x27f),'SyIxA':_0x627a72(0x346),'Aykjd':_0x627a72(0x2ec),'ROPrZ':_0x627a72(0x28b)},_0x435801=_0x5cab4f[_0x627a72(0x36f)](_0x5cab4f['JWGyX'](_0x1eef56,':'),_0x3d0797);let _0x5b6b7d=this[_0x627a72(0x20d)][_0x627a72(0x224)](_0x435801);if(!_0x5b6b7d){switch(_0x1eef56){case'scene':_0x5b6b7d=this[_0x627a72(0x39f)](_0x3d0797);break;case _0x5cab4f['UiFuh']:_0x5b6b7d=this[_0x627a72(0x3c6)](function(_0xf1fbf2){const _0x477802=_0x627a72;return _0xf1fbf2[_0x477802(0x248)]&&_0xf1fbf2['loadNode'](_0x3d0797);});break;case _0x5cab4f['tRSld']:_0x5b6b7d=this[_0x627a72(0x3c6)](function(_0x2e3412){const _0x508d11=_0x627a72;return _0x2e3412[_0x508d11(0x3a3)]&&_0x2e3412['loadMesh'](_0x3d0797);});break;case _0x5cab4f[_0x627a72(0x465)]:_0x5b6b7d=this['loadAccessor'](_0x3d0797);break;case _0x5cab4f[_0x627a72(0x396)]:_0x5b6b7d=this[_0x627a72(0x3c6)](function(_0x5e48ad){const _0x4284c3=_0x627a72;return _0x5e48ad[_0x4284c3(0x206)]&&_0x5e48ad[_0x4284c3(0x206)](_0x3d0797);});break;case _0x5cab4f['jmxEU']:_0x5b6b7d=this['loadBuffer'](_0x3d0797);break;case _0x5cab4f[_0x627a72(0x282)]:_0x5b6b7d=this['_invokeOne'](function(_0x458c5b){const _0xbaa32e=_0x627a72;return _0x458c5b[_0xbaa32e(0x1ad)]&&_0x458c5b['loadMaterial'](_0x3d0797);});break;case _0x5cab4f['GzTPt']:_0x5b6b7d=this[_0x627a72(0x3c6)](function(_0x5c06e5){const _0x55e21d=_0x627a72;return _0x5c06e5[_0x55e21d(0x3b9)]&&_0x5c06e5['loadTexture'](_0x3d0797);});break;case _0x627a72(0x360):_0x5b6b7d=this[_0x627a72(0x3d1)](_0x3d0797);break;case _0x5cab4f['SyIxA']:_0x5b6b7d=this[_0x627a72(0x3c6)](function(_0x554656){const _0x3cc54b=_0x627a72;return _0x554656[_0x3cc54b(0x390)]&&_0x554656[_0x3cc54b(0x390)](_0x3d0797);});break;case _0x5cab4f[_0x627a72(0x2e5)]:_0x5b6b7d=this[_0x627a72(0x439)](_0x3d0797);break;default:_0x5b6b7d=this[_0x627a72(0x3c6)](function(_0x56c853){const _0x5456c8=_0x627a72;return _0x5cab4f['TMJUJ'](_0x56c853,this)&&_0x56c853[_0x5456c8(0x236)]&&_0x56c853[_0x5456c8(0x236)](_0x1eef56,_0x3d0797);});if(!_0x5b6b7d)throw new Error(_0x5cab4f['JWGyX'](_0x5cab4f['ROPrZ'],_0x1eef56));break;}this[_0x627a72(0x20d)][_0x627a72(0x2f0)](_0x435801,_0x5b6b7d);}return _0x5b6b7d;}['getDependencies'](_0xfbf4fd){const _0x5ba536=a0_0x1e632d,_0x1f615d={'CbEHt':function(_0x28acdc,_0x96d1b0){return _0x28acdc+_0x96d1b0;},'YbyxV':_0x5ba536(0x306)};let _0x1d98f2=this['cache'][_0x5ba536(0x224)](_0xfbf4fd);if(!_0x1d98f2){const _0x12c9f3=this,_0x11b861=this[_0x5ba536(0x2f4)][_0x1f615d[_0x5ba536(0x1fe)](_0xfbf4fd,_0xfbf4fd===_0x1f615d[_0x5ba536(0x326)]?'es':'s')]||[];_0x1d98f2=Promise[_0x5ba536(0x3b8)](_0x11b861[_0x5ba536(0x1b6)](function(_0x3b2016,_0x33ae2c){return _0x12c9f3['getDependency'](_0xfbf4fd,_0x33ae2c);})),this['cache'][_0x5ba536(0x2f0)](_0xfbf4fd,_0x1d98f2);}return _0x1d98f2;}['loadBuffer'](_0x496372){const _0x5187bb=a0_0x1e632d,_0x22a8e1={'XsqaW':_0x5187bb(0x41c),'aYERq':function(_0x22f892,_0x48a94d){return _0x22f892!==_0x48a94d;},'xyoal':_0x5187bb(0x319),'kIzVW':function(_0x39f144,_0x599036){return _0x39f144+_0x599036;},'QyPhY':_0x5187bb(0x405)},_0xe9b0ef=this['json']['buffers'][_0x496372],_0x4859ce=this[_0x5187bb(0x25e)];if(_0xe9b0ef[_0x5187bb(0x275)]&&_0x22a8e1[_0x5187bb(0x322)](_0xe9b0ef['type'],_0x22a8e1['xyoal']))throw new Error(_0x22a8e1[_0x5187bb(0x33b)](_0x22a8e1[_0x5187bb(0x354)],_0xe9b0ef[_0x5187bb(0x275)])+_0x5187bb(0x469));if(_0xe9b0ef[_0x5187bb(0x1f6)]===undefined&&_0x496372===0x0)return Promise[_0x5187bb(0x1e8)](this[_0x5187bb(0x22a)][EXTENSIONS['KHR_BINARY_GLTF']]['body']);const _0x20e957=this[_0x5187bb(0x331)];return new Promise(function(_0x4adf6,_0x3a118b){const _0x19070b=_0x5187bb,_0x1bced4={'USxjK':function(_0x5ee54c,_0x9d0940){return _0x5ee54c+_0x9d0940;},'MxWHI':_0x22a8e1[_0x19070b(0x3b4)]};_0x4859ce[_0x19070b(0x26c)](LoaderUtils[_0x19070b(0x344)](_0xe9b0ef[_0x19070b(0x1f6)],_0x20e957[_0x19070b(0x212)]),_0x4adf6,undefined,function(){const _0x37af77=_0x19070b;_0x3a118b(new Error(_0x1bced4[_0x37af77(0x3cb)](_0x1bced4[_0x37af77(0x20c)]+_0xe9b0ef['uri'],'\x22.')));});});}[a0_0x1e632d(0x206)](_0x3d0596){const _0x3c1f3f=a0_0x1e632d,_0x17ac76={'ivjHJ':function(_0x2dd1ca,_0x974835){return _0x2dd1ca+_0x974835;},'ixjMO':_0x3c1f3f(0x444)},_0x1046d9=this[_0x3c1f3f(0x2f4)]['bufferViews'][_0x3d0596];return this[_0x3c1f3f(0x236)](_0x17ac76[_0x3c1f3f(0x35e)],_0x1046d9[_0x3c1f3f(0x444)])[_0x3c1f3f(0x3cc)](function(_0x560b8b){const _0xfc8469=_0x3c1f3f,_0x41cece=_0x1046d9['byteLength']||0x0,_0x33572e=_0x1046d9[_0xfc8469(0x3ea)]||0x0;return _0x560b8b['slice'](_0x33572e,_0x17ac76[_0xfc8469(0x31b)](_0x33572e,_0x41cece));});}['loadAccessor'](_0x49faf6){const _0x55e0c3=a0_0x1e632d,_0x3679ed={'sdYtu':function(_0x47aa0f,_0x501191){return _0x47aa0f!==_0x501191;},'FhtCP':function(_0xb1383,_0x358b77){return _0xb1383/_0x358b77;},'oaKvv':function(_0x4b9f3e,_0x592298){return _0x4b9f3e+_0x592298;},'jPqRO':function(_0x174ca3,_0x110e51){return _0x174ca3+_0x110e51;},'naPrJ':function(_0x283c80,_0x3c5c1a){return _0x283c80+_0x3c5c1a;},'cyzsk':function(_0x509ec2,_0x254b9a){return _0x509ec2+_0x254b9a;},'nvPhU':_0x55e0c3(0x350),'Iuypx':function(_0x14b96b,_0x25091f){return _0x14b96b*_0x25091f;},'gnvKx':function(_0xc125f6,_0x2b67bd){return _0xc125f6%_0x2b67bd;},'ZJDCt':function(_0xf5ae59,_0x3ce557){return _0xf5ae59===_0x3ce557;},'ZXbAe':function(_0x492fb0,_0x36e55a){return _0x492fb0*_0x36e55a;},'hrwSp':function(_0x54e2cb,_0x11f3a0){return _0x54e2cb*_0x11f3a0;},'SbfRu':function(_0x6e4c8e,_0xe8e47a){return _0x6e4c8e*_0xe8e47a;},'DuEvQ':function(_0x3fd538,_0x10b7de){return _0x3fd538>=_0x10b7de;},'nWZlA':function(_0x823289,_0x5c21b3){return _0x823289*_0x5c21b3;},'FFubt':function(_0x4d8baf,_0x4499fc){return _0x4d8baf>=_0x4499fc;},'NYsWs':function(_0x20b23f,_0x12c69c){return _0x20b23f===_0x12c69c;},'BBTSO':_0x55e0c3(0x229)},_0x44f45a=this,_0x526ca0=this[_0x55e0c3(0x2f4)],_0x501413=this[_0x55e0c3(0x2f4)][_0x55e0c3(0x28e)][_0x49faf6];if(_0x501413[_0x55e0c3(0x229)]===undefined&&_0x501413[_0x55e0c3(0x457)]===undefined){const _0x563e50=WEBGL_TYPE_SIZES[_0x501413[_0x55e0c3(0x275)]],_0x3d917f=WEBGL_COMPONENT_TYPES[_0x501413[_0x55e0c3(0x3d5)]],_0x375e96=_0x3679ed[_0x55e0c3(0x1e7)](_0x501413[_0x55e0c3(0x29c)],!![]),_0x328945=new _0x3d917f(_0x3679ed[_0x55e0c3(0x31e)](_0x501413[_0x55e0c3(0x23d)],_0x563e50));return Promise[_0x55e0c3(0x1e8)](new BufferAttribute(_0x328945,_0x563e50,_0x375e96));}const _0x591a5e=[];return _0x501413[_0x55e0c3(0x229)]!==undefined?_0x591a5e[_0x55e0c3(0x292)](this[_0x55e0c3(0x236)](_0x3679ed[_0x55e0c3(0x244)],_0x501413[_0x55e0c3(0x229)])):_0x591a5e[_0x55e0c3(0x292)](null),_0x3679ed[_0x55e0c3(0x363)](_0x501413[_0x55e0c3(0x457)],undefined)&&(_0x591a5e[_0x55e0c3(0x292)](this[_0x55e0c3(0x236)](_0x3679ed[_0x55e0c3(0x244)],_0x501413[_0x55e0c3(0x457)]['indices']['bufferView'])),_0x591a5e[_0x55e0c3(0x292)](this[_0x55e0c3(0x236)](_0x3679ed[_0x55e0c3(0x244)],_0x501413['sparse'][_0x55e0c3(0x18e)][_0x55e0c3(0x229)]))),Promise[_0x55e0c3(0x3b8)](_0x591a5e)[_0x55e0c3(0x3cc)](function(_0x56b96b){const _0x3da9b9=_0x55e0c3,_0x3b0aa9=_0x56b96b[0x0],_0xbb9914=WEBGL_TYPE_SIZES[_0x501413[_0x3da9b9(0x275)]],_0xc44248=WEBGL_COMPONENT_TYPES[_0x501413['componentType']],_0x5b1813=_0xc44248[_0x3da9b9(0x2fd)],_0x54f677=_0x5b1813*_0xbb9914,_0x3e2662=_0x501413[_0x3da9b9(0x3ea)]||0x0,_0x1abad4=_0x3679ed[_0x3da9b9(0x363)](_0x501413[_0x3da9b9(0x229)],undefined)?_0x526ca0[_0x3da9b9(0x3e9)][_0x501413[_0x3da9b9(0x229)]][_0x3da9b9(0x362)]:undefined,_0x5b5935=_0x501413[_0x3da9b9(0x29c)]===!![];let _0x55ac97,_0x4c0f61;if(_0x1abad4&&_0x3679ed[_0x3da9b9(0x363)](_0x1abad4,_0x54f677)){const _0x5769b4=Math[_0x3da9b9(0x3c3)](_0x3679ed['FhtCP'](_0x3e2662,_0x1abad4)),_0x21b6d7=_0x3679ed[_0x3da9b9(0x2a0)](_0x3679ed[_0x3da9b9(0x239)](_0x3679ed[_0x3da9b9(0x2a0)](_0x3679ed[_0x3da9b9(0x1e0)](_0x3679ed[_0x3da9b9(0x2d5)](_0x3679ed['nvPhU'],_0x501413[_0x3da9b9(0x229)]),':')+_0x501413[_0x3da9b9(0x3d5)]+':',_0x5769b4),':'),_0x501413[_0x3da9b9(0x23d)]);let _0x223783=_0x44f45a['cache'][_0x3da9b9(0x224)](_0x21b6d7);!_0x223783&&(_0x55ac97=new _0xc44248(_0x3b0aa9,_0x3679ed[_0x3da9b9(0x30b)](_0x5769b4,_0x1abad4),_0x3679ed[_0x3da9b9(0x1bf)](_0x501413[_0x3da9b9(0x23d)]*_0x1abad4,_0x5b1813)),_0x223783=new InterleavedBuffer(_0x55ac97,_0x1abad4/_0x5b1813),_0x44f45a[_0x3da9b9(0x20d)][_0x3da9b9(0x2f0)](_0x21b6d7,_0x223783)),_0x4c0f61=new InterleavedBufferAttribute(_0x223783,_0xbb9914,_0x3679ed[_0x3da9b9(0x1bf)](_0x3679ed['gnvKx'](_0x3e2662,_0x1abad4),_0x5b1813),_0x5b5935);}else _0x3679ed['ZJDCt'](_0x3b0aa9,null)?_0x55ac97=new _0xc44248(_0x3679ed[_0x3da9b9(0x30b)](_0x501413[_0x3da9b9(0x23d)],_0xbb9914)):_0x55ac97=new _0xc44248(_0x3b0aa9,_0x3e2662,_0x501413[_0x3da9b9(0x23d)]*_0xbb9914),_0x4c0f61=new BufferAttribute(_0x55ac97,_0xbb9914,_0x5b5935);if(_0x3679ed[_0x3da9b9(0x363)](_0x501413['sparse'],undefined)){const _0x527020=WEBGL_TYPE_SIZES[_0x3da9b9(0x341)],_0x2d3b54=WEBGL_COMPONENT_TYPES[_0x501413[_0x3da9b9(0x457)][_0x3da9b9(0x2e8)][_0x3da9b9(0x3d5)]],_0x38ccdc=_0x501413[_0x3da9b9(0x457)][_0x3da9b9(0x2e8)][_0x3da9b9(0x3ea)]||0x0,_0x221214=_0x501413[_0x3da9b9(0x457)]['values']['byteOffset']||0x0,_0x568157=new _0x2d3b54(_0x56b96b[0x1],_0x38ccdc,_0x3679ed[_0x3da9b9(0x407)](_0x501413['sparse']['count'],_0x527020)),_0x478ff7=new _0xc44248(_0x56b96b[0x2],_0x221214,_0x3679ed[_0x3da9b9(0x418)](_0x501413['sparse']['count'],_0xbb9914));_0x3679ed[_0x3da9b9(0x363)](_0x3b0aa9,null)&&(_0x4c0f61=new BufferAttribute(_0x4c0f61[_0x3da9b9(0x370)]['slice'](),_0x4c0f61[_0x3da9b9(0x226)],_0x4c0f61['normalized']));_0x4c0f61[_0x3da9b9(0x29c)]=![];for(let _0x209db7=0x0,_0x2a697e=_0x568157[_0x3da9b9(0x3e6)];_0x209db7<_0x2a697e;_0x209db7++){const _0xe8911d=_0x568157[_0x209db7];_0x4c0f61[_0x3da9b9(0x2e0)](_0xe8911d,_0x478ff7[_0x3679ed[_0x3da9b9(0x2e1)](_0x209db7,_0xbb9914)]);if(_0xbb9914>=0x2)_0x4c0f61[_0x3da9b9(0x1fd)](_0xe8911d,_0x478ff7[_0x3679ed[_0x3da9b9(0x418)](_0x209db7,_0xbb9914)+0x1]);if(_0x3679ed[_0x3da9b9(0x21c)](_0xbb9914,0x3))_0x4c0f61['setZ'](_0xe8911d,_0x478ff7[_0x3679ed[_0x3da9b9(0x1e0)](_0x3679ed[_0x3da9b9(0x418)](_0x209db7,_0xbb9914),0x2)]);if(_0x3679ed[_0x3da9b9(0x21c)](_0xbb9914,0x4))_0x4c0f61['setW'](_0xe8911d,_0x478ff7[_0x3679ed[_0x3da9b9(0x2a0)](_0x3679ed['nWZlA'](_0x209db7,_0xbb9914),0x3)]);if(_0x3679ed[_0x3da9b9(0x241)](_0xbb9914,0x5))throw new Error(_0x3da9b9(0x1db));}_0x4c0f61[_0x3da9b9(0x29c)]=_0x5b5935;}return _0x4c0f61;});}[a0_0x1e632d(0x3b9)](_0x47a99e){const _0x5c0104=a0_0x1e632d,_0x45a3b1={'cgcuF':function(_0x158da6,_0x54e54f){return _0x158da6!==_0x54e54f;}},_0x51d8bc=this[_0x5c0104(0x2f4)],_0x5cf26b=this['options'],_0x4b66bd=_0x51d8bc['textures'][_0x47a99e],_0x116eb2=_0x4b66bd['source'],_0x1ae572=_0x51d8bc[_0x5c0104(0x37f)][_0x116eb2];let _0x2ff315=this[_0x5c0104(0x3c2)];if(_0x1ae572[_0x5c0104(0x1f6)]){const _0x4e549c=_0x5cf26b[_0x5c0104(0x3cd)][_0x5c0104(0x3a9)](_0x1ae572['uri']);if(_0x45a3b1[_0x5c0104(0x44f)](_0x4e549c,null))_0x2ff315=_0x4e549c;}return this['loadTextureImage'](_0x47a99e,_0x116eb2,_0x2ff315);}[a0_0x1e632d(0x2d0)](_0x3e3806,_0x1a303e,_0x3b2cc4){const _0x482e8f=a0_0x1e632d,_0x426fea={'pyLjP':function(_0x59d513,_0xf8a122){return _0x59d513===_0xf8a122;},'NVXct':_0x482e8f(0x425),'pDGLB':_0x482e8f(0x2ca),'UDsNQ':function(_0x328bda,_0x480b49){return _0x328bda!==_0x480b49;},'SxXZs':function(_0x193e52,_0x2067a4){return _0x193e52+_0x2067a4;}},_0x4fb251=this,_0x13e3c4=this['json'],_0xc57ad4=_0x13e3c4['textures'][_0x3e3806],_0x105c9e=_0x13e3c4[_0x482e8f(0x37f)][_0x1a303e],_0x471827=_0x426fea[_0x482e8f(0x29a)]((_0x105c9e['uri']||_0x105c9e[_0x482e8f(0x229)])+':',_0xc57ad4['sampler']);if(this[_0x482e8f(0x321)][_0x471827])return this[_0x482e8f(0x321)][_0x471827];const _0x24a1e6=this[_0x482e8f(0x3ab)](_0x1a303e,_0x3b2cc4)[_0x482e8f(0x3cc)](function(_0x383721){const _0x45e845=_0x482e8f;_0x383721[_0x45e845(0x1a5)]=![],_0x383721['name']=_0xc57ad4[_0x45e845(0x33f)]||_0x105c9e['name']||'';_0x383721['name']===''&&_0x426fea['pyLjP'](typeof _0x105c9e['uri'],_0x426fea[_0x45e845(0x332)])&&_0x426fea[_0x45e845(0x409)](_0x105c9e['uri'][_0x45e845(0x464)](_0x426fea['pDGLB']),![])&&(_0x383721[_0x45e845(0x33f)]=_0x105c9e[_0x45e845(0x1f6)]);const _0x4828e6=_0x13e3c4[_0x45e845(0x340)]||{},_0x2919ef=_0x4828e6[_0xc57ad4[_0x45e845(0x31c)]]||{};return _0x383721['magFilter']=WEBGL_FILTERS[_0x2919ef[_0x45e845(0x30e)]]||LinearFilter,_0x383721[_0x45e845(0x3c1)]=WEBGL_FILTERS[_0x2919ef['minFilter']]||LinearMipmapLinearFilter,_0x383721[_0x45e845(0x42a)]=WEBGL_WRAPPINGS[_0x2919ef[_0x45e845(0x42a)]]||RepeatWrapping,_0x383721['wrapT']=WEBGL_WRAPPINGS[_0x2919ef['wrapT']]||RepeatWrapping,_0x383721[_0x45e845(0x3d6)]=!_0x383721[_0x45e845(0x2cf)]&&_0x426fea['UDsNQ'](_0x383721['minFilter'],NearestFilter)&&_0x426fea['UDsNQ'](_0x383721[_0x45e845(0x3c1)],LinearFilter),_0x4fb251[_0x45e845(0x378)][_0x45e845(0x34c)](_0x383721,{'textures':_0x3e3806}),_0x383721;})[_0x482e8f(0x1d5)](function(){return null;});return this[_0x482e8f(0x321)][_0x471827]=_0x24a1e6,_0x24a1e6;}[a0_0x1e632d(0x3ab)](_0x5c1a24,_0x49d82c){const _0x5ab49f=a0_0x1e632d,_0x4fc166={'VONbt':function(_0x175e8d,_0x328845){return _0x175e8d===_0x328845;},'VvHYU':function(_0x1a3e3f,_0x38e005,_0x343f02){return _0x1a3e3f(_0x38e005,_0x343f02);},'ByFNV':_0x5ab49f(0x1c3),'aFxRa':function(_0xc14948,_0x1b984e){return _0xc14948!==_0x1b984e;},'FfyxI':function(_0x4202dd,_0x3d7a09){return _0x4202dd!==_0x3d7a09;},'oDuFS':_0x5ab49f(0x229),'FOgqD':function(_0x32cf04,_0x2f251f){return _0x32cf04===_0x2f251f;},'clvUf':function(_0x46a5f6,_0x1c2c8c){return _0x46a5f6+_0x1c2c8c;}},_0x148fd8=this,_0x588ac9=this['json'],_0x5c178c=this[_0x5ab49f(0x331)];if(_0x4fc166[_0x5ab49f(0x1ec)](this[_0x5ab49f(0x30f)][_0x5c1a24],undefined))return this[_0x5ab49f(0x30f)][_0x5c1a24][_0x5ab49f(0x3cc)](_0x3741ec=>_0x3741ec['clone']());const _0x9e38fc=_0x588ac9['images'][_0x5c1a24],_0x8e131c=self[_0x5ab49f(0x1d1)]||self['webkitURL'];let _0xd032ec=_0x9e38fc[_0x5ab49f(0x1f6)]||'',_0x41d287=![];if(_0x4fc166['FfyxI'](_0x9e38fc[_0x5ab49f(0x229)],undefined))_0xd032ec=_0x148fd8['getDependency'](_0x4fc166[_0x5ab49f(0x2c9)],_0x9e38fc[_0x5ab49f(0x229)])[_0x5ab49f(0x3cc)](function(_0x1bba09){const _0x39d321=_0x5ab49f;_0x41d287=!![];const _0x4e750e=new Blob([_0x1bba09],{'type':_0x9e38fc[_0x39d321(0x207)]});return _0xd032ec=_0x8e131c[_0x39d321(0x3c4)](_0x4e750e),_0xd032ec;});else{if(_0x4fc166[_0x5ab49f(0x412)](_0x9e38fc[_0x5ab49f(0x1f6)],undefined))throw new Error(_0x4fc166[_0x5ab49f(0x219)]('THREE.GLTFLoader:\x20Image\x20',_0x5c1a24)+_0x5ab49f(0x3a1));}const _0x1e14ee=Promise['resolve'](_0xd032ec)[_0x5ab49f(0x3cc)](function(_0x491d41){const _0x34b4be={'vnaIV':function(_0x386f8a,_0x289e49){const _0x550b68=a0_0x4344;return _0x4fc166[_0x550b68(0x3f2)](_0x386f8a,_0x289e49);}};return new Promise(function(_0x46319b,_0x4fbce6){const _0x410365=a0_0x4344;let _0x3f85be=_0x46319b;_0x34b4be[_0x410365(0x1f7)](_0x49d82c[_0x410365(0x430)],!![])&&(_0x3f85be=function(_0x28b716){const _0xfa668f=_0x410365,_0x306107=new Texture(_0x28b716);_0x306107[_0xfa668f(0x31d)]=!![],_0x46319b(_0x306107);}),_0x49d82c['load'](LoaderUtils[_0x410365(0x344)](_0x491d41,_0x5c178c[_0x410365(0x212)]),_0x3f85be,undefined,_0x4fbce6);});})[_0x5ab49f(0x3cc)](function(_0x3fe47e){const _0x2cf067=_0x5ab49f;return _0x41d287===!![]&&_0x8e131c[_0x2cf067(0x305)](_0xd032ec),_0x4fc166[_0x2cf067(0x245)](assignExtrasToUserData,_0x3fe47e,_0x9e38fc),_0x3fe47e[_0x2cf067(0x382)][_0x2cf067(0x207)]=_0x9e38fc[_0x2cf067(0x207)]||getImageURIMimeType(_0x9e38fc[_0x2cf067(0x1f6)]),_0x3fe47e;})[_0x5ab49f(0x1d5)](function(_0x5845db){const _0xd84f81=_0x5ab49f;console[_0xd84f81(0x3fe)](_0x4fc166[_0xd84f81(0x323)],_0xd032ec);throw _0x5845db;});return this['sourceCache'][_0x5c1a24]=_0x1e14ee,_0x1e14ee;}[a0_0x1e632d(0x397)](_0x3a88a1,_0x80f564,_0x2ad934,_0x3cef88){const _0x47da8c=a0_0x1e632d,_0xbcb1d9={'hgTgp':function(_0x2adf90,_0x2fe54e){return _0x2adf90!==_0x2fe54e;},'NTRpv':function(_0xa6d836,_0x381923){return _0xa6d836>_0x381923;},'TFibr':_0x47da8c(0x27f)},_0x528698=this;return this[_0x47da8c(0x236)](_0xbcb1d9[_0x47da8c(0x392)],_0x2ad934['index'])['then'](function(_0x2d3c46){const _0x45a6a3=_0x47da8c;if(!_0x2d3c46)return null;_0xbcb1d9[_0x45a6a3(0x3f9)](_0x2ad934[_0x45a6a3(0x289)],undefined)&&_0xbcb1d9[_0x45a6a3(0x38b)](_0x2ad934['texCoord'],0x0)&&(_0x2d3c46=_0x2d3c46[_0x45a6a3(0x19d)](),_0x2d3c46[_0x45a6a3(0x3af)]=_0x2ad934[_0x45a6a3(0x289)]);if(_0x528698[_0x45a6a3(0x22a)][EXTENSIONS[_0x45a6a3(0x1f2)]]){const _0x4fd7b5=_0xbcb1d9[_0x45a6a3(0x3f9)](_0x2ad934[_0x45a6a3(0x22a)],undefined)?_0x2ad934[_0x45a6a3(0x22a)][EXTENSIONS[_0x45a6a3(0x1f2)]]:undefined;if(_0x4fd7b5){const _0x4b2e03=_0x528698[_0x45a6a3(0x378)][_0x45a6a3(0x224)](_0x2d3c46);_0x2d3c46=_0x528698['extensions'][EXTENSIONS[_0x45a6a3(0x1f2)]][_0x45a6a3(0x2aa)](_0x2d3c46,_0x4fd7b5),_0x528698[_0x45a6a3(0x378)]['set'](_0x2d3c46,_0x4b2e03);}}return _0xbcb1d9[_0x45a6a3(0x3f9)](_0x3cef88,undefined)&&(_0x2d3c46[_0x45a6a3(0x1bd)]=_0x3cef88),_0x3a88a1[_0x80f564]=_0x2d3c46,_0x2d3c46;});}[a0_0x1e632d(0x34b)](_0x92ed3e){const _0x40621b=a0_0x1e632d,_0x3ccf9d={'THrBJ':_0x40621b(0x1d3),'AIhIH':function(_0x14bad1,_0x32c866){return _0x14bad1+_0x32c866;},'MeJQK':_0x40621b(0x1b7),'RnQLa':_0x40621b(0x22e),'DRmtg':_0x40621b(0x22b),'wPCvS':_0x40621b(0x2bd),'rnQaR':'flat-shading:'},_0x2d9d13=_0x92ed3e[_0x40621b(0x280)];let _0x1f0dcc=_0x92ed3e['material'];const _0x2e37ed=_0x2d9d13['attributes'][_0x40621b(0x467)]===undefined,_0x39d62a=_0x2d9d13[_0x40621b(0x41b)]['color']!==undefined,_0x247a04=_0x2d9d13['attributes'][_0x40621b(0x441)]===undefined;if(_0x92ed3e[_0x40621b(0x270)]){const _0x12f212=_0x40621b(0x3dd)+_0x1f0dcc[_0x40621b(0x266)];let _0x3e9ff0=this[_0x40621b(0x20d)][_0x40621b(0x224)](_0x12f212);if(!_0x3e9ff0){const _0x1b55b0=_0x3ccf9d['THrBJ']['split']('|');let _0x188f54=0x0;while(!![]){switch(_0x1b55b0[_0x188f54++]){case'0':_0x3e9ff0[_0x40621b(0x1b6)]=_0x1f0dcc['map'];continue;case'1':Material[_0x40621b(0x18b)][_0x40621b(0x36a)][_0x40621b(0x393)](_0x3e9ff0,_0x1f0dcc);continue;case'2':_0x3e9ff0[_0x40621b(0x194)]=![];continue;case'3':this[_0x40621b(0x20d)][_0x40621b(0x2f0)](_0x12f212,_0x3e9ff0);continue;case'4':_0x3e9ff0[_0x40621b(0x431)]['copy'](_0x1f0dcc['color']);continue;case'5':_0x3e9ff0=new PointsMaterial();continue;}break;}}_0x1f0dcc=_0x3e9ff0;}else{if(_0x92ed3e[_0x40621b(0x3a2)]){const _0x3c0bae=_0x3ccf9d['AIhIH'](_0x3ccf9d[_0x40621b(0x2db)],_0x1f0dcc[_0x40621b(0x266)]);let _0xe0a629=this['cache'][_0x40621b(0x224)](_0x3c0bae);if(!_0xe0a629){const _0x3b6162=_0x3ccf9d[_0x40621b(0x35c)][_0x40621b(0x1c7)]('|');let _0x31e516=0x0;while(!![]){switch(_0x3b6162[_0x31e516++]){case'0':_0xe0a629[_0x40621b(0x431)]['copy'](_0x1f0dcc[_0x40621b(0x431)]);continue;case'1':Material['prototype']['copy'][_0x40621b(0x393)](_0xe0a629,_0x1f0dcc);continue;case'2':_0xe0a629[_0x40621b(0x1b6)]=_0x1f0dcc[_0x40621b(0x1b6)];continue;case'3':_0xe0a629=new LineBasicMaterial();continue;case'4':this['cache'][_0x40621b(0x2f0)](_0x3c0bae,_0xe0a629);continue;}break;}}_0x1f0dcc=_0xe0a629;}}if(_0x2e37ed||_0x39d62a||_0x247a04){let _0x3177d2=_0x3ccf9d[_0x40621b(0x23b)](_0x3ccf9d[_0x40621b(0x27d)]+_0x1f0dcc[_0x40621b(0x266)],':');if(_0x2e37ed)_0x3177d2+=_0x40621b(0x1f3);if(_0x39d62a)_0x3177d2+=_0x3ccf9d[_0x40621b(0x29b)];if(_0x247a04)_0x3177d2+=_0x3ccf9d[_0x40621b(0x32d)];let _0x5720fd=this[_0x40621b(0x20d)][_0x40621b(0x224)](_0x3177d2);if(!_0x5720fd){const _0x2e9b5c='3|0|1|4|5|2'[_0x40621b(0x1c7)]('|');let _0x3ed60e=0x0;while(!![]){switch(_0x2e9b5c[_0x3ed60e++]){case'0':if(_0x39d62a)_0x5720fd['vertexColors']=!![];continue;case'1':if(_0x247a04)_0x5720fd[_0x40621b(0x453)]=!![];continue;case'2':this['associations'][_0x40621b(0x34c)](_0x5720fd,this[_0x40621b(0x378)]['get'](_0x1f0dcc));continue;case'3':_0x5720fd=_0x1f0dcc['clone']();continue;case'4':if(_0x2e37ed){if(_0x5720fd['normalScale'])_0x5720fd[_0x40621b(0x2e2)]['y']*=-0x1;if(_0x5720fd[_0x40621b(0x398)])_0x5720fd[_0x40621b(0x398)]['y']*=-0x1;}continue;case'5':this['cache'][_0x40621b(0x2f0)](_0x3177d2,_0x5720fd);continue;}break;}}_0x1f0dcc=_0x5720fd;}_0x92ed3e[_0x40621b(0x2c0)]=_0x1f0dcc;}[a0_0x1e632d(0x36e)](){return MeshStandardMaterial;}['loadMaterial'](_0x478476){const _0xf958e=a0_0x1e632d,_0x4ee00a={'bkgZk':function(_0x2fc023,_0x12aad7,_0x525aeb){return _0x2fc023(_0x12aad7,_0x525aeb);},'nqQMY':function(_0x24f6d4,_0x383889){return _0x24f6d4!==_0x383889;},'hpOAw':function(_0x19eb89,_0x325173){return _0x19eb89!==_0x325173;},'INxFh':_0xf958e(0x359),'SqiSN':function(_0x2a2f40,_0x18dc7d){return _0x2a2f40===_0x18dc7d;},'rWEGF':function(_0x5c92b0,_0x46d4eb){return _0x5c92b0===_0x46d4eb;},'cHRkQ':function(_0x18f4af,_0x443607){return _0x18f4af!==_0x443607;},'IyWZx':_0xf958e(0x450),'BFsQS':function(_0x2fd34e,_0xa6160){return _0x2fd34e!==_0xa6160;},'qMESX':_0xf958e(0x197),'YCMwj':_0xf958e(0x466)},_0x49080e=this,_0x4b511c=this[_0xf958e(0x2f4)],_0x3fc03e=this[_0xf958e(0x22a)],_0x17b958=_0x4b511c[_0xf958e(0x415)][_0x478476];let _0x411902;const _0x4d23ad={},_0x282841=_0x17b958[_0xf958e(0x22a)]||{},_0x5660d4=[];if(_0x282841[EXTENSIONS[_0xf958e(0x1c2)]]){const _0x3fca29=_0x3fc03e[EXTENSIONS[_0xf958e(0x1c2)]];_0x411902=_0x3fca29['getMaterialType'](),_0x5660d4['push'](_0x3fca29[_0xf958e(0x3e0)](_0x4d23ad,_0x17b958,_0x49080e));}else{const _0x5f1852=_0x17b958[_0xf958e(0x2a8)]||{};_0x4d23ad[_0xf958e(0x431)]=new Color(0x1,0x1,0x1),_0x4d23ad[_0xf958e(0x1e5)]=0x1;if(Array[_0xf958e(0x315)](_0x5f1852[_0xf958e(0x3f8)])){const _0x359386=_0x5f1852[_0xf958e(0x3f8)];_0x4d23ad[_0xf958e(0x431)][_0xf958e(0x452)](_0x359386[0x0],_0x359386[0x1],_0x359386[0x2],LinearSRGBColorSpace),_0x4d23ad['opacity']=_0x359386[0x3];}_0x4ee00a[_0xf958e(0x426)](_0x5f1852[_0xf958e(0x442)],undefined)&&_0x5660d4[_0xf958e(0x292)](_0x49080e[_0xf958e(0x397)](_0x4d23ad,'map',_0x5f1852[_0xf958e(0x442)],SRGBColorSpace)),_0x4d23ad['metalness']=_0x4ee00a[_0xf958e(0x426)](_0x5f1852[_0xf958e(0x45a)],undefined)?_0x5f1852[_0xf958e(0x45a)]:0x1,_0x4d23ad[_0xf958e(0x1c5)]=_0x5f1852[_0xf958e(0x3bb)]!==undefined?_0x5f1852[_0xf958e(0x3bb)]:0x1,_0x4ee00a['hpOAw'](_0x5f1852[_0xf958e(0x2cd)],undefined)&&(_0x5660d4[_0xf958e(0x292)](_0x49080e[_0xf958e(0x397)](_0x4d23ad,_0x4ee00a[_0xf958e(0x391)],_0x5f1852[_0xf958e(0x2cd)])),_0x5660d4[_0xf958e(0x292)](_0x49080e[_0xf958e(0x397)](_0x4d23ad,_0xf958e(0x3c5),_0x5f1852[_0xf958e(0x2cd)]))),_0x411902=this['_invokeOne'](function(_0x2a8a62){const _0x5416af=_0xf958e;return _0x2a8a62[_0x5416af(0x36e)]&&_0x2a8a62[_0x5416af(0x36e)](_0x478476);}),_0x5660d4['push'](Promise['all'](this[_0xf958e(0x216)](function(_0x203b40){return _0x203b40['extendMaterialParams']&&_0x203b40['extendMaterialParams'](_0x478476,_0x4d23ad);})));}_0x4ee00a[_0xf958e(0x2a6)](_0x17b958[_0xf958e(0x25d)],!![])&&(_0x4d23ad[_0xf958e(0x460)]=DoubleSide);const _0x58b055=_0x17b958[_0xf958e(0x235)]||ALPHA_MODES[_0xf958e(0x1c4)];_0x4ee00a[_0xf958e(0x2a2)](_0x58b055,ALPHA_MODES['BLEND'])?(_0x4d23ad[_0xf958e(0x3b2)]=!![],_0x4d23ad[_0xf958e(0x35d)]=![]):(_0x4d23ad[_0xf958e(0x3b2)]=![],_0x4ee00a['SqiSN'](_0x58b055,ALPHA_MODES['MASK'])&&(_0x4d23ad[_0xf958e(0x461)]=_0x4ee00a['cHRkQ'](_0x17b958[_0xf958e(0x2fa)],undefined)?_0x17b958['alphaCutoff']:0.5));if(_0x4ee00a[_0xf958e(0x2fe)](_0x17b958[_0xf958e(0x21f)],undefined)&&_0x411902!==MeshBasicMaterial){_0x5660d4[_0xf958e(0x292)](_0x49080e[_0xf958e(0x397)](_0x4d23ad,_0x4ee00a['IyWZx'],_0x17b958[_0xf958e(0x21f)])),_0x4d23ad[_0xf958e(0x2e2)]=new Vector2(0x1,0x1);if(_0x4ee00a[_0xf958e(0x2fe)](_0x17b958[_0xf958e(0x21f)][_0xf958e(0x3fa)],undefined)){const _0xc37b53=_0x17b958[_0xf958e(0x21f)][_0xf958e(0x3fa)];_0x4d23ad['normalScale'][_0xf958e(0x34c)](_0xc37b53,_0xc37b53);}}_0x4ee00a['hpOAw'](_0x17b958[_0xf958e(0x1cf)],undefined)&&_0x4ee00a[_0xf958e(0x232)](_0x411902,MeshBasicMaterial)&&(_0x5660d4[_0xf958e(0x292)](_0x49080e['assignTexture'](_0x4d23ad,_0x4ee00a['qMESX'],_0x17b958[_0xf958e(0x1cf)])),_0x4ee00a[_0xf958e(0x2fe)](_0x17b958['occlusionTexture'][_0xf958e(0x403)],undefined)&&(_0x4d23ad['aoMapIntensity']=_0x17b958[_0xf958e(0x1cf)][_0xf958e(0x403)]));if(_0x17b958[_0xf958e(0x389)]!==undefined&&_0x411902!==MeshBasicMaterial){const _0x30053a=_0x17b958[_0xf958e(0x389)];_0x4d23ad['emissive']=new Color()[_0xf958e(0x452)](_0x30053a[0x0],_0x30053a[0x1],_0x30053a[0x2],LinearSRGBColorSpace);}return _0x17b958[_0xf958e(0x2c5)]!==undefined&&_0x4ee00a[_0xf958e(0x232)](_0x411902,MeshBasicMaterial)&&_0x5660d4[_0xf958e(0x292)](_0x49080e[_0xf958e(0x397)](_0x4d23ad,_0x4ee00a[_0xf958e(0x233)],_0x17b958[_0xf958e(0x2c5)],SRGBColorSpace)),Promise[_0xf958e(0x3b8)](_0x5660d4)[_0xf958e(0x3cc)](function(){const _0x269f88=_0xf958e,_0x2cb0ac=new _0x411902(_0x4d23ad);if(_0x17b958['name'])_0x2cb0ac[_0x269f88(0x33f)]=_0x17b958[_0x269f88(0x33f)];_0x4ee00a[_0x269f88(0x2a3)](assignExtrasToUserData,_0x2cb0ac,_0x17b958),_0x49080e[_0x269f88(0x378)][_0x269f88(0x34c)](_0x2cb0ac,{'materials':_0x478476});if(_0x17b958[_0x269f88(0x22a)])addUnknownExtensionsToUserData(_0x3fc03e,_0x2cb0ac,_0x17b958);return _0x2cb0ac;});}[a0_0x1e632d(0x18d)](_0x38150e){const _0x445b18=a0_0x1e632d,_0x28c120={'uxrse':function(_0x4f06e5,_0x483a6f){return _0x4f06e5||_0x483a6f;},'UPCJo':function(_0x1542ec,_0x2c0655){return _0x1542ec in _0x2c0655;},'iroWL':function(_0x544f4,_0x2132e0){return _0x544f4+_0x2132e0;}},_0x470dac=PropertyBinding['sanitizeNodeName'](_0x28c120[_0x445b18(0x210)](_0x38150e,''));return _0x28c120['UPCJo'](_0x470dac,this[_0x445b18(0x26f)])?_0x28c120[_0x445b18(0x24f)](_0x470dac,'_')+ ++this[_0x445b18(0x26f)][_0x470dac]:(this[_0x445b18(0x26f)][_0x470dac]=0x0,_0x470dac);}[a0_0x1e632d(0x2c4)](_0x292802){const _0x22d146=a0_0x1e632d,_0x171704={'TEvor':function(_0x54c7d,_0x3b49fd){return _0x54c7d<_0x3b49fd;},'AklXQ':function(_0x2bfc68,_0x39b1c7){return _0x2bfc68(_0x39b1c7);},'eGkZI':function(_0x2ebde0,_0x584b40){return _0x2ebde0(_0x584b40);},'TdJRX':function(_0x57b2a2,_0xfef5a7,_0x526d90,_0x5ef0f6){return _0x57b2a2(_0xfef5a7,_0x526d90,_0x5ef0f6);}},_0x5b1e79=this,_0x134f6c=this[_0x22d146(0x22a)],_0x340e7b=this[_0x22d146(0x357)];function _0x322de9(_0x33e8ed){const _0x12c625=_0x22d146;return _0x134f6c[EXTENSIONS[_0x12c625(0x434)]][_0x12c625(0x251)](_0x33e8ed,_0x5b1e79)['then'](function(_0xd54854){return addPrimitiveAttributes(_0xd54854,_0x33e8ed,_0x5b1e79);});}const _0x573365=[];for(let _0x4e93e4=0x0,_0x358682=_0x292802[_0x22d146(0x3e6)];_0x171704['TEvor'](_0x4e93e4,_0x358682);_0x4e93e4++){const _0x3f4f0e=_0x292802[_0x4e93e4],_0x1a9d2b=_0x171704[_0x22d146(0x402)](createPrimitiveKey,_0x3f4f0e),_0x3557f1=_0x340e7b[_0x1a9d2b];if(_0x3557f1)_0x573365[_0x22d146(0x292)](_0x3557f1[_0x22d146(0x443)]);else{let _0x37e628;_0x3f4f0e[_0x22d146(0x22a)]&&_0x3f4f0e['extensions'][EXTENSIONS[_0x22d146(0x434)]]?_0x37e628=_0x171704[_0x22d146(0x1eb)](_0x322de9,_0x3f4f0e):_0x37e628=_0x171704['TdJRX'](addPrimitiveAttributes,new BufferGeometry(),_0x3f4f0e,_0x5b1e79),_0x340e7b[_0x1a9d2b]={'primitive':_0x3f4f0e,'promise':_0x37e628},_0x573365[_0x22d146(0x292)](_0x37e628);}}return Promise[_0x22d146(0x3b8)](_0x573365);}[a0_0x1e632d(0x3a3)](_0x428c78){const _0x1bb09d=a0_0x1e632d,_0x128f05={'iAcmF':function(_0x374deb,_0x1dc571){return _0x374deb-_0x1dc571;},'BKGnT':function(_0x3c04f2,_0x4e17e){return _0x3c04f2-_0x4e17e;},'hzDKH':function(_0x22f5c4,_0x374619){return _0x22f5c4<_0x374619;},'meGBp':function(_0xf42698,_0x589e62){return _0xf42698===_0x589e62;},'cFfYO':function(_0x10bef9,_0x35df53){return _0x10bef9===_0x35df53;},'mXMXt':function(_0x108f81,_0x55084a){return _0x108f81===_0x55084a;},'VUzcj':function(_0x1adc63,_0x1243cc){return _0x1adc63===_0x1243cc;},'LNwKu':function(_0x3b66f6,_0x5896ae,_0x24af09){return _0x3b66f6(_0x5896ae,_0x24af09);},'VIDyL':function(_0x3f60be,_0x390faa){return _0x3f60be+_0x390faa;},'iwzav':_0x1bb09d(0x19a),'iaNOt':function(_0x2d879e,_0x110011){return _0x2d879e>_0x110011;},'zheVz':_0x1bb09d(0x1d0),'kLBMe':function(_0x9bbb0a,_0x53f3e0,_0x1d9a08,_0x4536d4){return _0x9bbb0a(_0x53f3e0,_0x1d9a08,_0x4536d4);},'MVuGN':function(_0x428a1d,_0x4afedd){return _0x428a1d<_0x4afedd;},'VoDor':function(_0x161b6f,_0x3e3c41){return _0x161b6f<_0x3e3c41;},'wnLMW':function(_0x3f1abc,_0x170b18){return _0x3f1abc===_0x170b18;},'KIpTu':function(_0x2c26af,_0x5930d8){return _0x2c26af(_0x5930d8);},'xLHeU':_0x1bb09d(0x2c0)},_0x57d93b=this,_0x46d368=this[_0x1bb09d(0x2f4)],_0x472da3=this[_0x1bb09d(0x22a)],_0x2d2435=_0x46d368[_0x1bb09d(0x3da)][_0x428c78],_0x48b9c6=_0x2d2435[_0x1bb09d(0x36c)],_0x204a8a=[];for(let _0x2c4c26=0x0,_0x71c5ca=_0x48b9c6['length'];_0x2c4c26<_0x71c5ca;_0x2c4c26++){const _0xb9dd51=_0x128f05[_0x1bb09d(0x1af)](_0x48b9c6[_0x2c4c26][_0x1bb09d(0x2c0)],undefined)?_0x128f05[_0x1bb09d(0x3a4)](createDefaultMaterial,this[_0x1bb09d(0x20d)]):this['getDependency'](_0x128f05['xLHeU'],_0x48b9c6[_0x2c4c26][_0x1bb09d(0x2c0)]);_0x204a8a['push'](_0xb9dd51);}return _0x204a8a['push'](_0x57d93b[_0x1bb09d(0x2c4)](_0x48b9c6)),Promise[_0x1bb09d(0x3b8)](_0x204a8a)[_0x1bb09d(0x3cc)](function(_0x56c04f){const _0x3034d6=_0x1bb09d,_0x2686a1=_0x56c04f[_0x3034d6(0x41f)](0x0,_0x128f05[_0x3034d6(0x380)](_0x56c04f[_0x3034d6(0x3e6)],0x1)),_0x4d3cc3=_0x56c04f[_0x128f05[_0x3034d6(0x262)](_0x56c04f[_0x3034d6(0x3e6)],0x1)],_0x779ed9=[];for(let _0x1c28e5=0x0,_0x4d062a=_0x4d3cc3[_0x3034d6(0x3e6)];_0x128f05[_0x3034d6(0x381)](_0x1c28e5,_0x4d062a);_0x1c28e5++){const _0x7fd90e=_0x4d3cc3[_0x1c28e5],_0x8e5e7b=_0x48b9c6[_0x1c28e5];let _0x5a9560;const _0x411fb9=_0x2686a1[_0x1c28e5];if(_0x128f05[_0x3034d6(0x1ed)](_0x8e5e7b[_0x3034d6(0x42f)],WEBGL_CONSTANTS['TRIANGLES'])||_0x128f05[_0x3034d6(0x34e)](_0x8e5e7b['mode'],WEBGL_CONSTANTS[_0x3034d6(0x3db)])||_0x8e5e7b[_0x3034d6(0x42f)]===WEBGL_CONSTANTS[_0x3034d6(0x2d2)]||_0x128f05[_0x3034d6(0x34e)](_0x8e5e7b[_0x3034d6(0x42f)],undefined)){_0x5a9560=_0x128f05[_0x3034d6(0x394)](_0x2d2435['isSkinnedMesh'],!![])?new SkinnedMesh(_0x7fd90e,_0x411fb9):new Mesh(_0x7fd90e,_0x411fb9);_0x128f05['VUzcj'](_0x5a9560[_0x3034d6(0x316)],!![])&&_0x5a9560[_0x3034d6(0x205)]();if(_0x128f05[_0x3034d6(0x1ed)](_0x8e5e7b[_0x3034d6(0x42f)],WEBGL_CONSTANTS['TRIANGLE_STRIP']))_0x5a9560[_0x3034d6(0x280)]=_0x128f05[_0x3034d6(0x1dc)](toTrianglesDrawMode,_0x5a9560[_0x3034d6(0x280)],TriangleStripDrawMode);else _0x128f05[_0x3034d6(0x34e)](_0x8e5e7b[_0x3034d6(0x42f)],WEBGL_CONSTANTS['TRIANGLE_FAN'])&&(_0x5a9560[_0x3034d6(0x280)]=toTrianglesDrawMode(_0x5a9560[_0x3034d6(0x280)],TriangleFanDrawMode));}else{if(_0x8e5e7b[_0x3034d6(0x42f)]===WEBGL_CONSTANTS['LINES'])_0x5a9560=new LineSegments(_0x7fd90e,_0x411fb9);else{if(_0x8e5e7b[_0x3034d6(0x42f)]===WEBGL_CONSTANTS['LINE_STRIP'])_0x5a9560=new Line(_0x7fd90e,_0x411fb9);else{if(_0x8e5e7b['mode']===WEBGL_CONSTANTS['LINE_LOOP'])_0x5a9560=new LineLoop(_0x7fd90e,_0x411fb9);else{if(_0x8e5e7b[_0x3034d6(0x42f)]===WEBGL_CONSTANTS[_0x3034d6(0x195)])_0x5a9560=new Points(_0x7fd90e,_0x411fb9);else throw new Error(_0x128f05[_0x3034d6(0x215)](_0x128f05[_0x3034d6(0x201)],_0x8e5e7b[_0x3034d6(0x42f)]));}}}}_0x128f05['iaNOt'](Object[_0x3034d6(0x259)](_0x5a9560['geometry'][_0x3034d6(0x353)])[_0x3034d6(0x3e6)],0x0)&&updateMorphTargets(_0x5a9560,_0x2d2435);_0x5a9560[_0x3034d6(0x33f)]=_0x57d93b['createUniqueName'](_0x2d2435[_0x3034d6(0x33f)]||_0x128f05[_0x3034d6(0x215)](_0x128f05[_0x3034d6(0x427)],_0x428c78)),assignExtrasToUserData(_0x5a9560,_0x2d2435);if(_0x8e5e7b['extensions'])_0x128f05[_0x3034d6(0x3cf)](addUnknownExtensionsToUserData,_0x472da3,_0x5a9560,_0x8e5e7b);_0x57d93b[_0x3034d6(0x34b)](_0x5a9560),_0x779ed9[_0x3034d6(0x292)](_0x5a9560);}for(let _0x2d77f1=0x0,_0x564d95=_0x779ed9['length'];_0x128f05[_0x3034d6(0x296)](_0x2d77f1,_0x564d95);_0x2d77f1++){_0x57d93b[_0x3034d6(0x378)][_0x3034d6(0x34c)](_0x779ed9[_0x2d77f1],{'meshes':_0x428c78,'primitives':_0x2d77f1});}if(_0x779ed9[_0x3034d6(0x3e6)]===0x1){if(_0x2d2435[_0x3034d6(0x22a)])_0x128f05[_0x3034d6(0x3cf)](addUnknownExtensionsToUserData,_0x472da3,_0x779ed9[0x0],_0x2d2435);return _0x779ed9[0x0];}const _0x35475a=new Group();if(_0x2d2435[_0x3034d6(0x22a)])addUnknownExtensionsToUserData(_0x472da3,_0x35475a,_0x2d2435);_0x57d93b[_0x3034d6(0x378)][_0x3034d6(0x34c)](_0x35475a,{'meshes':_0x428c78});for(let _0x4e4256=0x0,_0x3d93b0=_0x779ed9[_0x3034d6(0x3e6)];_0x128f05[_0x3034d6(0x361)](_0x4e4256,_0x3d93b0);_0x4e4256++){_0x35475a[_0x3034d6(0x2f0)](_0x779ed9[_0x4e4256]);}return _0x35475a;});}[a0_0x1e632d(0x439)](_0x3da00b){const _0x258945=a0_0x1e632d,_0x20336a={'XGOAP':_0x258945(0x445),'rFoNS':function(_0xd42816,_0x5e2fc0){return _0xd42816===_0x5e2fc0;},'ZxTYx':_0x258945(0x3b0),'UMTDd':_0x258945(0x299),'wHzAw':function(_0x14ea87,_0x1acd4d,_0x1e4e96){return _0x14ea87(_0x1acd4d,_0x1e4e96);}};let _0x4916dd;const _0x2a7110=this[_0x258945(0x2f4)][_0x258945(0x1b3)][_0x3da00b],_0x4edefd=_0x2a7110[_0x2a7110['type']];if(!_0x4edefd){console[_0x258945(0x410)](_0x20336a[_0x258945(0x41a)]);return;}if(_0x20336a[_0x258945(0x3ef)](_0x2a7110['type'],_0x20336a[_0x258945(0x330)]))_0x4916dd=new PerspectiveCamera(MathUtils[_0x258945(0x1a4)](_0x4edefd[_0x258945(0x20a)]),_0x4edefd['aspectRatio']||0x1,_0x4edefd['znear']||0x1,_0x4edefd[_0x258945(0x42c)]||0x1e8480);else _0x20336a[_0x258945(0x3ef)](_0x2a7110[_0x258945(0x275)],_0x20336a[_0x258945(0x22d)])&&(_0x4916dd=new OrthographicCamera(-_0x4edefd[_0x258945(0x2ae)],_0x4edefd['xmag'],_0x4edefd[_0x258945(0x272)],-_0x4edefd[_0x258945(0x272)],_0x4edefd[_0x258945(0x2c6)],_0x4edefd[_0x258945(0x42c)]));if(_0x2a7110['name'])_0x4916dd[_0x258945(0x33f)]=this[_0x258945(0x18d)](_0x2a7110[_0x258945(0x33f)]);return _0x20336a[_0x258945(0x214)](assignExtrasToUserData,_0x4916dd,_0x2a7110),Promise[_0x258945(0x1e8)](_0x4916dd);}['loadSkin'](_0x12a51d){const _0x560d0e=a0_0x1e632d,_0x40aac1={'sdiHC':function(_0x4af2e6,_0xbc98c){return _0x4af2e6<_0xbc98c;},'oXJbh':function(_0x5730b8,_0x391088){return _0x5730b8!==_0x391088;}},_0x4092a3=this[_0x560d0e(0x2f4)][_0x560d0e(0x261)][_0x12a51d],_0x3792eb=[];for(let _0x680444=0x0,_0x2f8d2b=_0x4092a3[_0x560d0e(0x1cd)][_0x560d0e(0x3e6)];_0x680444<_0x2f8d2b;_0x680444++){_0x3792eb['push'](this[_0x560d0e(0x352)](_0x4092a3[_0x560d0e(0x1cd)][_0x680444]));}return _0x40aac1[_0x560d0e(0x199)](_0x4092a3[_0x560d0e(0x2f3)],undefined)?_0x3792eb[_0x560d0e(0x292)](this[_0x560d0e(0x236)]('accessor',_0x4092a3['inverseBindMatrices'])):_0x3792eb[_0x560d0e(0x292)](null),Promise['all'](_0x3792eb)[_0x560d0e(0x3cc)](function(_0xf0c2cf){const _0x42994a=_0x560d0e,_0x141fb6=_0xf0c2cf[_0x42994a(0x213)](),_0x5c373a=_0xf0c2cf,_0x3becf3=[],_0x1b675e=[];for(let _0x1de347=0x0,_0x5dff46=_0x5c373a['length'];_0x40aac1['sdiHC'](_0x1de347,_0x5dff46);_0x1de347++){const _0x3d0f5f=_0x5c373a[_0x1de347];if(_0x3d0f5f){_0x3becf3[_0x42994a(0x292)](_0x3d0f5f);const _0x1e98d3=new Matrix4();_0x141fb6!==null&&_0x1e98d3[_0x42994a(0x1e9)](_0x141fb6[_0x42994a(0x370)],_0x1de347*0x10),_0x1b675e[_0x42994a(0x292)](_0x1e98d3);}else console[_0x42994a(0x410)](_0x42994a(0x1c9),_0x4092a3[_0x42994a(0x1cd)][_0x1de347]);}return new Skeleton(_0x3becf3,_0x1b675e);});}[a0_0x1e632d(0x390)](_0x25390a){const _0x458df0=a0_0x1e632d,_0xfb6c3c={'UecUh':function(_0x698583,_0x36fd22){return _0x698583<_0x36fd22;},'Jjspc':_0x458df0(0x440),'FiznV':function(_0x23561e,_0x19200b){return _0x23561e!==_0x19200b;},'efyGu':_0x458df0(0x3c8),'QaOfH':_0x458df0(0x27b)},_0x4b6d45=this[_0x458df0(0x2f4)],_0x32191c=this,_0x2fd0cf=_0x4b6d45[_0x458df0(0x19c)][_0x25390a],_0x3f5b14=_0x2fd0cf[_0x458df0(0x33f)]?_0x2fd0cf[_0x458df0(0x33f)]:_0xfb6c3c['Jjspc']+_0x25390a,_0x3724f8=[],_0x5a371c=[],_0x54fe70=[],_0x50cf32=[],_0x470943=[];for(let _0x2eeeb9=0x0,_0x36730b=_0x2fd0cf['channels'][_0x458df0(0x3e6)];_0xfb6c3c[_0x458df0(0x365)](_0x2eeeb9,_0x36730b);_0x2eeeb9++){const _0x651362=_0x2fd0cf[_0x458df0(0x355)][_0x2eeeb9],_0x19e3db=_0x2fd0cf['samplers'][_0x651362[_0x458df0(0x31c)]],_0x53c6c9=_0x651362['target'],_0x403f72=_0x53c6c9['node'],_0x22f0c5=_0x2fd0cf[_0x458df0(0x38d)]!==undefined?_0x2fd0cf[_0x458df0(0x38d)][_0x19e3db[_0x458df0(0x3d2)]]:_0x19e3db[_0x458df0(0x3d2)],_0x3acfec=_0xfb6c3c['FiznV'](_0x2fd0cf[_0x458df0(0x38d)],undefined)?_0x2fd0cf['parameters'][_0x19e3db[_0x458df0(0x2eb)]]:_0x19e3db['output'];if(_0x53c6c9[_0x458df0(0x3c8)]===undefined)continue;_0x3724f8[_0x458df0(0x292)](this[_0x458df0(0x236)](_0xfb6c3c[_0x458df0(0x301)],_0x403f72)),_0x5a371c[_0x458df0(0x292)](this[_0x458df0(0x236)](_0xfb6c3c[_0x458df0(0x2a5)],_0x22f0c5)),_0x54fe70['push'](this['getDependency'](_0xfb6c3c[_0x458df0(0x2a5)],_0x3acfec)),_0x50cf32[_0x458df0(0x292)](_0x19e3db),_0x470943['push'](_0x53c6c9);}return Promise[_0x458df0(0x3b8)]([Promise['all'](_0x3724f8),Promise['all'](_0x5a371c),Promise[_0x458df0(0x3b8)](_0x54fe70),Promise[_0x458df0(0x3b8)](_0x50cf32),Promise['all'](_0x470943)])[_0x458df0(0x3cc)](function(_0x5ad557){const _0x4d569a=_0x458df0,_0x148802=_0x5ad557[0x0],_0x2318ab=_0x5ad557[0x1],_0x2a43cc=_0x5ad557[0x2],_0x4f3d47=_0x5ad557[0x3],_0x66cbe9=_0x5ad557[0x4],_0x91b4b4=[];for(let _0x128a81=0x0,_0x155fb9=_0x148802['length'];_0xfb6c3c[_0x4d569a(0x365)](_0x128a81,_0x155fb9);_0x128a81++){const _0x1d1d68=_0x148802[_0x128a81],_0x27b69e=_0x2318ab[_0x128a81],_0x1ca885=_0x2a43cc[_0x128a81],_0x25a9df=_0x4f3d47[_0x128a81],_0x1409f7=_0x66cbe9[_0x128a81];if(_0x1d1d68===undefined)continue;_0x1d1d68[_0x4d569a(0x2b8)]&&_0x1d1d68['updateMatrix']();const _0x5b88d1=_0x32191c[_0x4d569a(0x2f6)](_0x1d1d68,_0x27b69e,_0x1ca885,_0x25a9df,_0x1409f7);if(_0x5b88d1)for(let _0x3cff45=0x0;_0x3cff45<_0x5b88d1[_0x4d569a(0x3e6)];_0x3cff45++){_0x91b4b4['push'](_0x5b88d1[_0x3cff45]);}}return new AnimationClip(_0x3f5b14,undefined,_0x91b4b4);});}[a0_0x1e632d(0x1e2)](_0x225f21){const _0x2d42ad=a0_0x1e632d,_0x325041={'gdKbI':function(_0x314d04,_0x5a06e5){return _0x314d04<_0x5a06e5;},'RwRrE':function(_0x8e692e,_0x14ab4b){return _0x8e692e!==_0x14ab4b;},'uAwDk':'mesh'},_0xd240ca=this[_0x2d42ad(0x2f4)],_0x211044=this,_0x32a1d3=_0xd240ca[_0x2d42ad(0x221)][_0x225f21];if(_0x32a1d3[_0x2d42ad(0x306)]===undefined)return null;return _0x211044[_0x2d42ad(0x236)](_0x325041[_0x2d42ad(0x37c)],_0x32a1d3[_0x2d42ad(0x306)])[_0x2d42ad(0x3cc)](function(_0x5ea9fa){const _0xcf34b6=_0x2d42ad,_0x1ff86a={'qAjpZ':function(_0x3b20c1,_0x482540){return _0x325041['gdKbI'](_0x3b20c1,_0x482540);}},_0x28d423=_0x211044['_getNodeRef'](_0x211044['meshCache'],_0x32a1d3[_0xcf34b6(0x306)],_0x5ea9fa);return _0x325041['RwRrE'](_0x32a1d3[_0xcf34b6(0x312)],undefined)&&_0x28d423[_0xcf34b6(0x3ae)](function(_0x4533d8){const _0x35a418=_0xcf34b6;if(!_0x4533d8['isMesh'])return;for(let _0x2f0128=0x0,_0x4d2494=_0x32a1d3['weights'][_0x35a418(0x3e6)];_0x1ff86a[_0x35a418(0x1f4)](_0x2f0128,_0x4d2494);_0x2f0128++){_0x4533d8[_0x35a418(0x318)][_0x2f0128]=_0x32a1d3[_0x35a418(0x312)][_0x2f0128];}}),_0x28d423;});}['loadNode'](_0x56f7aa){const _0x2e811f=a0_0x1e632d,_0x323ec1={'OQCuz':function(_0x4419e9,_0x2ffe25){return _0x4419e9!==_0x2ffe25;},'zasrQ':function(_0x52277a,_0x32a05a){return _0x52277a<_0x32a05a;},'KJjvr':_0x2e811f(0x3c8),'XyNLN':function(_0x13b654,_0x364a06){return _0x13b654===_0x364a06;}},_0x5756f5=this[_0x2e811f(0x2f4)],_0x524b67=this,_0x3962ec=_0x5756f5[_0x2e811f(0x221)][_0x56f7aa],_0x153cf3=_0x524b67[_0x2e811f(0x352)](_0x56f7aa),_0x19d7ff=[],_0x4da86d=_0x3962ec[_0x2e811f(0x384)]||[];for(let _0x3a5654=0x0,_0x3cc1e7=_0x4da86d[_0x2e811f(0x3e6)];_0x323ec1[_0x2e811f(0x20b)](_0x3a5654,_0x3cc1e7);_0x3a5654++){_0x19d7ff['push'](_0x524b67[_0x2e811f(0x236)](_0x323ec1['KJjvr'],_0x4da86d[_0x3a5654]));}const _0x33c88f=_0x323ec1[_0x2e811f(0x37d)](_0x3962ec[_0x2e811f(0x360)],undefined)?Promise['resolve'](null):_0x524b67[_0x2e811f(0x236)]('skin',_0x3962ec[_0x2e811f(0x360)]);return Promise[_0x2e811f(0x3b8)]([_0x153cf3,Promise[_0x2e811f(0x3b8)](_0x19d7ff),_0x33c88f])[_0x2e811f(0x3cc)](function(_0x4cb5a5){const _0x1b6691=_0x2e811f,_0x5c867b=_0x4cb5a5[0x0],_0x159c40=_0x4cb5a5[0x1],_0x89f8d=_0x4cb5a5[0x2];_0x323ec1[_0x1b6691(0x3c7)](_0x89f8d,null)&&_0x5c867b[_0x1b6691(0x3ae)](function(_0x53031a){const _0x4b939c=_0x1b6691;if(!_0x53031a[_0x4b939c(0x316)])return;_0x53031a[_0x4b939c(0x2ff)](_0x89f8d,_identityMatrix);});for(let _0x5c09c5=0x0,_0x7f7de1=_0x159c40[_0x1b6691(0x3e6)];_0x323ec1['zasrQ'](_0x5c09c5,_0x7f7de1);_0x5c09c5++){_0x5c867b[_0x1b6691(0x2f0)](_0x159c40[_0x5c09c5]);}return _0x5c867b;});}[a0_0x1e632d(0x352)](_0xa1ee62){const _0x4d8343=a0_0x1e632d,_0x14f7d2={'uLWzG':function(_0x278063,_0x21c660){return _0x278063>_0x21c660;},'ndaRH':function(_0x549242,_0x414d8d){return _0x549242===_0x414d8d;},'KrSoM':function(_0x5795bb,_0x3aab52){return _0x5795bb<_0x3aab52;},'PjyjS':function(_0x54aa3d,_0xa90c8,_0x40b3db){return _0x54aa3d(_0xa90c8,_0x40b3db);},'HfeRf':function(_0x48d53e,_0x2ea52f){return _0x48d53e!==_0x2ea52f;},'ghVUe':function(_0x5ab159,_0x38c485){return _0x5ab159!==_0x38c485;},'rFGzw':function(_0x23cb05,_0x1d72db){return _0x23cb05>_0x1d72db;},'FTprr':function(_0x169b20,_0x5223d4){return _0x169b20!==_0x5223d4;},'sGzVT':_0x4d8343(0x2ec)},_0x3e2c13=this[_0x4d8343(0x2f4)],_0x1c2963=this['extensions'],_0x586a6f=this;if(this[_0x4d8343(0x1a1)][_0xa1ee62]!==undefined)return this['nodeCache'][_0xa1ee62];const _0x1ef1d7=_0x3e2c13['nodes'][_0xa1ee62],_0x544ddb=_0x1ef1d7['name']?_0x586a6f[_0x4d8343(0x18d)](_0x1ef1d7[_0x4d8343(0x33f)]):'',_0x4d0272=[],_0x33cb18=_0x586a6f['_invokeOne'](function(_0x37f065){const _0x1b60c9=_0x4d8343;return _0x37f065[_0x1b60c9(0x1e2)]&&_0x37f065[_0x1b60c9(0x1e2)](_0xa1ee62);});return _0x33cb18&&_0x4d0272[_0x4d8343(0x292)](_0x33cb18),_0x14f7d2[_0x4d8343(0x271)](_0x1ef1d7[_0x4d8343(0x2ec)],undefined)&&_0x4d0272[_0x4d8343(0x292)](_0x586a6f[_0x4d8343(0x236)](_0x14f7d2[_0x4d8343(0x28a)],_0x1ef1d7[_0x4d8343(0x2ec)])[_0x4d8343(0x3cc)](function(_0x370186){const _0x291065=_0x4d8343;return _0x586a6f[_0x291065(0x29d)](_0x586a6f[_0x291065(0x2ef)],_0x1ef1d7['camera'],_0x370186);})),_0x586a6f['_invokeAll'](function(_0x529ee4){const _0x18c18f=_0x4d8343;return _0x529ee4[_0x18c18f(0x217)]&&_0x529ee4['createNodeAttachment'](_0xa1ee62);})[_0x4d8343(0x40e)](function(_0x31d427){_0x4d0272['push'](_0x31d427);}),this[_0x4d8343(0x1a1)][_0xa1ee62]=Promise[_0x4d8343(0x3b8)](_0x4d0272)['then'](function(_0xa3a382){const _0x25c7a8=_0x4d8343;let _0x510713;if(_0x1ef1d7[_0x25c7a8(0x223)]===!![])_0x510713=new Bone();else{if(_0x14f7d2[_0x25c7a8(0x3ca)](_0xa3a382['length'],0x1))_0x510713=new Group();else _0x14f7d2[_0x25c7a8(0x3b5)](_0xa3a382[_0x25c7a8(0x3e6)],0x1)?_0x510713=_0xa3a382[0x0]:_0x510713=new Object3D();}if(_0x510713!==_0xa3a382[0x0])for(let _0x17649d=0x0,_0x4a0bc0=_0xa3a382[_0x25c7a8(0x3e6)];_0x14f7d2[_0x25c7a8(0x2ba)](_0x17649d,_0x4a0bc0);_0x17649d++){_0x510713[_0x25c7a8(0x2f0)](_0xa3a382[_0x17649d]);}_0x1ef1d7[_0x25c7a8(0x33f)]&&(_0x510713[_0x25c7a8(0x382)][_0x25c7a8(0x33f)]=_0x1ef1d7[_0x25c7a8(0x33f)],_0x510713[_0x25c7a8(0x33f)]=_0x544ddb);_0x14f7d2[_0x25c7a8(0x42e)](assignExtrasToUserData,_0x510713,_0x1ef1d7);if(_0x1ef1d7[_0x25c7a8(0x22a)])addUnknownExtensionsToUserData(_0x1c2963,_0x510713,_0x1ef1d7);if(_0x14f7d2[_0x25c7a8(0x45d)](_0x1ef1d7[_0x25c7a8(0x1a2)],undefined)){const _0x16f4d4=new Matrix4();_0x16f4d4[_0x25c7a8(0x1e9)](_0x1ef1d7[_0x25c7a8(0x1a2)]),_0x510713[_0x25c7a8(0x1b1)](_0x16f4d4);}else _0x14f7d2[_0x25c7a8(0x45d)](_0x1ef1d7[_0x25c7a8(0x368)],undefined)&&_0x510713[_0x25c7a8(0x42b)][_0x25c7a8(0x1e9)](_0x1ef1d7['translation']),_0x14f7d2[_0x25c7a8(0x45d)](_0x1ef1d7['rotation'],undefined)&&_0x510713['quaternion']['fromArray'](_0x1ef1d7[_0x25c7a8(0x23e)]),_0x14f7d2['ghVUe'](_0x1ef1d7[_0x25c7a8(0x3fa)],undefined)&&_0x510713[_0x25c7a8(0x3fa)][_0x25c7a8(0x1e9)](_0x1ef1d7[_0x25c7a8(0x3fa)]);if(!_0x586a6f[_0x25c7a8(0x378)][_0x25c7a8(0x2fb)](_0x510713))_0x586a6f['associations'][_0x25c7a8(0x34c)](_0x510713,{});else{if(_0x1ef1d7['mesh']!==undefined&&_0x14f7d2[_0x25c7a8(0x35b)](_0x586a6f[_0x25c7a8(0x281)][_0x25c7a8(0x209)][_0x1ef1d7[_0x25c7a8(0x306)]],0x1)){const _0x37b7f0=_0x586a6f[_0x25c7a8(0x378)][_0x25c7a8(0x224)](_0x510713);_0x586a6f[_0x25c7a8(0x378)][_0x25c7a8(0x34c)](_0x510713,{..._0x37b7f0});}}return _0x586a6f[_0x25c7a8(0x378)][_0x25c7a8(0x224)](_0x510713)['nodes']=_0xa1ee62,_0x510713;}),this[_0x4d8343(0x1a1)][_0xa1ee62];}['loadScene'](_0x5c18f4){const _0x34e90e=a0_0x1e632d,_0x2b455d={'Sqvet':function(_0x537888,_0x272f84){return _0x537888!=_0x272f84;},'oSYWu':function(_0x28e324,_0x182c62){return _0x28e324 instanceof _0x182c62;},'fZEmM':function(_0x220bb9,_0x56656d){return _0x220bb9<_0x56656d;},'gJmOR':function(_0x138583,_0x1b790a){return _0x138583(_0x1b790a);},'UBtoB':function(_0x2c2aeb,_0x5caf9f){return _0x2c2aeb<_0x5caf9f;}},_0x22eaba=this[_0x34e90e(0x22a)],_0x4bedc7=this[_0x34e90e(0x2f4)]['scenes'][_0x5c18f4],_0x143584=this,_0x3362b9=new Group();if(_0x4bedc7[_0x34e90e(0x33f)])_0x3362b9[_0x34e90e(0x33f)]=_0x143584[_0x34e90e(0x18d)](_0x4bedc7[_0x34e90e(0x33f)]);assignExtrasToUserData(_0x3362b9,_0x4bedc7);if(_0x4bedc7[_0x34e90e(0x22a)])addUnknownExtensionsToUserData(_0x22eaba,_0x3362b9,_0x4bedc7);const _0x4f4f97=_0x4bedc7['nodes']||[],_0x3f2e38=[];for(let _0x344195=0x0,_0xc529f0=_0x4f4f97[_0x34e90e(0x3e6)];_0x2b455d[_0x34e90e(0x1f8)](_0x344195,_0xc529f0);_0x344195++){_0x3f2e38['push'](_0x143584[_0x34e90e(0x236)]('node',_0x4f4f97[_0x344195]));}return Promise[_0x34e90e(0x3b8)](_0x3f2e38)[_0x34e90e(0x3cc)](function(_0x19b4e1){const _0x10b3da=_0x34e90e,_0xa69ae4={'scoBE':function(_0x164093,_0x467f8a){const _0x5a84ef=a0_0x4344;return _0x2b455d[_0x5a84ef(0x325)](_0x164093,_0x467f8a);},'LnoVB':function(_0x5c5200,_0x181d47){const _0x42d7a4=a0_0x4344;return _0x2b455d[_0x42d7a4(0x38a)](_0x5c5200,_0x181d47);}};for(let _0x2c9efc=0x0,_0x4345fe=_0x19b4e1['length'];_0x2b455d['fZEmM'](_0x2c9efc,_0x4345fe);_0x2c9efc++){_0x3362b9[_0x10b3da(0x2f0)](_0x19b4e1[_0x2c9efc]);}const _0x3bd955=_0x16f9f1=>{const _0x14a7d7=_0x10b3da,_0x13203c=new Map();for(const [_0x54a398,_0x7dea65]of _0x143584[_0x14a7d7(0x378)]){(_0xa69ae4[_0x14a7d7(0x2a4)](_0x54a398,Material)||_0xa69ae4['LnoVB'](_0x54a398,Texture))&&_0x13203c[_0x14a7d7(0x34c)](_0x54a398,_0x7dea65);}return _0x16f9f1[_0x14a7d7(0x3ae)](_0x35b048=>{const _0x5b4aff=_0x14a7d7,_0x6bea7=_0x143584['associations']['get'](_0x35b048);_0xa69ae4[_0x5b4aff(0x43e)](_0x6bea7,null)&&_0x13203c[_0x5b4aff(0x34c)](_0x35b048,_0x6bea7);}),_0x13203c;};return _0x143584['associations']=_0x2b455d[_0x10b3da(0x28d)](_0x3bd955,_0x3362b9),_0x3362b9;});}[a0_0x1e632d(0x2f6)](_0x37902c,_0x4ff7f0,_0x1f93e0,_0x5a624c,_0x94c252){const _0x462b26=a0_0x1e632d,_0xa0bdd7={'aIzeV':function(_0x3201c4,_0x24c0d8){return _0x3201c4!==_0x24c0d8;},'pkFzs':function(_0x1affe7,_0x2e2ace){return _0x1affe7<_0x2e2ace;},'xTeRJ':function(_0x390b0e,_0x216943){return _0x390b0e+_0x216943;},'JaHFQ':function(_0x168567,_0x220c49){return _0x168567===_0x220c49;}},_0x375636=[],_0x17a736=_0x37902c[_0x462b26(0x33f)]?_0x37902c[_0x462b26(0x33f)]:_0x37902c[_0x462b26(0x266)],_0x37caea=[];PATH_PROPERTIES[_0x94c252[_0x462b26(0x212)]]===PATH_PROPERTIES['weights']?_0x37902c[_0x462b26(0x3ae)](function(_0xf10588){const _0x5d7e8b=_0x462b26;_0xf10588['morphTargetInfluences']&&_0x37caea['push'](_0xf10588[_0x5d7e8b(0x33f)]?_0xf10588[_0x5d7e8b(0x33f)]:_0xf10588[_0x5d7e8b(0x266)]);}):_0x37caea[_0x462b26(0x292)](_0x17a736);let _0x3ec234;switch(PATH_PROPERTIES[_0x94c252[_0x462b26(0x212)]]){case PATH_PROPERTIES[_0x462b26(0x312)]:_0x3ec234=NumberKeyframeTrack;break;case PATH_PROPERTIES[_0x462b26(0x23e)]:_0x3ec234=QuaternionKeyframeTrack;break;case PATH_PROPERTIES['translation']:case PATH_PROPERTIES[_0x462b26(0x3fa)]:_0x3ec234=VectorKeyframeTrack;break;default:switch(_0x1f93e0['itemSize']){case 0x1:_0x3ec234=NumberKeyframeTrack;break;case 0x2:case 0x3:default:_0x3ec234=VectorKeyframeTrack;break;}break;}const _0x49c626=_0xa0bdd7[_0x462b26(0x3fc)](_0x5a624c[_0x462b26(0x2bf)],undefined)?INTERPOLATION[_0x5a624c[_0x462b26(0x2bf)]]:InterpolateLinear,_0x5650e3=this['_getArrayFromAccessor'](_0x1f93e0);for(let _0x2ddd97=0x0,_0x405c22=_0x37caea[_0x462b26(0x3e6)];_0xa0bdd7[_0x462b26(0x3d0)](_0x2ddd97,_0x405c22);_0x2ddd97++){const _0x4b8dbb=new _0x3ec234(_0xa0bdd7[_0x462b26(0x39e)](_0x37caea[_0x2ddd97]+'.',PATH_PROPERTIES[_0x94c252['path']]),_0x4ff7f0[_0x462b26(0x370)],_0x5650e3,_0x49c626);_0xa0bdd7[_0x462b26(0x32f)](_0x5a624c['interpolation'],_0x462b26(0x3e3))&&this[_0x462b26(0x400)](_0x4b8dbb),_0x375636[_0x462b26(0x292)](_0x4b8dbb);}return _0x375636;}['_getArrayFromAccessor'](_0x1f1b38){const _0x394c8f=a0_0x1e632d,_0x5e04d2={'tmECv':function(_0x225456,_0x5c9ab5){return _0x225456(_0x5c9ab5);},'SOvwe':function(_0x19df58,_0x1a2614){return _0x19df58<_0x1a2614;},'hreZd':function(_0x3d6cc2,_0x13180d){return _0x3d6cc2*_0x13180d;}};let _0xc71ce1=_0x1f1b38['array'];if(_0x1f1b38[_0x394c8f(0x29c)]){const _0x362dc6=_0x5e04d2[_0x394c8f(0x416)](getNormalizedComponentScale,_0xc71ce1[_0x394c8f(0x2ce)]),_0x4d7866=new Float32Array(_0xc71ce1[_0x394c8f(0x3e6)]);for(let _0x5b2380=0x0,_0xd65040=_0xc71ce1[_0x394c8f(0x3e6)];_0x5e04d2['SOvwe'](_0x5b2380,_0xd65040);_0x5b2380++){_0x4d7866[_0x5b2380]=_0x5e04d2['hreZd'](_0xc71ce1[_0x5b2380],_0x362dc6);}_0xc71ce1=_0x4d7866;}return _0xc71ce1;}[a0_0x1e632d(0x400)](_0x3c279a){const _0x183e20=a0_0x1e632d,_0x2bd6aa={'jxbSY':function(_0xbd05c6,_0x3743ed){return _0xbd05c6/_0x3743ed;}};_0x3c279a[_0x183e20(0x303)]=function _0x934fd(_0x3539de){const _0x3ba697=_0x183e20,_0x464974=this instanceof QuaternionKeyframeTrack?GLTFCubicSplineQuaternionInterpolant:GLTFCubicSplineInterpolant;return new _0x464974(this[_0x3ba697(0x24d)],this['values'],_0x2bd6aa[_0x3ba697(0x320)](this[_0x3ba697(0x33c)](),0x3),_0x3539de);},_0x3c279a[_0x183e20(0x303)][_0x183e20(0x3bf)]=!![];}}function computeBounds(_0x14070f,_0x4a5918,_0x3b8822){const _0x200100=a0_0x1e632d,_0x4e5617={'RvXkS':function(_0xd45547,_0x4e80c7){return _0xd45547!==_0x4e80c7;},'zHgHg':function(_0x1cf701,_0x2e9f41){return _0x1cf701(_0x2e9f41);},'MYDvk':_0x200100(0x1f0),'rSEuP':function(_0x255a43,_0x26452f){return _0x255a43!==_0x26452f;},'mjUPZ':function(_0x5cb8ed,_0x521aa5){return _0x5cb8ed/_0x521aa5;}},_0x5522c2=_0x4a5918['attributes'],_0x1ffa5a=new Box3();if(_0x5522c2[_0x200100(0x420)]!==undefined){const _0x495b34=_0x3b8822[_0x200100(0x2f4)][_0x200100(0x28e)][_0x5522c2[_0x200100(0x420)]],_0x2050de=_0x495b34['min'],_0x26dd6a=_0x495b34[_0x200100(0x2f2)];if(_0x4e5617[_0x200100(0x3ba)](_0x2050de,undefined)&&_0x4e5617[_0x200100(0x3ba)](_0x26dd6a,undefined)){_0x1ffa5a[_0x200100(0x34c)](new Vector3(_0x2050de[0x0],_0x2050de[0x1],_0x2050de[0x2]),new Vector3(_0x26dd6a[0x0],_0x26dd6a[0x1],_0x26dd6a[0x2]));if(_0x495b34[_0x200100(0x29c)]){const _0x4aa32d=_0x4e5617[_0x200100(0x27c)](getNormalizedComponentScale,WEBGL_COMPONENT_TYPES[_0x495b34[_0x200100(0x3d5)]]);_0x1ffa5a[_0x200100(0x414)]['multiplyScalar'](_0x4aa32d),_0x1ffa5a[_0x200100(0x2f2)][_0x200100(0x196)](_0x4aa32d);}}else{console[_0x200100(0x410)](_0x4e5617['MYDvk']);return;}}else return;const _0x5347cf=_0x4a5918[_0x200100(0x35f)];if(_0x4e5617[_0x200100(0x19e)](_0x5347cf,undefined)){const _0x516af2=new Vector3(),_0x4e1813=new Vector3();for(let _0x1eb668=0x0,_0x447ba9=_0x5347cf['length'];_0x1eb668<_0x447ba9;_0x1eb668++){const _0xd64f48=_0x5347cf[_0x1eb668];if(_0xd64f48['POSITION']!==undefined){const _0x1b3002=_0x3b8822['json'][_0x200100(0x28e)][_0xd64f48[_0x200100(0x420)]],_0x4b13bc=_0x1b3002['min'],_0x3dc415=_0x1b3002['max'];if(_0x4e5617[_0x200100(0x19e)](_0x4b13bc,undefined)&&_0x4e5617[_0x200100(0x3ba)](_0x3dc415,undefined)){_0x4e1813[_0x200100(0x2e0)](Math[_0x200100(0x2f2)](Math[_0x200100(0x310)](_0x4b13bc[0x0]),Math[_0x200100(0x310)](_0x3dc415[0x0]))),_0x4e1813[_0x200100(0x1fd)](Math[_0x200100(0x2f2)](Math[_0x200100(0x310)](_0x4b13bc[0x1]),Math[_0x200100(0x310)](_0x3dc415[0x1]))),_0x4e1813[_0x200100(0x3a5)](Math[_0x200100(0x2f2)](Math[_0x200100(0x310)](_0x4b13bc[0x2]),Math['abs'](_0x3dc415[0x2])));if(_0x1b3002['normalized']){const _0x2b861e=getNormalizedComponentScale(WEBGL_COMPONENT_TYPES[_0x1b3002[_0x200100(0x3d5)]]);_0x4e1813[_0x200100(0x196)](_0x2b861e);}_0x516af2[_0x200100(0x2f2)](_0x4e1813);}else console[_0x200100(0x410)](_0x4e5617['MYDvk']);}}_0x1ffa5a[_0x200100(0x220)](_0x516af2);}_0x14070f[_0x200100(0x1e1)]=_0x1ffa5a;const _0x4afe3d=new Sphere();_0x1ffa5a[_0x200100(0x228)](_0x4afe3d[_0x200100(0x31a)]),_0x4afe3d[_0x200100(0x39a)]=_0x4e5617[_0x200100(0x27e)](_0x1ffa5a['min'][_0x200100(0x2ac)](_0x1ffa5a[_0x200100(0x2f2)]),0x2),_0x14070f[_0x200100(0x32b)]=_0x4afe3d;}function addPrimitiveAttributes(_0x237655,_0x1a19d3,_0x4875ab){const _0x2c60b5=a0_0x1e632d,_0x2e69d6={'hRSJs':_0x2c60b5(0x27b),'FiaFO':function(_0x26cdcb,_0x53c402){return _0x26cdcb!==_0x53c402;},'KwXHV':function(_0x5d781d,_0x3aa4fa,_0x377551,_0x5890bd){return _0x5d781d(_0x3aa4fa,_0x377551,_0x5890bd);},'kFIvH':function(_0x7b7bd,_0x3abc9e){return _0x7b7bd in _0x3abc9e;},'wJVvT':function(_0x3523fe,_0x3d01db){return _0x3523fe!==_0x3d01db;},'uEKYC':function(_0xc5d410,_0x185025){return _0xc5d410 in _0x185025;},'mTFKB':'COLOR_0','dqVcC':function(_0x427ddd,_0x55b8cc,_0x3d4c62){return _0x427ddd(_0x55b8cc,_0x3d4c62);}},_0x1f1a57=_0x1a19d3['attributes'],_0x7cba24=[];function _0x446a56(_0x41a211,_0x4ea36c){const _0x2d689b=_0x2c60b5;return _0x4875ab[_0x2d689b(0x236)](_0x2e69d6[_0x2d689b(0x254)],_0x41a211)[_0x2d689b(0x3cc)](function(_0x2072e4){_0x237655['setAttribute'](_0x4ea36c,_0x2072e4);});}for(const _0x298ece in _0x1f1a57){const _0x19466e=ATTRIBUTES[_0x298ece]||_0x298ece['toLowerCase']();if(_0x2e69d6[_0x2c60b5(0x3d4)](_0x19466e,_0x237655[_0x2c60b5(0x41b)]))continue;_0x7cba24[_0x2c60b5(0x292)](_0x446a56(_0x1f1a57[_0x298ece],_0x19466e));}if(_0x2e69d6[_0x2c60b5(0x2ad)](_0x1a19d3['indices'],undefined)&&!_0x237655[_0x2c60b5(0x23a)]){const _0x15710e=_0x4875ab[_0x2c60b5(0x236)](_0x2e69d6[_0x2c60b5(0x254)],_0x1a19d3[_0x2c60b5(0x2e8)])['then'](function(_0x51455d){const _0x591cf9=_0x2c60b5;_0x237655[_0x591cf9(0x40a)](_0x51455d);});_0x7cba24[_0x2c60b5(0x292)](_0x15710e);}return _0x2e69d6['FiaFO'](ColorManagement[_0x2c60b5(0x293)],LinearSRGBColorSpace)&&_0x2e69d6[_0x2c60b5(0x263)](_0x2e69d6[_0x2c60b5(0x2f1)],_0x1f1a57)&&console[_0x2c60b5(0x410)](_0x2c60b5(0x23f)+ColorManagement['workingColorSpace']+_0x2c60b5(0x3ff)),_0x2e69d6['dqVcC'](assignExtrasToUserData,_0x237655,_0x1a19d3),_0x2e69d6[_0x2c60b5(0x28c)](computeBounds,_0x237655,_0x1a19d3,_0x4875ab),Promise[_0x2c60b5(0x3b8)](_0x7cba24)[_0x2c60b5(0x3cc)](function(){const _0x4a22fe=_0x2c60b5;return _0x2e69d6[_0x4a22fe(0x1de)](_0x1a19d3[_0x4a22fe(0x35f)],undefined)?_0x2e69d6['KwXHV'](addMorphTargets,_0x237655,_0x1a19d3[_0x4a22fe(0x35f)],_0x4875ab):_0x237655;});}export{GLTFLoader};
+import {
+	AnimationClip,
+	Bone,
+	Box3,
+	BufferAttribute,
+	BufferGeometry,
+	ClampToEdgeWrapping,
+	Color,
+	ColorManagement,
+	DirectionalLight,
+	DoubleSide,
+	FileLoader,
+	FrontSide,
+	Group,
+	ImageBitmapLoader,
+	InstancedMesh,
+	InterleavedBuffer,
+	InterleavedBufferAttribute,
+	Interpolant,
+	InterpolateDiscrete,
+	InterpolateLinear,
+	Line,
+	LineBasicMaterial,
+	LineLoop,
+	LineSegments,
+	LinearFilter,
+	LinearMipmapLinearFilter,
+	LinearMipmapNearestFilter,
+	LinearSRGBColorSpace,
+	Loader,
+	LoaderUtils,
+	Material,
+	MathUtils,
+	Matrix4,
+	Mesh,
+	MeshBasicMaterial,
+	MeshPhysicalMaterial,
+	MeshStandardMaterial,
+	MirroredRepeatWrapping,
+	NearestFilter,
+	NearestMipmapLinearFilter,
+	NearestMipmapNearestFilter,
+	NumberKeyframeTrack,
+	Object3D,
+	OrthographicCamera,
+	PerspectiveCamera,
+	PointLight,
+	Points,
+	PointsMaterial,
+	PropertyBinding,
+	Quaternion,
+	QuaternionKeyframeTrack,
+	RepeatWrapping,
+	Skeleton,
+	SkinnedMesh,
+	Sphere,
+	SpotLight,
+	Texture,
+	TextureLoader,
+	TriangleFanDrawMode,
+	TriangleStripDrawMode,
+	Vector2,
+	Vector3,
+	VectorKeyframeTrack,
+	SRGBColorSpace,
+	InstancedBufferAttribute
+} from 'three';
+import { toTrianglesDrawMode } from '../utils/BufferGeometryUtils.js';
+
+/**
+ * A loader for the glTF 2.0 format.
+ *
+ * [glTF]{@link https://www.khronos.org/gltf/} (GL Transmission Format) is an [open format specification]{@link https://github.com/KhronosGroup/glTF/tree/main/specification/2.0}
+ * for efficient delivery and loading of 3D content. Assets may be provided either in JSON (.gltf) or binary (.glb)
+ * format. External files store textures (.jpg, .png) and additional binary data (.bin). A glTF asset may deliver
+ * one or more scenes, including meshes, materials, textures, skins, skeletons, morph targets, animations, lights,
+ * and/or cameras.
+ *
+ * `GLTFLoader` uses {@link ImageBitmapLoader} whenever possible. Be advised that image bitmaps are not
+ * automatically GC-collected when they are no longer referenced, and they require special handling during
+ * the disposal process.
+ *
+ * `GLTFLoader` supports the following glTF 2.0 extensions:
+ * - KHR_draco_mesh_compression
+ * - KHR_materials_clearcoat
+ * - KHR_materials_dispersion
+ * - KHR_materials_ior
+ * - KHR_materials_specular
+ * - KHR_materials_transmission
+ * - KHR_materials_iridescence
+ * - KHR_materials_unlit
+ * - KHR_materials_volume
+ * - KHR_mesh_quantization
+ * - KHR_lights_punctual
+ * - KHR_texture_basisu
+ * - KHR_texture_transform
+ * - EXT_texture_webp
+ * - EXT_meshopt_compression
+ * - EXT_mesh_gpu_instancing
+ *
+ * The following glTF 2.0 extension is supported by an external user plugin:
+ * - [KHR_materials_variants]{@link https://github.com/takahirox/three-gltf-extensions}
+ * - [MSFT_texture_dds]{@link https://github.com/takahirox/three-gltf-extensions}
+ *
+ * ```js
+ * const loader = new GLTFLoader();
+ *
+ * // Optional: Provide a DRACOLoader instance to decode compressed mesh data
+ * const dracoLoader = new DRACOLoader();
+ * dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
+ * loader.setDRACOLoader( dracoLoader );
+ *
+ * const gltf = await loader.loadAsync( 'models/gltf/duck/duck.gltf' );
+ * scene.add( gltf.scene );
+ * ```
+ *
+ * @augments Loader
+ * @three_import import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+ */
+class GLTFLoader extends Loader {
+
+	/**
+	 * Constructs a new glTF loader.
+	 *
+	 * @param {LoadingManager} [manager] - The loading manager.
+	 */
+	constructor( manager ) {
+
+		super( manager );
+
+		this.dracoLoader = null;
+		this.ktx2Loader = null;
+		this.meshoptDecoder = null;
+
+		this.pluginCallbacks = [];
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsClearcoatExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsDispersionExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFTextureBasisUExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFTextureWebPExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFTextureAVIFExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsSheenExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsTransmissionExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsVolumeExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsIorExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsEmissiveStrengthExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsSpecularExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsIridescenceExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsAnisotropyExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMaterialsBumpExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFLightsExtension( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMeshoptCompression( parser );
+
+		} );
+
+		this.register( function ( parser ) {
+
+			return new GLTFMeshGpuInstancing( parser );
+
+		} );
+
+	}
+
+	/**
+	 * Starts loading from the given URL and passes the loaded glTF asset
+	 * to the `onLoad()` callback.
+	 *
+	 * @param {string} url - The path/URL of the file to be loaded. This can also be a data URI.
+	 * @param {function(GLTFLoader~LoadObject)} onLoad - Executed when the loading process has been finished.
+	 * @param {onProgressCallback} onProgress - Executed while the loading is in progress.
+	 * @param {onErrorCallback} onError - Executed when errors occur.
+	 */
+	load( url, onLoad, onProgress, onError ) {
+
+		const scope = this;
+
+		let resourcePath;
+
+		if ( this.resourcePath !== '' ) {
+
+			resourcePath = this.resourcePath;
+
+		} else if ( this.path !== '' ) {
+
+			// If a base path is set, resources will be relative paths from that plus the relative path of the gltf file
+			// Example  path = 'https://my-cnd-server.com/', url = 'assets/models/model.gltf'
+			// resourcePath = 'https://my-cnd-server.com/assets/models/'
+			// referenced resource 'model.bin' will be loaded from 'https://my-cnd-server.com/assets/models/model.bin'
+			// referenced resource '../textures/texture.png' will be loaded from 'https://my-cnd-server.com/assets/textures/texture.png'
+			const relativeUrl = LoaderUtils.extractUrlBase( url );
+			resourcePath = LoaderUtils.resolveURL( relativeUrl, this.path );
+
+		} else {
+
+			resourcePath = LoaderUtils.extractUrlBase( url );
+
+		}
+
+		// Tells the LoadingManager to track an extra item, which resolves after
+		// the model is fully loaded. This means the count of items loaded will
+		// be incorrect, but ensures manager.onLoad() does not fire early.
+		this.manager.itemStart( url );
+
+		const _onError = function ( e ) {
+
+			if ( onError ) {
+
+				onError( e );
+
+			} else {
+
+				console.error( e );
+
+			}
+
+			scope.manager.itemError( url );
+			scope.manager.itemEnd( url );
+
+		};
+
+		const loader = new FileLoader( this.manager );
+
+		loader.setPath( this.path );
+		loader.setResponseType( 'arraybuffer' );
+		loader.setRequestHeader( this.requestHeader );
+		loader.setWithCredentials( this.withCredentials );
+
+		loader.load( url, function ( data ) {
+
+			try {
+
+				scope.parse( data, resourcePath, function ( gltf ) {
+
+					onLoad( gltf );
+
+					scope.manager.itemEnd( url );
+
+				}, _onError );
+
+			} catch ( e ) {
+
+				_onError( e );
+
+			}
+
+		}, onProgress, _onError );
+
+	}
+
+	/**
+	 * Sets the given Draco loader to this loader. Required for decoding assets
+	 * compressed with the `KHR_draco_mesh_compression` extension.
+	 *
+	 * @param {DRACOLoader} dracoLoader - The Draco loader to set.
+	 * @return {GLTFLoader} A reference to this loader.
+	 */
+	setDRACOLoader( dracoLoader ) {
+
+		this.dracoLoader = dracoLoader;
+		return this;
+
+	}
+
+	/**
+	 * Sets the given KTX2 loader to this loader. Required for loading KTX2
+	 * compressed textures.
+	 *
+	 * @param {KTX2Loader} ktx2Loader - The KTX2 loader to set.
+	 * @return {GLTFLoader} A reference to this loader.
+	 */
+	setKTX2Loader( ktx2Loader ) {
+
+		this.ktx2Loader = ktx2Loader;
+		return this;
+
+	}
+
+	/**
+	 * Sets the given meshopt decoder. Required for decoding assets
+	 * compressed with the `EXT_meshopt_compression` extension.
+	 *
+	 * @param {Object} meshoptDecoder - The meshopt decoder to set.
+	 * @return {GLTFLoader} A reference to this loader.
+	 */
+	setMeshoptDecoder( meshoptDecoder ) {
+
+		this.meshoptDecoder = meshoptDecoder;
+		return this;
+
+	}
+
+	/**
+	 * Registers a plugin callback. This API is internally used to implement the various
+	 * glTF extensions but can also used by third-party code to add additional logic
+	 * to the loader.
+	 *
+	 * @param {function(parser:GLTFParser)} callback - The callback function to register.
+	 * @return {GLTFLoader} A reference to this loader.
+	 */
+	register( callback ) {
+
+		if ( this.pluginCallbacks.indexOf( callback ) === - 1 ) {
+
+			this.pluginCallbacks.push( callback );
+
+		}
+
+		return this;
+
+	}
+
+	/**
+	 * Unregisters a plugin callback.
+	 *
+	 * @param {Function} callback - The callback function to unregister.
+	 * @return {GLTFLoader} A reference to this loader.
+	 */
+	unregister( callback ) {
+
+		if ( this.pluginCallbacks.indexOf( callback ) !== - 1 ) {
+
+			this.pluginCallbacks.splice( this.pluginCallbacks.indexOf( callback ), 1 );
+
+		}
+
+		return this;
+
+	}
+
+	/**
+	 * Parses the given FBX data and returns the resulting group.
+	 *
+	 * @param {string|ArrayBuffer} data - The raw glTF data.
+	 * @param {string} path - The URL base path.
+	 * @param {function(GLTFLoader~LoadObject)} onLoad - Executed when the loading process has been finished.
+	 * @param {onErrorCallback} onError - Executed when errors occur.
+	 */
+	parse( data, path, onLoad, onError ) {
+
+		let json;
+		const extensions = {};
+		const plugins = {};
+		const textDecoder = new TextDecoder();
+
+		if ( typeof data === 'string' ) {
+
+			json = JSON.parse( data );
+
+		} else if ( data instanceof ArrayBuffer ) {
+
+			const magic = textDecoder.decode( new Uint8Array( data, 0, 4 ) );
+
+			if ( magic === BINARY_EXTENSION_HEADER_MAGIC ) {
+
+				try {
+
+					extensions[ EXTENSIONS.KHR_BINARY_GLTF ] = new GLTFBinaryExtension( data );
+
+				} catch ( error ) {
+
+					if ( onError ) onError( error );
+					return;
+
+				}
+
+				json = JSON.parse( extensions[ EXTENSIONS.KHR_BINARY_GLTF ].content );
+
+			} else {
+
+				json = JSON.parse( textDecoder.decode( data ) );
+
+			}
+
+		} else {
+
+			json = data;
+
+		}
+
+		if ( json.asset === undefined || json.asset.version[ 0 ] < 2 ) {
+
+			if ( onError ) onError( new Error( 'THREE.GLTFLoader: Unsupported asset. glTF versions >=2.0 are supported.' ) );
+			return;
+
+		}
+
+		const parser = new GLTFParser( json, {
+
+			path: path || this.resourcePath || '',
+			crossOrigin: this.crossOrigin,
+			requestHeader: this.requestHeader,
+			manager: this.manager,
+			ktx2Loader: this.ktx2Loader,
+			meshoptDecoder: this.meshoptDecoder
+
+		} );
+
+		parser.fileLoader.setRequestHeader( this.requestHeader );
+
+		for ( let i = 0; i < this.pluginCallbacks.length; i ++ ) {
+
+			const plugin = this.pluginCallbacks[ i ]( parser );
+
+			if ( ! plugin.name ) console.error( 'THREE.GLTFLoader: Invalid plugin found: missing name' );
+
+			plugins[ plugin.name ] = plugin;
+
+			// Workaround to avoid determining as unknown extension
+			// in addUnknownExtensionsToUserData().
+			// Remove this workaround if we move all the existing
+			// extension handlers to plugin system
+			extensions[ plugin.name ] = true;
+
+		}
+
+		if ( json.extensionsUsed ) {
+
+			for ( let i = 0; i < json.extensionsUsed.length; ++ i ) {
+
+				const extensionName = json.extensionsUsed[ i ];
+				const extensionsRequired = json.extensionsRequired || [];
+
+				switch ( extensionName ) {
+
+					case EXTENSIONS.KHR_MATERIALS_UNLIT:
+						extensions[ extensionName ] = new GLTFMaterialsUnlitExtension();
+						break;
+
+					case EXTENSIONS.KHR_DRACO_MESH_COMPRESSION:
+						extensions[ extensionName ] = new GLTFDracoMeshCompressionExtension( json, this.dracoLoader );
+						break;
+
+					case EXTENSIONS.KHR_TEXTURE_TRANSFORM:
+						extensions[ extensionName ] = new GLTFTextureTransformExtension();
+						break;
+
+					case EXTENSIONS.KHR_MESH_QUANTIZATION:
+						extensions[ extensionName ] = new GLTFMeshQuantizationExtension();
+						break;
+
+					default:
+
+						if ( extensionsRequired.indexOf( extensionName ) >= 0 && plugins[ extensionName ] === undefined ) {
+
+							console.warn( 'THREE.GLTFLoader: Unknown extension "' + extensionName + '".' );
+
+						}
+
+				}
+
+			}
+
+		}
+
+		parser.setExtensions( extensions );
+		parser.setPlugins( plugins );
+		parser.parse( onLoad, onError );
+
+	}
+
+	/**
+	 * Async version of {@link GLTFLoader#parse}.
+	 *
+	 * @async
+	 * @param {string|ArrayBuffer} data - The raw glTF data.
+	 * @param {string} path - The URL base path.
+	 * @return {Promise<GLTFLoader~LoadObject>} A Promise that resolves with the loaded glTF when the parsing has been finished.
+	 */
+	parseAsync( data, path ) {
+
+		const scope = this;
+
+		return new Promise( function ( resolve, reject ) {
+
+			scope.parse( data, path, resolve, reject );
+
+		} );
+
+	}
+
+}
+
+/* GLTFREGISTRY */
+
+function GLTFRegistry() {
+
+	let objects = {};
+
+	return	{
+
+		get: function ( key ) {
+
+			return objects[ key ];
+
+		},
+
+		add: function ( key, object ) {
+
+			objects[ key ] = object;
+
+		},
+
+		remove: function ( key ) {
+
+			delete objects[ key ];
+
+		},
+
+		removeAll: function () {
+
+			objects = {};
+
+		}
+
+	};
+
+}
+
+/*********************************/
+/********** EXTENSIONS ***********/
+/*********************************/
+
+const EXTENSIONS = {
+	KHR_BINARY_GLTF: 'KHR_binary_glTF',
+	KHR_DRACO_MESH_COMPRESSION: 'KHR_draco_mesh_compression',
+	KHR_LIGHTS_PUNCTUAL: 'KHR_lights_punctual',
+	KHR_MATERIALS_CLEARCOAT: 'KHR_materials_clearcoat',
+	KHR_MATERIALS_DISPERSION: 'KHR_materials_dispersion',
+	KHR_MATERIALS_IOR: 'KHR_materials_ior',
+	KHR_MATERIALS_SHEEN: 'KHR_materials_sheen',
+	KHR_MATERIALS_SPECULAR: 'KHR_materials_specular',
+	KHR_MATERIALS_TRANSMISSION: 'KHR_materials_transmission',
+	KHR_MATERIALS_IRIDESCENCE: 'KHR_materials_iridescence',
+	KHR_MATERIALS_ANISOTROPY: 'KHR_materials_anisotropy',
+	KHR_MATERIALS_UNLIT: 'KHR_materials_unlit',
+	KHR_MATERIALS_VOLUME: 'KHR_materials_volume',
+	KHR_TEXTURE_BASISU: 'KHR_texture_basisu',
+	KHR_TEXTURE_TRANSFORM: 'KHR_texture_transform',
+	KHR_MESH_QUANTIZATION: 'KHR_mesh_quantization',
+	KHR_MATERIALS_EMISSIVE_STRENGTH: 'KHR_materials_emissive_strength',
+	EXT_MATERIALS_BUMP: 'EXT_materials_bump',
+	EXT_TEXTURE_WEBP: 'EXT_texture_webp',
+	EXT_TEXTURE_AVIF: 'EXT_texture_avif',
+	EXT_MESHOPT_COMPRESSION: 'EXT_meshopt_compression',
+	EXT_MESH_GPU_INSTANCING: 'EXT_mesh_gpu_instancing'
+};
+
+/**
+ * Punctual Lights Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_lights_punctual
+ *
+ * @private
+ */
+class GLTFLightsExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_LIGHTS_PUNCTUAL;
+
+		// Object3D instance caches
+		this.cache = { refs: {}, uses: {} };
+
+	}
+
+	_markDefs() {
+
+		const parser = this.parser;
+		const nodeDefs = this.parser.json.nodes || [];
+
+		for ( let nodeIndex = 0, nodeLength = nodeDefs.length; nodeIndex < nodeLength; nodeIndex ++ ) {
+
+			const nodeDef = nodeDefs[ nodeIndex ];
+
+			if ( nodeDef.extensions
+					&& nodeDef.extensions[ this.name ]
+					&& nodeDef.extensions[ this.name ].light !== undefined ) {
+
+				parser._addNodeRef( this.cache, nodeDef.extensions[ this.name ].light );
+
+			}
+
+		}
+
+	}
+
+	_loadLight( lightIndex ) {
+
+		const parser = this.parser;
+		const cacheKey = 'light:' + lightIndex;
+		let dependency = parser.cache.get( cacheKey );
+
+		if ( dependency ) return dependency;
+
+		const json = parser.json;
+		const extensions = ( json.extensions && json.extensions[ this.name ] ) || {};
+		const lightDefs = extensions.lights || [];
+		const lightDef = lightDefs[ lightIndex ];
+		let lightNode;
+
+		const color = new Color( 0xffffff );
+
+		if ( lightDef.color !== undefined ) color.setRGB( lightDef.color[ 0 ], lightDef.color[ 1 ], lightDef.color[ 2 ], LinearSRGBColorSpace );
+
+		const range = lightDef.range !== undefined ? lightDef.range : 0;
+
+		switch ( lightDef.type ) {
+
+			case 'directional':
+				lightNode = new DirectionalLight( color );
+				lightNode.target.position.set( 0, 0, - 1 );
+				lightNode.add( lightNode.target );
+				break;
+
+			case 'point':
+				lightNode = new PointLight( color );
+				lightNode.distance = range;
+				break;
+
+			case 'spot':
+				lightNode = new SpotLight( color );
+				lightNode.distance = range;
+				// Handle spotlight properties.
+				lightDef.spot = lightDef.spot || {};
+				lightDef.spot.innerConeAngle = lightDef.spot.innerConeAngle !== undefined ? lightDef.spot.innerConeAngle : 0;
+				lightDef.spot.outerConeAngle = lightDef.spot.outerConeAngle !== undefined ? lightDef.spot.outerConeAngle : Math.PI / 4.0;
+				lightNode.angle = lightDef.spot.outerConeAngle;
+				lightNode.penumbra = 1.0 - lightDef.spot.innerConeAngle / lightDef.spot.outerConeAngle;
+				lightNode.target.position.set( 0, 0, - 1 );
+				lightNode.add( lightNode.target );
+				break;
+
+			default:
+				throw new Error( 'THREE.GLTFLoader: Unexpected light type: ' + lightDef.type );
+
+		}
+
+		// Some lights (e.g. spot) default to a position other than the origin. Reset the position
+		// here, because node-level parsing will only override position if explicitly specified.
+		lightNode.position.set( 0, 0, 0 );
+
+		assignExtrasToUserData( lightNode, lightDef );
+
+		if ( lightDef.intensity !== undefined ) lightNode.intensity = lightDef.intensity;
+
+		lightNode.name = parser.createUniqueName( lightDef.name || ( 'light_' + lightIndex ) );
+
+		dependency = Promise.resolve( lightNode );
+
+		parser.cache.add( cacheKey, dependency );
+
+		return dependency;
+
+	}
+
+	getDependency( type, index ) {
+
+		if ( type !== 'light' ) return;
+
+		return this._loadLight( index );
+
+	}
+
+	createNodeAttachment( nodeIndex ) {
+
+		const self = this;
+		const parser = this.parser;
+		const json = parser.json;
+		const nodeDef = json.nodes[ nodeIndex ];
+		const lightDef = ( nodeDef.extensions && nodeDef.extensions[ this.name ] ) || {};
+		const lightIndex = lightDef.light;
+
+		if ( lightIndex === undefined ) return null;
+
+		return this._loadLight( lightIndex ).then( function ( light ) {
+
+			return parser._getNodeRef( self.cache, lightIndex, light );
+
+		} );
+
+	}
+
+}
+
+/**
+ * Unlit Materials Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit
+ *
+ * @private
+ */
+class GLTFMaterialsUnlitExtension {
+
+	constructor() {
+
+		this.name = EXTENSIONS.KHR_MATERIALS_UNLIT;
+
+	}
+
+	getMaterialType() {
+
+		return MeshBasicMaterial;
+
+	}
+
+	extendParams( materialParams, materialDef, parser ) {
+
+		const pending = [];
+
+		materialParams.color = new Color( 1.0, 1.0, 1.0 );
+		materialParams.opacity = 1.0;
+
+		const metallicRoughness = materialDef.pbrMetallicRoughness;
+
+		if ( metallicRoughness ) {
+
+			if ( Array.isArray( metallicRoughness.baseColorFactor ) ) {
+
+				const array = metallicRoughness.baseColorFactor;
+
+				materialParams.color.setRGB( array[ 0 ], array[ 1 ], array[ 2 ], LinearSRGBColorSpace );
+				materialParams.opacity = array[ 3 ];
+
+			}
+
+			if ( metallicRoughness.baseColorTexture !== undefined ) {
+
+				pending.push( parser.assignTexture( materialParams, 'map', metallicRoughness.baseColorTexture, SRGBColorSpace ) );
+
+			}
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * Materials Emissive Strength Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/blob/5768b3ce0ef32bc39cdf1bef10b948586635ead3/extensions/2.0/Khronos/KHR_materials_emissive_strength/README.md
+ *
+ * @private
+ */
+class GLTFMaterialsEmissiveStrengthExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_EMISSIVE_STRENGTH;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const emissiveStrength = materialDef.extensions[ this.name ].emissiveStrength;
+
+		if ( emissiveStrength !== undefined ) {
+
+			materialParams.emissiveIntensity = emissiveStrength;
+
+		}
+
+		return Promise.resolve();
+
+	}
+
+}
+
+/**
+ * Clearcoat Materials Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_clearcoat
+ *
+ * @private
+ */
+class GLTFMaterialsClearcoatExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_CLEARCOAT;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		const extension = materialDef.extensions[ this.name ];
+
+		if ( extension.clearcoatFactor !== undefined ) {
+
+			materialParams.clearcoat = extension.clearcoatFactor;
+
+		}
+
+		if ( extension.clearcoatTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'clearcoatMap', extension.clearcoatTexture ) );
+
+		}
+
+		if ( extension.clearcoatRoughnessFactor !== undefined ) {
+
+			materialParams.clearcoatRoughness = extension.clearcoatRoughnessFactor;
+
+		}
+
+		if ( extension.clearcoatRoughnessTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'clearcoatRoughnessMap', extension.clearcoatRoughnessTexture ) );
+
+		}
+
+		if ( extension.clearcoatNormalTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'clearcoatNormalMap', extension.clearcoatNormalTexture ) );
+
+			if ( extension.clearcoatNormalTexture.scale !== undefined ) {
+
+				const scale = extension.clearcoatNormalTexture.scale;
+
+				materialParams.clearcoatNormalScale = new Vector2( scale, scale );
+
+			}
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * Materials dispersion Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_dispersion
+ *
+ * @private
+ */
+class GLTFMaterialsDispersionExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_DISPERSION;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const extension = materialDef.extensions[ this.name ];
+
+		materialParams.dispersion = extension.dispersion !== undefined ? extension.dispersion : 0;
+
+		return Promise.resolve();
+
+	}
+
+}
+
+/**
+ * Iridescence Materials Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_iridescence
+ *
+ * @private
+ */
+class GLTFMaterialsIridescenceExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_IRIDESCENCE;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		const extension = materialDef.extensions[ this.name ];
+
+		if ( extension.iridescenceFactor !== undefined ) {
+
+			materialParams.iridescence = extension.iridescenceFactor;
+
+		}
+
+		if ( extension.iridescenceTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'iridescenceMap', extension.iridescenceTexture ) );
+
+		}
+
+		if ( extension.iridescenceIor !== undefined ) {
+
+			materialParams.iridescenceIOR = extension.iridescenceIor;
+
+		}
+
+		if ( materialParams.iridescenceThicknessRange === undefined ) {
+
+			materialParams.iridescenceThicknessRange = [ 100, 400 ];
+
+		}
+
+		if ( extension.iridescenceThicknessMinimum !== undefined ) {
+
+			materialParams.iridescenceThicknessRange[ 0 ] = extension.iridescenceThicknessMinimum;
+
+		}
+
+		if ( extension.iridescenceThicknessMaximum !== undefined ) {
+
+			materialParams.iridescenceThicknessRange[ 1 ] = extension.iridescenceThicknessMaximum;
+
+		}
+
+		if ( extension.iridescenceThicknessTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'iridescenceThicknessMap', extension.iridescenceThicknessTexture ) );
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * Sheen Materials Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_sheen
+ *
+ * @private
+ */
+class GLTFMaterialsSheenExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_SHEEN;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		materialParams.sheenColor = new Color( 0, 0, 0 );
+		materialParams.sheenRoughness = 0;
+		materialParams.sheen = 1;
+
+		const extension = materialDef.extensions[ this.name ];
+
+		if ( extension.sheenColorFactor !== undefined ) {
+
+			const colorFactor = extension.sheenColorFactor;
+			materialParams.sheenColor.setRGB( colorFactor[ 0 ], colorFactor[ 1 ], colorFactor[ 2 ], LinearSRGBColorSpace );
+
+		}
+
+		if ( extension.sheenRoughnessFactor !== undefined ) {
+
+			materialParams.sheenRoughness = extension.sheenRoughnessFactor;
+
+		}
+
+		if ( extension.sheenColorTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'sheenColorMap', extension.sheenColorTexture, SRGBColorSpace ) );
+
+		}
+
+		if ( extension.sheenRoughnessTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'sheenRoughnessMap', extension.sheenRoughnessTexture ) );
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * Transmission Materials Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_transmission
+ * Draft: https://github.com/KhronosGroup/glTF/pull/1698
+ *
+ * @private
+ */
+class GLTFMaterialsTransmissionExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_TRANSMISSION;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		const extension = materialDef.extensions[ this.name ];
+
+		if ( extension.transmissionFactor !== undefined ) {
+
+			materialParams.transmission = extension.transmissionFactor;
+
+		}
+
+		if ( extension.transmissionTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'transmissionMap', extension.transmissionTexture ) );
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * Materials Volume Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_volume
+ *
+ * @private
+ */
+class GLTFMaterialsVolumeExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_VOLUME;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		const extension = materialDef.extensions[ this.name ];
+
+		materialParams.thickness = extension.thicknessFactor !== undefined ? extension.thicknessFactor : 0;
+
+		if ( extension.thicknessTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'thicknessMap', extension.thicknessTexture ) );
+
+		}
+
+		materialParams.attenuationDistance = extension.attenuationDistance || Infinity;
+
+		const colorArray = extension.attenuationColor || [ 1, 1, 1 ];
+		materialParams.attenuationColor = new Color().setRGB( colorArray[ 0 ], colorArray[ 1 ], colorArray[ 2 ], LinearSRGBColorSpace );
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * Materials ior Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_ior
+ *
+ * @private
+ */
+class GLTFMaterialsIorExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_IOR;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const extension = materialDef.extensions[ this.name ];
+
+		materialParams.ior = extension.ior !== undefined ? extension.ior : 1.5;
+
+		return Promise.resolve();
+
+	}
+
+}
+
+/**
+ * Materials specular Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_specular
+ *
+ * @private
+ */
+class GLTFMaterialsSpecularExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_SPECULAR;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		const extension = materialDef.extensions[ this.name ];
+
+		materialParams.specularIntensity = extension.specularFactor !== undefined ? extension.specularFactor : 1.0;
+
+		if ( extension.specularTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'specularIntensityMap', extension.specularTexture ) );
+
+		}
+
+		const colorArray = extension.specularColorFactor || [ 1, 1, 1 ];
+		materialParams.specularColor = new Color().setRGB( colorArray[ 0 ], colorArray[ 1 ], colorArray[ 2 ], LinearSRGBColorSpace );
+
+		if ( extension.specularColorTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'specularColorMap', extension.specularColorTexture, SRGBColorSpace ) );
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+
+/**
+ * Materials bump Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/EXT_materials_bump
+ *
+ * @private
+ */
+class GLTFMaterialsBumpExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.EXT_MATERIALS_BUMP;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		const extension = materialDef.extensions[ this.name ];
+
+		materialParams.bumpScale = extension.bumpFactor !== undefined ? extension.bumpFactor : 1.0;
+
+		if ( extension.bumpTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'bumpMap', extension.bumpTexture ) );
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * Materials anisotropy Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_anisotropy
+ *
+ * @private
+ */
+class GLTFMaterialsAnisotropyExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_MATERIALS_ANISOTROPY;
+
+	}
+
+	getMaterialType( materialIndex ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) return null;
+
+		return MeshPhysicalMaterial;
+
+	}
+
+	extendMaterialParams( materialIndex, materialParams ) {
+
+		const parser = this.parser;
+		const materialDef = parser.json.materials[ materialIndex ];
+
+		if ( ! materialDef.extensions || ! materialDef.extensions[ this.name ] ) {
+
+			return Promise.resolve();
+
+		}
+
+		const pending = [];
+
+		const extension = materialDef.extensions[ this.name ];
+
+		if ( extension.anisotropyStrength !== undefined ) {
+
+			materialParams.anisotropy = extension.anisotropyStrength;
+
+		}
+
+		if ( extension.anisotropyRotation !== undefined ) {
+
+			materialParams.anisotropyRotation = extension.anisotropyRotation;
+
+		}
+
+		if ( extension.anisotropyTexture !== undefined ) {
+
+			pending.push( parser.assignTexture( materialParams, 'anisotropyMap', extension.anisotropyTexture ) );
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+}
+
+/**
+ * BasisU Texture Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_basisu
+ *
+ * @private
+ */
+class GLTFTextureBasisUExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.KHR_TEXTURE_BASISU;
+
+	}
+
+	loadTexture( textureIndex ) {
+
+		const parser = this.parser;
+		const json = parser.json;
+
+		const textureDef = json.textures[ textureIndex ];
+
+		if ( ! textureDef.extensions || ! textureDef.extensions[ this.name ] ) {
+
+			return null;
+
+		}
+
+		const extension = textureDef.extensions[ this.name ];
+		const loader = parser.options.ktx2Loader;
+
+		if ( ! loader ) {
+
+			if ( json.extensionsRequired && json.extensionsRequired.indexOf( this.name ) >= 0 ) {
+
+				throw new Error( 'THREE.GLTFLoader: setKTX2Loader must be called before loading KTX2 textures' );
+
+			} else {
+
+				// Assumes that the extension is optional and that a fallback texture is present
+				return null;
+
+			}
+
+		}
+
+		return parser.loadTextureImage( textureIndex, extension.source, loader );
+
+	}
+
+}
+
+/**
+ * WebP Texture Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_texture_webp
+ *
+ * @private
+ */
+class GLTFTextureWebPExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.EXT_TEXTURE_WEBP;
+
+	}
+
+	loadTexture( textureIndex ) {
+
+		const name = this.name;
+		const parser = this.parser;
+		const json = parser.json;
+
+		const textureDef = json.textures[ textureIndex ];
+
+		if ( ! textureDef.extensions || ! textureDef.extensions[ name ] ) {
+
+			return null;
+
+		}
+
+		const extension = textureDef.extensions[ name ];
+		const source = json.images[ extension.source ];
+
+		let loader = parser.textureLoader;
+		if ( source.uri ) {
+
+			const handler = parser.options.manager.getHandler( source.uri );
+			if ( handler !== null ) loader = handler;
+
+		}
+
+		return parser.loadTextureImage( textureIndex, extension.source, loader );
+
+	}
+
+}
+
+/**
+ * AVIF Texture Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_texture_avif
+ *
+ * @private
+ */
+class GLTFTextureAVIFExtension {
+
+	constructor( parser ) {
+
+		this.parser = parser;
+		this.name = EXTENSIONS.EXT_TEXTURE_AVIF;
+
+	}
+
+	loadTexture( textureIndex ) {
+
+		const name = this.name;
+		const parser = this.parser;
+		const json = parser.json;
+
+		const textureDef = json.textures[ textureIndex ];
+
+		if ( ! textureDef.extensions || ! textureDef.extensions[ name ] ) {
+
+			return null;
+
+		}
+
+		const extension = textureDef.extensions[ name ];
+		const source = json.images[ extension.source ];
+
+		let loader = parser.textureLoader;
+		if ( source.uri ) {
+
+			const handler = parser.options.manager.getHandler( source.uri );
+			if ( handler !== null ) loader = handler;
+
+		}
+
+		return parser.loadTextureImage( textureIndex, extension.source, loader );
+
+	}
+
+}
+
+/**
+ * meshopt BufferView Compression Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_meshopt_compression
+ *
+ * @private
+ */
+class GLTFMeshoptCompression {
+
+	constructor( parser ) {
+
+		this.name = EXTENSIONS.EXT_MESHOPT_COMPRESSION;
+		this.parser = parser;
+
+	}
+
+	loadBufferView( index ) {
+
+		const json = this.parser.json;
+		const bufferView = json.bufferViews[ index ];
+
+		if ( bufferView.extensions && bufferView.extensions[ this.name ] ) {
+
+			const extensionDef = bufferView.extensions[ this.name ];
+
+			const buffer = this.parser.getDependency( 'buffer', extensionDef.buffer );
+			const decoder = this.parser.options.meshoptDecoder;
+
+			if ( ! decoder || ! decoder.supported ) {
+
+				if ( json.extensionsRequired && json.extensionsRequired.indexOf( this.name ) >= 0 ) {
+
+					throw new Error( 'THREE.GLTFLoader: setMeshoptDecoder must be called before loading compressed files' );
+
+				} else {
+
+					// Assumes that the extension is optional and that fallback buffer data is present
+					return null;
+
+				}
+
+			}
+
+			return buffer.then( function ( res ) {
+
+				const byteOffset = extensionDef.byteOffset || 0;
+				const byteLength = extensionDef.byteLength || 0;
+
+				const count = extensionDef.count;
+				const stride = extensionDef.byteStride;
+
+				const source = new Uint8Array( res, byteOffset, byteLength );
+
+				if ( decoder.decodeGltfBufferAsync ) {
+
+					return decoder.decodeGltfBufferAsync( count, stride, source, extensionDef.mode, extensionDef.filter ).then( function ( res ) {
+
+						return res.buffer;
+
+					} );
+
+				} else {
+
+					// Support for MeshoptDecoder 0.18 or earlier, without decodeGltfBufferAsync
+					return decoder.ready.then( function () {
+
+						const result = new ArrayBuffer( count * stride );
+						decoder.decodeGltfBuffer( new Uint8Array( result ), count, stride, source, extensionDef.mode, extensionDef.filter );
+						return result;
+
+					} );
+
+				}
+
+			} );
+
+		} else {
+
+			return null;
+
+		}
+
+	}
+
+}
+
+/**
+ * GPU Instancing Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing
+ *
+ * @private
+ */
+class GLTFMeshGpuInstancing {
+
+	constructor( parser ) {
+
+		this.name = EXTENSIONS.EXT_MESH_GPU_INSTANCING;
+		this.parser = parser;
+
+	}
+
+	createNodeMesh( nodeIndex ) {
+
+		const json = this.parser.json;
+		const nodeDef = json.nodes[ nodeIndex ];
+
+		if ( ! nodeDef.extensions || ! nodeDef.extensions[ this.name ] ||
+			nodeDef.mesh === undefined ) {
+
+			return null;
+
+		}
+
+		const meshDef = json.meshes[ nodeDef.mesh ];
+
+		// No Points or Lines + Instancing support yet
+
+		for ( const primitive of meshDef.primitives ) {
+
+			if ( primitive.mode !== WEBGL_CONSTANTS.TRIANGLES &&
+				 primitive.mode !== WEBGL_CONSTANTS.TRIANGLE_STRIP &&
+				 primitive.mode !== WEBGL_CONSTANTS.TRIANGLE_FAN &&
+				 primitive.mode !== undefined ) {
+
+				return null;
+
+			}
+
+		}
+
+		const extensionDef = nodeDef.extensions[ this.name ];
+		const attributesDef = extensionDef.attributes;
+
+		// @TODO: Can we support InstancedMesh + SkinnedMesh?
+
+		const pending = [];
+		const attributes = {};
+
+		for ( const key in attributesDef ) {
+
+			pending.push( this.parser.getDependency( 'accessor', attributesDef[ key ] ).then( accessor => {
+
+				attributes[ key ] = accessor;
+				return attributes[ key ];
+
+			} ) );
+
+		}
+
+		if ( pending.length < 1 ) {
+
+			return null;
+
+		}
+
+		pending.push( this.parser.createNodeMesh( nodeIndex ) );
+
+		return Promise.all( pending ).then( results => {
+
+			const nodeObject = results.pop();
+			const meshes = nodeObject.isGroup ? nodeObject.children : [ nodeObject ];
+			const count = results[ 0 ].count; // All attribute counts should be same
+			const instancedMeshes = [];
+
+			for ( const mesh of meshes ) {
+
+				// Temporal variables
+				const m = new Matrix4();
+				const p = new Vector3();
+				const q = new Quaternion();
+				const s = new Vector3( 1, 1, 1 );
+
+				const instancedMesh = new InstancedMesh( mesh.geometry, mesh.material, count );
+
+				for ( let i = 0; i < count; i ++ ) {
+
+					if ( attributes.TRANSLATION ) {
+
+						p.fromBufferAttribute( attributes.TRANSLATION, i );
+
+					}
+
+					if ( attributes.ROTATION ) {
+
+						q.fromBufferAttribute( attributes.ROTATION, i );
+
+					}
+
+					if ( attributes.SCALE ) {
+
+						s.fromBufferAttribute( attributes.SCALE, i );
+
+					}
+
+					instancedMesh.setMatrixAt( i, m.compose( p, q, s ) );
+
+				}
+
+				// Add instance attributes to the geometry, excluding TRS.
+				for ( const attributeName in attributes ) {
+
+					if ( attributeName === '_COLOR_0' ) {
+
+						const attr = attributes[ attributeName ];
+						instancedMesh.instanceColor = new InstancedBufferAttribute( attr.array, attr.itemSize, attr.normalized );
+
+					} else if ( attributeName !== 'TRANSLATION' &&
+						 attributeName !== 'ROTATION' &&
+						 attributeName !== 'SCALE' ) {
+
+						mesh.geometry.setAttribute( attributeName, attributes[ attributeName ] );
+
+					}
+
+				}
+
+				// Just in case
+				Object3D.prototype.copy.call( instancedMesh, mesh );
+
+				this.parser.assignFinalMaterial( instancedMesh );
+
+				instancedMeshes.push( instancedMesh );
+
+			}
+
+			if ( nodeObject.isGroup ) {
+
+				nodeObject.clear();
+
+				nodeObject.add( ... instancedMeshes );
+
+				return nodeObject;
+
+			}
+
+			return instancedMeshes[ 0 ];
+
+		} );
+
+	}
+
+}
+
+/* BINARY EXTENSION */
+const BINARY_EXTENSION_HEADER_MAGIC = 'glTF';
+const BINARY_EXTENSION_HEADER_LENGTH = 12;
+const BINARY_EXTENSION_CHUNK_TYPES = { JSON: 0x4E4F534A, BIN: 0x004E4942 };
+
+class GLTFBinaryExtension {
+
+	constructor( data ) {
+
+		this.name = EXTENSIONS.KHR_BINARY_GLTF;
+		this.content = null;
+		this.body = null;
+
+		const headerView = new DataView( data, 0, BINARY_EXTENSION_HEADER_LENGTH );
+		const textDecoder = new TextDecoder();
+
+		this.header = {
+			magic: textDecoder.decode( new Uint8Array( data.slice( 0, 4 ) ) ),
+			version: headerView.getUint32( 4, true ),
+			length: headerView.getUint32( 8, true )
+		};
+
+		if ( this.header.magic !== BINARY_EXTENSION_HEADER_MAGIC ) {
+
+			throw new Error( 'THREE.GLTFLoader: Unsupported glTF-Binary header.' );
+
+		} else if ( this.header.version < 2.0 ) {
+
+			throw new Error( 'THREE.GLTFLoader: Legacy binary file detected.' );
+
+		}
+
+		const chunkContentsLength = this.header.length - BINARY_EXTENSION_HEADER_LENGTH;
+		const chunkView = new DataView( data, BINARY_EXTENSION_HEADER_LENGTH );
+		let chunkIndex = 0;
+
+		while ( chunkIndex < chunkContentsLength ) {
+
+			const chunkLength = chunkView.getUint32( chunkIndex, true );
+			chunkIndex += 4;
+
+			const chunkType = chunkView.getUint32( chunkIndex, true );
+			chunkIndex += 4;
+
+			if ( chunkType === BINARY_EXTENSION_CHUNK_TYPES.JSON ) {
+
+				const contentArray = new Uint8Array( data, BINARY_EXTENSION_HEADER_LENGTH + chunkIndex, chunkLength );
+				this.content = textDecoder.decode( contentArray );
+
+			} else if ( chunkType === BINARY_EXTENSION_CHUNK_TYPES.BIN ) {
+
+				const byteOffset = BINARY_EXTENSION_HEADER_LENGTH + chunkIndex;
+				this.body = data.slice( byteOffset, byteOffset + chunkLength );
+
+			}
+
+			// Clients must ignore chunks with unknown types.
+
+			chunkIndex += chunkLength;
+
+		}
+
+		if ( this.content === null ) {
+
+			throw new Error( 'THREE.GLTFLoader: JSON content not found.' );
+
+		}
+
+	}
+
+}
+
+/**
+ * DRACO Mesh Compression Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_draco_mesh_compression
+ *
+ * @private
+ */
+class GLTFDracoMeshCompressionExtension {
+
+	constructor( json, dracoLoader ) {
+
+		if ( ! dracoLoader ) {
+
+			throw new Error( 'THREE.GLTFLoader: No DRACOLoader instance provided.' );
+
+		}
+
+		this.name = EXTENSIONS.KHR_DRACO_MESH_COMPRESSION;
+		this.json = json;
+		this.dracoLoader = dracoLoader;
+		this.dracoLoader.preload();
+
+	}
+
+	decodePrimitive( primitive, parser ) {
+
+		const json = this.json;
+		const dracoLoader = this.dracoLoader;
+		const bufferViewIndex = primitive.extensions[ this.name ].bufferView;
+		const gltfAttributeMap = primitive.extensions[ this.name ].attributes;
+		const threeAttributeMap = {};
+		const attributeNormalizedMap = {};
+		const attributeTypeMap = {};
+
+		for ( const attributeName in gltfAttributeMap ) {
+
+			const threeAttributeName = ATTRIBUTES[ attributeName ] || attributeName.toLowerCase();
+
+			threeAttributeMap[ threeAttributeName ] = gltfAttributeMap[ attributeName ];
+
+		}
+
+		for ( const attributeName in primitive.attributes ) {
+
+			const threeAttributeName = ATTRIBUTES[ attributeName ] || attributeName.toLowerCase();
+
+			if ( gltfAttributeMap[ attributeName ] !== undefined ) {
+
+				const accessorDef = json.accessors[ primitive.attributes[ attributeName ] ];
+				const componentType = WEBGL_COMPONENT_TYPES[ accessorDef.componentType ];
+
+				attributeTypeMap[ threeAttributeName ] = componentType.name;
+				attributeNormalizedMap[ threeAttributeName ] = accessorDef.normalized === true;
+
+			}
+
+		}
+
+		return parser.getDependency( 'bufferView', bufferViewIndex ).then( function ( bufferView ) {
+
+			return new Promise( function ( resolve, reject ) {
+
+				dracoLoader.decodeDracoFile( bufferView, function ( geometry ) {
+
+					for ( const attributeName in geometry.attributes ) {
+
+						const attribute = geometry.attributes[ attributeName ];
+						const normalized = attributeNormalizedMap[ attributeName ];
+
+						if ( normalized !== undefined ) attribute.normalized = normalized;
+
+					}
+
+					resolve( geometry );
+
+				}, threeAttributeMap, attributeTypeMap, LinearSRGBColorSpace, reject );
+
+			} );
+
+		} );
+
+	}
+
+}
+
+/**
+ * Texture Transform Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform
+ *
+ * @private
+ */
+class GLTFTextureTransformExtension {
+
+	constructor() {
+
+		this.name = EXTENSIONS.KHR_TEXTURE_TRANSFORM;
+
+	}
+
+	extendTexture( texture, transform ) {
+
+		if ( ( transform.texCoord === undefined || transform.texCoord === texture.channel )
+			&& transform.offset === undefined
+			&& transform.rotation === undefined
+			&& transform.scale === undefined ) {
+
+			// See https://github.com/mrdoob/three.js/issues/21819.
+			return texture;
+
+		}
+
+		texture = texture.clone();
+
+		if ( transform.texCoord !== undefined ) {
+
+			texture.channel = transform.texCoord;
+
+		}
+
+		if ( transform.offset !== undefined ) {
+
+			texture.offset.fromArray( transform.offset );
+
+		}
+
+		if ( transform.rotation !== undefined ) {
+
+			texture.rotation = transform.rotation;
+
+		}
+
+		if ( transform.scale !== undefined ) {
+
+			texture.repeat.fromArray( transform.scale );
+
+		}
+
+		texture.needsUpdate = true;
+
+		return texture;
+
+	}
+
+}
+
+/**
+ * Mesh Quantization Extension
+ *
+ * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_mesh_quantization
+ *
+ * @private
+ */
+class GLTFMeshQuantizationExtension {
+
+	constructor() {
+
+		this.name = EXTENSIONS.KHR_MESH_QUANTIZATION;
+
+	}
+
+}
+
+/*********************************/
+/********** INTERPOLATION ********/
+/*********************************/
+
+// Spline Interpolation
+// Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#appendix-c-spline-interpolation
+class GLTFCubicSplineInterpolant extends Interpolant {
+
+	constructor( parameterPositions, sampleValues, sampleSize, resultBuffer ) {
+
+		super( parameterPositions, sampleValues, sampleSize, resultBuffer );
+
+	}
+
+	copySampleValue_( index ) {
+
+		// Copies a sample value to the result buffer. See description of glTF
+		// CUBICSPLINE values layout in interpolate_() function below.
+
+		const result = this.resultBuffer,
+			values = this.sampleValues,
+			valueSize = this.valueSize,
+			offset = index * valueSize * 3 + valueSize;
+
+		for ( let i = 0; i !== valueSize; i ++ ) {
+
+			result[ i ] = values[ offset + i ];
+
+		}
+
+		return result;
+
+	}
+
+	interpolate_( i1, t0, t, t1 ) {
+
+		const result = this.resultBuffer;
+		const values = this.sampleValues;
+		const stride = this.valueSize;
+
+		const stride2 = stride * 2;
+		const stride3 = stride * 3;
+
+		const td = t1 - t0;
+
+		const p = ( t - t0 ) / td;
+		const pp = p * p;
+		const ppp = pp * p;
+
+		const offset1 = i1 * stride3;
+		const offset0 = offset1 - stride3;
+
+		const s2 = - 2 * ppp + 3 * pp;
+		const s3 = ppp - pp;
+		const s0 = 1 - s2;
+		const s1 = s3 - pp + p;
+
+		// Layout of keyframe output values for CUBICSPLINE animations:
+		//   [ inTangent_1, splineVertex_1, outTangent_1, inTangent_2, splineVertex_2, ... ]
+		for ( let i = 0; i !== stride; i ++ ) {
+
+			const p0 = values[ offset0 + i + stride ]; // splineVertex_k
+			const m0 = values[ offset0 + i + stride2 ] * td; // outTangent_k * (t_k+1 - t_k)
+			const p1 = values[ offset1 + i + stride ]; // splineVertex_k+1
+			const m1 = values[ offset1 + i ] * td; // inTangent_k+1 * (t_k+1 - t_k)
+
+			result[ i ] = s0 * p0 + s1 * m0 + s2 * p1 + s3 * m1;
+
+		}
+
+		return result;
+
+	}
+
+}
+
+const _quaternion = new Quaternion();
+
+class GLTFCubicSplineQuaternionInterpolant extends GLTFCubicSplineInterpolant {
+
+	interpolate_( i1, t0, t, t1 ) {
+
+		const result = super.interpolate_( i1, t0, t, t1 );
+
+		_quaternion.fromArray( result ).normalize().toArray( result );
+
+		return result;
+
+	}
+
+}
+
+
+/*********************************/
+/********** INTERNALS ************/
+/*********************************/
+
+/* CONSTANTS */
+
+const WEBGL_CONSTANTS = {
+	FLOAT: 5126,
+	//FLOAT_MAT2: 35674,
+	FLOAT_MAT3: 35675,
+	FLOAT_MAT4: 35676,
+	FLOAT_VEC2: 35664,
+	FLOAT_VEC3: 35665,
+	FLOAT_VEC4: 35666,
+	LINEAR: 9729,
+	REPEAT: 10497,
+	SAMPLER_2D: 35678,
+	POINTS: 0,
+	LINES: 1,
+	LINE_LOOP: 2,
+	LINE_STRIP: 3,
+	TRIANGLES: 4,
+	TRIANGLE_STRIP: 5,
+	TRIANGLE_FAN: 6,
+	UNSIGNED_BYTE: 5121,
+	UNSIGNED_SHORT: 5123
+};
+
+const WEBGL_COMPONENT_TYPES = {
+	5120: Int8Array,
+	5121: Uint8Array,
+	5122: Int16Array,
+	5123: Uint16Array,
+	5125: Uint32Array,
+	5126: Float32Array
+};
+
+const WEBGL_FILTERS = {
+	9728: NearestFilter,
+	9729: LinearFilter,
+	9984: NearestMipmapNearestFilter,
+	9985: LinearMipmapNearestFilter,
+	9986: NearestMipmapLinearFilter,
+	9987: LinearMipmapLinearFilter
+};
+
+const WEBGL_WRAPPINGS = {
+	33071: ClampToEdgeWrapping,
+	33648: MirroredRepeatWrapping,
+	10497: RepeatWrapping
+};
+
+const WEBGL_TYPE_SIZES = {
+	'SCALAR': 1,
+	'VEC2': 2,
+	'VEC3': 3,
+	'VEC4': 4,
+	'MAT2': 4,
+	'MAT3': 9,
+	'MAT4': 16
+};
+
+const ATTRIBUTES = {
+	POSITION: 'position',
+	NORMAL: 'normal',
+	TANGENT: 'tangent',
+	TEXCOORD_0: 'uv',
+	TEXCOORD_1: 'uv1',
+	TEXCOORD_2: 'uv2',
+	TEXCOORD_3: 'uv3',
+	COLOR_0: 'color',
+	WEIGHTS_0: 'skinWeight',
+	JOINTS_0: 'skinIndex',
+};
+
+const PATH_PROPERTIES = {
+	scale: 'scale',
+	translation: 'position',
+	rotation: 'quaternion',
+	weights: 'morphTargetInfluences'
+};
+
+const INTERPOLATION = {
+	CUBICSPLINE: undefined, // We use a custom interpolant (GLTFCubicSplineInterpolation) for CUBICSPLINE tracks. Each
+		                        // keyframe track will be initialized with a default interpolation type, then modified.
+	LINEAR: InterpolateLinear,
+	STEP: InterpolateDiscrete
+};
+
+const ALPHA_MODES = {
+	OPAQUE: 'OPAQUE',
+	MASK: 'MASK',
+	BLEND: 'BLEND'
+};
+
+/**
+ * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#default-material
+ *
+ * @private
+ * @param {Object<string, Material>} cache
+ * @return {Material}
+ */
+function createDefaultMaterial( cache ) {
+
+	if ( cache[ 'DefaultMaterial' ] === undefined ) {
+
+		cache[ 'DefaultMaterial' ] = new MeshStandardMaterial( {
+			color: 0xFFFFFF,
+			emissive: 0x000000,
+			metalness: 1,
+			roughness: 1,
+			transparent: false,
+			depthTest: true,
+			side: FrontSide
+		} );
+
+	}
+
+	return cache[ 'DefaultMaterial' ];
+
+}
+
+function addUnknownExtensionsToUserData( knownExtensions, object, objectDef ) {
+
+	// Add unknown glTF extensions to an object's userData.
+
+	for ( const name in objectDef.extensions ) {
+
+		if ( knownExtensions[ name ] === undefined ) {
+
+			object.userData.gltfExtensions = object.userData.gltfExtensions || {};
+			object.userData.gltfExtensions[ name ] = objectDef.extensions[ name ];
+
+		}
+
+	}
+
+}
+
+/**
+ *
+ * @private
+ * @param {Object3D|Material|BufferGeometry|Object} object
+ * @param {GLTF.definition} gltfDef
+ */
+function assignExtrasToUserData( object, gltfDef ) {
+
+	if ( gltfDef.extras !== undefined ) {
+
+		if ( typeof gltfDef.extras === 'object' ) {
+
+			Object.assign( object.userData, gltfDef.extras );
+
+		} else {
+
+			console.warn( 'THREE.GLTFLoader: Ignoring primitive type .extras, ' + gltfDef.extras );
+
+		}
+
+	}
+
+}
+
+/**
+ * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#morph-targets
+ *
+ * @private
+ * @param {BufferGeometry} geometry
+ * @param {Array<GLTF.Target>} targets
+ * @param {GLTFParser} parser
+ * @return {Promise<BufferGeometry>}
+ */
+function addMorphTargets( geometry, targets, parser ) {
+
+	let hasMorphPosition = false;
+	let hasMorphNormal = false;
+	let hasMorphColor = false;
+
+	for ( let i = 0, il = targets.length; i < il; i ++ ) {
+
+		const target = targets[ i ];
+
+		if ( target.POSITION !== undefined ) hasMorphPosition = true;
+		if ( target.NORMAL !== undefined ) hasMorphNormal = true;
+		if ( target.COLOR_0 !== undefined ) hasMorphColor = true;
+
+		if ( hasMorphPosition && hasMorphNormal && hasMorphColor ) break;
+
+	}
+
+	if ( ! hasMorphPosition && ! hasMorphNormal && ! hasMorphColor ) return Promise.resolve( geometry );
+
+	const pendingPositionAccessors = [];
+	const pendingNormalAccessors = [];
+	const pendingColorAccessors = [];
+
+	for ( let i = 0, il = targets.length; i < il; i ++ ) {
+
+		const target = targets[ i ];
+
+		if ( hasMorphPosition ) {
+
+			const pendingAccessor = target.POSITION !== undefined
+				? parser.getDependency( 'accessor', target.POSITION )
+				: geometry.attributes.position;
+
+			pendingPositionAccessors.push( pendingAccessor );
+
+		}
+
+		if ( hasMorphNormal ) {
+
+			const pendingAccessor = target.NORMAL !== undefined
+				? parser.getDependency( 'accessor', target.NORMAL )
+				: geometry.attributes.normal;
+
+			pendingNormalAccessors.push( pendingAccessor );
+
+		}
+
+		if ( hasMorphColor ) {
+
+			const pendingAccessor = target.COLOR_0 !== undefined
+				? parser.getDependency( 'accessor', target.COLOR_0 )
+				: geometry.attributes.color;
+
+			pendingColorAccessors.push( pendingAccessor );
+
+		}
+
+	}
+
+	return Promise.all( [
+		Promise.all( pendingPositionAccessors ),
+		Promise.all( pendingNormalAccessors ),
+		Promise.all( pendingColorAccessors )
+	] ).then( function ( accessors ) {
+
+		const morphPositions = accessors[ 0 ];
+		const morphNormals = accessors[ 1 ];
+		const morphColors = accessors[ 2 ];
+
+		if ( hasMorphPosition ) geometry.morphAttributes.position = morphPositions;
+		if ( hasMorphNormal ) geometry.morphAttributes.normal = morphNormals;
+		if ( hasMorphColor ) geometry.morphAttributes.color = morphColors;
+		geometry.morphTargetsRelative = true;
+
+		return geometry;
+
+	} );
+
+}
+
+/**
+ *
+ * @private
+ * @param {Mesh} mesh
+ * @param {GLTF.Mesh} meshDef
+ */
+function updateMorphTargets( mesh, meshDef ) {
+
+	mesh.updateMorphTargets();
+
+	if ( meshDef.weights !== undefined ) {
+
+		for ( let i = 0, il = meshDef.weights.length; i < il; i ++ ) {
+
+			mesh.morphTargetInfluences[ i ] = meshDef.weights[ i ];
+
+		}
+
+	}
+
+	// .extras has user-defined data, so check that .extras.targetNames is an array.
+	if ( meshDef.extras && Array.isArray( meshDef.extras.targetNames ) ) {
+
+		const targetNames = meshDef.extras.targetNames;
+
+		if ( mesh.morphTargetInfluences.length === targetNames.length ) {
+
+			mesh.morphTargetDictionary = {};
+
+			for ( let i = 0, il = targetNames.length; i < il; i ++ ) {
+
+				mesh.morphTargetDictionary[ targetNames[ i ] ] = i;
+
+			}
+
+		} else {
+
+			console.warn( 'THREE.GLTFLoader: Invalid extras.targetNames length. Ignoring names.' );
+
+		}
+
+	}
+
+}
+
+function createPrimitiveKey( primitiveDef ) {
+
+	let geometryKey;
+
+	const dracoExtension = primitiveDef.extensions && primitiveDef.extensions[ EXTENSIONS.KHR_DRACO_MESH_COMPRESSION ];
+
+	if ( dracoExtension ) {
+
+		geometryKey = 'draco:' + dracoExtension.bufferView
+				+ ':' + dracoExtension.indices
+				+ ':' + createAttributesKey( dracoExtension.attributes );
+
+	} else {
+
+		geometryKey = primitiveDef.indices + ':' + createAttributesKey( primitiveDef.attributes ) + ':' + primitiveDef.mode;
+
+	}
+
+	if ( primitiveDef.targets !== undefined ) {
+
+		for ( let i = 0, il = primitiveDef.targets.length; i < il; i ++ ) {
+
+			geometryKey += ':' + createAttributesKey( primitiveDef.targets[ i ] );
+
+		}
+
+	}
+
+	return geometryKey;
+
+}
+
+function createAttributesKey( attributes ) {
+
+	let attributesKey = '';
+
+	const keys = Object.keys( attributes ).sort();
+
+	for ( let i = 0, il = keys.length; i < il; i ++ ) {
+
+		attributesKey += keys[ i ] + ':' + attributes[ keys[ i ] ] + ';';
+
+	}
+
+	return attributesKey;
+
+}
+
+function getNormalizedComponentScale( constructor ) {
+
+	// Reference:
+	// https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_mesh_quantization#encoding-quantized-data
+
+	switch ( constructor ) {
+
+		case Int8Array:
+			return 1 / 127;
+
+		case Uint8Array:
+			return 1 / 255;
+
+		case Int16Array:
+			return 1 / 32767;
+
+		case Uint16Array:
+			return 1 / 65535;
+
+		default:
+			throw new Error( 'THREE.GLTFLoader: Unsupported normalized accessor component type.' );
+
+	}
+
+}
+
+function getImageURIMimeType( uri ) {
+
+	if ( uri.search( /\.jpe?g($|\?)/i ) > 0 || uri.search( /^data\:image\/jpeg/ ) === 0 ) return 'image/jpeg';
+	if ( uri.search( /\.webp($|\?)/i ) > 0 || uri.search( /^data\:image\/webp/ ) === 0 ) return 'image/webp';
+	if ( uri.search( /\.ktx2($|\?)/i ) > 0 || uri.search( /^data\:image\/ktx2/ ) === 0 ) return 'image/ktx2';
+
+	return 'image/png';
+
+}
+
+const _identityMatrix = new Matrix4();
+
+/* GLTF PARSER */
+
+class GLTFParser {
+
+	constructor( json = {}, options = {} ) {
+
+		this.json = json;
+		this.extensions = {};
+		this.plugins = {};
+		this.options = options;
+
+		// loader object cache
+		this.cache = new GLTFRegistry();
+
+		// associations between Three.js objects and glTF elements
+		this.associations = new Map();
+
+		// BufferGeometry caching
+		this.primitiveCache = {};
+
+		// Node cache
+		this.nodeCache = {};
+
+		// Object3D instance caches
+		this.meshCache = { refs: {}, uses: {} };
+		this.cameraCache = { refs: {}, uses: {} };
+		this.lightCache = { refs: {}, uses: {} };
+
+		this.sourceCache = {};
+		this.textureCache = {};
+
+		// Track node names, to ensure no duplicates
+		this.nodeNamesUsed = {};
+
+		// Use an ImageBitmapLoader if imageBitmaps are supported. Moves much of the
+		// expensive work of uploading a texture to the GPU off the main thread.
+
+		let isSafari = false;
+		let safariVersion = - 1;
+		let isFirefox = false;
+		let firefoxVersion = - 1;
+
+		if ( typeof navigator !== 'undefined' ) {
+
+			const userAgent = navigator.userAgent;
+
+			isSafari = /^((?!chrome|android).)*safari/i.test( userAgent ) === true;
+			const safariMatch = userAgent.match( /Version\/(\d+)/ );
+			safariVersion = isSafari && safariMatch ? parseInt( safariMatch[ 1 ], 10 ) : - 1;
+
+			isFirefox = userAgent.indexOf( 'Firefox' ) > - 1;
+			firefoxVersion = isFirefox ? userAgent.match( /Firefox\/([0-9]+)\./ )[ 1 ] : - 1;
+
+		}
+
+		if ( typeof createImageBitmap === 'undefined' || ( isSafari && safariVersion < 17 ) || ( isFirefox && firefoxVersion < 98 ) ) {
+
+			this.textureLoader = new TextureLoader( this.options.manager );
+
+		} else {
+
+			this.textureLoader = new ImageBitmapLoader( this.options.manager );
+
+		}
+
+		this.textureLoader.setCrossOrigin( this.options.crossOrigin );
+		this.textureLoader.setRequestHeader( this.options.requestHeader );
+
+		this.fileLoader = new FileLoader( this.options.manager );
+		this.fileLoader.setResponseType( 'arraybuffer' );
+
+		if ( this.options.crossOrigin === 'use-credentials' ) {
+
+			this.fileLoader.setWithCredentials( true );
+
+		}
+
+	}
+
+	setExtensions( extensions ) {
+
+		this.extensions = extensions;
+
+	}
+
+	setPlugins( plugins ) {
+
+		this.plugins = plugins;
+
+	}
+
+	parse( onLoad, onError ) {
+
+		const parser = this;
+		const json = this.json;
+		const extensions = this.extensions;
+
+		// Clear the loader cache
+		this.cache.removeAll();
+		this.nodeCache = {};
+
+		// Mark the special nodes/meshes in json for efficient parse
+		this._invokeAll( function ( ext ) {
+
+			return ext._markDefs && ext._markDefs();
+
+		} );
+
+		Promise.all( this._invokeAll( function ( ext ) {
+
+			return ext.beforeRoot && ext.beforeRoot();
+
+		} ) ).then( function () {
+
+			return Promise.all( [
+
+				parser.getDependencies( 'scene' ),
+				parser.getDependencies( 'animation' ),
+				parser.getDependencies( 'camera' ),
+
+			] );
+
+		} ).then( function ( dependencies ) {
+
+			const result = {
+				scene: dependencies[ 0 ][ json.scene || 0 ],
+				scenes: dependencies[ 0 ],
+				animations: dependencies[ 1 ],
+				cameras: dependencies[ 2 ],
+				asset: json.asset,
+				parser: parser,
+				userData: {}
+			};
+
+			addUnknownExtensionsToUserData( extensions, result, json );
+
+			assignExtrasToUserData( result, json );
+
+			return Promise.all( parser._invokeAll( function ( ext ) {
+
+				return ext.afterRoot && ext.afterRoot( result );
+
+			} ) ).then( function () {
+
+				for ( const scene of result.scenes ) {
+
+					scene.updateMatrixWorld();
+
+				}
+
+				onLoad( result );
+
+			} );
+
+		} ).catch( onError );
+
+	}
+
+	/**
+	 * Marks the special nodes/meshes in json for efficient parse.
+	 *
+	 * @private
+	 */
+	_markDefs() {
+
+		const nodeDefs = this.json.nodes || [];
+		const skinDefs = this.json.skins || [];
+		const meshDefs = this.json.meshes || [];
+
+		// Nothing in the node definition indicates whether it is a Bone or an
+		// Object3D. Use the skins' joint references to mark bones.
+		for ( let skinIndex = 0, skinLength = skinDefs.length; skinIndex < skinLength; skinIndex ++ ) {
+
+			const joints = skinDefs[ skinIndex ].joints;
+
+			for ( let i = 0, il = joints.length; i < il; i ++ ) {
+
+				nodeDefs[ joints[ i ] ].isBone = true;
+
+			}
+
+		}
+
+		// Iterate over all nodes, marking references to shared resources,
+		// as well as skeleton joints.
+		for ( let nodeIndex = 0, nodeLength = nodeDefs.length; nodeIndex < nodeLength; nodeIndex ++ ) {
+
+			const nodeDef = nodeDefs[ nodeIndex ];
+
+			if ( nodeDef.mesh !== undefined ) {
+
+				this._addNodeRef( this.meshCache, nodeDef.mesh );
+
+				// Nothing in the mesh definition indicates whether it is
+				// a SkinnedMesh or Mesh. Use the node's mesh reference
+				// to mark SkinnedMesh if node has skin.
+				if ( nodeDef.skin !== undefined ) {
+
+					meshDefs[ nodeDef.mesh ].isSkinnedMesh = true;
+
+				}
+
+			}
+
+			if ( nodeDef.camera !== undefined ) {
+
+				this._addNodeRef( this.cameraCache, nodeDef.camera );
+
+			}
+
+		}
+
+	}
+
+	/**
+	 * Counts references to shared node / Object3D resources. These resources
+	 * can be reused, or "instantiated", at multiple nodes in the scene
+	 * hierarchy. Mesh, Camera, and Light instances are instantiated and must
+	 * be marked. Non-scenegraph resources (like Materials, Geometries, and
+	 * Textures) can be reused directly and are not marked here.
+	 *
+	 * Example: CesiumMilkTruck sample model reuses "Wheel" meshes.
+	 *
+	 * @private
+	 * @param {Object} cache
+	 * @param {Object3D} index
+	 */
+	_addNodeRef( cache, index ) {
+
+		if ( index === undefined ) return;
+
+		if ( cache.refs[ index ] === undefined ) {
+
+			cache.refs[ index ] = cache.uses[ index ] = 0;
+
+		}
+
+		cache.refs[ index ] ++;
+
+	}
+
+	/**
+	 * Returns a reference to a shared resource, cloning it if necessary.
+	 *
+	 * @private
+	 * @param {Object} cache
+	 * @param {number} index
+	 * @param {Object} object
+	 * @return {Object}
+	 */
+	_getNodeRef( cache, index, object ) {
+
+		if ( cache.refs[ index ] <= 1 ) return object;
+
+		const ref = object.clone();
+
+		// Propagates mappings to the cloned object, prevents mappings on the
+		// original object from being lost.
+		const updateMappings = ( original, clone ) => {
+
+			const mappings = this.associations.get( original );
+			if ( mappings != null ) {
+
+				this.associations.set( clone, mappings );
+
+			}
+
+			for ( const [ i, child ] of original.children.entries() ) {
+
+				updateMappings( child, clone.children[ i ] );
+
+			}
+
+		};
+
+		updateMappings( object, ref );
+
+		ref.name += '_instance_' + ( cache.uses[ index ] ++ );
+
+		return ref;
+
+	}
+
+	_invokeOne( func ) {
+
+		const extensions = Object.values( this.plugins );
+		extensions.push( this );
+
+		for ( let i = 0; i < extensions.length; i ++ ) {
+
+			const result = func( extensions[ i ] );
+
+			if ( result ) return result;
+
+		}
+
+		return null;
+
+	}
+
+	_invokeAll( func ) {
+
+		const extensions = Object.values( this.plugins );
+		extensions.unshift( this );
+
+		const pending = [];
+
+		for ( let i = 0; i < extensions.length; i ++ ) {
+
+			const result = func( extensions[ i ] );
+
+			if ( result ) pending.push( result );
+
+		}
+
+		return pending;
+
+	}
+
+	/**
+	 * Requests the specified dependency asynchronously, with caching.
+	 *
+	 * @private
+	 * @param {string} type
+	 * @param {number} index
+	 * @return {Promise<Object3D|Material|THREE.Texture|AnimationClip|ArrayBuffer|Object>}
+	 */
+	getDependency( type, index ) {
+
+		const cacheKey = type + ':' + index;
+		let dependency = this.cache.get( cacheKey );
+
+		if ( ! dependency ) {
+
+			switch ( type ) {
+
+				case 'scene':
+					dependency = this.loadScene( index );
+					break;
+
+				case 'node':
+					dependency = this._invokeOne( function ( ext ) {
+
+						return ext.loadNode && ext.loadNode( index );
+
+					} );
+					break;
+
+				case 'mesh':
+					dependency = this._invokeOne( function ( ext ) {
+
+						return ext.loadMesh && ext.loadMesh( index );
+
+					} );
+					break;
+
+				case 'accessor':
+					dependency = this.loadAccessor( index );
+					break;
+
+				case 'bufferView':
+					dependency = this._invokeOne( function ( ext ) {
+
+						return ext.loadBufferView && ext.loadBufferView( index );
+
+					} );
+					break;
+
+				case 'buffer':
+					dependency = this.loadBuffer( index );
+					break;
+
+				case 'material':
+					dependency = this._invokeOne( function ( ext ) {
+
+						return ext.loadMaterial && ext.loadMaterial( index );
+
+					} );
+					break;
+
+				case 'texture':
+					dependency = this._invokeOne( function ( ext ) {
+
+						return ext.loadTexture && ext.loadTexture( index );
+
+					} );
+					break;
+
+				case 'skin':
+					dependency = this.loadSkin( index );
+					break;
+
+				case 'animation':
+					dependency = this._invokeOne( function ( ext ) {
+
+						return ext.loadAnimation && ext.loadAnimation( index );
+
+					} );
+					break;
+
+				case 'camera':
+					dependency = this.loadCamera( index );
+					break;
+
+				default:
+					dependency = this._invokeOne( function ( ext ) {
+
+						return ext != this && ext.getDependency && ext.getDependency( type, index );
+
+					} );
+
+					if ( ! dependency ) {
+
+						throw new Error( 'Unknown type: ' + type );
+
+					}
+
+					break;
+
+			}
+
+			this.cache.add( cacheKey, dependency );
+
+		}
+
+		return dependency;
+
+	}
+
+	/**
+	 * Requests all dependencies of the specified type asynchronously, with caching.
+	 *
+	 * @private
+	 * @param {string} type
+	 * @return {Promise<Array<Object>>}
+	 */
+	getDependencies( type ) {
+
+		let dependencies = this.cache.get( type );
+
+		if ( ! dependencies ) {
+
+			const parser = this;
+			const defs = this.json[ type + ( type === 'mesh' ? 'es' : 's' ) ] || [];
+
+			dependencies = Promise.all( defs.map( function ( def, index ) {
+
+				return parser.getDependency( type, index );
+
+			} ) );
+
+			this.cache.add( type, dependencies );
+
+		}
+
+		return dependencies;
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#buffers-and-buffer-views
+	 *
+	 * @private
+	 * @param {number} bufferIndex
+	 * @return {Promise<ArrayBuffer>}
+	 */
+	loadBuffer( bufferIndex ) {
+
+		const bufferDef = this.json.buffers[ bufferIndex ];
+		const loader = this.fileLoader;
+
+		if ( bufferDef.type && bufferDef.type !== 'arraybuffer' ) {
+
+			throw new Error( 'THREE.GLTFLoader: ' + bufferDef.type + ' buffer type is not supported.' );
+
+		}
+
+		// If present, GLB container is required to be the first buffer.
+		if ( bufferDef.uri === undefined && bufferIndex === 0 ) {
+
+			return Promise.resolve( this.extensions[ EXTENSIONS.KHR_BINARY_GLTF ].body );
+
+		}
+
+		const options = this.options;
+
+		return new Promise( function ( resolve, reject ) {
+
+			loader.load( LoaderUtils.resolveURL( bufferDef.uri, options.path ), resolve, undefined, function () {
+
+				reject( new Error( 'THREE.GLTFLoader: Failed to load buffer "' + bufferDef.uri + '".' ) );
+
+			} );
+
+		} );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#buffers-and-buffer-views
+	 *
+	 * @private
+	 * @param {number} bufferViewIndex
+	 * @return {Promise<ArrayBuffer>}
+	 */
+	loadBufferView( bufferViewIndex ) {
+
+		const bufferViewDef = this.json.bufferViews[ bufferViewIndex ];
+
+		return this.getDependency( 'buffer', bufferViewDef.buffer ).then( function ( buffer ) {
+
+			const byteLength = bufferViewDef.byteLength || 0;
+			const byteOffset = bufferViewDef.byteOffset || 0;
+			return buffer.slice( byteOffset, byteOffset + byteLength );
+
+		} );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#accessors
+	 *
+	 * @private
+	 * @param {number} accessorIndex
+	 * @return {Promise<BufferAttribute|InterleavedBufferAttribute>}
+	 */
+	loadAccessor( accessorIndex ) {
+
+		const parser = this;
+		const json = this.json;
+
+		const accessorDef = this.json.accessors[ accessorIndex ];
+
+		if ( accessorDef.bufferView === undefined && accessorDef.sparse === undefined ) {
+
+			const itemSize = WEBGL_TYPE_SIZES[ accessorDef.type ];
+			const TypedArray = WEBGL_COMPONENT_TYPES[ accessorDef.componentType ];
+			const normalized = accessorDef.normalized === true;
+
+			const array = new TypedArray( accessorDef.count * itemSize );
+			return Promise.resolve( new BufferAttribute( array, itemSize, normalized ) );
+
+		}
+
+		const pendingBufferViews = [];
+
+		if ( accessorDef.bufferView !== undefined ) {
+
+			pendingBufferViews.push( this.getDependency( 'bufferView', accessorDef.bufferView ) );
+
+		} else {
+
+			pendingBufferViews.push( null );
+
+		}
+
+		if ( accessorDef.sparse !== undefined ) {
+
+			pendingBufferViews.push( this.getDependency( 'bufferView', accessorDef.sparse.indices.bufferView ) );
+			pendingBufferViews.push( this.getDependency( 'bufferView', accessorDef.sparse.values.bufferView ) );
+
+		}
+
+		return Promise.all( pendingBufferViews ).then( function ( bufferViews ) {
+
+			const bufferView = bufferViews[ 0 ];
+
+			const itemSize = WEBGL_TYPE_SIZES[ accessorDef.type ];
+			const TypedArray = WEBGL_COMPONENT_TYPES[ accessorDef.componentType ];
+
+			// For VEC3: itemSize is 3, elementBytes is 4, itemBytes is 12.
+			const elementBytes = TypedArray.BYTES_PER_ELEMENT;
+			const itemBytes = elementBytes * itemSize;
+			const byteOffset = accessorDef.byteOffset || 0;
+			const byteStride = accessorDef.bufferView !== undefined ? json.bufferViews[ accessorDef.bufferView ].byteStride : undefined;
+			const normalized = accessorDef.normalized === true;
+			let array, bufferAttribute;
+
+			// The buffer is not interleaved if the stride is the item size in bytes.
+			if ( byteStride && byteStride !== itemBytes ) {
+
+				// Each "slice" of the buffer, as defined by 'count' elements of 'byteStride' bytes, gets its own InterleavedBuffer
+				// This makes sure that IBA.count reflects accessor.count properly
+				const ibSlice = Math.floor( byteOffset / byteStride );
+				const ibCacheKey = 'InterleavedBuffer:' + accessorDef.bufferView + ':' + accessorDef.componentType + ':' + ibSlice + ':' + accessorDef.count;
+				let ib = parser.cache.get( ibCacheKey );
+
+				if ( ! ib ) {
+
+					array = new TypedArray( bufferView, ibSlice * byteStride, accessorDef.count * byteStride / elementBytes );
+
+					// Integer parameters to IB/IBA are in array elements, not bytes.
+					ib = new InterleavedBuffer( array, byteStride / elementBytes );
+
+					parser.cache.add( ibCacheKey, ib );
+
+				}
+
+				bufferAttribute = new InterleavedBufferAttribute( ib, itemSize, ( byteOffset % byteStride ) / elementBytes, normalized );
+
+			} else {
+
+				if ( bufferView === null ) {
+
+					array = new TypedArray( accessorDef.count * itemSize );
+
+				} else {
+
+					array = new TypedArray( bufferView, byteOffset, accessorDef.count * itemSize );
+
+				}
+
+				bufferAttribute = new BufferAttribute( array, itemSize, normalized );
+
+			}
+
+			// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#sparse-accessors
+			if ( accessorDef.sparse !== undefined ) {
+
+				const itemSizeIndices = WEBGL_TYPE_SIZES.SCALAR;
+				const TypedArrayIndices = WEBGL_COMPONENT_TYPES[ accessorDef.sparse.indices.componentType ];
+
+				const byteOffsetIndices = accessorDef.sparse.indices.byteOffset || 0;
+				const byteOffsetValues = accessorDef.sparse.values.byteOffset || 0;
+
+				const sparseIndices = new TypedArrayIndices( bufferViews[ 1 ], byteOffsetIndices, accessorDef.sparse.count * itemSizeIndices );
+				const sparseValues = new TypedArray( bufferViews[ 2 ], byteOffsetValues, accessorDef.sparse.count * itemSize );
+
+				if ( bufferView !== null ) {
+
+					// Avoid modifying the original ArrayBuffer, if the bufferView wasn't initialized with zeroes.
+					bufferAttribute = new BufferAttribute( bufferAttribute.array.slice(), bufferAttribute.itemSize, bufferAttribute.normalized );
+
+				}
+
+				// Ignore normalized since we copy from sparse
+				bufferAttribute.normalized = false;
+
+				for ( let i = 0, il = sparseIndices.length; i < il; i ++ ) {
+
+					const index = sparseIndices[ i ];
+
+					bufferAttribute.setX( index, sparseValues[ i * itemSize ] );
+					if ( itemSize >= 2 ) bufferAttribute.setY( index, sparseValues[ i * itemSize + 1 ] );
+					if ( itemSize >= 3 ) bufferAttribute.setZ( index, sparseValues[ i * itemSize + 2 ] );
+					if ( itemSize >= 4 ) bufferAttribute.setW( index, sparseValues[ i * itemSize + 3 ] );
+					if ( itemSize >= 5 ) throw new Error( 'THREE.GLTFLoader: Unsupported itemSize in sparse BufferAttribute.' );
+
+				}
+
+				bufferAttribute.normalized = normalized;
+
+			}
+
+			return bufferAttribute;
+
+		} );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#textures
+	 *
+	 * @private
+	 * @param {number} textureIndex
+	 * @return {Promise<THREE.Texture|null>}
+	 */
+	loadTexture( textureIndex ) {
+
+		const json = this.json;
+		const options = this.options;
+		const textureDef = json.textures[ textureIndex ];
+		const sourceIndex = textureDef.source;
+		const sourceDef = json.images[ sourceIndex ];
+
+		let loader = this.textureLoader;
+
+		if ( sourceDef.uri ) {
+
+			const handler = options.manager.getHandler( sourceDef.uri );
+			if ( handler !== null ) loader = handler;
+
+		}
+
+		return this.loadTextureImage( textureIndex, sourceIndex, loader );
+
+	}
+
+	loadTextureImage( textureIndex, sourceIndex, loader ) {
+
+		const parser = this;
+		const json = this.json;
+
+		const textureDef = json.textures[ textureIndex ];
+		const sourceDef = json.images[ sourceIndex ];
+
+		const cacheKey = ( sourceDef.uri || sourceDef.bufferView ) + ':' + textureDef.sampler;
+
+		if ( this.textureCache[ cacheKey ] ) {
+
+			// See https://github.com/mrdoob/three.js/issues/21559.
+			return this.textureCache[ cacheKey ];
+
+		}
+
+		const promise = this.loadImageSource( sourceIndex, loader ).then( function ( texture ) {
+
+			texture.flipY = false;
+
+			texture.name = textureDef.name || sourceDef.name || '';
+
+			if ( texture.name === '' && typeof sourceDef.uri === 'string' && sourceDef.uri.startsWith( 'data:image/' ) === false ) {
+
+				texture.name = sourceDef.uri;
+
+			}
+
+			const samplers = json.samplers || {};
+			const sampler = samplers[ textureDef.sampler ] || {};
+
+			texture.magFilter = WEBGL_FILTERS[ sampler.magFilter ] || LinearFilter;
+			texture.minFilter = WEBGL_FILTERS[ sampler.minFilter ] || LinearMipmapLinearFilter;
+			texture.wrapS = WEBGL_WRAPPINGS[ sampler.wrapS ] || RepeatWrapping;
+			texture.wrapT = WEBGL_WRAPPINGS[ sampler.wrapT ] || RepeatWrapping;
+			texture.generateMipmaps = ! texture.isCompressedTexture && texture.minFilter !== NearestFilter && texture.minFilter !== LinearFilter;
+
+			parser.associations.set( texture, { textures: textureIndex } );
+
+			return texture;
+
+		} ).catch( function () {
+
+			return null;
+
+		} );
+
+		this.textureCache[ cacheKey ] = promise;
+
+		return promise;
+
+	}
+
+	loadImageSource( sourceIndex, loader ) {
+
+		const parser = this;
+		const json = this.json;
+		const options = this.options;
+
+		if ( this.sourceCache[ sourceIndex ] !== undefined ) {
+
+			return this.sourceCache[ sourceIndex ].then( ( texture ) => texture.clone() );
+
+		}
+
+		const sourceDef = json.images[ sourceIndex ];
+
+		const URL = self.URL || self.webkitURL;
+
+		let sourceURI = sourceDef.uri || '';
+		let isObjectURL = false;
+
+		if ( sourceDef.bufferView !== undefined ) {
+
+			// Load binary image data from bufferView, if provided.
+
+			sourceURI = parser.getDependency( 'bufferView', sourceDef.bufferView ).then( function ( bufferView ) {
+
+				isObjectURL = true;
+				const blob = new Blob( [ bufferView ], { type: sourceDef.mimeType } );
+				sourceURI = URL.createObjectURL( blob );
+				return sourceURI;
+
+			} );
+
+		} else if ( sourceDef.uri === undefined ) {
+
+			throw new Error( 'THREE.GLTFLoader: Image ' + sourceIndex + ' is missing URI and bufferView' );
+
+		}
+
+		const promise = Promise.resolve( sourceURI ).then( function ( sourceURI ) {
+
+			return new Promise( function ( resolve, reject ) {
+
+				let onLoad = resolve;
+
+				if ( loader.isImageBitmapLoader === true ) {
+
+					onLoad = function ( imageBitmap ) {
+
+						const texture = new Texture( imageBitmap );
+						texture.needsUpdate = true;
+
+						resolve( texture );
+
+					};
+
+				}
+
+				loader.load( LoaderUtils.resolveURL( sourceURI, options.path ), onLoad, undefined, reject );
+
+			} );
+
+		} ).then( function ( texture ) {
+
+			// Clean up resources and configure Texture.
+
+			if ( isObjectURL === true ) {
+
+				URL.revokeObjectURL( sourceURI );
+
+			}
+
+			assignExtrasToUserData( texture, sourceDef );
+
+			texture.userData.mimeType = sourceDef.mimeType || getImageURIMimeType( sourceDef.uri );
+
+			return texture;
+
+		} ).catch( function ( error ) {
+
+			console.error( 'THREE.GLTFLoader: Couldn\'t load texture', sourceURI );
+			throw error;
+
+		} );
+
+		this.sourceCache[ sourceIndex ] = promise;
+		return promise;
+
+	}
+
+	/**
+	 * Asynchronously assigns a texture to the given material parameters.
+	 *
+	 * @private
+	 * @param {Object} materialParams
+	 * @param {string} mapName
+	 * @param {Object} mapDef
+	 * @param {string} [colorSpace]
+	 * @return {Promise<Texture>}
+	 */
+	assignTexture( materialParams, mapName, mapDef, colorSpace ) {
+
+		const parser = this;
+
+		return this.getDependency( 'texture', mapDef.index ).then( function ( texture ) {
+
+			if ( ! texture ) return null;
+
+			if ( mapDef.texCoord !== undefined && mapDef.texCoord > 0 ) {
+
+				texture = texture.clone();
+				texture.channel = mapDef.texCoord;
+
+			}
+
+			if ( parser.extensions[ EXTENSIONS.KHR_TEXTURE_TRANSFORM ] ) {
+
+				const transform = mapDef.extensions !== undefined ? mapDef.extensions[ EXTENSIONS.KHR_TEXTURE_TRANSFORM ] : undefined;
+
+				if ( transform ) {
+
+					const gltfReference = parser.associations.get( texture );
+					texture = parser.extensions[ EXTENSIONS.KHR_TEXTURE_TRANSFORM ].extendTexture( texture, transform );
+					parser.associations.set( texture, gltfReference );
+
+				}
+
+			}
+
+			if ( colorSpace !== undefined ) {
+
+				texture.colorSpace = colorSpace;
+
+			}
+
+			materialParams[ mapName ] = texture;
+
+			return texture;
+
+		} );
+
+	}
+
+	/**
+	 * Assigns final material to a Mesh, Line, or Points instance. The instance
+	 * already has a material (generated from the glTF material options alone)
+	 * but reuse of the same glTF material may require multiple threejs materials
+	 * to accommodate different primitive types, defines, etc. New materials will
+	 * be created if necessary, and reused from a cache.
+	 *
+	 * @private
+	 * @param {Object3D} mesh Mesh, Line, or Points instance.
+	 */
+	assignFinalMaterial( mesh ) {
+
+		const geometry = mesh.geometry;
+		let material = mesh.material;
+
+		const useDerivativeTangents = geometry.attributes.tangent === undefined;
+		const useVertexColors = geometry.attributes.color !== undefined;
+		const useFlatShading = geometry.attributes.normal === undefined;
+
+		if ( mesh.isPoints ) {
+
+			const cacheKey = 'PointsMaterial:' + material.uuid;
+
+			let pointsMaterial = this.cache.get( cacheKey );
+
+			if ( ! pointsMaterial ) {
+
+				pointsMaterial = new PointsMaterial();
+				Material.prototype.copy.call( pointsMaterial, material );
+				pointsMaterial.color.copy( material.color );
+				pointsMaterial.map = material.map;
+				pointsMaterial.sizeAttenuation = false; // glTF spec says points should be 1px
+
+				this.cache.add( cacheKey, pointsMaterial );
+
+			}
+
+			material = pointsMaterial;
+
+		} else if ( mesh.isLine ) {
+
+			const cacheKey = 'LineBasicMaterial:' + material.uuid;
+
+			let lineMaterial = this.cache.get( cacheKey );
+
+			if ( ! lineMaterial ) {
+
+				lineMaterial = new LineBasicMaterial();
+				Material.prototype.copy.call( lineMaterial, material );
+				lineMaterial.color.copy( material.color );
+				lineMaterial.map = material.map;
+
+				this.cache.add( cacheKey, lineMaterial );
+
+			}
+
+			material = lineMaterial;
+
+		}
+
+		// Clone the material if it will be modified
+		if ( useDerivativeTangents || useVertexColors || useFlatShading ) {
+
+			let cacheKey = 'ClonedMaterial:' + material.uuid + ':';
+
+			if ( useDerivativeTangents ) cacheKey += 'derivative-tangents:';
+			if ( useVertexColors ) cacheKey += 'vertex-colors:';
+			if ( useFlatShading ) cacheKey += 'flat-shading:';
+
+			let cachedMaterial = this.cache.get( cacheKey );
+
+			if ( ! cachedMaterial ) {
+
+				cachedMaterial = material.clone();
+
+				if ( useVertexColors ) cachedMaterial.vertexColors = true;
+				if ( useFlatShading ) cachedMaterial.flatShading = true;
+
+				if ( useDerivativeTangents ) {
+
+					// https://github.com/mrdoob/three.js/issues/11438#issuecomment-507003995
+					if ( cachedMaterial.normalScale ) cachedMaterial.normalScale.y *= - 1;
+					if ( cachedMaterial.clearcoatNormalScale ) cachedMaterial.clearcoatNormalScale.y *= - 1;
+
+				}
+
+				this.cache.add( cacheKey, cachedMaterial );
+
+				this.associations.set( cachedMaterial, this.associations.get( material ) );
+
+			}
+
+			material = cachedMaterial;
+
+		}
+
+		mesh.material = material;
+
+	}
+
+	getMaterialType( /* materialIndex */ ) {
+
+		return MeshStandardMaterial;
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#materials
+	 *
+	 * @private
+	 * @param {number} materialIndex
+	 * @return {Promise<Material>}
+	 */
+	loadMaterial( materialIndex ) {
+
+		const parser = this;
+		const json = this.json;
+		const extensions = this.extensions;
+		const materialDef = json.materials[ materialIndex ];
+
+		let materialType;
+		const materialParams = {};
+		const materialExtensions = materialDef.extensions || {};
+
+		const pending = [];
+
+		if ( materialExtensions[ EXTENSIONS.KHR_MATERIALS_UNLIT ] ) {
+
+			const kmuExtension = extensions[ EXTENSIONS.KHR_MATERIALS_UNLIT ];
+			materialType = kmuExtension.getMaterialType();
+			pending.push( kmuExtension.extendParams( materialParams, materialDef, parser ) );
+
+		} else {
+
+			// Specification:
+			// https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#metallic-roughness-material
+
+			const metallicRoughness = materialDef.pbrMetallicRoughness || {};
+
+			materialParams.color = new Color( 1.0, 1.0, 1.0 );
+			materialParams.opacity = 1.0;
+
+			if ( Array.isArray( metallicRoughness.baseColorFactor ) ) {
+
+				const array = metallicRoughness.baseColorFactor;
+
+				materialParams.color.setRGB( array[ 0 ], array[ 1 ], array[ 2 ], LinearSRGBColorSpace );
+				materialParams.opacity = array[ 3 ];
+
+			}
+
+			if ( metallicRoughness.baseColorTexture !== undefined ) {
+
+				pending.push( parser.assignTexture( materialParams, 'map', metallicRoughness.baseColorTexture, SRGBColorSpace ) );
+
+			}
+
+			materialParams.metalness = metallicRoughness.metallicFactor !== undefined ? metallicRoughness.metallicFactor : 1.0;
+			materialParams.roughness = metallicRoughness.roughnessFactor !== undefined ? metallicRoughness.roughnessFactor : 1.0;
+
+			if ( metallicRoughness.metallicRoughnessTexture !== undefined ) {
+
+				pending.push( parser.assignTexture( materialParams, 'metalnessMap', metallicRoughness.metallicRoughnessTexture ) );
+				pending.push( parser.assignTexture( materialParams, 'roughnessMap', metallicRoughness.metallicRoughnessTexture ) );
+
+			}
+
+			materialType = this._invokeOne( function ( ext ) {
+
+				return ext.getMaterialType && ext.getMaterialType( materialIndex );
+
+			} );
+
+			pending.push( Promise.all( this._invokeAll( function ( ext ) {
+
+				return ext.extendMaterialParams && ext.extendMaterialParams( materialIndex, materialParams );
+
+			} ) ) );
+
+		}
+
+		if ( materialDef.doubleSided === true ) {
+
+			materialParams.side = DoubleSide;
+
+		}
+
+		const alphaMode = materialDef.alphaMode || ALPHA_MODES.OPAQUE;
+
+		if ( alphaMode === ALPHA_MODES.BLEND ) {
+
+			materialParams.transparent = true;
+
+			// See: https://github.com/mrdoob/three.js/issues/17706
+			materialParams.depthWrite = false;
+
+		} else {
+
+			materialParams.transparent = false;
+
+			if ( alphaMode === ALPHA_MODES.MASK ) {
+
+				materialParams.alphaTest = materialDef.alphaCutoff !== undefined ? materialDef.alphaCutoff : 0.5;
+
+			}
+
+		}
+
+		if ( materialDef.normalTexture !== undefined && materialType !== MeshBasicMaterial ) {
+
+			pending.push( parser.assignTexture( materialParams, 'normalMap', materialDef.normalTexture ) );
+
+			materialParams.normalScale = new Vector2( 1, 1 );
+
+			if ( materialDef.normalTexture.scale !== undefined ) {
+
+				const scale = materialDef.normalTexture.scale;
+
+				materialParams.normalScale.set( scale, scale );
+
+			}
+
+		}
+
+		if ( materialDef.occlusionTexture !== undefined && materialType !== MeshBasicMaterial ) {
+
+			pending.push( parser.assignTexture( materialParams, 'aoMap', materialDef.occlusionTexture ) );
+
+			if ( materialDef.occlusionTexture.strength !== undefined ) {
+
+				materialParams.aoMapIntensity = materialDef.occlusionTexture.strength;
+
+			}
+
+		}
+
+		if ( materialDef.emissiveFactor !== undefined && materialType !== MeshBasicMaterial ) {
+
+			const emissiveFactor = materialDef.emissiveFactor;
+			materialParams.emissive = new Color().setRGB( emissiveFactor[ 0 ], emissiveFactor[ 1 ], emissiveFactor[ 2 ], LinearSRGBColorSpace );
+
+		}
+
+		if ( materialDef.emissiveTexture !== undefined && materialType !== MeshBasicMaterial ) {
+
+			pending.push( parser.assignTexture( materialParams, 'emissiveMap', materialDef.emissiveTexture, SRGBColorSpace ) );
+
+		}
+
+		return Promise.all( pending ).then( function () {
+
+			const material = new materialType( materialParams );
+
+			if ( materialDef.name ) material.name = materialDef.name;
+
+			assignExtrasToUserData( material, materialDef );
+
+			parser.associations.set( material, { materials: materialIndex } );
+
+			if ( materialDef.extensions ) addUnknownExtensionsToUserData( extensions, material, materialDef );
+
+			return material;
+
+		} );
+
+	}
+
+	/**
+	 * When Object3D instances are targeted by animation, they need unique names.
+	 *
+	 * @private
+	 * @param {string} originalName
+	 * @return {string}
+	 */
+	createUniqueName( originalName ) {
+
+		const sanitizedName = PropertyBinding.sanitizeNodeName( originalName || '' );
+
+		if ( sanitizedName in this.nodeNamesUsed ) {
+
+			return sanitizedName + '_' + ( ++ this.nodeNamesUsed[ sanitizedName ] );
+
+		} else {
+
+			this.nodeNamesUsed[ sanitizedName ] = 0;
+
+			return sanitizedName;
+
+		}
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#geometry
+	 *
+	 * Creates BufferGeometries from primitives.
+	 *
+	 * @private
+	 * @param {Array<GLTF.Primitive>} primitives
+	 * @return {Promise<Array<BufferGeometry>>}
+	 */
+	loadGeometries( primitives ) {
+
+		const parser = this;
+		const extensions = this.extensions;
+		const cache = this.primitiveCache;
+
+		function createDracoPrimitive( primitive ) {
+
+			return extensions[ EXTENSIONS.KHR_DRACO_MESH_COMPRESSION ]
+				.decodePrimitive( primitive, parser )
+				.then( function ( geometry ) {
+
+					return addPrimitiveAttributes( geometry, primitive, parser );
+
+				} );
+
+		}
+
+		const pending = [];
+
+		for ( let i = 0, il = primitives.length; i < il; i ++ ) {
+
+			const primitive = primitives[ i ];
+			const cacheKey = createPrimitiveKey( primitive );
+
+			// See if we've already created this geometry
+			const cached = cache[ cacheKey ];
+
+			if ( cached ) {
+
+				// Use the cached geometry if it exists
+				pending.push( cached.promise );
+
+			} else {
+
+				let geometryPromise;
+
+				if ( primitive.extensions && primitive.extensions[ EXTENSIONS.KHR_DRACO_MESH_COMPRESSION ] ) {
+
+					// Use DRACO geometry if available
+					geometryPromise = createDracoPrimitive( primitive );
+
+				} else {
+
+					// Otherwise create a new geometry
+					geometryPromise = addPrimitiveAttributes( new BufferGeometry(), primitive, parser );
+
+				}
+
+				// Cache this geometry
+				cache[ cacheKey ] = { primitive: primitive, promise: geometryPromise };
+
+				pending.push( geometryPromise );
+
+			}
+
+		}
+
+		return Promise.all( pending );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#meshes
+	 *
+	 * @private
+	 * @param {number} meshIndex
+	 * @return {Promise<Group|Mesh|SkinnedMesh|Line|Points>}
+	 */
+	loadMesh( meshIndex ) {
+
+		const parser = this;
+		const json = this.json;
+		const extensions = this.extensions;
+
+		const meshDef = json.meshes[ meshIndex ];
+		const primitives = meshDef.primitives;
+
+		const pending = [];
+
+		for ( let i = 0, il = primitives.length; i < il; i ++ ) {
+
+			const material = primitives[ i ].material === undefined
+				? createDefaultMaterial( this.cache )
+				: this.getDependency( 'material', primitives[ i ].material );
+
+			pending.push( material );
+
+		}
+
+		pending.push( parser.loadGeometries( primitives ) );
+
+		return Promise.all( pending ).then( function ( results ) {
+
+			const materials = results.slice( 0, results.length - 1 );
+			const geometries = results[ results.length - 1 ];
+
+			const meshes = [];
+
+			for ( let i = 0, il = geometries.length; i < il; i ++ ) {
+
+				const geometry = geometries[ i ];
+				const primitive = primitives[ i ];
+
+				// 1. create Mesh
+
+				let mesh;
+
+				const material = materials[ i ];
+
+				if ( primitive.mode === WEBGL_CONSTANTS.TRIANGLES ||
+						primitive.mode === WEBGL_CONSTANTS.TRIANGLE_STRIP ||
+						primitive.mode === WEBGL_CONSTANTS.TRIANGLE_FAN ||
+						primitive.mode === undefined ) {
+
+					// .isSkinnedMesh isn't in glTF spec. See ._markDefs()
+					mesh = meshDef.isSkinnedMesh === true
+						? new SkinnedMesh( geometry, material )
+						: new Mesh( geometry, material );
+
+					if ( mesh.isSkinnedMesh === true ) {
+
+						// normalize skin weights to fix malformed assets (see #15319)
+						mesh.normalizeSkinWeights();
+
+					}
+
+					if ( primitive.mode === WEBGL_CONSTANTS.TRIANGLE_STRIP ) {
+
+						mesh.geometry = toTrianglesDrawMode( mesh.geometry, TriangleStripDrawMode );
+
+					} else if ( primitive.mode === WEBGL_CONSTANTS.TRIANGLE_FAN ) {
+
+						mesh.geometry = toTrianglesDrawMode( mesh.geometry, TriangleFanDrawMode );
+
+					}
+
+				} else if ( primitive.mode === WEBGL_CONSTANTS.LINES ) {
+
+					mesh = new LineSegments( geometry, material );
+
+				} else if ( primitive.mode === WEBGL_CONSTANTS.LINE_STRIP ) {
+
+					mesh = new Line( geometry, material );
+
+				} else if ( primitive.mode === WEBGL_CONSTANTS.LINE_LOOP ) {
+
+					mesh = new LineLoop( geometry, material );
+
+				} else if ( primitive.mode === WEBGL_CONSTANTS.POINTS ) {
+
+					mesh = new Points( geometry, material );
+
+				} else {
+
+					throw new Error( 'THREE.GLTFLoader: Primitive mode unsupported: ' + primitive.mode );
+
+				}
+
+				if ( Object.keys( mesh.geometry.morphAttributes ).length > 0 ) {
+
+					updateMorphTargets( mesh, meshDef );
+
+				}
+
+				mesh.name = parser.createUniqueName( meshDef.name || ( 'mesh_' + meshIndex ) );
+
+				assignExtrasToUserData( mesh, meshDef );
+
+				if ( primitive.extensions ) addUnknownExtensionsToUserData( extensions, mesh, primitive );
+
+				parser.assignFinalMaterial( mesh );
+
+				meshes.push( mesh );
+
+			}
+
+			for ( let i = 0, il = meshes.length; i < il; i ++ ) {
+
+				parser.associations.set( meshes[ i ], {
+					meshes: meshIndex,
+					primitives: i
+				} );
+
+			}
+
+			if ( meshes.length === 1 ) {
+
+				if ( meshDef.extensions ) addUnknownExtensionsToUserData( extensions, meshes[ 0 ], meshDef );
+
+				return meshes[ 0 ];
+
+			}
+
+			const group = new Group();
+
+			if ( meshDef.extensions ) addUnknownExtensionsToUserData( extensions, group, meshDef );
+
+			parser.associations.set( group, { meshes: meshIndex } );
+
+			for ( let i = 0, il = meshes.length; i < il; i ++ ) {
+
+				group.add( meshes[ i ] );
+
+			}
+
+			return group;
+
+		} );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#cameras
+	 *
+	 * @private
+	 * @param {number} cameraIndex
+	 * @return {Promise<THREE.Camera>}
+	 */
+	loadCamera( cameraIndex ) {
+
+		let camera;
+		const cameraDef = this.json.cameras[ cameraIndex ];
+		const params = cameraDef[ cameraDef.type ];
+
+		if ( ! params ) {
+
+			console.warn( 'THREE.GLTFLoader: Missing camera parameters.' );
+			return;
+
+		}
+
+		if ( cameraDef.type === 'perspective' ) {
+
+			camera = new PerspectiveCamera( MathUtils.radToDeg( params.yfov ), params.aspectRatio || 1, params.znear || 1, params.zfar || 2e6 );
+
+		} else if ( cameraDef.type === 'orthographic' ) {
+
+			camera = new OrthographicCamera( - params.xmag, params.xmag, params.ymag, - params.ymag, params.znear, params.zfar );
+
+		}
+
+		if ( cameraDef.name ) camera.name = this.createUniqueName( cameraDef.name );
+
+		assignExtrasToUserData( camera, cameraDef );
+
+		return Promise.resolve( camera );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#skins
+	 *
+	 * @private
+	 * @param {number} skinIndex
+	 * @return {Promise<Skeleton>}
+	 */
+	loadSkin( skinIndex ) {
+
+		const skinDef = this.json.skins[ skinIndex ];
+
+		const pending = [];
+
+		for ( let i = 0, il = skinDef.joints.length; i < il; i ++ ) {
+
+			pending.push( this._loadNodeShallow( skinDef.joints[ i ] ) );
+
+		}
+
+		if ( skinDef.inverseBindMatrices !== undefined ) {
+
+			pending.push( this.getDependency( 'accessor', skinDef.inverseBindMatrices ) );
+
+		} else {
+
+			pending.push( null );
+
+		}
+
+		return Promise.all( pending ).then( function ( results ) {
+
+			const inverseBindMatrices = results.pop();
+			const jointNodes = results;
+
+			// Note that bones (joint nodes) may or may not be in the
+			// scene graph at this time.
+
+			const bones = [];
+			const boneInverses = [];
+
+			for ( let i = 0, il = jointNodes.length; i < il; i ++ ) {
+
+				const jointNode = jointNodes[ i ];
+
+				if ( jointNode ) {
+
+					bones.push( jointNode );
+
+					const mat = new Matrix4();
+
+					if ( inverseBindMatrices !== null ) {
+
+						mat.fromArray( inverseBindMatrices.array, i * 16 );
+
+					}
+
+					boneInverses.push( mat );
+
+				} else {
+
+					console.warn( 'THREE.GLTFLoader: Joint "%s" could not be found.', skinDef.joints[ i ] );
+
+				}
+
+			}
+
+			return new Skeleton( bones, boneInverses );
+
+		} );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#animations
+	 *
+	 * @private
+	 * @param {number} animationIndex
+	 * @return {Promise<AnimationClip>}
+	 */
+	loadAnimation( animationIndex ) {
+
+		const json = this.json;
+		const parser = this;
+
+		const animationDef = json.animations[ animationIndex ];
+		const animationName = animationDef.name ? animationDef.name : 'animation_' + animationIndex;
+
+		const pendingNodes = [];
+		const pendingInputAccessors = [];
+		const pendingOutputAccessors = [];
+		const pendingSamplers = [];
+		const pendingTargets = [];
+
+		for ( let i = 0, il = animationDef.channels.length; i < il; i ++ ) {
+
+			const channel = animationDef.channels[ i ];
+			const sampler = animationDef.samplers[ channel.sampler ];
+			const target = channel.target;
+			const name = target.node;
+			const input = animationDef.parameters !== undefined ? animationDef.parameters[ sampler.input ] : sampler.input;
+			const output = animationDef.parameters !== undefined ? animationDef.parameters[ sampler.output ] : sampler.output;
+
+			if ( target.node === undefined ) continue;
+
+			pendingNodes.push( this.getDependency( 'node', name ) );
+			pendingInputAccessors.push( this.getDependency( 'accessor', input ) );
+			pendingOutputAccessors.push( this.getDependency( 'accessor', output ) );
+			pendingSamplers.push( sampler );
+			pendingTargets.push( target );
+
+		}
+
+		return Promise.all( [
+
+			Promise.all( pendingNodes ),
+			Promise.all( pendingInputAccessors ),
+			Promise.all( pendingOutputAccessors ),
+			Promise.all( pendingSamplers ),
+			Promise.all( pendingTargets )
+
+		] ).then( function ( dependencies ) {
+
+			const nodes = dependencies[ 0 ];
+			const inputAccessors = dependencies[ 1 ];
+			const outputAccessors = dependencies[ 2 ];
+			const samplers = dependencies[ 3 ];
+			const targets = dependencies[ 4 ];
+
+			const tracks = [];
+
+			for ( let i = 0, il = nodes.length; i < il; i ++ ) {
+
+				const node = nodes[ i ];
+				const inputAccessor = inputAccessors[ i ];
+				const outputAccessor = outputAccessors[ i ];
+				const sampler = samplers[ i ];
+				const target = targets[ i ];
+
+				if ( node === undefined ) continue;
+
+				if ( node.updateMatrix ) {
+
+					node.updateMatrix();
+
+				}
+
+				const createdTracks = parser._createAnimationTracks( node, inputAccessor, outputAccessor, sampler, target );
+
+				if ( createdTracks ) {
+
+					for ( let k = 0; k < createdTracks.length; k ++ ) {
+
+						tracks.push( createdTracks[ k ] );
+
+					}
+
+				}
+
+			}
+
+			return new AnimationClip( animationName, undefined, tracks );
+
+		} );
+
+	}
+
+	createNodeMesh( nodeIndex ) {
+
+		const json = this.json;
+		const parser = this;
+		const nodeDef = json.nodes[ nodeIndex ];
+
+		if ( nodeDef.mesh === undefined ) return null;
+
+		return parser.getDependency( 'mesh', nodeDef.mesh ).then( function ( mesh ) {
+
+			const node = parser._getNodeRef( parser.meshCache, nodeDef.mesh, mesh );
+
+			// if weights are provided on the node, override weights on the mesh.
+			if ( nodeDef.weights !== undefined ) {
+
+				node.traverse( function ( o ) {
+
+					if ( ! o.isMesh ) return;
+
+					for ( let i = 0, il = nodeDef.weights.length; i < il; i ++ ) {
+
+						o.morphTargetInfluences[ i ] = nodeDef.weights[ i ];
+
+					}
+
+				} );
+
+			}
+
+			return node;
+
+		} );
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodes-and-hierarchy
+	 *
+	 * @private
+	 * @param {number} nodeIndex
+	 * @return {Promise<Object3D>}
+	 */
+	loadNode( nodeIndex ) {
+
+		const json = this.json;
+		const parser = this;
+
+		const nodeDef = json.nodes[ nodeIndex ];
+
+		const nodePending = parser._loadNodeShallow( nodeIndex );
+
+		const childPending = [];
+		const childrenDef = nodeDef.children || [];
+
+		for ( let i = 0, il = childrenDef.length; i < il; i ++ ) {
+
+			childPending.push( parser.getDependency( 'node', childrenDef[ i ] ) );
+
+		}
+
+		const skeletonPending = nodeDef.skin === undefined
+			? Promise.resolve( null )
+			: parser.getDependency( 'skin', nodeDef.skin );
+
+		return Promise.all( [
+			nodePending,
+			Promise.all( childPending ),
+			skeletonPending
+		] ).then( function ( results ) {
+
+			const node = results[ 0 ];
+			const children = results[ 1 ];
+			const skeleton = results[ 2 ];
+
+			if ( skeleton !== null ) {
+
+				// This full traverse should be fine because
+				// child glTF nodes have not been added to this node yet.
+				node.traverse( function ( mesh ) {
+
+					if ( ! mesh.isSkinnedMesh ) return;
+
+					mesh.bind( skeleton, _identityMatrix );
+
+				} );
+
+			}
+
+			for ( let i = 0, il = children.length; i < il; i ++ ) {
+
+				node.add( children[ i ] );
+
+			}
+
+			return node;
+
+		} );
+
+	}
+
+	// ._loadNodeShallow() parses a single node.
+	// skin and child nodes are created and added in .loadNode() (no '_' prefix).
+	_loadNodeShallow( nodeIndex ) {
+
+		const json = this.json;
+		const extensions = this.extensions;
+		const parser = this;
+
+		// This method is called from .loadNode() and .loadSkin().
+		// Cache a node to avoid duplication.
+
+		if ( this.nodeCache[ nodeIndex ] !== undefined ) {
+
+			return this.nodeCache[ nodeIndex ];
+
+		}
+
+		const nodeDef = json.nodes[ nodeIndex ];
+
+		// reserve node's name before its dependencies, so the root has the intended name.
+		const nodeName = nodeDef.name ? parser.createUniqueName( nodeDef.name ) : '';
+
+		const pending = [];
+
+		const meshPromise = parser._invokeOne( function ( ext ) {
+
+			return ext.createNodeMesh && ext.createNodeMesh( nodeIndex );
+
+		} );
+
+		if ( meshPromise ) {
+
+			pending.push( meshPromise );
+
+		}
+
+		if ( nodeDef.camera !== undefined ) {
+
+			pending.push( parser.getDependency( 'camera', nodeDef.camera ).then( function ( camera ) {
+
+				return parser._getNodeRef( parser.cameraCache, nodeDef.camera, camera );
+
+			} ) );
+
+		}
+
+		parser._invokeAll( function ( ext ) {
+
+			return ext.createNodeAttachment && ext.createNodeAttachment( nodeIndex );
+
+		} ).forEach( function ( promise ) {
+
+			pending.push( promise );
+
+		} );
+
+		this.nodeCache[ nodeIndex ] = Promise.all( pending ).then( function ( objects ) {
+
+			let node;
+
+			// .isBone isn't in glTF spec. See ._markDefs
+			if ( nodeDef.isBone === true ) {
+
+				node = new Bone();
+
+			} else if ( objects.length > 1 ) {
+
+				node = new Group();
+
+			} else if ( objects.length === 1 ) {
+
+				node = objects[ 0 ];
+
+			} else {
+
+				node = new Object3D();
+
+			}
+
+			if ( node !== objects[ 0 ] ) {
+
+				for ( let i = 0, il = objects.length; i < il; i ++ ) {
+
+					node.add( objects[ i ] );
+
+				}
+
+			}
+
+			if ( nodeDef.name ) {
+
+				node.userData.name = nodeDef.name;
+				node.name = nodeName;
+
+			}
+
+			assignExtrasToUserData( node, nodeDef );
+
+			if ( nodeDef.extensions ) addUnknownExtensionsToUserData( extensions, node, nodeDef );
+
+			if ( nodeDef.matrix !== undefined ) {
+
+				const matrix = new Matrix4();
+				matrix.fromArray( nodeDef.matrix );
+				node.applyMatrix4( matrix );
+
+			} else {
+
+				if ( nodeDef.translation !== undefined ) {
+
+					node.position.fromArray( nodeDef.translation );
+
+				}
+
+				if ( nodeDef.rotation !== undefined ) {
+
+					node.quaternion.fromArray( nodeDef.rotation );
+
+				}
+
+				if ( nodeDef.scale !== undefined ) {
+
+					node.scale.fromArray( nodeDef.scale );
+
+				}
+
+			}
+
+			if ( ! parser.associations.has( node ) ) {
+
+				parser.associations.set( node, {} );
+
+			} else if ( nodeDef.mesh !== undefined && parser.meshCache.refs[ nodeDef.mesh ] > 1 ) {
+
+				const mapping = parser.associations.get( node );
+				parser.associations.set( node, { ...mapping } );
+
+			}
+
+			parser.associations.get( node ).nodes = nodeIndex;
+
+			return node;
+
+		} );
+
+		return this.nodeCache[ nodeIndex ];
+
+	}
+
+	/**
+	 * Specification: https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#scenes
+	 *
+	 * @private
+	 * @param {number} sceneIndex
+	 * @return {Promise<Group>}
+	 */
+	loadScene( sceneIndex ) {
+
+		const extensions = this.extensions;
+		const sceneDef = this.json.scenes[ sceneIndex ];
+		const parser = this;
+
+		// Loader returns Group, not Scene.
+		// See: https://github.com/mrdoob/three.js/issues/18342#issuecomment-578981172
+		const scene = new Group();
+		if ( sceneDef.name ) scene.name = parser.createUniqueName( sceneDef.name );
+
+		assignExtrasToUserData( scene, sceneDef );
+
+		if ( sceneDef.extensions ) addUnknownExtensionsToUserData( extensions, scene, sceneDef );
+
+		const nodeIds = sceneDef.nodes || [];
+
+		const pending = [];
+
+		for ( let i = 0, il = nodeIds.length; i < il; i ++ ) {
+
+			pending.push( parser.getDependency( 'node', nodeIds[ i ] ) );
+
+		}
+
+		return Promise.all( pending ).then( function ( nodes ) {
+
+			for ( let i = 0, il = nodes.length; i < il; i ++ ) {
+
+				scene.add( nodes[ i ] );
+
+			}
+
+			// Removes dangling associations, associations that reference a node that
+			// didn't make it into the scene.
+			const reduceAssociations = ( node ) => {
+
+				const reducedAssociations = new Map();
+
+				for ( const [ key, value ] of parser.associations ) {
+
+					if ( key instanceof Material || key instanceof Texture ) {
+
+						reducedAssociations.set( key, value );
+
+					}
+
+				}
+
+				node.traverse( ( node ) => {
+
+					const mappings = parser.associations.get( node );
+
+					if ( mappings != null ) {
+
+						reducedAssociations.set( node, mappings );
+
+					}
+
+				} );
+
+				return reducedAssociations;
+
+			};
+
+			parser.associations = reduceAssociations( scene );
+
+			return scene;
+
+		} );
+
+	}
+
+	_createAnimationTracks( node, inputAccessor, outputAccessor, sampler, target ) {
+
+		const tracks = [];
+
+		const targetName = node.name ? node.name : node.uuid;
+		const targetNames = [];
+
+		if ( PATH_PROPERTIES[ target.path ] === PATH_PROPERTIES.weights ) {
+
+			node.traverse( function ( object ) {
+
+				if ( object.morphTargetInfluences ) {
+
+					targetNames.push( object.name ? object.name : object.uuid );
+
+				}
+
+			} );
+
+		} else {
+
+			targetNames.push( targetName );
+
+		}
+
+		let TypedKeyframeTrack;
+
+		switch ( PATH_PROPERTIES[ target.path ] ) {
+
+			case PATH_PROPERTIES.weights:
+
+				TypedKeyframeTrack = NumberKeyframeTrack;
+				break;
+
+			case PATH_PROPERTIES.rotation:
+
+				TypedKeyframeTrack = QuaternionKeyframeTrack;
+				break;
+
+			case PATH_PROPERTIES.translation:
+			case PATH_PROPERTIES.scale:
+
+				TypedKeyframeTrack = VectorKeyframeTrack;
+				break;
+
+			default:
+
+				switch ( outputAccessor.itemSize ) {
+
+					case 1:
+						TypedKeyframeTrack = NumberKeyframeTrack;
+						break;
+					case 2:
+					case 3:
+					default:
+						TypedKeyframeTrack = VectorKeyframeTrack;
+						break;
+
+				}
+
+				break;
+
+		}
+
+		const interpolation = sampler.interpolation !== undefined ? INTERPOLATION[ sampler.interpolation ] : InterpolateLinear;
+
+
+		const outputArray = this._getArrayFromAccessor( outputAccessor );
+
+		for ( let j = 0, jl = targetNames.length; j < jl; j ++ ) {
+
+			const track = new TypedKeyframeTrack(
+				targetNames[ j ] + '.' + PATH_PROPERTIES[ target.path ],
+				inputAccessor.array,
+				outputArray,
+				interpolation
+			);
+
+			// Override interpolation with custom factory method.
+			if ( sampler.interpolation === 'CUBICSPLINE' ) {
+
+				this._createCubicSplineTrackInterpolant( track );
+
+			}
+
+			tracks.push( track );
+
+		}
+
+		return tracks;
+
+	}
+
+	_getArrayFromAccessor( accessor ) {
+
+		let outputArray = accessor.array;
+
+		if ( accessor.normalized ) {
+
+			const scale = getNormalizedComponentScale( outputArray.constructor );
+			const scaled = new Float32Array( outputArray.length );
+
+			for ( let j = 0, jl = outputArray.length; j < jl; j ++ ) {
+
+				scaled[ j ] = outputArray[ j ] * scale;
+
+			}
+
+			outputArray = scaled;
+
+		}
+
+		return outputArray;
+
+	}
+
+	_createCubicSplineTrackInterpolant( track ) {
+
+		track.createInterpolant = function InterpolantFactoryMethodGLTFCubicSpline( result ) {
+
+			// A CUBICSPLINE keyframe in glTF has three output values for each input value,
+			// representing inTangent, splineVertex, and outTangent. As a result, track.getValueSize()
+			// must be divided by three to get the interpolant's sampleSize argument.
+
+			const interpolantType = ( this instanceof QuaternionKeyframeTrack ) ? GLTFCubicSplineQuaternionInterpolant : GLTFCubicSplineInterpolant;
+
+			return new interpolantType( this.times, this.values, this.getValueSize() / 3, result );
+
+		};
+
+		// Mark as CUBICSPLINE. `track.getInterpolation()` doesn't support custom interpolants.
+		track.createInterpolant.isInterpolantFactoryMethodGLTFCubicSpline = true;
+
+	}
+
+}
+
+/**
+ *
+ * @private
+ * @param {BufferGeometry} geometry
+ * @param {GLTF.Primitive} primitiveDef
+ * @param {GLTFParser} parser
+ */
+function computeBounds( geometry, primitiveDef, parser ) {
+
+	const attributes = primitiveDef.attributes;
+
+	const box = new Box3();
+
+	if ( attributes.POSITION !== undefined ) {
+
+		const accessor = parser.json.accessors[ attributes.POSITION ];
+
+		const min = accessor.min;
+		const max = accessor.max;
+
+		// glTF requires 'min' and 'max', but VRM (which extends glTF) currently ignores that requirement.
+
+		if ( min !== undefined && max !== undefined ) {
+
+			box.set(
+				new Vector3( min[ 0 ], min[ 1 ], min[ 2 ] ),
+				new Vector3( max[ 0 ], max[ 1 ], max[ 2 ] )
+			);
+
+			if ( accessor.normalized ) {
+
+				const boxScale = getNormalizedComponentScale( WEBGL_COMPONENT_TYPES[ accessor.componentType ] );
+				box.min.multiplyScalar( boxScale );
+				box.max.multiplyScalar( boxScale );
+
+			}
+
+		} else {
+
+			console.warn( 'THREE.GLTFLoader: Missing min/max properties for accessor POSITION.' );
+
+			return;
+
+		}
+
+	} else {
+
+		return;
+
+	}
+
+	const targets = primitiveDef.targets;
+
+	if ( targets !== undefined ) {
+
+		const maxDisplacement = new Vector3();
+		const vector = new Vector3();
+
+		for ( let i = 0, il = targets.length; i < il; i ++ ) {
+
+			const target = targets[ i ];
+
+			if ( target.POSITION !== undefined ) {
+
+				const accessor = parser.json.accessors[ target.POSITION ];
+				const min = accessor.min;
+				const max = accessor.max;
+
+				// glTF requires 'min' and 'max', but VRM (which extends glTF) currently ignores that requirement.
+
+				if ( min !== undefined && max !== undefined ) {
+
+					// we need to get max of absolute components because target weight is [-1,1]
+					vector.setX( Math.max( Math.abs( min[ 0 ] ), Math.abs( max[ 0 ] ) ) );
+					vector.setY( Math.max( Math.abs( min[ 1 ] ), Math.abs( max[ 1 ] ) ) );
+					vector.setZ( Math.max( Math.abs( min[ 2 ] ), Math.abs( max[ 2 ] ) ) );
+
+
+					if ( accessor.normalized ) {
+
+						const boxScale = getNormalizedComponentScale( WEBGL_COMPONENT_TYPES[ accessor.componentType ] );
+						vector.multiplyScalar( boxScale );
+
+					}
+
+					// Note: this assumes that the sum of all weights is at most 1. This isn't quite correct - it's more conservative
+					// to assume that each target can have a max weight of 1. However, for some use cases - notably, when morph targets
+					// are used to implement key-frame animations and as such only two are active at a time - this results in very large
+					// boxes. So for now we make a box that's sometimes a touch too small but is hopefully mostly of reasonable size.
+					maxDisplacement.max( vector );
+
+				} else {
+
+					console.warn( 'THREE.GLTFLoader: Missing min/max properties for accessor POSITION.' );
+
+				}
+
+			}
+
+		}
+
+		// As per comment above this box isn't conservative, but has a reasonable size for a very large number of morph targets.
+		box.expandByVector( maxDisplacement );
+
+	}
+
+	geometry.boundingBox = box;
+
+	const sphere = new Sphere();
+
+	box.getCenter( sphere.center );
+	sphere.radius = box.min.distanceTo( box.max ) / 2;
+
+	geometry.boundingSphere = sphere;
+
+}
+
+/**
+ *
+ * @private
+ * @param {BufferGeometry} geometry
+ * @param {GLTF.Primitive} primitiveDef
+ * @param {GLTFParser} parser
+ * @return {Promise<BufferGeometry>}
+ */
+function addPrimitiveAttributes( geometry, primitiveDef, parser ) {
+
+	const attributes = primitiveDef.attributes;
+
+	const pending = [];
+
+	function assignAttributeAccessor( accessorIndex, attributeName ) {
+
+		return parser.getDependency( 'accessor', accessorIndex )
+			.then( function ( accessor ) {
+
+				geometry.setAttribute( attributeName, accessor );
+
+			} );
+
+	}
+
+	for ( const gltfAttributeName in attributes ) {
+
+		const threeAttributeName = ATTRIBUTES[ gltfAttributeName ] || gltfAttributeName.toLowerCase();
+
+		// Skip attributes already provided by e.g. Draco extension.
+		if ( threeAttributeName in geometry.attributes ) continue;
+
+		pending.push( assignAttributeAccessor( attributes[ gltfAttributeName ], threeAttributeName ) );
+
+	}
+
+	if ( primitiveDef.indices !== undefined && ! geometry.index ) {
+
+		const accessor = parser.getDependency( 'accessor', primitiveDef.indices ).then( function ( accessor ) {
+
+			geometry.setIndex( accessor );
+
+		} );
+
+		pending.push( accessor );
+
+	}
+
+	if ( ColorManagement.workingColorSpace !== LinearSRGBColorSpace && 'COLOR_0' in attributes ) {
+
+		console.warn( `THREE.GLTFLoader: Converting vertex colors from "srgb-linear" to "${ColorManagement.workingColorSpace}" not supported.` );
+
+	}
+
+	assignExtrasToUserData( geometry, primitiveDef );
+
+	computeBounds( geometry, primitiveDef, parser );
+
+	return Promise.all( pending ).then( function () {
+
+		return primitiveDef.targets !== undefined
+			? addMorphTargets( geometry, primitiveDef.targets, parser )
+			: geometry;
+
+	} );
+
+}
+
+/**
+ * Loader result of `GLTFLoader`.
+ *
+ * @typedef {Object} GLTFLoader~LoadObject
+ * @property {Array<AnimationClip>} animations - An array of animation clips.
+ * @property {Object} asset - Meta data about the loaded asset.
+ * @property {Array<Camera>} cameras - An array of cameras.
+ * @property {GLTFParser} parser - A reference to the internal parser.
+ * @property {Group} scene - The default scene.
+ * @property {Array<Group>} scenes - glTF assets might define multiple scenes.
+ * @property {Object} userData - Additional data.
+ **/
+
+export { GLTFLoader };

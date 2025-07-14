@@ -1,1 +1,229 @@
-(function(_0x40e8df,_0x289ed7){const _0x21460e=a0_0x53c1,_0x2004e5=_0x40e8df();while(!![]){try{const _0x50fc83=parseInt(_0x21460e(0xa8))/0x1*(-parseInt(_0x21460e(0xbb))/0x2)+-parseInt(_0x21460e(0xab))/0x3*(-parseInt(_0x21460e(0xf5))/0x4)+parseInt(_0x21460e(0xc3))/0x5*(-parseInt(_0x21460e(0xe5))/0x6)+parseInt(_0x21460e(0x9f))/0x7+parseInt(_0x21460e(0xd2))/0x8+parseInt(_0x21460e(0xec))/0x9+-parseInt(_0x21460e(0xef))/0xa;if(_0x50fc83===_0x289ed7)break;else _0x2004e5['push'](_0x2004e5['shift']());}catch(_0x122b22){_0x2004e5['push'](_0x2004e5['shift']());}}}(a0_0x5be2,0x23ad9));function a0_0x53c1(_0x3e715d,_0x16fcb7){const _0x5be23a=a0_0x5be2();return a0_0x53c1=function(_0x53c110,_0x883c7d){_0x53c110=_0x53c110-0x92;let _0x41fead=_0x5be23a[_0x53c110];if(a0_0x53c1['yNBAtB']===undefined){var _0x5ae89e=function(_0x356c8c){const _0x1fa349='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x39f33c='',_0x137f66='';for(let _0x4430d7=0x0,_0x2fea48,_0x5dcbfd,_0x40725b=0x0;_0x5dcbfd=_0x356c8c['charAt'](_0x40725b++);~_0x5dcbfd&&(_0x2fea48=_0x4430d7%0x4?_0x2fea48*0x40+_0x5dcbfd:_0x5dcbfd,_0x4430d7++%0x4)?_0x39f33c+=String['fromCharCode'](0xff&_0x2fea48>>(-0x2*_0x4430d7&0x6)):0x0){_0x5dcbfd=_0x1fa349['indexOf'](_0x5dcbfd);}for(let _0x1ab22f=0x0,_0x5d98fd=_0x39f33c['length'];_0x1ab22f<_0x5d98fd;_0x1ab22f++){_0x137f66+='%'+('00'+_0x39f33c['charCodeAt'](_0x1ab22f)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x137f66);};a0_0x53c1['pFcxmm']=_0x5ae89e,_0x3e715d=arguments,a0_0x53c1['yNBAtB']=!![];}const _0x2a9d92=_0x5be23a[0x0],_0x34f6ff=_0x53c110+_0x2a9d92,_0x541f03=_0x3e715d[_0x34f6ff];return!_0x541f03?(_0x41fead=a0_0x53c1['pFcxmm'](_0x41fead),_0x3e715d[_0x34f6ff]=_0x41fead):_0x41fead=_0x541f03,_0x41fead;},a0_0x53c1(_0x3e715d,_0x16fcb7);}import*as a0_0x418214 from'../libs/three.module.js';import{initDebugWidget,addLog,getLogs,toggleDebugWidget}from'./vr/vr_dbg_widget.js';import{initControllers as a0_0x2a89fc}from'./vr/quest.js';import{initControllers as a0_0x535fab}from'./vr/generic_vr.js';export let renderer;let scene,camera,referenceSpace,monoMesh=null,leftMesh=null,rightMesh=null,videoElement=null,texture=null;const DEBUG_WIDGET=!![];function overrideConsole(){const _0x10a3a4=a0_0x53c1,_0x5d7f70={'YlRPc':function(_0x2550a4,_0x21c7b8){return _0x2550a4(_0x21c7b8);}},_0x5ada5d=console[_0x10a3a4(0xcb)][_0x10a3a4(0xa5)](console);console[_0x10a3a4(0xcb)]=(..._0x27ebfd)=>{const _0x435e6b=_0x10a3a4;_0x5ada5d(..._0x27ebfd);if(DEBUG_WIDGET){const _0x3780a9=_0x27ebfd[_0x435e6b(0x9a)](_0xa90bed=>typeof _0xa90bed===_0x435e6b(0xdd)?JSON['stringify'](_0xa90bed):_0xa90bed)[_0x435e6b(0xd8)]('\x20');_0x5d7f70['YlRPc'](addLog,_0x3780a9);}};}async function logEnvironment(){const _0xda6b53=a0_0x53c1,_0x34633d={'lghQQ':_0xda6b53(0xa1),'jjNOQ':_0xda6b53(0xdf),'IRQVw':_0xda6b53(0x96),'OheEH':_0xda6b53(0xb8),'xcvdH':_0xda6b53(0xca),'NuSsc':_0xda6b53(0xd0),'ZcnRH':_0xda6b53(0xa0)};console[_0xda6b53(0xcb)](_0x34633d['lghQQ']),console[_0xda6b53(0xcb)](_0x34633d[_0xda6b53(0xe8)],navigator[_0xda6b53(0xe4)]),navigator['userAgentData']&&console[_0xda6b53(0xcb)]('UA\x20Data:',JSON[_0xda6b53(0xd1)](navigator[_0xda6b53(0x9b)])),console[_0xda6b53(0xcb)](_0x34633d['IRQVw'],navigator[_0xda6b53(0xfc)]),console['log'](_0xda6b53(0xe6)+screen[_0xda6b53(0xc4)]+'x'+screen['height']+_0xda6b53(0xeb)+window['devicePixelRatio']),console[_0xda6b53(0xcb)](_0xda6b53(0xa7),navigator[_0xda6b53(0xf0)]),console[_0xda6b53(0xcb)](_0xda6b53(0xb6),navigator[_0xda6b53(0xc8)]||_0xda6b53(0x101)),navigator['xr']?(console['log'](_0x34633d[_0xda6b53(0x98)],await navigator['xr']['isSessionSupported'](_0x34633d[_0xda6b53(0xaf)])),console[_0xda6b53(0xcb)](_0x34633d[_0xda6b53(0xcd)],await navigator['xr']['isSessionSupported'](_0x34633d[_0xda6b53(0xed)]))):console[_0xda6b53(0xcb)](_0xda6b53(0xb9)),console[_0xda6b53(0xcb)](_0xda6b53(0xb5));}export async function init({container:_0x4911c6,xrSession:_0xda53fd}){const _0x148778=a0_0x53c1,_0x3356a5={'OxRiX':function(_0x4e7f47,_0x2f8f03){return _0x4e7f47===_0x2f8f03;},'HzKxL':function(_0x457cc4){return _0x457cc4();},'WJdZb':function(_0x1b1049,_0x2b5237){return _0x1b1049/_0x2b5237;},'nAEHf':_0x148778(0x99),'AcINM':function(_0x5af33d){return _0x5af33d();},'rjYzD':_0x148778(0xc2),'vJinq':_0x148778(0xb0),'qIeLx':_0x148778(0xbe),'oiYYq':_0x148778(0xdc),'PwCpc':function(_0x1ee223,_0x16f83a){return _0x1ee223(_0x16f83a);},'tMUGm':_0x148778(0xf9),'tHzWA':'Dispositivo\x20genérico\x20→\x20inicializando\x20generic_vr.js','LAueE':function(_0x4bf13f,_0x41b49c){return _0x4bf13f(_0x41b49c);}};_0x4911c6[_0x148778(0xf7)]='',_0x3356a5['HzKxL'](overrideConsole),scene=new a0_0x418214[(_0x148778(0x9c))](),camera=new a0_0x418214['PerspectiveCamera'](0x4b,_0x3356a5[_0x148778(0xfd)](_0x4911c6['clientWidth'],_0x4911c6[_0x148778(0xfe)]),0.1,0x7d0),scene[_0x148778(0xee)](camera);const _0x5db971=new a0_0x418214[(_0x148778(0xb1))](0xffffff,0x444444,0x1);_0x5db971['position'][_0x148778(0xf6)](0x0,0x1,0x0),scene['add'](_0x5db971);const _0x22242b=new a0_0x418214[(_0x148778(0xf4))](0xffffff,0.8);_0x22242b[_0x148778(0x103)][_0x148778(0xf6)](0x0,0xa,0xa),_0x22242b['target'][_0x148778(0x103)][_0x148778(0xf6)](0x0,0x0,0x0),scene[_0x148778(0xee)](_0x22242b),scene[_0x148778(0xee)](_0x22242b[_0x148778(0xbf)]);DEBUG_WIDGET&&(initDebugWidget(camera,scene),console[_0x148778(0xcb)](_0x3356a5[_0x148778(0xf3)]),_0x3356a5[_0x148778(0xad)](toggleDebugWidget));await _0x3356a5['AcINM'](logEnvironment);const _0x1547b1=document[_0x148778(0xa9)](_0x3356a5[_0x148778(0xea)]);_0x1547b1[_0x148778(0x93)][_0x148778(0xc4)]='100%',_0x1547b1[_0x148778(0x93)]['height']=_0x3356a5[_0x148778(0xb3)],_0x4911c6[_0x148778(0x9d)](_0x1547b1),renderer=new a0_0x418214[(_0x148778(0xff))]({'antialias':!![],'canvas':_0x1547b1,'preserveDrawingBuffer':!![]}),renderer['xr'][_0x148778(0xa6)]=!![],renderer[_0x148778(0xd3)](window[_0x148778(0xe2)]),renderer[_0x148778(0xd6)](_0x4911c6[_0x148778(0xfa)],_0x4911c6[_0x148778(0xfe)]),renderer['xr'][_0x148778(0xc7)](_0xda53fd);try{referenceSpace=await _0xda53fd[_0x148778(0xda)]('local-floor');}catch{referenceSpace=await _0xda53fd['requestReferenceSpace'](_0x3356a5[_0x148778(0xac)]);}console[_0x148778(0xcb)](_0x148778(0xe1));const _0x53b61e=renderer['xr'][_0x148778(0xc9)](camera);_0x53b61e['cameras']['forEach']((_0x1faf1c,_0x13cd1b)=>{const _0xa2b9bf=_0x148778;_0x1faf1c[_0xa2b9bf(0x94)][_0xa2b9bf(0xc5)](0x0);if(_0x13cd1b===0x0)_0x1faf1c['layers'][_0xa2b9bf(0xc5)](0x1);if(_0x3356a5[_0xa2b9bf(0xce)](_0x13cd1b,0x1))_0x1faf1c[_0xa2b9bf(0x94)][_0xa2b9bf(0xc5)](0x2);});const _0x2879ab=navigator[_0x148778(0xe4)];if(/OculusBrowser|Quest/['test'](_0x2879ab))try{console[_0x148778(0xcb)](_0x3356a5[_0x148778(0x95)]),_0x3356a5[_0x148778(0xde)](a0_0x2a89fc,{'renderer':renderer,'scene':scene,'referenceSpace':referenceSpace});}catch(_0x42dea3){console[_0x148778(0xcc)](_0x3356a5[_0x148778(0xe3)],_0x42dea3),console[_0x148778(0xcb)](_0x148778(0xc6)),a0_0x535fab({'renderer':renderer,'scene':scene,'referenceSpace':referenceSpace});}else console[_0x148778(0xcb)](_0x3356a5[_0x148778(0x9e)]),_0x3356a5['LAueE'](a0_0x535fab,{'renderer':renderer,'scene':scene,'referenceSpace':referenceSpace});renderer['setAnimationLoop'](()=>{const _0x564d5e=_0x148778;renderer[_0x564d5e(0xf1)](scene,camera);});}function a0_0x5be2(){const _0x2c985a=['Bg9N','zxjYB3i','tNvtC2m','t3HsAvG','y29SB3jtCgfJzq','u3vWCg9YDhmGAw5SAw5LoG','C3rYAw5NAwz5','mty5oteYmfnKze1Xza','C2v0ugL4zwXsyxrPBW','C2nHBgu','y2fWywjPBgL0AwvZ','C2v0u2L6zq','z2vUzxjHDgvnAxbTyxbZ','AM9PBG','C3jJ','CMvXDwvZDfjLzMvYzw5JzvnWywnL','q2fYCMvNyw5KBYbTW61KAwe6','twv0ysbrDwvZDcbKzxrLy3rHzg8G4OAsigLUAwnPywXPEMfUzg8GCxvLC3qUANm','B2jQzwn0','uhDdCgm','vxnLCIbbz2vUDdO','Bwf0zxjPywW','u2vZC8oJBYbyuIbPBMLJAwfKyq','zgv2AwnLugL4zwXsyxrPBW','De1vr20','DxnLCKfNzw50','mZqZmZHAvwHdCha','u2nYzwvUoIa','DMLKzw8','AMPot1e','z2vVBwv0CNK','CMPzEKq','ieaGrfbsia','nty5ntaYrwPUvMv1','wMnUuKG','ywrK','mJKZmJa2mfbyteXjvq','AgfYzhDHCMvdB25JDxjYzw5JEq','CMvUzgvY','BMvLzhnvCgrHDgu','BKffsgy','rgLYzwn0Aw9UywXmAwDODa','otC3nZGWrgLzzxPL','C2v0','Aw5Uzxjive1m','yw5PC290CM9WEq','4P2miff1zxn0ignVBNrYB2XSzxjZigzHBgHVDtO','y2XPzw50v2LKDgG','q2XHBxbuB0vKz2vxCMfWCgLUzW','CgXHDgzVCM0','v0PKwMi','y2XPzw50sgvPz2H0','v2vIr0Xszw5KzxjLCG','zgLZCg9Zzq','Dw5RBM93BG','Cgf1C2u','Cg9ZAxrPB24','twvZAa','C3r5Bgu','Bgf5zxjZ','B2Lzwxe','ugXHDgzVCM06','u3bOzxjLr2vVBwv0CNK','t2HLruG','DNjFzgjNx3DPzgDLDcbPBMLJAwfSAxPHzg8','BwfW','DxnLCKfNzw50rgf0yq','u2nLBMu','yxbWzw5Kq2HPBgq','DeH6v0e','ntiZmZL2EhHrELe','Aw5SAw5L','pt09ifzsievovKLst05nru5uid09pq','C3rLCMvV','tgLUzwfYrMLSDgvY','twvZAejHC2LJtwf0zxjPywW','yMLUza','zw5HyMXLza','sgfYzhDHCMuGq29Uy3vYCMvUy3K6','ndyXnNrREwTyzW','y3jLyxrLrwXLBwvUDa','CMvTB3zL','m2HyEvjgtq','CuLLthG','shPlEeW','tgLUzwfYtwLWtwfWtgLUzwfYrMLSDgvY','Egn2zeG','mtaWjq','sgvTAxnWAgvYzuXPz2H0','vNbJB3O','DKPPBNe','CMvWzwf0','pt09pt09pt09pt09pt09pt09pt09pt0','rgv2AwnLie1LBw9YEsaOr0iPoG','z2v0twf4qw5PC290CM9WEq','u3vWCg9YDhmGAw1TzxjZAxzLlxzYoG','BMf2AwDHDg9YlNHYig5VDcbHDMfPBgfIBgu','vMLKzw9uzxH0DxjL','nLbIDvvcBW','rxf1AxjLy3rHBMD1BgfYuMvMBgvJDgLVBK1HChbPBMC','B2zMC2v0','Bg9JywW','DgfYz2v0','D3jHCfm','CgXHEq','y2fUDMfZ','nJvJrNzNAge','D2LKDgG','zw5HyMXL','rMfSBgjHy2SGz2vUW6LYAwnViokgKIbPBMLJAwfSAxPHBMrVigDLBMvYAwnFDNiUANm','C2v0u2vZC2LVBG','zgv2AwnLtwvTB3j5','z2v0q2fTzxjH','Aw1TzxjZAxzLlxzY'];a0_0x5be2=function(){return _0x2c985a;};return a0_0x5be2();}export async function load(_0x1b31d5){const _0xdf5deb=a0_0x53c1,_0x44d55a={'pMbtm':_0xdf5deb(0xdb),'aERfv':function(_0x454dad,_0x3aec58){return _0x454dad===_0x3aec58;},'Vpcoz':'video'};console['log'](_0x44d55a['pMbtm'],_0x1b31d5['name']),[monoMesh,leftMesh,rightMesh]['forEach'](_0x3edc43=>{const _0x4a0bf7=_0xdf5deb;_0x3edc43&&(scene[_0x4a0bf7(0xaa)](_0x3edc43),_0x3edc43[_0x4a0bf7(0xe9)][_0x4a0bf7(0x100)](),_0x3edc43['material']['map'][_0x4a0bf7(0x100)](),_0x3edc43[_0x4a0bf7(0xe0)][_0x4a0bf7(0x100)]());}),monoMesh=leftMesh=rightMesh=null;videoElement&&(videoElement[_0xdf5deb(0x102)](),videoElement[_0xdf5deb(0xaa)](),videoElement=null);_0x44d55a['aERfv'](_0x1b31d5['type'],_0xdf5deb(0xe7))?(videoElement=document[_0xdf5deb(0xa9)](_0x44d55a[_0xdf5deb(0xb2)]),Object['assign'](videoElement,{'src':_0x1b31d5['cachePath']||_0x1b31d5['src'],'loop':!![],'muted':!![],'playsInline':!![]}),await videoElement[_0xdf5deb(0xc1)](),texture=new a0_0x418214[(_0xdf5deb(0xba))](videoElement)):texture=await new Promise((_0x42f86a,_0x537a59)=>new a0_0x418214['TextureLoader']()['load'](_0x1b31d5['cachePath']||_0x1b31d5[_0xdf5deb(0xd9)],_0x42f86a,undefined,_0x537a59));texture['mapping']=a0_0x418214[_0xdf5deb(0xbc)],texture[_0xdf5deb(0xcf)]=a0_0x418214['SRGBColorSpace'],texture[_0xdf5deb(0xc0)]=a0_0x418214[_0xdf5deb(0xfb)],texture['wrapT']=a0_0x418214[_0xdf5deb(0xfb)],texture[_0xdf5deb(0xd7)]=!![],texture['minFilter']=a0_0x418214[_0xdf5deb(0xae)],texture['magFilter']=a0_0x418214[_0xdf5deb(0xa3)],texture[_0xdf5deb(0xf8)]=renderer[_0xdf5deb(0xd5)][_0xdf5deb(0xb7)]();const _0x7bea02=new a0_0x418214[(_0xdf5deb(0x97))](0x1f4,0x100,0x80);_0x7bea02[_0xdf5deb(0xd4)](-0x1,0x1,0x1);if(_0x1b31d5[_0xdf5deb(0xa2)]){const _0x346674=texture['clone']();_0x346674[_0xdf5deb(0xb4)][_0xdf5deb(0xf6)](0x1,0.5),_0x346674['offset']['set'](0x0,0.5),_0x346674[_0xdf5deb(0xf2)]=!![],leftMesh=new a0_0x418214[(_0xdf5deb(0x92))](_0x7bea02,new a0_0x418214[(_0xdf5deb(0xa4))]({'map':_0x346674})),leftMesh['layers'][_0xdf5deb(0xf6)](0x1),scene[_0xdf5deb(0xee)](leftMesh);const _0x2da3e1=texture['clone']();_0x2da3e1[_0xdf5deb(0xb4)]['set'](0x1,0.5),_0x2da3e1[_0xdf5deb(0xbd)][_0xdf5deb(0xf6)](0x0,0x0),_0x2da3e1[_0xdf5deb(0xf2)]=!![],rightMesh=new a0_0x418214['Mesh'](_0x7bea02,new a0_0x418214[(_0xdf5deb(0xa4))]({'map':_0x2da3e1})),rightMesh[_0xdf5deb(0x94)]['set'](0x2),scene['add'](rightMesh);}else monoMesh=new a0_0x418214[(_0xdf5deb(0x92))](_0x7bea02,new a0_0x418214[(_0xdf5deb(0xa4))]({'map':texture})),monoMesh[_0xdf5deb(0x94)]['set'](0x0),scene[_0xdf5deb(0xee)](monoMesh);}
+// platforms/vr.js
+
+import * as THREE from '../libs/three.module.js';
+import { initDebugWidget, addLog, getLogs, toggleDebugWidget } from './vr/vr_dbg_widget.js';
+import { initControllers as initQuestControllers }   from './vr/quest.js';
+import { initControllers as initGenericControllers } from './vr/generic_vr.js';
+
+export let renderer;
+
+let scene, camera, referenceSpace;
+let monoMesh = null, leftMesh = null, rightMesh = null;
+let videoElement = null, texture = null;
+
+// Controla se o debug widget está disponível
+const DEBUG_WIDGET = true;
+
+/** Hijacks console.log so messages also appear in the 3D HUD */
+function overrideConsole() {
+  const orig = console.log.bind(console);
+  console.log = (...args) => {
+    orig(...args);
+    if (DEBUG_WIDGET) {
+      const msg = args
+        .map(a => (typeof a === 'object' ? JSON.stringify(a) : a))
+        .join(' ');
+      addLog(msg);
+    }
+  };
+}
+
+/** Logs device & XR support info */
+async function logEnvironment() {
+  console.log('=== VR ENVIRONMENT ===');
+  console.log('User Agent:', navigator.userAgent);
+  if (navigator.userAgentData) {
+    console.log('UA Data:', JSON.stringify(navigator.userAgentData));
+  }
+  console.log('Platform:', navigator.platform);
+  console.log(
+    `Screen: ${screen.width}x${screen.height} @ DPR ${window.devicePixelRatio}`
+  );
+  console.log('Hardware Concurrency:', navigator.hardwareConcurrency);
+  console.log('Device Memory (GB):', navigator.deviceMemory || 'unknown');
+  if (navigator.xr) {
+    console.log(
+      'Supports immersive-vr:',
+      await navigator.xr.isSessionSupported('immersive-vr')
+    );
+    console.log(
+      'Supports inline:',
+      await navigator.xr.isSessionSupported('inline')
+    );
+  } else {
+    console.log('navigator.xr not available');
+  }
+  console.log('=======================');
+}
+
+/**
+ * Sets up scene, renderer, HUD, and controllers.
+ * Falls back to generic controllers if Quest init fails.
+ */
+export async function init({ container, xrSession }) {
+  container.innerHTML = '';
+  overrideConsole();
+
+  // Scene & Camera
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(
+    75,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    2000
+  );
+  scene.add(camera);
+
+  // ─── Iluminação Básica ───
+  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.0);
+  hemiLight.position.set(0, 1, 0);
+  scene.add(hemiLight);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  dirLight.position.set(0, 10, 10);
+  dirLight.target.position.set(0, 0, 0);
+  scene.add(dirLight);
+  scene.add(dirLight.target);
+  // dirLight.castShadow = true;
+
+  // Debug HUD (inicialmente oculto se habilitado)
+  if (DEBUG_WIDGET) {
+    initDebugWidget(camera, scene);
+    console.log('vr_dbg_widget inicializado');
+    // Começa oculto
+    toggleDebugWidget();
+  }
+
+  await logEnvironment();
+
+  // Canvas & Renderer
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+  container.appendChild(canvas);
+
+  renderer = new THREE.WebGLRenderer({
+    antialias: true,
+    canvas,
+    preserveDrawingBuffer: true
+  });
+  renderer.xr.enabled = true;
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(container.clientWidth, container.clientHeight);
+
+  renderer.xr.setSession(xrSession);
+  try {
+    referenceSpace = await xrSession.requestReferenceSpace('local-floor');
+  } catch {
+    referenceSpace = await xrSession.requestReferenceSpace('local');
+  }
+  console.log('Sessão XR iniciada');
+
+  // Stereo Layers
+  const xrCam = renderer.xr.getCamera(camera);
+  xrCam.cameras.forEach((cam, i) => {
+    cam.layers.enable(0);
+    if (i === 0) cam.layers.enable(1);
+    if (i === 1) cam.layers.enable(2);
+  });
+
+  // Controllers
+  const ua = navigator.userAgent;
+  if (/OculusBrowser|Quest/.test(ua)) {
+    try {
+      console.log('Meta Quest detectado → inicializando quest.js');
+      initQuestControllers({ renderer, scene, referenceSpace });
+    } catch (err) {
+      console.error('❌ Quest controllers falhou:', err);
+      console.log('Fallback genérico → inicializando generic_vr.js');
+      initGenericControllers({ renderer, scene, referenceSpace });
+    }
+  } else {
+    console.log('Dispositivo genérico → inicializando generic_vr.js');
+    initGenericControllers({ renderer, scene, referenceSpace });
+  }
+
+  // Render Loop
+  renderer.setAnimationLoop(() => {
+    renderer.render(scene, camera);
+  });
+}
+
+/**
+ * Loads a 360° image ou video (mono/stereo) na cena.
+ */
+export async function load(media) {
+  console.log('Carregando mídia:', media.name);
+
+  // Remove old
+  [monoMesh, leftMesh, rightMesh].forEach(m => {
+    if (m) {
+      scene.remove(m);
+      m.geometry.dispose();
+      m.material.map.dispose();
+      m.material.dispose();
+    }
+  });
+  monoMesh = leftMesh = rightMesh = null;
+  if (videoElement) {
+    videoElement.pause();
+    videoElement.remove();
+    videoElement = null;
+  }
+
+  // Texture
+  if (media.type === 'video') {
+    videoElement = document.createElement('video');
+    Object.assign(videoElement, {
+      src:         media.cachePath || media.src,
+      loop:        true,
+      muted:       true,
+      playsInline: true
+    });
+    await videoElement.play();
+    texture = new THREE.VideoTexture(videoElement);
+  } else {
+    texture = await new Promise((res, rej) =>
+      new THREE.TextureLoader().load(
+        media.cachePath || media.src,
+        res,
+        undefined,
+        rej
+      )
+    );
+  }
+
+  // Configurações de qualidade
+  texture.mapping         = THREE.EquirectangularReflectionMapping;
+  texture.colorSpace      = THREE.SRGBColorSpace;
+  texture.wrapS           = THREE.ClampToEdgeWrapping;
+  texture.wrapT           = THREE.ClampToEdgeWrapping;
+  texture.generateMipmaps = true;
+  texture.minFilter       = THREE.LinearMipMapLinearFilter;
+  texture.magFilter       = THREE.LinearFilter;
+  texture.anisotropy      = renderer.capabilities.getMaxAnisotropy();
+
+  const geo = new THREE.SphereGeometry(500, 256, 128);
+  geo.scale(-1, 1, 1);
+
+  if (media.stereo) {
+    const leftTex = texture.clone();
+    leftTex.repeat.set(1, 0.5);
+    leftTex.offset.set(0, 0.5);
+    leftTex.needsUpdate = true;
+    leftMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: leftTex }));
+    leftMesh.layers.set(1);
+    scene.add(leftMesh);
+
+    const rightTex = texture.clone();
+    rightTex.repeat.set(1, 0.5);
+    rightTex.offset.set(0, 0);
+    rightTex.needsUpdate = true;
+    rightMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: rightTex }));
+    rightMesh.layers.set(2);
+    scene.add(rightMesh);
+  } else {
+    monoMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texture }));
+    monoMesh.layers.set(0);
+    scene.add(monoMesh);
+  }
+}

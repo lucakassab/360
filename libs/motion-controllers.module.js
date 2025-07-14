@@ -1,1 +1,397 @@
-const a0_0x3442b0=a0_0x5231;(function(_0x43e071,_0x5e47c5){const _0x558018=a0_0x5231,_0x24fb76=_0x43e071();while(!![]){try{const _0x2ceb43=parseInt(_0x558018(0xee))/0x1*(-parseInt(_0x558018(0x129))/0x2)+-parseInt(_0x558018(0x12e))/0x3+-parseInt(_0x558018(0x128))/0x4+-parseInt(_0x558018(0xf5))/0x5*(-parseInt(_0x558018(0x125))/0x6)+parseInt(_0x558018(0x112))/0x7*(parseInt(_0x558018(0xdc))/0x8)+parseInt(_0x558018(0xda))/0x9+parseInt(_0x558018(0xff))/0xa*(parseInt(_0x558018(0xf4))/0xb);if(_0x2ceb43===_0x5e47c5)break;else _0x24fb76['push'](_0x24fb76['shift']());}catch(_0x4faa7c){_0x24fb76['push'](_0x24fb76['shift']());}}}(a0_0x3cb9,0xcd752));const Constants={'Handedness':Object[a0_0x3442b0(0xec)]({'NONE':a0_0x3442b0(0xf2),'LEFT':'left','RIGHT':a0_0x3442b0(0x100)}),'ComponentState':Object[a0_0x3442b0(0xec)]({'DEFAULT':'default','TOUCHED':a0_0x3442b0(0x123),'PRESSED':'pressed'}),'ComponentProperty':Object[a0_0x3442b0(0xec)]({'BUTTON':'button','X_AXIS':a0_0x3442b0(0xef),'Y_AXIS':a0_0x3442b0(0x10b),'STATE':a0_0x3442b0(0xf6)}),'ComponentType':Object[a0_0x3442b0(0xec)]({'TRIGGER':a0_0x3442b0(0xd5),'SQUEEZE':a0_0x3442b0(0x11c),'TOUCHPAD':a0_0x3442b0(0x110),'THUMBSTICK':a0_0x3442b0(0xe5),'BUTTON':a0_0x3442b0(0xf7)}),'ButtonTouchThreshold':0.05,'AxisTouchThreshold':0.1,'VisualResponseProperty':Object[a0_0x3442b0(0xec)]({'TRANSFORM':'transform','VISIBILITY':a0_0x3442b0(0xe9)})};async function fetchJsonFile(_0x557385){const _0x2e09d6=a0_0x3442b0,_0xbbbbb8={'VFOnc':function(_0x26f168,_0x432b36){return _0x26f168(_0x432b36);}},_0x458068=await _0xbbbbb8[_0x2e09d6(0xe4)](fetch,_0x557385);if(!_0x458068['ok'])throw new Error(_0x458068[_0x2e09d6(0xe1)]);else return _0x458068[_0x2e09d6(0x134)]();}async function fetchProfilesList(_0x4f10ae){const _0x4b1dc0=a0_0x3442b0,_0x86c0cf={'yadoZ':function(_0x4936e1,_0x4d3cf0){return _0x4936e1(_0x4d3cf0);}};if(!_0x4f10ae)throw new Error(_0x4b1dc0(0x13f));const _0x30943d='profilesList.json',_0x2010fc=await _0x86c0cf[_0x4b1dc0(0x108)](fetchJsonFile,_0x4f10ae+'/'+_0x30943d);return _0x2010fc;}function a0_0x3cb9(){const _0x5cb1bd=['y29TCg9Uzw50CW','ChjVzMLSzs5QC29U','mty0ntu5meDRrvjXAG','ywjZ','tM8GEhjjBNb1DfnVDxjJzsbZDxbWBgLLza','yvfIq1u','yxnZAwDU','yxnZzxrvCMW','ANnVBG','DMfSDwvoB2rLtMfTzq','zgvWCMvJyxrLza','iIbTAxnZAw5NlG','DMLZDwfSuMvZCg9UC2vZ','revgqvvmva','DgfYz2v0uMf5u3bHy2u','vxLvEMu','CM9VDe5Vzgvoyw1L','yxHLCW','uLfkChK','tM8GyMfZzvbHDgGGC3vWCgXPzwq','q29TCg9Uzw50uhjVCgvYDhK','CenSzgS','q0rNyu4','B1rotve','vKLtsujjteLuwq','y29TCg9Uzw50uhjVCgvYDhK','A2v5CW','qNv0Dg9Uvg91y2HuAhjLC2HVBgq','Bgf5B3v0rgvZy3jPChrPB24','DhjPz2DLCG','DMfSDwvZ','Cgf0Aa','AvryuKO','m3WYFdz8mxWWFdv8na','mtaXnZaYnJfer1nrv3K','vfjbtLngt1jn','mtzkqxHczMi','ufjfu1nfra','qxHPC1rVDwnOvgHYzxnOB2XK','zMPJww4','lcbPBIbWCM9MAwXLia','C3rHDhvZvgv4Da','ChjVzMLSzvbHDgG','AgfUzgvKBMvZCW','vKzpBMm','DgH1BwjZDgLJAW','ChjVzMLSzxm','zM9YrwfJAa','Aw5JBhvKzxm','DMLZAwjPBgL0Eq','q29TCg9Uzw50u3rHDgu','DMfSDwvoB2rLuhjVCgvYDhK','zNjLzxPL','C3rHDgvZ','ndi2ndG1CvLUugnj','Eef4Axm','DhLWzq','C2LU','BM9Uzq','z2fTzxbHzeLUzgLJzxm','mtfJEhf2q1a','mJKZnwP0t1LlAq','C3rHDgu','yNv0Dg9U','ChjLC3nLza','CMvWBgfJzq','zgf0yq','EKrSz2y','DxbKyxrLrNjVBuDHBwvWywq','AhDNCgC','t3LeBfy','ndiYnJiXmfHpA0HPvW','CMLNAhq','t3zsrhK','DxbKyxrLrNjVBunVBxbVBMvUDa','CKHzyKm','vw5LEhbLy3rLzcb2Axn1ywXszxnWB25ZzsbJB21WB25LBNrqCM9Wzxj0Esa','EhjjBNb1DfnVDxjJzq','AxnLvxe','yw55','EwfKB1O','DKDVvLG','tM8GBwf0y2HPBMCGChjVzMLSzsbUyw1LigzVDw5K','Euf4Axm','Bwf4tM9Kzu5HBwu','zuHeugG','ChvZAa','yur5z1q','Dg91y2HWywq','AejfBu4','mJC2mtG4nxjIwvr6rG','C3bSAxq','AhbXre8','ve9vq0Hfra','DMfSDwu','ChjVzMLSzuLK','yNv0Dg9UCW','tM8GBwf0y2HPBMCGAgfUzgvKBMvZCYWG','qKnNAgO','vMLZDwfSuMvZCg9UC2vqCM9Wzxj0Eq','C3f1zwv6zq','ug9irNi','qLvuve9o','swzhyKG','BwLUtM9Kzu5HBwu','BgvUz3rO','Bgf5B3v0CW','Dg91y2HLza','yxrHBJi','otCYnM5yDNHACW','C3jJC3e','z3jPCfnWywnL','ndiWmdKZmKv1y2rQzW','nfHQCKf6tq','tM8GChjVzMLSzsbZDxbWBgLLza','vej6EKO'];a0_0x3cb9=function(){return _0x5cb1bd;};return a0_0x3cb9();}async function fetchProfile(_0x1a49e7,_0x140669,_0x3e58f9=null,_0x4ed658=!![]){const _0x528364=a0_0x3442b0,_0x1c594d={'fjcYn':_0x528364(0x130),'RLubj':_0x528364(0x13f),'hpqDO':function(_0x9ed1a5,_0x5a5cae){return _0x9ed1a5(_0x5a5cae);},'IfGbH':_0x528364(0x10a),'aDygT':function(_0x5e7bbd,_0x424a66){return _0x5e7bbd===_0x424a66;},'hOGDi':_0x528364(0x12d)};if(!_0x1a49e7)throw new Error(_0x1c594d[_0x528364(0xdf)]);if(!_0x140669)throw new Error(_0x1c594d['RLubj']);const _0x299065=await _0x1c594d[_0x528364(0x114)](fetchProfilesList,_0x140669);let _0x502242;_0x1a49e7[_0x528364(0xe6)]['some'](_0x4adc04=>{const _0xd3ef49=_0x528364,_0x47c4af=_0x299065[_0x4adc04];return _0x47c4af&&(_0x502242={'profileId':_0x4adc04,'profilePath':_0x140669+'/'+_0x47c4af[_0xd3ef49(0xd7)],'deprecated':!!_0x47c4af[_0xd3ef49(0x136)]}),!!_0x502242;});if(!_0x502242){if(!_0x3e58f9)throw new Error(_0x1c594d[_0x528364(0x11f)]);const _0x2580e1=_0x299065[_0x3e58f9];if(!_0x2580e1)throw new Error('No\x20matching\x20profile\x20name\x20found\x20and\x20default\x20profile\x20\x22'+_0x3e58f9+_0x528364(0x137));_0x502242={'profileId':_0x3e58f9,'profilePath':_0x140669+'/'+_0x2580e1[_0x528364(0xd7)],'deprecated':!!_0x2580e1[_0x528364(0x136)]};}const _0x96efe6=await fetchJsonFile(_0x502242[_0x528364(0xe2)]);let _0x352aa3;if(_0x4ed658){let _0x470074;_0x1c594d[_0x528364(0x10f)](_0x1a49e7['handedness'],_0x528364(0x107))?_0x470074=_0x96efe6[_0x528364(0x122)][Object[_0x528364(0xd2)](_0x96efe6[_0x528364(0x122)])[0x0]]:_0x470074=_0x96efe6['layouts'][_0x1a49e7['handedness']];if(!_0x470074)throw new Error(_0x528364(0x119)+_0x1a49e7[_0x528364(0xe3)]+_0x528364(0xe0)+_0x502242[_0x528364(0x117)]);_0x470074['assetPath']&&(_0x352aa3=_0x502242[_0x528364(0xe2)][_0x528364(0xf9)](_0x1c594d['hOGDi'],_0x470074['assetPath']));}return{'profile':_0x96efe6,'assetPath':_0x352aa3};}const defaultComponentValues={'xAxis':0x0,'yAxis':0x0,'button':0x0,'state':Constants[a0_0x3442b0(0xea)][a0_0x3442b0(0x139)]};function normalizeAxes(_0x46f71d=0x0,_0x44935c=0x0){const _0x41405c=a0_0x3442b0,_0x8470bf={'eHDPh':function(_0x363527,_0x388abf){return _0x363527+_0x388abf;},'rHYbC':function(_0x1c729a,_0x24a93c){return _0x1c729a*_0x24a93c;},'OyDlV':function(_0x4f2144,_0x36b672){return _0x4f2144+_0x36b672;},'OvRDy':function(_0x31ce92,_0x5abdda){return _0x31ce92*_0x5abdda;},'hBEmN':function(_0x5da4c5,_0x27ba71){return _0x5da4c5+_0x27ba71;}};let _0x53630c=_0x46f71d,_0xa8bba6=_0x44935c;const _0x296fae=Math['sqrt'](_0x8470bf[_0x41405c(0x10d)](_0x8470bf[_0x41405c(0x103)](_0x46f71d,_0x46f71d),_0x44935c*_0x44935c));if(_0x296fae>0x1){const _0x2c8bac=Math[_0x41405c(0x124)](_0x44935c,_0x46f71d);_0x53630c=Math['cos'](_0x2c8bac),_0xa8bba6=Math[_0x41405c(0xf1)](_0x2c8bac);}const _0x248b37={'normalizedXAxis':_0x8470bf[_0x41405c(0xfe)](_0x8470bf[_0x41405c(0x101)](_0x53630c,0.5),0.5),'normalizedYAxis':_0x8470bf[_0x41405c(0x111)](_0x8470bf['rHYbC'](_0xa8bba6,0.5),0.5)};return _0x248b37;}class VisualResponse{constructor(_0x12717){const _0x3888a6=a0_0x3442b0,_0x3b123c={'iTXRJ':_0x3888a6(0xd9),'RQJpy':function(_0x28a4a7,_0x48e872){return _0x28a4a7===_0x48e872;}},_0x51bb1a=_0x3b123c[_0x3888a6(0xd8)][_0x3888a6(0x113)]('|');let _0x93bc53=0x0;while(!![]){switch(_0x51bb1a[_0x93bc53++]){case'0':_0x3b123c[_0x3888a6(0x13e)](this['valueNodeProperty'],Constants[_0x3888a6(0x11b)][_0x3888a6(0xdb)])&&(this[_0x3888a6(0x120)]=_0x12717[_0x3888a6(0x120)],this[_0x3888a6(0x10c)]=_0x12717[_0x3888a6(0x10c)]);continue;case'1':this['valueNodeProperty']=_0x12717[_0x3888a6(0xeb)];continue;case'2':this[_0x3888a6(0xed)]=_0x12717['states'];continue;case'3':this[_0x3888a6(0xd1)]=_0x12717[_0x3888a6(0xd1)];continue;case'4':this['updateFromComponent'](defaultComponentValues);continue;case'5':this[_0x3888a6(0x116)]=0x0;continue;case'6':this[_0x3888a6(0x135)]=_0x12717[_0x3888a6(0x135)];continue;}break;}}[a0_0x3442b0(0x102)]({xAxis:_0x3858ed,yAxis:_0x61392b,button:_0x7f4c8,state:_0xfa07af}){const _0x1a14d5=a0_0x3442b0,_0x2283f3={'aQbCU':function(_0x54af07,_0x42692a,_0x56f049){return _0x54af07(_0x42692a,_0x56f049);},'iseUq':function(_0x5d5f9c,_0x3b90cd){return _0x5d5f9c===_0x3b90cd;}},{normalizedXAxis:_0x360db8,normalizedYAxis:_0xb872a7}=_0x2283f3[_0x1a14d5(0x131)](normalizeAxes,_0x3858ed,_0x61392b);switch(this['componentProperty']){case Constants['ComponentProperty']['X_AXIS']:this[_0x1a14d5(0x116)]=this[_0x1a14d5(0xed)]['includes'](_0xfa07af)?_0x360db8:0.5;break;case Constants['ComponentProperty']['Y_AXIS']:this[_0x1a14d5(0x116)]=this['states'][_0x1a14d5(0xe8)](_0xfa07af)?_0xb872a7:0.5;break;case Constants[_0x1a14d5(0x140)][_0x1a14d5(0x11e)]:this[_0x1a14d5(0x116)]=this[_0x1a14d5(0xed)][_0x1a14d5(0xe8)](_0xfa07af)?_0x7f4c8:0x0;break;case Constants[_0x1a14d5(0x140)]['STATE']:_0x2283f3[_0x1a14d5(0x106)](this[_0x1a14d5(0xeb)],Constants[_0x1a14d5(0x11b)][_0x1a14d5(0xd0)])?this['value']=this[_0x1a14d5(0xed)]['includes'](_0xfa07af):this[_0x1a14d5(0x116)]=this[_0x1a14d5(0xed)][_0x1a14d5(0xe8)](_0xfa07af)?0x1:0x0;break;default:throw new Error(_0x1a14d5(0x104)+this[_0x1a14d5(0xd1)]);}}}class Component{constructor(_0x2a7d20,_0x1601bf){const _0x5b35ca=a0_0x3442b0,_0x37a035={'CDgaN':function(_0x1132b5,_0x1b98ff){return _0x1132b5||_0x1b98ff;},'qfuAA':function(_0xa6b36e,_0x110c8){return _0xa6b36e===_0x110c8;},'BCghj':'Invalid\x20arguments\x20supplied','oTNMQ':function(_0x30cac1,_0x524a9f){return _0x30cac1!==_0x524a9f;},'vGoVX':function(_0x89e8f5,_0x237ff2){return _0x89e8f5!==_0x237ff2;}};if(_0x37a035[_0x5b35ca(0x142)](!_0x2a7d20,!_0x1601bf)||!_0x1601bf[_0x5b35ca(0x138)]||!_0x1601bf[_0x5b35ca(0xf3)]||_0x37a035['qfuAA'](Object[_0x5b35ca(0xd2)](_0x1601bf[_0x5b35ca(0xf3)])[_0x5b35ca(0x121)],0x0))throw new Error(_0x37a035[_0x5b35ca(0x11a)]);this['id']=_0x2a7d20,this[_0x5b35ca(0xf0)]=_0x1601bf['type'],this[_0x5b35ca(0x13c)]=_0x1601bf['rootNodeName'],this['touchPointNodeName']=_0x1601bf['touchPointNodeName'],this['visualResponses']={},Object[_0x5b35ca(0xd2)](_0x1601bf[_0x5b35ca(0x138)])[_0x5b35ca(0xe7)](_0x3c35eb=>{const _0xfc4099=_0x5b35ca,_0x485649=new VisualResponse(_0x1601bf[_0xfc4099(0x138)][_0x3c35eb]);this[_0xfc4099(0x138)][_0x3c35eb]=_0x485649;}),this['gamepadIndices']=Object[_0x5b35ca(0x132)]({},_0x1601bf[_0x5b35ca(0xf3)]),this['values']={'state':Constants[_0x5b35ca(0xea)][_0x5b35ca(0x139)],'button':_0x37a035[_0x5b35ca(0xcf)](this[_0x5b35ca(0xf3)][_0x5b35ca(0xf7)],undefined)?0x0:undefined,'xAxis':_0x37a035[_0x5b35ca(0x109)](this[_0x5b35ca(0xf3)]['xAxis'],undefined)?0x0:undefined,'yAxis':this[_0x5b35ca(0xf3)][_0x5b35ca(0x10b)]!==undefined?0x0:undefined};}get[a0_0x3442b0(0xfa)](){const _0x1d7676=a0_0x3442b0,_0x441cba={'id':this['id'],...this[_0x1d7676(0xd6)]};return _0x441cba;}[a0_0x3442b0(0xfc)](_0x4c5a29){const _0x9132b4=a0_0x3442b0,_0xc3d9ad={'pCldk':function(_0x40b948,_0x16a71b){return _0x40b948!==_0x16a71b;},'zDlgf':function(_0x40212b,_0x455d6f){return _0x40212b>_0x455d6f;},'srcsq':function(_0x45322f,_0x5acc85){return _0x45322f<_0x5acc85;},'hwgpg':function(_0x3084ad,_0x2a60bc){return _0x3084ad>_0x2a60bc;},'PoHFr':function(_0x1091d8,_0x2317c1){return _0x1091d8===_0x2317c1;},'UyUze':function(_0x1aa582,_0x9af1c9){return _0x1aa582<_0x9af1c9;}};this['values'][_0x9132b4(0xf6)]=Constants[_0x9132b4(0xea)][_0x9132b4(0x139)];if(_0xc3d9ad[_0x9132b4(0x141)](this[_0x9132b4(0xf3)][_0x9132b4(0xf7)],undefined)&&_0xc3d9ad[_0x9132b4(0xfb)](_0x4c5a29[_0x9132b4(0x118)]['length'],this[_0x9132b4(0xf3)][_0x9132b4(0xf7)])){const _0x59de94=_0x4c5a29[_0x9132b4(0x118)][this[_0x9132b4(0xf3)][_0x9132b4(0xf7)]];this[_0x9132b4(0xd6)]['button']=_0x59de94['value'],this[_0x9132b4(0xd6)][_0x9132b4(0xf7)]=_0xc3d9ad[_0x9132b4(0x126)](this[_0x9132b4(0xd6)][_0x9132b4(0xf7)],0x0)?0x0:this[_0x9132b4(0xd6)][_0x9132b4(0xf7)],this[_0x9132b4(0xd6)][_0x9132b4(0xf7)]=_0xc3d9ad[_0x9132b4(0xfd)](this[_0x9132b4(0xd6)][_0x9132b4(0xf7)],0x1)?0x1:this[_0x9132b4(0xd6)][_0x9132b4(0xf7)];if(_0x59de94[_0x9132b4(0xf8)]||_0xc3d9ad[_0x9132b4(0x11d)](this[_0x9132b4(0xd6)]['button'],0x1))this['values'][_0x9132b4(0xf6)]=Constants['ComponentState'][_0x9132b4(0xdd)];else(_0x59de94['touched']||_0xc3d9ad[_0x9132b4(0xfb)](this['values'][_0x9132b4(0xf7)],Constants[_0x9132b4(0xd3)]))&&(this['values']['state']=Constants[_0x9132b4(0xea)][_0x9132b4(0x115)]);}this[_0x9132b4(0xf3)][_0x9132b4(0xef)]!==undefined&&_0x4c5a29[_0x9132b4(0x13d)][_0x9132b4(0x121)]>this['gamepadIndices']['xAxis']&&(this[_0x9132b4(0xd6)]['xAxis']=_0x4c5a29[_0x9132b4(0x13d)][this[_0x9132b4(0xf3)]['xAxis']],this[_0x9132b4(0xd6)][_0x9132b4(0xef)]=this['values'][_0x9132b4(0xef)]<-0x1?-0x1:this[_0x9132b4(0xd6)][_0x9132b4(0xef)],this['values']['xAxis']=_0xc3d9ad[_0x9132b4(0xfd)](this[_0x9132b4(0xd6)][_0x9132b4(0xef)],0x1)?0x1:this[_0x9132b4(0xd6)]['xAxis'],this[_0x9132b4(0xd6)][_0x9132b4(0xf6)]===Constants['ComponentState']['DEFAULT']&&_0xc3d9ad[_0x9132b4(0xfd)](Math[_0x9132b4(0x12f)](this[_0x9132b4(0xd6)]['xAxis']),Constants[_0x9132b4(0xde)])&&(this['values'][_0x9132b4(0xf6)]=Constants[_0x9132b4(0xea)][_0x9132b4(0x115)])),_0xc3d9ad['pCldk'](this[_0x9132b4(0xf3)][_0x9132b4(0x10b)],undefined)&&_0x4c5a29[_0x9132b4(0x13d)][_0x9132b4(0x121)]>this[_0x9132b4(0xf3)][_0x9132b4(0x10b)]&&(this[_0x9132b4(0xd6)][_0x9132b4(0x10b)]=_0x4c5a29[_0x9132b4(0x13d)][this[_0x9132b4(0xf3)][_0x9132b4(0x10b)]],this['values'][_0x9132b4(0x10b)]=_0xc3d9ad[_0x9132b4(0x13b)](this[_0x9132b4(0xd6)][_0x9132b4(0x10b)],-0x1)?-0x1:this[_0x9132b4(0xd6)]['yAxis'],this[_0x9132b4(0xd6)]['yAxis']=_0xc3d9ad['hwgpg'](this[_0x9132b4(0xd6)]['yAxis'],0x1)?0x1:this['values']['yAxis'],this['values'][_0x9132b4(0xf6)]===Constants['ComponentState']['DEFAULT']&&Math[_0x9132b4(0x12f)](this[_0x9132b4(0xd6)][_0x9132b4(0x10b)])>Constants['AxisTouchThreshold']&&(this[_0x9132b4(0xd6)][_0x9132b4(0xf6)]=Constants[_0x9132b4(0xea)][_0x9132b4(0x115)])),Object[_0x9132b4(0xd6)](this['visualResponses'])[_0x9132b4(0xe7)](_0x114972=>{const _0x1e7ead=_0x9132b4;_0x114972['updateFromComponent'](this[_0x1e7ead(0xd6)]);});}}function a0_0x5231(_0x4159e7,_0x2152ea){const _0x3cb960=a0_0x3cb9();return a0_0x5231=function(_0x523101,_0xa4fa7b){_0x523101=_0x523101-0xcf;let _0x45758e=_0x3cb960[_0x523101];if(a0_0x5231['FkxGFl']===undefined){var _0x4de513=function(_0x2bc5cd){const _0x12f2ea='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0xed3458='',_0x353d34='';for(let _0x5eaeb0=0x0,_0x45d0d8,_0x1eab6d,_0x5ee676=0x0;_0x1eab6d=_0x2bc5cd['charAt'](_0x5ee676++);~_0x1eab6d&&(_0x45d0d8=_0x5eaeb0%0x4?_0x45d0d8*0x40+_0x1eab6d:_0x1eab6d,_0x5eaeb0++%0x4)?_0xed3458+=String['fromCharCode'](0xff&_0x45d0d8>>(-0x2*_0x5eaeb0&0x6)):0x0){_0x1eab6d=_0x12f2ea['indexOf'](_0x1eab6d);}for(let _0x3f9794=0x0,_0x5344fe=_0xed3458['length'];_0x3f9794<_0x5344fe;_0x3f9794++){_0x353d34+='%'+('00'+_0xed3458['charCodeAt'](_0x3f9794)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x353d34);};a0_0x5231['eztMRg']=_0x4de513,_0x4159e7=arguments,a0_0x5231['FkxGFl']=!![];}const _0x1c5395=_0x3cb960[0x0],_0x34dd63=_0x523101+_0x1c5395,_0x26e765=_0x4159e7[_0x34dd63];return!_0x26e765?(_0x45758e=a0_0x5231['eztMRg'](_0x45758e),_0x4159e7[_0x34dd63]=_0x45758e):_0x45758e=_0x26e765,_0x45758e;},a0_0x5231(_0x4159e7,_0x2152ea);}class MotionController{constructor(_0x46cdbc,_0x1e906b,_0x331342){const _0x2bab2d=a0_0x3442b0,_0x5c61f0={'TBzzJ':_0x2bab2d(0x130)};if(!_0x46cdbc)throw new Error(_0x5c61f0[_0x2bab2d(0x12b)]);if(!_0x1e906b)throw new Error(_0x2bab2d(0x12a));this[_0x2bab2d(0x105)]=_0x46cdbc,this[_0x2bab2d(0x133)]=_0x331342,this['id']=_0x1e906b[_0x2bab2d(0x117)],this['layoutDescription']=_0x1e906b['layouts'][_0x46cdbc['handedness']],this[_0x2bab2d(0x12c)]={},Object['keys'](this[_0x2bab2d(0xd4)][_0x2bab2d(0x12c)])['forEach'](_0x139dde=>{const _0x1eb65e=_0x2bab2d,_0x5e2be5=this['layoutDescription'][_0x1eb65e(0x12c)][_0x139dde];this[_0x1eb65e(0x12c)][_0x139dde]=new Component(_0x139dde,_0x5e2be5);}),this[_0x2bab2d(0xfc)]();}get[a0_0x3442b0(0x127)](){const _0x4607d2=a0_0x3442b0;return this[_0x4607d2(0x105)][_0x4607d2(0x127)];}get['targetRaySpace'](){const _0x545f68=a0_0x3442b0;return this[_0x545f68(0x105)][_0x545f68(0x13a)];}get[a0_0x3442b0(0xfa)](){const _0x485dba=a0_0x3442b0,_0x3944d0=[];return Object[_0x485dba(0xd6)](this[_0x485dba(0x12c)])[_0x485dba(0xe7)](_0x3ad3bd=>{const _0xfab2ac=_0x485dba;_0x3944d0[_0xfab2ac(0x10e)](_0x3ad3bd[_0xfab2ac(0xfa)]);}),_0x3944d0;}[a0_0x3442b0(0xfc)](){const _0x381769=a0_0x3442b0;Object[_0x381769(0xd6)](this['components'])[_0x381769(0xe7)](_0x8e542a=>{const _0x4364b5=_0x381769;_0x8e542a[_0x4364b5(0xfc)](this[_0x4364b5(0x105)]['gamepad']);});}}export{Constants,MotionController,fetchProfile,fetchProfilesList};
+/**
+ * @webxr-input-profiles/motion-controllers 1.0.0 https://github.com/immersive-web/webxr-input-profiles
+ */
+
+const Constants = {
+  Handedness: Object.freeze({
+    NONE: 'none',
+    LEFT: 'left',
+    RIGHT: 'right'
+  }),
+
+  ComponentState: Object.freeze({
+    DEFAULT: 'default',
+    TOUCHED: 'touched',
+    PRESSED: 'pressed'
+  }),
+
+  ComponentProperty: Object.freeze({
+    BUTTON: 'button',
+    X_AXIS: 'xAxis',
+    Y_AXIS: 'yAxis',
+    STATE: 'state'
+  }),
+
+  ComponentType: Object.freeze({
+    TRIGGER: 'trigger',
+    SQUEEZE: 'squeeze',
+    TOUCHPAD: 'touchpad',
+    THUMBSTICK: 'thumbstick',
+    BUTTON: 'button'
+  }),
+
+  ButtonTouchThreshold: 0.05,
+
+  AxisTouchThreshold: 0.1,
+
+  VisualResponseProperty: Object.freeze({
+    TRANSFORM: 'transform',
+    VISIBILITY: 'visibility'
+  })
+};
+
+/**
+ * @description Static helper function to fetch a JSON file and turn it into a JS object
+ * @param {string} path - Path to JSON file to be fetched
+ */
+async function fetchJsonFile(path) {
+  const response = await fetch(path);
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  } else {
+    return response.json();
+  }
+}
+
+async function fetchProfilesList(basePath) {
+  if (!basePath) {
+    throw new Error('No basePath supplied');
+  }
+
+  const profileListFileName = 'profilesList.json';
+  const profilesList = await fetchJsonFile(`${basePath}/${profileListFileName}`);
+  return profilesList;
+}
+
+async function fetchProfile(xrInputSource, basePath, defaultProfile = null, getAssetPath = true) {
+  if (!xrInputSource) {
+    throw new Error('No xrInputSource supplied');
+  }
+
+  if (!basePath) {
+    throw new Error('No basePath supplied');
+  }
+
+  // Get the list of profiles
+  const supportedProfilesList = await fetchProfilesList(basePath);
+
+  // Find the relative path to the first requested profile that is recognized
+  let match;
+  xrInputSource.profiles.some((profileId) => {
+    const supportedProfile = supportedProfilesList[profileId];
+    if (supportedProfile) {
+      match = {
+        profileId,
+        profilePath: `${basePath}/${supportedProfile.path}`,
+        deprecated: !!supportedProfile.deprecated
+      };
+    }
+    return !!match;
+  });
+
+  if (!match) {
+    if (!defaultProfile) {
+      throw new Error('No matching profile name found');
+    }
+
+    const supportedProfile = supportedProfilesList[defaultProfile];
+    if (!supportedProfile) {
+      throw new Error(`No matching profile name found and default profile "${defaultProfile}" missing.`);
+    }
+
+    match = {
+      profileId: defaultProfile,
+      profilePath: `${basePath}/${supportedProfile.path}`,
+      deprecated: !!supportedProfile.deprecated
+    };
+  }
+
+  const profile = await fetchJsonFile(match.profilePath);
+
+  let assetPath;
+  if (getAssetPath) {
+    let layout;
+    if (xrInputSource.handedness === 'any') {
+      layout = profile.layouts[Object.keys(profile.layouts)[0]];
+    } else {
+      layout = profile.layouts[xrInputSource.handedness];
+    }
+    if (!layout) {
+      throw new Error(
+        `No matching handedness, ${xrInputSource.handedness}, in profile ${match.profileId}`
+      );
+    }
+
+    if (layout.assetPath) {
+      assetPath = match.profilePath.replace('profile.json', layout.assetPath);
+    }
+  }
+
+  return { profile, assetPath };
+}
+
+/** @constant {Object} */
+const defaultComponentValues = {
+  xAxis: 0,
+  yAxis: 0,
+  button: 0,
+  state: Constants.ComponentState.DEFAULT
+};
+
+/**
+ * @description Converts an X, Y coordinate from the range -1 to 1 (as reported by the Gamepad
+ * API) to the range 0 to 1 (for interpolation). Also caps the X, Y values to be bounded within
+ * a circle. This ensures that thumbsticks are not animated outside the bounds of their physical
+ * range of motion and touchpads do not report touch locations off their physical bounds.
+ * @param {number} x The original x coordinate in the range -1 to 1
+ * @param {number} y The original y coordinate in the range -1 to 1
+ */
+function normalizeAxes(x = 0, y = 0) {
+  let xAxis = x;
+  let yAxis = y;
+
+  // Determine if the point is outside the bounds of the circle
+  // and, if so, place it on the edge of the circle
+  const hypotenuse = Math.sqrt((x * x) + (y * y));
+  if (hypotenuse > 1) {
+    const theta = Math.atan2(y, x);
+    xAxis = Math.cos(theta);
+    yAxis = Math.sin(theta);
+  }
+
+  // Scale and move the circle so values are in the interpolation range.  The circle's origin moves
+  // from (0, 0) to (0.5, 0.5). The circle's radius scales from 1 to be 0.5.
+  const result = {
+    normalizedXAxis: (xAxis * 0.5) + 0.5,
+    normalizedYAxis: (yAxis * 0.5) + 0.5
+  };
+  return result;
+}
+
+/**
+ * Contains the description of how the 3D model should visually respond to a specific user input.
+ * This is accomplished by initializing the object with the name of a node in the 3D model and
+ * property that need to be modified in response to user input, the name of the nodes representing
+ * the allowable range of motion, and the name of the input which triggers the change. In response
+ * to the named input changing, this object computes the appropriate weighting to use for
+ * interpolating between the range of motion nodes.
+ */
+class VisualResponse {
+  constructor(visualResponseDescription) {
+    this.componentProperty = visualResponseDescription.componentProperty;
+    this.states = visualResponseDescription.states;
+    this.valueNodeName = visualResponseDescription.valueNodeName;
+    this.valueNodeProperty = visualResponseDescription.valueNodeProperty;
+
+    if (this.valueNodeProperty === Constants.VisualResponseProperty.TRANSFORM) {
+      this.minNodeName = visualResponseDescription.minNodeName;
+      this.maxNodeName = visualResponseDescription.maxNodeName;
+    }
+
+    // Initializes the response's current value based on default data
+    this.value = 0;
+    this.updateFromComponent(defaultComponentValues);
+  }
+
+  /**
+   * Computes the visual response's interpolation weight based on component state
+   * @param {Object} componentValues - The component from which to update
+   * @param {number} xAxis - The reported X axis value of the component
+   * @param {number} yAxis - The reported Y axis value of the component
+   * @param {number} button - The reported value of the component's button
+   * @param {string} state - The component's active state
+   */
+  updateFromComponent({
+    xAxis, yAxis, button, state
+  }) {
+    const { normalizedXAxis, normalizedYAxis } = normalizeAxes(xAxis, yAxis);
+    switch (this.componentProperty) {
+      case Constants.ComponentProperty.X_AXIS:
+        this.value = (this.states.includes(state)) ? normalizedXAxis : 0.5;
+        break;
+      case Constants.ComponentProperty.Y_AXIS:
+        this.value = (this.states.includes(state)) ? normalizedYAxis : 0.5;
+        break;
+      case Constants.ComponentProperty.BUTTON:
+        this.value = (this.states.includes(state)) ? button : 0;
+        break;
+      case Constants.ComponentProperty.STATE:
+        if (this.valueNodeProperty === Constants.VisualResponseProperty.VISIBILITY) {
+          this.value = (this.states.includes(state));
+        } else {
+          this.value = this.states.includes(state) ? 1.0 : 0.0;
+        }
+        break;
+      default:
+        throw new Error(`Unexpected visualResponse componentProperty ${this.componentProperty}`);
+    }
+  }
+}
+
+class Component {
+  /**
+   * @param {Object} componentId - Id of the component
+   * @param {Object} componentDescription - Description of the component to be created
+   */
+  constructor(componentId, componentDescription) {
+    if (!componentId
+     || !componentDescription
+     || !componentDescription.visualResponses
+     || !componentDescription.gamepadIndices
+     || Object.keys(componentDescription.gamepadIndices).length === 0) {
+      throw new Error('Invalid arguments supplied');
+    }
+
+    this.id = componentId;
+    this.type = componentDescription.type;
+    this.rootNodeName = componentDescription.rootNodeName;
+    this.touchPointNodeName = componentDescription.touchPointNodeName;
+
+    // Build all the visual responses for this component
+    this.visualResponses = {};
+    Object.keys(componentDescription.visualResponses).forEach((responseName) => {
+      const visualResponse = new VisualResponse(componentDescription.visualResponses[responseName]);
+      this.visualResponses[responseName] = visualResponse;
+    });
+
+    // Set default values
+    this.gamepadIndices = Object.assign({}, componentDescription.gamepadIndices);
+
+    this.values = {
+      state: Constants.ComponentState.DEFAULT,
+      button: (this.gamepadIndices.button !== undefined) ? 0 : undefined,
+      xAxis: (this.gamepadIndices.xAxis !== undefined) ? 0 : undefined,
+      yAxis: (this.gamepadIndices.yAxis !== undefined) ? 0 : undefined
+    };
+  }
+
+  get data() {
+    const data = { id: this.id, ...this.values };
+    return data;
+  }
+
+  /**
+   * @description Poll for updated data based on current gamepad state
+   * @param {Object} gamepad - The gamepad object from which the component data should be polled
+   */
+  updateFromGamepad(gamepad) {
+    // Set the state to default before processing other data sources
+    this.values.state = Constants.ComponentState.DEFAULT;
+
+    // Get and normalize button
+    if (this.gamepadIndices.button !== undefined
+        && gamepad.buttons.length > this.gamepadIndices.button) {
+      const gamepadButton = gamepad.buttons[this.gamepadIndices.button];
+      this.values.button = gamepadButton.value;
+      this.values.button = (this.values.button < 0) ? 0 : this.values.button;
+      this.values.button = (this.values.button > 1) ? 1 : this.values.button;
+
+      // Set the state based on the button
+      if (gamepadButton.pressed || this.values.button === 1) {
+        this.values.state = Constants.ComponentState.PRESSED;
+      } else if (gamepadButton.touched || this.values.button > Constants.ButtonTouchThreshold) {
+        this.values.state = Constants.ComponentState.TOUCHED;
+      }
+    }
+
+    // Get and normalize x axis value
+    if (this.gamepadIndices.xAxis !== undefined
+        && gamepad.axes.length > this.gamepadIndices.xAxis) {
+      this.values.xAxis = gamepad.axes[this.gamepadIndices.xAxis];
+      this.values.xAxis = (this.values.xAxis < -1) ? -1 : this.values.xAxis;
+      this.values.xAxis = (this.values.xAxis > 1) ? 1 : this.values.xAxis;
+
+      // If the state is still default, check if the xAxis makes it touched
+      if (this.values.state === Constants.ComponentState.DEFAULT
+        && Math.abs(this.values.xAxis) > Constants.AxisTouchThreshold) {
+        this.values.state = Constants.ComponentState.TOUCHED;
+      }
+    }
+
+    // Get and normalize Y axis value
+    if (this.gamepadIndices.yAxis !== undefined
+        && gamepad.axes.length > this.gamepadIndices.yAxis) {
+      this.values.yAxis = gamepad.axes[this.gamepadIndices.yAxis];
+      this.values.yAxis = (this.values.yAxis < -1) ? -1 : this.values.yAxis;
+      this.values.yAxis = (this.values.yAxis > 1) ? 1 : this.values.yAxis;
+
+      // If the state is still default, check if the yAxis makes it touched
+      if (this.values.state === Constants.ComponentState.DEFAULT
+        && Math.abs(this.values.yAxis) > Constants.AxisTouchThreshold) {
+        this.values.state = Constants.ComponentState.TOUCHED;
+      }
+    }
+
+    // Update the visual response weights based on the current component data
+    Object.values(this.visualResponses).forEach((visualResponse) => {
+      visualResponse.updateFromComponent(this.values);
+    });
+  }
+}
+
+/**
+  * @description Builds a motion controller with components and visual responses based on the
+  * supplied profile description. Data is polled from the xrInputSource's gamepad.
+  * @author Nell Waliczek / https://github.com/NellWaliczek
+*/
+class MotionController {
+  /**
+   * @param {Object} xrInputSource - The XRInputSource to build the MotionController around
+   * @param {Object} profile - The best matched profile description for the supplied xrInputSource
+   * @param {Object} assetUrl
+   */
+  constructor(xrInputSource, profile, assetUrl) {
+    if (!xrInputSource) {
+      throw new Error('No xrInputSource supplied');
+    }
+
+    if (!profile) {
+      throw new Error('No profile supplied');
+    }
+
+    this.xrInputSource = xrInputSource;
+    this.assetUrl = assetUrl;
+    this.id = profile.profileId;
+
+    // Build child components as described in the profile description
+    this.layoutDescription = profile.layouts[xrInputSource.handedness];
+    this.components = {};
+    Object.keys(this.layoutDescription.components).forEach((componentId) => {
+      const componentDescription = this.layoutDescription.components[componentId];
+      this.components[componentId] = new Component(componentId, componentDescription);
+    });
+
+    // Initialize components based on current gamepad state
+    this.updateFromGamepad();
+  }
+
+  get gripSpace() {
+    return this.xrInputSource.gripSpace;
+  }
+
+  get targetRaySpace() {
+    return this.xrInputSource.targetRaySpace;
+  }
+
+  /**
+   * @description Returns a subset of component data for simplified debugging
+   */
+  get data() {
+    const data = [];
+    Object.values(this.components).forEach((component) => {
+      data.push(component.data);
+    });
+    return data;
+  }
+
+  /**
+   * @description Poll for updated data based on current gamepad state
+   */
+  updateFromGamepad() {
+    Object.values(this.components).forEach((component) => {
+      component.updateFromGamepad(this.xrInputSource.gamepad);
+    });
+  }
+}
+
+export { Constants, MotionController, fetchProfile, fetchProfilesList };

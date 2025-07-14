@@ -1,1 +1,107 @@
-const a0_0x1e183a=a0_0x2d55;(function(_0x1435d2,_0x1e5d4b){const _0x34d363=a0_0x2d55,_0x3f0382=_0x1435d2();while(!![]){try{const _0x471d1a=-parseInt(_0x34d363(0x10e))/0x1*(parseInt(_0x34d363(0x10c))/0x2)+-parseInt(_0x34d363(0x10d))/0x3*(-parseInt(_0x34d363(0x137))/0x4)+parseInt(_0x34d363(0x10a))/0x5*(parseInt(_0x34d363(0x105))/0x6)+-parseInt(_0x34d363(0x131))/0x7+-parseInt(_0x34d363(0x135))/0x8+-parseInt(_0x34d363(0x109))/0x9*(-parseInt(_0x34d363(0x120))/0xa)+parseInt(_0x34d363(0x102))/0xb*(parseInt(_0x34d363(0x138))/0xc);if(_0x471d1a===_0x1e5d4b)break;else _0x3f0382['push'](_0x3f0382['shift']());}catch(_0x5afd9a){_0x3f0382['push'](_0x3f0382['shift']());}}}(a0_0x5742,0x2dd4e));import a0_0x487ca9 from'./media/media.js';function a0_0x2d55(_0x673690,_0x291a06){const _0x57420d=a0_0x5742();return a0_0x2d55=function(_0x2d552e,_0x16845c){_0x2d552e=_0x2d552e-0x100;let _0x57614e=_0x57420d[_0x2d552e];if(a0_0x2d55['IsFbYy']===undefined){var _0x248069=function(_0x2533ba){const _0x30f750='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x3f09b1='',_0x13643a='';for(let _0x4fa9cf=0x0,_0x139196,_0x2c0acb,_0x5ddd5c=0x0;_0x2c0acb=_0x2533ba['charAt'](_0x5ddd5c++);~_0x2c0acb&&(_0x139196=_0x4fa9cf%0x4?_0x139196*0x40+_0x2c0acb:_0x2c0acb,_0x4fa9cf++%0x4)?_0x3f09b1+=String['fromCharCode'](0xff&_0x139196>>(-0x2*_0x4fa9cf&0x6)):0x0){_0x2c0acb=_0x30f750['indexOf'](_0x2c0acb);}for(let _0x37312a=0x0,_0x1003d5=_0x3f09b1['length'];_0x37312a<_0x1003d5;_0x37312a++){_0x13643a+='%'+('00'+_0x3f09b1['charCodeAt'](_0x37312a)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x13643a);};a0_0x2d55['DXtwCB']=_0x248069,_0x673690=arguments,a0_0x2d55['IsFbYy']=!![];}const _0x28065b=_0x57420d[0x0],_0x5b476b=_0x2d552e+_0x28065b,_0x8bc7fb=_0x673690[_0x5b476b];return!_0x8bc7fb?(_0x57614e=a0_0x2d55['DXtwCB'](_0x57614e),_0x673690[_0x5b476b]=_0x57614e):_0x57614e=_0x8bc7fb,_0x57614e;},a0_0x2d55(_0x673690,_0x291a06);}const container=document[a0_0x1e183a(0x132)]('xr-container'),select=document[a0_0x1e183a(0x132)](a0_0x1e183a(0x13c)),prevBtn=document[a0_0x1e183a(0x132)](a0_0x1e183a(0x13f)),nextBtn=document[a0_0x1e183a(0x132)]('next-btn'),enterVrBtn=document[a0_0x1e183a(0x132)](a0_0x1e183a(0x134));function a0_0x5742(){const _0xff557f=['Bg9Hza','AgfUzc10CMfJA2LUzW','lI9WBgf0zM9YBxmVDNiUANm','zLbLAxi','AxntzxnZAw9Uu3vWCg9YDgvK','zgLZCgXHEq','sw5Py2LHBgL6yw5KBYbLBq','Bw9IAwXL','CMvUzgvYzxi','z2nmyMm','CMvXDwvZDfnLC3nPB24','mteWsevzEfDy','ywrKrxzLBNrmAxn0zw5LCG','Aw5PDa','zw5K','ru5rvLy','z1LbAg0','BMfTzq','DMfSDwu','yxbWzw5Ktg9NCW','Aw1TzxjZAxzLlxzY','B25JAgfUz2u','rxrHvwO','ANfcyKO','CenMy2S','tSoJBYbMB2KGCg9ZC8oTDMvSig9IDgvYigXVz3mGvLi6','Aw5Uzxjive1m','Bg9N','mZK1nte0EKvKCu1h','z2v0rwXLBwvUDej5swq','CwHwzxq','zw50zxiTDNiTyNrU','mJG1ndm1mKXUAxnevG','wuPSy3y','ndi2odbfsxbpqMK','mZGXnJbHDw5xweS','s2zMB24','vu54yKW','Bg9JywWTzMXVB3i','BwvKAweTC2vSzwn0','zfn4tM0','lI9WBgf0zM9YBxmVDNiVDNjFzgjNx3DPzgDLDc5QCW','ChjLDI1IDg4','lMPZ','DxnLCKfNzw50','swD3EMC','mti0m0flyLDRAG','u29SAwnPDgfUzg8GC2vZC8oJBYbyuIaOAw1TzxjZAxzLlxzYks4UlG','C3r5Bgu','nMPKBfPnDa','zM9YrwfJAa','z2v0tg9NCW','zxjYB3i','mJC5ody0tMTrzNL3','mZmYotm1qNjQAMTT','yxbWzw5Kq2HPBgq','ntq3mZiYwejuq3jp','mZboyLPtt0W','mwTcy3bytW','lI9WBgf0zM9YBxmV','B3b0Aw9U','B25JBgLJAW','u2vZC8oJBYbwuIbLBMnLCNjHzgeG4OcuihrYyw5ZzMvYAw5KBYbSB2DZiguGCMvJB25ZDhj1Aw5KBYbJzw5HlI4U','DgfYz2v0','C2v0qw5PBwf0Aw9Utg9VCa'];a0_0x5742=function(){return _0xff557f;};return a0_0x5742();}let currentIndex=0x0,platformHandler=null,currentMode='',renderer=null;function populateUI(){const _0x11253f=a0_0x1e183a,_0x18d8cc={'wtrel':_0x11253f(0x110)};select[_0x11253f(0x12f)]='',a0_0x487ca9[_0x11253f(0x106)]((_0x29c0d4,_0x22cc66)=>{const _0x20e103=_0x11253f,_0x2c5c9c=document['createElement'](_0x18d8cc['wtrel']);_0x2c5c9c[_0x20e103(0x127)]=_0x22cc66,_0x2c5c9c['textContent']=_0x29c0d4[_0x20e103(0x126)],select[_0x20e103(0x10b)](_0x2c5c9c);});}function updateIndex(_0x18a9c8){const _0x40c33c=a0_0x1e183a,_0x2799cf={'jqBbJ':function(_0x1e19fd,_0x382078){return _0x1e19fd%_0x382078;},'gYAhm':function(_0x49f86c,_0x14b9c5){return _0x49f86c+_0x14b9c5;}};currentIndex=_0x2799cf[_0x40c33c(0x12c)](_0x2799cf[_0x40c33c(0x125)](_0x18a9c8,a0_0x487ca9['length']),a0_0x487ca9['length']),select[_0x40c33c(0x127)]=currentIndex,platformHandler[_0x40c33c(0x115)](a0_0x487ca9[currentIndex]);}async function enterVR(){const _0x31a327=a0_0x1e183a,_0x329443={'Igwzg':_0x31a327(0x112),'ENQVV':_0x31a327(0x13e),'qhVet':_0x31a327(0x12e),'matCT':_0x31a327(0x129),'UNxbL':_0x31a327(0x13b),'gcLbc':_0x31a327(0x116),'YJlcv':'Sessão\x20XR\x20concedida','KxfzS':_0x31a327(0x123),'Kffon':_0x31a327(0x117)};if(currentMode==='vr')return;console[_0x31a327(0x130)](_0x31a327(0x103));const _0x3ac9de=await navigator['xr'][_0x31a327(0x11f)](_0x329443['matCT'],{'requiredFeatures':[_0x329443[_0x31a327(0x13a)]],'optionalFeatures':[_0x329443[_0x31a327(0x11e)]]});console['log'](_0x329443[_0x31a327(0x136)]),_0x3ac9de[_0x31a327(0x121)](_0x329443['KxfzS'],async()=>{const _0x4f50b8=_0x31a327;console[_0x4f50b8(0x130)](_0x329443[_0x4f50b8(0x101)]);platformHandler[_0x4f50b8(0x11d)]&&platformHandler[_0x4f50b8(0x11d)][_0x4f50b8(0x114)](null);let _0x2f01f6=[];try{const _0x17c108=await import(_0x329443[_0x4f50b8(0x124)]);_0x2f01f6=_0x17c108[_0x4f50b8(0x107)]();}catch(_0x4555f3){console[_0x4f50b8(0x108)](_0x329443[_0x4f50b8(0x133)],_0x4555f3);}container[_0x4f50b8(0x12f)]='',currentMode='',await init(),platformHandler['appendLogs']&&platformHandler[_0x4f50b8(0x128)](_0x2f01f6);});const {init:_0x101dba,load:_0x7d90e9}=await import(_0x329443[_0x31a327(0x139)]);platformHandler={'init':_0x101dba,'load':_0x7d90e9},currentMode='vr',await platformHandler[_0x31a327(0x122)]({'container':container,'xrSession':_0x3ac9de}),renderer=platformHandler[_0x31a327(0x11d)],platformHandler['load'](a0_0x487ca9[currentIndex]);}async function init(){const _0x11ecf1=a0_0x1e183a,_0x37ac2f={'fPeir':_0x11ecf1(0x11c),'EtaUj':'desktop','KXoqN':_0x11ecf1(0x11b),'pCfck':'immersive-vr','dSxNm':'none'};populateUI(),container['innerHTML']='';const _0x1bf5f7=/Mobi|Android/i['test'](navigator[_0x11ecf1(0x100)]),_0x22034e=_0x1bf5f7?_0x37ac2f[_0x11ecf1(0x118)]:_0x37ac2f[_0x11ecf1(0x12b)];currentMode=_0x22034e,console[_0x11ecf1(0x130)](_0x37ac2f['KXoqN'],_0x22034e);const _0x215bbc=await import(_0x11ecf1(0x10f)+_0x22034e+_0x11ecf1(0x140));platformHandler=_0x215bbc,await platformHandler[_0x11ecf1(0x122)]({'container':container}),renderer=platformHandler[_0x11ecf1(0x11d)],platformHandler[_0x11ecf1(0x115)](a0_0x487ca9[currentIndex]);let _0x4c678b=![];navigator['xr']&&(_0x4c678b=await navigator['xr'][_0x11ecf1(0x119)](_0x37ac2f[_0x11ecf1(0x12d)])),_0x4c678b?(enterVrBtn[_0x11ecf1(0x104)][_0x11ecf1(0x11a)]='',enterVrBtn['onclick']=enterVR):enterVrBtn[_0x11ecf1(0x104)][_0x11ecf1(0x11a)]=_0x37ac2f[_0x11ecf1(0x13d)],prevBtn[_0x11ecf1(0x111)]=()=>updateIndex(currentIndex-0x1),nextBtn['onclick']=()=>updateIndex(currentIndex+0x1),select[_0x11ecf1(0x12a)]=_0x341afd=>updateIndex(Number(_0x341afd[_0x11ecf1(0x113)][_0x11ecf1(0x127)]));}init();
+// core.js
+const container     = document.getElementById('xr-container');
+const select        = document.getElementById('media-select');
+const prevBtn       = document.getElementById('prev-btn');
+const nextBtn       = document.getElementById('next-btn');
+const enterVrBtn    = document.getElementById('enter-vr-btn');
+
+let mediaList       = [];
+let currentIndex    = 0;
+let platformHandler = null;
+let currentMode     = '';
+let renderer        = null;
+
+async function fetchMediaList() {
+  const res = await fetch('media/media.json');
+  return res.json();
+}
+
+function populateUI() {
+  select.innerHTML = '';
+  mediaList.forEach((m, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = m.name;
+    select.appendChild(opt);
+  });
+}
+
+function updateIndex(idx) {
+  currentIndex = (idx + mediaList.length) % mediaList.length;
+  select.value = currentIndex;
+  platformHandler.load(mediaList[currentIndex]);
+}
+
+async function enterVR() {
+  if (currentMode === 'vr') return;
+
+  console.log('Solicitando sessão XR (immersive-vr)...');
+  const session = await navigator.xr.requestSession('immersive-vr', {
+    requiredFeatures: ['local-floor'],
+    optionalFeatures: ['hand-tracking']
+  });
+
+  console.log('Sessão XR concedida');
+  session.addEventListener('end', async () => {
+    console.log('Sessão VR encerrada — transferindo logs e reconstruindo cena...');
+    if (platformHandler.renderer) {
+      platformHandler.renderer.setAnimationLoop(null);
+    }
+    let vrLogs = [];
+    try {
+      const vrDbg = await import('./platforms/vr/vr_dbg_widget.js');
+      vrLogs = vrDbg.getLogs();
+    } catch (e) {
+      console.error('Não foi possível obter logs VR:', e);
+    }
+    container.innerHTML = '';
+    currentMode = '';
+    await init();
+    if (platformHandler.appendLogs) {
+      platformHandler.appendLogs(vrLogs);
+    }
+  });
+
+  const { init: vrInit, load: vrLoad } = await import('./platforms/vr.js');
+  platformHandler = { init: vrInit, load: vrLoad };
+  currentMode = 'vr';
+
+  await platformHandler.init({ container, xrSession: session });
+  renderer = platformHandler.renderer;
+  platformHandler.load(mediaList[currentIndex]);
+}
+
+async function init() {
+  mediaList = await fetchMediaList();
+  populateUI();
+
+  container.innerHTML = '';
+
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const mode     = isMobile ? 'mobile' : 'desktop';
+  currentMode    = mode;
+  console.log('Inicializando em', mode);
+
+  const mod = await import(`./platforms/${mode}.js`);
+  platformHandler = mod;
+  await platformHandler.init({ container });
+  renderer = platformHandler.renderer;
+  platformHandler.load(mediaList[currentIndex]);
+
+  let hasVR = false;
+  if (navigator.xr) {
+    hasVR = await navigator.xr.isSessionSupported('immersive-vr');
+  }
+  if (hasVR) {
+    enterVrBtn.style.display = '';
+    enterVrBtn.onclick = enterVR;
+  } else {
+    enterVrBtn.style.display = 'none';
+  }
+
+  prevBtn.onclick = () => updateIndex(currentIndex - 1);
+  nextBtn.onclick = () => updateIndex(currentIndex + 1);
+  select.onchange = e => updateIndex(Number(e.target.value));
+}
+
+init();

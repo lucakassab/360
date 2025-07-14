@@ -1,1 +1,242 @@
-(function(_0x30e725,_0x9b592a){const _0x28e978=a0_0x1a10,_0x14ddc0=_0x30e725();while(!![]){try{const _0x48ec52=parseInt(_0x28e978(0x10d))/0x1*(-parseInt(_0x28e978(0x140))/0x2)+-parseInt(_0x28e978(0x148))/0x3+parseInt(_0x28e978(0x15a))/0x4*(parseInt(_0x28e978(0x124))/0x5)+parseInt(_0x28e978(0x114))/0x6+parseInt(_0x28e978(0x154))/0x7*(-parseInt(_0x28e978(0x14b))/0x8)+parseInt(_0x28e978(0x127))/0x9*(-parseInt(_0x28e978(0x10e))/0xa)+parseInt(_0x28e978(0x159))/0xb*(parseInt(_0x28e978(0x111))/0xc);if(_0x48ec52===_0x9b592a)break;else _0x14ddc0['push'](_0x14ddc0['shift']());}catch(_0x449970){_0x14ddc0['push'](_0x14ddc0['shift']());}}}(a0_0x2b41,0xbc409));import*as a0_0xc3a967 from'../../libs/three.module.js';function a0_0x1a10(_0x44451b,_0x1ef5c5){const _0x2b4100=a0_0x2b41();return a0_0x1a10=function(_0x1a10d9,_0x2f51a1){_0x1a10d9=_0x1a10d9-0x106;let _0x562e29=_0x2b4100[_0x1a10d9];if(a0_0x1a10['KsuHEs']===undefined){var _0x31133d=function(_0x57c734){const _0x598331='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4abaf4='',_0xd1cfb4='';for(let _0x1db98d=0x0,_0xe944de,_0x3db731,_0x2b170b=0x0;_0x3db731=_0x57c734['charAt'](_0x2b170b++);~_0x3db731&&(_0xe944de=_0x1db98d%0x4?_0xe944de*0x40+_0x3db731:_0x3db731,_0x1db98d++%0x4)?_0x4abaf4+=String['fromCharCode'](0xff&_0xe944de>>(-0x2*_0x1db98d&0x6)):0x0){_0x3db731=_0x598331['indexOf'](_0x3db731);}for(let _0x5456a4=0x0,_0x457274=_0x4abaf4['length'];_0x5456a4<_0x457274;_0x5456a4++){_0xd1cfb4+='%'+('00'+_0x4abaf4['charCodeAt'](_0x5456a4)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0xd1cfb4);};a0_0x1a10['dUrAyl']=_0x31133d,_0x44451b=arguments,a0_0x1a10['KsuHEs']=!![];}const _0xcf4220=_0x2b4100[0x0],_0x2688c8=_0x1a10d9+_0xcf4220,_0x548c8a=_0x44451b[_0x2688c8];return!_0x548c8a?(_0x562e29=a0_0x1a10['dUrAyl'](_0x562e29),_0x44451b[_0x2688c8]=_0x562e29):_0x562e29=_0x548c8a,_0x562e29;},a0_0x1a10(_0x44451b,_0x1ef5c5);}import{XRControllerModelFactory}from'../../libs/XRControllerModelFactory.js';import{XRHandModelFactory}from'../../libs/XRHandModelFactory.js';import{toggleDebugWidget}from'../vr/vr_dbg_widget.js';const FINGER_MAP={'index-finger-tip':0x2,'middle-finger-tip':0x3,'ring-finger-tip':0x4,'pinky-finger-tip':0x5,'thumb-tip':0x1};function a0_0x2b41(){const _0x1bddbe=['xsbMB250zsbYzw1VDMLKyq','zgvSzxrL','Bg9N','s2HwtLy','C2XPy2u','DMLZAwjSzq','BgvMDa','C2v0rNjVBvbVAw50CW','CMvUzgvY','rKXbCLe','BLrurfq','Bw9KzwXbzgrLza','z2v0sgfUza','t2XTwue','C2vSzwn0C3rHCNq','ifjftevbu0ve','wxDAsgq','xsbWB2LUDgvYigvYCM86','BLbSEK0','EM5svMC','Aw5WDxrZB3vYy2vZy2HHBMDL','u2zlt20','y29UBMvJDgvK','mJe3ouX5tuHgyG','ntG3mZyXmhrjqMLeAW','sgjJA24','Aw5KzxHpzG','mtjLDur4Dhq','zM9qCwG','zgf0yq','mZK1nZi5nfnSqwnNEG','AMf6t2C','ywrK','tgrnDM0','ywrKzwq','igHHBMrDihDYAxn0igj1DhrVBIbet1Do','AgfUzgvKBMvZCW','ChjLC3nLza','xsbbEgLZia','tgLUzq','xsbTB2rLBg8GzguGz3jPCcbHzgLJAw9UywrV','AhnoCNG','ierpv04','z2v0q29UDhjVBgXLCKDYAxa','z1LVre8','z2v0q29UDhjVBgXLCG','nxPQugrsCG','A1Lozwu','C2v0','ou1Yv2PjqW','Dg9gAxHLza','y2XPy2S','DhjHy2TLzc1WB2LUDgvY','igHHBMrDihDYAxn0igj1DhrVBIbvua','BwvZAa','yxHLCW','zNjVBq','vMvJDg9YmW','qxHevMy','DMLZAwjPBgL0EwnOyw5Nzq','ifbjtKniruq','qxfQuhO','D2fYBG','DMLZAwjPBgL0Evn0yxrL','A25PBue','xsbNCMLWtw9KzwWGzxjYBZO','AgfUzc1IDxr0B24','Axniyw5K','Dhj5qwrKtw9KzwW','rMXZCgq','z2fTzxbHza','zM9YrwfJAa','CMvNAxn0zxjtB3vYy2uGz2vYywWGzxjYBZO','zxjYB3i','mtC4rLjMtgHY','igHHBMrDihnLBsb0CMfJA2LUzYbHAw5KysWGCMv0CNNIGky','y3jLyxrLsgfUze1VzgvS','Dw5RBM93BG','igHHBMrDigDHBwvWywqGzw0GAgfUzcbYzwDPC3rYywrV','u2vZC8oJBYb2AxpdRxzLBcbUB3zHBwvUDguG4OAsihjLlxjLz2LZDhjHBMrVigzVBNrLCW','zNvUy3rPB24','Aw5WDxrtB3vYy2vZ','mtK4mtGXmNPtsvzyDq','z2v0rwXLBwvUDej5swq','DxPPEu0','mJu4nde2mhHMv1jrzW','Egjyyva','igHHBMrDigzPBMDLCIa','ywrKrxzLBNrmAxn0zw5LCG','zMLSDgvY','rvDIwxq','ChjLDLbYzxnZzwq','zLLwB1u','Ag5ZuuS','n3jhwgn0vG','C2vSzwn0zw5K','C3f1zwv6zxn0yxj0','BMv4Dc1IDg4','vKrXu1C','odaWmZi1ovzNzef3zG','ndu5ntuXnNHnANPjqW','D0v1qvG','DKjxwu4','Aw5WDxrtB3vYy2u','y3jLyxrLq29UDhjVBgXLCK1VzgvS','BwfW','yNv0Dg9UCW','CMvTB3zLza','igHHBMrDig1VzgvSBYbKzsbTW6nVigfKAwnPB25Hzg8','AgfUza','wfP2uey','y29UDhjVBgXLCIbIDxr0B24','qNvMzMvYr2vVBwv0CNK','AgfZ','tgLUzujHC2LJtwf0zxjPywW','id0G','ChjLDI1IDg4','ywjZ','igHHBMrDigHHBMrsB290igfKAwnPB25Hzg8','C2nHBgu','z2v0','yxv0uhK','EhPezKy'];a0_0x2b41=function(){return _0x1bddbe;};return a0_0x2b41();}export function initControllers({renderer:_0x5e9e71,scene:_0xa39c44,referenceSpace:_0x1a1925}){const _0x3fb314=a0_0x1a10,_0x2745c1={'vBWYN':'index-finger-tip','KhVNV':_0x3fb314(0x12c),'nPlzM':function(_0x320f69,_0x3f91fb,_0x333013){return _0x320f69(_0x3f91fb,_0x333013);},'Flspd':_0x3fb314(0x143),'kYNee':function(_0x4ba78c){return _0x4ba78c();},'XZvPF':function(_0x2b743b,_0x82bac5){return _0x2b743b===_0x82bac5;},'hnsQK':_0x3fb314(0x12a),'xzDfF':_0x3fb314(0x13e),'uIvDP':_0x3fb314(0x176),'LdMvm':_0x3fb314(0x165),'btcAk':function(_0x16bc5b,_0x16fb3b){return _0x16bc5b===_0x16fb3b;},'fYVoU':'right','znRVg':function(_0x4ef1e5,_0x216e01){return _0x4ef1e5===_0x216e01;},'IgEWN':function(_0x2b811d,_0xae8dcd){return _0x2b811d>_0xae8dcd;},'foPqh':function(_0x1a7372,_0x503c09,_0x4b6fb4){return _0x1a7372(_0x503c09,_0x4b6fb4);},'uziyM':function(_0x5cb1ca,_0x5a5ee8){return _0x5cb1ca!==_0x5a5ee8;},'zQRwO':_0x3fb314(0x146),'bxnTk':_0x3fb314(0x17f),'AqjPz':_0x3fb314(0x155),'FLArQ':_0x3fb314(0x156),'xbXaP':function(_0x4b06d3,_0x458912){return _0x4b06d3<_0x458912;},'SfKOm':_0x3fb314(0x10c),'gYoDO':_0x3fb314(0x10a),'VDqSW':_0x3fb314(0x131)},_0x34d850=_0x5e9e71['xr']['getSession'](),_0x447267=new XRControllerModelFactory(),_0x1f4b2c=new XRHandModelFactory(),_0x5875d8=new Map(),_0x17aacc=0.05;_0x34d850['inputSources']&&_0x2745c1[_0x3fb314(0x14a)](typeof _0x34d850[_0x3fb314(0x147)][_0x3fb314(0x14f)],_0x2745c1['zQRwO'])&&(_0x34d850[_0x3fb314(0x147)][_0x3fb314(0x14f)]=_0x46edde=>Array[_0x3fb314(0x12e)](_0x34d850['inputSources'])[_0x3fb314(0x14f)](_0x46edde));_0x34d850['addEventListener'](_0x2745c1['bxnTk'],_0x5d675a=>{const _0x41c594=_0x3fb314;if(!_0x5d675a['inputSource'][_0x41c594(0x163)])return;const _0x2f5440=_0x5d675a['inputSource'][_0x41c594(0x11a)],_0x244863=FINGER_MAP[_0x2745c1[_0x41c594(0x15c)]];console['log']('['+_0x2f5440+_0x41c594(0x14d)+_0x244863+_0x41c594(0x132));}),_0x34d850['addEventListener'](_0x2745c1[_0x3fb314(0x133)],_0x892f88=>{const _0x33c543=_0x3fb314;if(!_0x892f88['inputSource'][_0x33c543(0x163)])return;const _0x5ee2d5=_0x892f88[_0x33c543(0x15d)][_0x33c543(0x11a)],_0x649048=FINGER_MAP[_0x2745c1[_0x33c543(0x15c)]];console['log']('['+_0x5ee2d5+'\x20hand]\x20finger\x20'+_0x649048+_0x33c543(0x180));}),_0x34d850['addEventListener'](_0x2745c1[_0x3fb314(0x17a)],_0x539961=>{const _0x4babdf=_0x3fb314;if(!_0x539961['inputSource']['hand'])return;const _0x16594e=_0x539961[_0x4babdf(0x15d)][_0x4babdf(0x11a)];console[_0x4babdf(0x173)]('['+_0x16594e+_0x4babdf(0x119));}),_0x34d850[_0x3fb314(0x14e)]('squeezeend',_0x50d3a6=>{const _0x1dd9c1=_0x3fb314;if(!_0x50d3a6[_0x1dd9c1(0x15d)]['hand'])return;const _0x2fea26=_0x50d3a6['inputSource'][_0x1dd9c1(0x11a)];console[_0x1dd9c1(0x173)]('['+_0x2fea26+_0x1dd9c1(0x12b));});function _0xffca96(_0xb541e4){const _0x15fa0d=_0x3fb314,_0x49452f={'autPy':_0x2745c1[_0x15fa0d(0x174)],'Hbckn':function(_0xf4f7b,_0x1f44ea,_0x52144b){const _0x589d3a=_0x15fa0d;return _0x2745c1[_0x589d3a(0x108)](_0xf4f7b,_0x1f44ea,_0x52144b);}};try{if(_0x5875d8[_0x15fa0d(0x167)](_0xb541e4)){const _0x3d7f6b=_0x5875d8[_0x15fa0d(0x16e)](_0xb541e4);if(_0x3d7f6b[_0x15fa0d(0x139)]&&!_0x3d7f6b[_0x15fa0d(0x17c)])_0x3d7f6b[_0x15fa0d(0x13a)]();return;}const _0x2a59ac=Array[_0x15fa0d(0x12e)](_0x34d850[_0x15fa0d(0x147)]),_0x2de729=_0x2a59ac[_0x15fa0d(0x110)](_0xb541e4);if(_0x2de729<0x0)return;if(_0xb541e4['hand']){const _0x4f6769=_0xb541e4[_0x15fa0d(0x11a)]||_0x2745c1['Flspd'],_0x52656f=_0x5e9e71['xr'][_0x15fa0d(0x17d)](_0x2de729);_0xa39c44['add'](_0x52656f),console[_0x15fa0d(0x173)]('['+_0x4f6769+_0x15fa0d(0x16c));const _0x3f272b={'source':_0xb541e4,'isHand':!![],'modelAdded':![],'tryAddModel':null},_0x4b90ea=()=>{const _0x4b38bc=_0x15fa0d;try{const _0x4a8d56=_0x1f4b2c[_0x4b38bc(0x142)](_0x52656f,_0x49452f[_0x4b38bc(0x16f)]);_0x52656f[_0x4b38bc(0x116)](_0x4a8d56),console[_0x4b38bc(0x173)]('['+_0x4f6769+_0x4b38bc(0x162)),_0x3f272b[_0x4b38bc(0x17c)]=!![];}catch(_0x27078e){console[_0x4b38bc(0x134)]('['+_0x4f6769+_0x4b38bc(0x141),_0x27078e),_0x49452f[_0x4b38bc(0x10f)](setTimeout,_0x4b90ea,0xc8);}};_0x3f272b['tryAddModel']=_0x4b90ea,_0x2745c1['kYNee'](_0x4b90ea);_0xb541e4[_0x15fa0d(0x13c)]&&(_0x3f272b['gp']=_0xb541e4[_0x15fa0d(0x13c)],_0x3f272b[_0x15fa0d(0x151)]=_0xb541e4['gamepad'][_0x15fa0d(0x160)][_0x15fa0d(0x15f)](_0x5dff6d=>_0x5dff6d[_0x15fa0d(0x11b)]),_0x3f272b['prevAxes']=_0xb541e4[_0x15fa0d(0x13c)][_0x15fa0d(0x12d)][_0x15fa0d(0x175)](),console[_0x15fa0d(0x173)]('['+_0x4f6769+_0x15fa0d(0x144)));_0x5875d8[_0x15fa0d(0x126)](_0xb541e4,_0x3f272b);return;}if(_0xb541e4[_0x15fa0d(0x13c)]&&_0x2745c1[_0x15fa0d(0x164)](_0xb541e4['targetRayMode'],_0x2745c1[_0x15fa0d(0x153)])){const _0x5cfdb8=_0xb541e4[_0x15fa0d(0x13c)],_0x1fddc5=_0xb541e4[_0x15fa0d(0x11a)]||_0x2745c1[_0x15fa0d(0x13b)];console[_0x15fa0d(0x173)]('['+_0x1fddc5+']\x20controller\x20registrado');try{const _0x12efe4=_0x5e9e71['xr'][_0x15fa0d(0x121)](_0x2de729);_0xa39c44[_0x15fa0d(0x116)](_0x12efe4);const _0x24add1=_0x447267[_0x15fa0d(0x15e)](_0x12efe4);_0x12efe4[_0x15fa0d(0x116)](_0x24add1),console['log']('['+_0x1fddc5+_0x15fa0d(0x11e));}catch(_0x25c1cf){console[_0x15fa0d(0x13f)]('['+_0x1fddc5+_0x15fa0d(0x137),_0x25c1cf);}try{const _0xe07369=_0x5e9e71['xr'][_0x15fa0d(0x123)](_0x2de729);_0xa39c44[_0x15fa0d(0x116)](_0xe07369);const _0x4e97b6=[new a0_0xc3a967[(_0x15fa0d(0x12f))](0x0,0x0,0x0),new a0_0xc3a967[(_0x15fa0d(0x12f))](0x0,0x0,-0x1)],_0x24a977=new a0_0xc3a967[(_0x15fa0d(0x11d))](new a0_0xc3a967[(_0x15fa0d(0x166))]()[_0x15fa0d(0x178)](_0x4e97b6),new a0_0xc3a967[(_0x15fa0d(0x168))]({'color':0xff00}));_0x24a977[_0x15fa0d(0x16d)]['z']=0x5,_0xe07369['add'](_0x24a977);}catch(_0x1a478d){console[_0x15fa0d(0x13f)]('['+_0x1fddc5+_0x15fa0d(0x107),_0x1a478d);}_0x5875d8[_0x15fa0d(0x126)](_0xb541e4,{'source':_0xb541e4,'isHand':![],'gp':_0x5cfdb8,'prevPressed':_0x5cfdb8[_0x15fa0d(0x160)][_0x15fa0d(0x15f)](_0x30701f=>_0x30701f[_0x15fa0d(0x11b)]),'prevAxes':_0x5cfdb8[_0x15fa0d(0x12d)][_0x15fa0d(0x175)]()});}}catch(_0x1f587){console['error'](_0x2745c1[_0x15fa0d(0x170)],_0x1f587);}}for(let _0x541228=0x0;_0x2745c1[_0x3fb314(0x14c)](_0x541228,0x2);_0x541228++){const _0xde0921=_0x5e9e71['xr'][_0x3fb314(0x123)](_0x541228),_0x1d9966=_0x5e9e71['xr']['getControllerGrip'](_0x541228),_0x67f2e0=_0x5e9e71['xr'][_0x3fb314(0x17d)](_0x541228);_0xde0921[_0x3fb314(0x14e)](_0x2745c1[_0x3fb314(0x10b)],_0xefea7f=>_0xffca96(_0xefea7f[_0x3fb314(0x113)])),_0x1d9966[_0x3fb314(0x14e)](_0x2745c1[_0x3fb314(0x10b)],_0x471079=>_0xffca96(_0x471079['data'])),_0x67f2e0[_0x3fb314(0x14e)](_0x2745c1[_0x3fb314(0x10b)],_0xb9502e=>_0xffca96(_0xb9502e[_0x3fb314(0x113)])),_0xa39c44['add'](_0xde0921),_0xa39c44[_0x3fb314(0x116)](_0x1d9966),_0xa39c44['add'](_0x67f2e0);}_0x34d850[_0x3fb314(0x14e)](_0x2745c1[_0x3fb314(0x122)],_0x4f65b6=>{const _0x213a8d=_0x3fb314;_0x4f65b6[_0x213a8d(0x161)][_0x213a8d(0x13d)](_0x3708c7=>{const _0x1588c1=_0x213a8d;if(_0x5875d8[_0x1588c1(0x167)](_0x3708c7)){const _0x1d2d5a=_0x3708c7[_0x1588c1(0x11a)]||_0x2745c1['Flspd'];console[_0x1588c1(0x173)]('['+_0x1d2d5a+_0x1588c1(0x171)),_0x5875d8[_0x1588c1(0x172)](_0x3708c7);}}),_0x4f65b6[_0x213a8d(0x118)]['forEach'](_0x130f35=>_0xffca96(_0x130f35));}),_0x34d850[_0x3fb314(0x14e)](_0x2745c1[_0x3fb314(0x158)],()=>{const _0x59524a=_0x3fb314;_0x2745c1[_0x59524a(0x164)](_0x34d850[_0x59524a(0x135)],_0x2745c1['uIvDP'])&&(console[_0x59524a(0x173)](_0x59524a(0x145)),_0x34d850[_0x59524a(0x147)]['forEach'](_0xffca96));});try{const _0x5af814=_0x5e9e71['render']['bind'](_0x5e9e71);_0x5e9e71[_0x3fb314(0x179)]=(_0x13470c,_0x5cf5ef)=>{const _0x259d70=_0x3fb314,_0x59ba6c={'nTTDT':_0x2745c1[_0x259d70(0x117)],'ciCgP':function(_0x31dcc4,_0x5ddd0d){const _0xfa484a=_0x259d70;return _0x2745c1[_0xfa484a(0x164)](_0x31dcc4,_0x5ddd0d);},'EWbYt':_0x259d70(0x16a),'MgTKQ':function(_0x41419e,_0x22a4ec){return _0x2745c1['btcAk'](_0x41419e,_0x22a4ec);},'hsNrx':_0x2745c1[_0x259d70(0x152)],'ULXkq':_0x259d70(0x157),'YwZHd':function(_0x27f242,_0x4730bd){return _0x2745c1['btcAk'](_0x27f242,_0x4730bd);},'AxDVf':'left','wEuAX':function(_0x3e8e54,_0x59f4d4){const _0x4e0527=_0x259d70;return _0x2745c1[_0x4e0527(0x109)](_0x3e8e54,_0x59f4d4);},'OlmYA':function(_0x253a4e,_0x37260a){return _0x253a4e===_0x37260a;},'jazOg':function(_0x3b2ad1){const _0x49e512=_0x259d70;return _0x2745c1[_0x49e512(0x125)](_0x3b2ad1);},'knimA':function(_0x34e59e,_0x126475){return _0x2745c1['IgEWN'](_0x34e59e,_0x126475);}};_0x34d850['inputSources']['forEach'](_0x289eb1=>_0xffca96(_0x289eb1)),_0x5875d8[_0x259d70(0x13d)](_0x9ed380=>{const _0x5c39d4=_0x259d70;if(!_0x9ed380['gp'])return;const {source:_0x15b98a,gp:_0x3a6d09,prevPressed:_0x5cb89d,prevAxes:_0x17095c}=_0x9ed380,_0x808ed9=_0x15b98a[_0x5c39d4(0x11a)]||_0x5c39d4(0x143);_0x3a6d09['buttons'][_0x5c39d4(0x13d)]((_0x35ce63,_0x57a8a1)=>{const _0x334478=_0x5c39d4;if(_0x35ce63[_0x334478(0x11b)]&&!_0x5cb89d[_0x57a8a1]){const _0x39950a=_0x15b98a[_0x334478(0x163)]?_0x334478(0x138):_0x59ba6c[_0x334478(0x17b)];console[_0x334478(0x173)]('['+_0x808ed9+']\x20'+_0x39950a+'\x20'+_0x57a8a1+_0x334478(0x120));if(!_0x15b98a[_0x334478(0x163)]){if(_0x57a8a1===0x4)document[_0x334478(0x149)]('next-btn')[_0x334478(0x129)]();if(_0x59ba6c['ciCgP'](_0x57a8a1,0x5))document[_0x334478(0x149)](_0x59ba6c[_0x334478(0x150)])['click']();}else{if(_0x59ba6c['MgTKQ'](_0x57a8a1,0x0)&&_0x59ba6c['ciCgP'](_0x808ed9,_0x59ba6c[_0x334478(0x11f)]))document['getElementById'](_0x59ba6c['ULXkq'])[_0x334478(0x129)]();if(_0x57a8a1===0x0&&_0x59ba6c[_0x334478(0x106)](_0x808ed9,_0x59ba6c[_0x334478(0x130)]))document[_0x334478(0x149)](_0x59ba6c[_0x334478(0x150)])[_0x334478(0x129)]();}!_0x15b98a[_0x334478(0x163)]&&_0x59ba6c[_0x334478(0x106)](_0x57a8a1,0x3)&&toggleDebugWidget(),_0x15b98a[_0x334478(0x163)]&&_0x59ba6c[_0x334478(0x15b)](_0x808ed9,_0x334478(0x177))&&_0x59ba6c[_0x334478(0x17e)](_0x57a8a1,0x4)&&_0x59ba6c[_0x334478(0x115)](toggleDebugWidget);}_0x5cb89d[_0x57a8a1]=_0x35ce63[_0x334478(0x11b)];}),_0x3a6d09[_0x5c39d4(0x12d)][_0x5c39d4(0x13d)]((_0x4b0197,_0x2fdeb4)=>{const _0x270c3=_0x5c39d4;_0x59ba6c[_0x270c3(0x136)](Math[_0x270c3(0x16b)](_0x4b0197-_0x17095c[_0x2fdeb4]),_0x17aacc)&&(console[_0x270c3(0x173)]('['+_0x808ed9+_0x270c3(0x11c)+_0x2fdeb4+_0x270c3(0x169)+_0x4b0197[_0x270c3(0x128)](0x2)),_0x17095c[_0x2fdeb4]=_0x4b0197);});}),_0x2745c1[_0x259d70(0x112)](_0x5af814,_0x13470c,_0x5cf5ef);};}catch(_0x3569e6){console[_0x3fb314(0x13f)]('Falha\x20ao\x20aplicar\x20monkeypatch\x20render:',_0x3569e6);}}
+// platforms/vr/quest.js
+
+import * as THREE from '../../libs/three.module.js';
+import { XRControllerModelFactory } from '../../libs/XRControllerModelFactory.js';
+import { XRHandModelFactory }       from '../../libs/XRHandModelFactory.js';
+import { toggleDebugWidget } from '../vr/vr_dbg_widget.js';
+
+const FINGER_MAP = {
+  'index-finger-tip': 2,
+  'middle-finger-tip': 3,
+  'ring-finger-tip': 4,
+  'pinky-finger-tip': 5,
+  'thumb-tip': 1
+};
+
+export function initControllers({ renderer, scene, referenceSpace }) {
+  const session        = renderer.xr.getSession();
+  const ctrlFactory    = new XRControllerModelFactory();
+  const handFactory    = new XRHandModelFactory();
+  const controllers    = new Map();
+  const AXIS_THRESHOLD = 0.05;
+
+  // Polyfill para inputSources.filter
+  if (session.inputSources && typeof session.inputSources.filter !== 'function') {
+    session.inputSources.filter = cb => Array.from(session.inputSources).filter(cb);
+  }
+
+  // PINCH (select)
+  session.addEventListener('selectstart', ev => {
+    if (!ev.inputSource.hand) return;
+    const h = ev.inputSource.handedness;
+    const i = FINGER_MAP['index-finger-tip'];
+    console.log(`[${h} hand] finger ${i} PINCHED`);
+  });
+  session.addEventListener('selectend', ev => {
+    if (!ev.inputSource.hand) return;
+    const h = ev.inputSource.handedness;
+    const i = FINGER_MAP['index-finger-tip'];
+    console.log(`[${h} hand] finger ${i} RELEASED`);
+  });
+
+  // WRIST BUTTON (squeeze)
+  session.addEventListener('squeezestart', ev => {
+    if (!ev.inputSource.hand) return;
+    const h = ev.inputSource.handedness;
+    console.log(`[${h} hand] wrist button DOWN`);
+  });
+  session.addEventListener('squeezeend', ev => {
+    if (!ev.inputSource.hand) return;
+    const h = ev.inputSource.handedness;
+    console.log(`[${h} hand] wrist button UP`);
+  });
+
+  function registerSource(src) {
+    try {
+      if (controllers.has(src)) {
+        const ent = controllers.get(src);
+        if (ent.isHand && !ent.modelAdded) ent.tryAddModel();
+        return;
+      }
+
+      const inputs = Array.from(session.inputSources);
+      const idx    = inputs.indexOf(src);
+      if (idx < 0) return;
+
+      // === HAND TRACKING ===
+      if (src.hand) {
+        const handLabel = src.handedness || 'unknown';
+        const handRoot  = renderer.xr.getHand(idx);
+        scene.add(handRoot);
+        console.log(`[${handLabel} hand] handRoot adicionado`);
+
+        const ent = { source: src, isHand: true, modelAdded: false, tryAddModel: null };
+        const tryAddModel = () => {
+          try {
+            const handModel = handFactory.createHandModel(handRoot, 'mesh');
+            handRoot.add(handModel);
+            console.log(`[${handLabel} hand] modelo de mão adicionado`);
+            ent.modelAdded = true;
+          } catch (err) {
+            console.warn(`[${handLabel} hand] sem tracking ainda, retry…`, err);
+            setTimeout(tryAddModel, 200);
+          }
+        };
+        ent.tryAddModel = tryAddModel;
+        tryAddModel();
+
+        // Se houver gamepad na mão (botões extras)
+        if (src.gamepad) {
+          ent.gp = src.gamepad;
+          ent.prevPressed = src.gamepad.buttons.map(b => b.pressed);
+          ent.prevAxes    = src.gamepad.axes.slice();
+          console.log(`[${handLabel} hand] gamepad em hand registrado`);
+        }
+
+        controllers.set(src, ent);
+        return;
+      }
+
+      // === GAMEPAD CONTROLLER ===
+      // Somente tracked-pointer (evita duplicar grip)
+      if (src.gamepad && src.targetRayMode === 'tracked-pointer') {
+        const gp   = src.gamepad;
+        const hand = src.handedness || 'unknown';
+        console.log(`[${hand}] controller registrado`);
+
+        // grip + modelo
+        try {
+          const grip  = renderer.xr.getControllerGrip(idx);
+          scene.add(grip);
+          const model = ctrlFactory.createControllerModel(grip);
+          grip.add(model);
+          console.log(`[${hand}] modelo de grip adicionado`);
+        } catch (err) {
+          console.error(`[${hand}] gripModel erro:`, err);
+        }
+
+        // ray pointer
+        try {
+          const ctrl = renderer.xr.getController(idx);
+          scene.add(ctrl);
+          const pts = [
+            new THREE.Vector3(0, 0, 0),
+            new THREE.Vector3(0, 0, -1)
+          ];
+          const line = new THREE.Line(
+            new THREE.BufferGeometry().setFromPoints(pts),
+            new THREE.LineBasicMaterial({ color: 0x00ff00 })
+          );
+          line.scale.z = 5;
+          ctrl.add(line);
+        } catch (err) {
+          console.error(`[${hand}] pointer erro:`, err);
+        }
+
+        controllers.set(src, {
+          source: src,
+          isHand: false,
+          gp,
+          prevPressed: gp.buttons.map(b => b.pressed),
+          prevAxes:    gp.axes.slice()
+        });
+      }
+    } catch (err) {
+      console.error('registerSource geral erro:', err);
+    }
+  }
+
+  // Conexões iniciais
+  for (let i = 0; i < 2; i++) {
+    const ctrl = renderer.xr.getController(i);
+    const grip = renderer.xr.getControllerGrip(i);
+    const hand = renderer.xr.getHand(i);
+
+    ctrl.addEventListener('connected', ev => registerSource(ev.data));
+    grip.addEventListener('connected', ev => registerSource(ev.data));
+    hand.addEventListener('connected', ev => registerSource(ev.data));
+
+    scene.add(ctrl);
+    scene.add(grip);
+    scene.add(hand);
+  }
+
+  session.addEventListener('inputsourceschange', evt => {
+    evt.removed.forEach(rem => {
+      if (controllers.has(rem)) {
+        const h = rem.handedness || 'unknown';
+        console.log(`[${h}] fonte removida`);
+        controllers.delete(rem);
+      }
+    });
+    evt.added.forEach(src => registerSource(src));
+  });
+
+  session.addEventListener('visibilitychange', () => {
+    if (session.visibilityState === 'visible') {
+      console.log('Sessão visível novamente → re-registrando fontes');
+      session.inputSources.forEach(registerSource);
+    }
+  });
+
+  // Monkey-patch do render pra gamepad polling, navegação e toggle do debug widget
+  try {
+    const _render = renderer.render.bind(renderer);
+    renderer.render = (sceneArg, cameraArg) => {
+      // Garante que novas fontes sejam registradas
+      session.inputSources.forEach(src => registerSource(src));
+
+      controllers.forEach(ent => {
+        if (!ent.gp) return;
+        const { source, gp, prevPressed, prevAxes } = ent;
+        const h = source.handedness || 'unknown';
+
+        // Processamento de botões
+        gp.buttons.forEach((b, i) => {
+          // Só on DOWN
+          if (b.pressed && !prevPressed[i]) {
+            const type = source.hand ? 'hand-button' : 'controller button';
+            console.log(`[${h}] ${type} ${i} DOWN`);
+
+            // ─── Navegação de mídia ───
+            if (!source.hand) {
+              // controles físicos
+              if (i === 4) document.getElementById('next-btn').click();
+              if (i === 5) document.getElementById('prev-btn').click();
+            } else {
+              // hand-tracking
+              if (i === 0 && h === 'right') document.getElementById('next-btn').click();
+              if (i === 0 && h === 'left')  document.getElementById('prev-btn').click();
+            }
+
+            // ─── Toggle do VR debug widget ───
+            // botão 3 do controle
+            if (!source.hand && i === 3) {
+              toggleDebugWidget();
+            }
+            // botão 4 da mão esquerda
+            if (source.hand && h === 'left' && i === 4) {
+              toggleDebugWidget();
+            }
+          }
+          // Atualiza estado para ignorar UP e repetidos
+          prevPressed[i] = b.pressed;
+        });
+
+        // Processamento de eixos (opcional)
+        gp.axes.forEach((ax, ai) => {
+          if (Math.abs(ax - prevAxes[ai]) > AXIS_THRESHOLD) {
+            console.log(`[${h}] Axis ${ai} = ${ax.toFixed(2)}`);
+            prevAxes[ai] = ax;
+          }
+        });
+      });
+
+      // Chama o render original
+      _render(sceneArg, cameraArg);
+    };
+  } catch (err) {
+    console.error('Falha ao aplicar monkeypatch render:', err);
+  }
+
+}

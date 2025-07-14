@@ -1,1 +1,85 @@
-function a0_0x1b9b(){const _0x4fee1d=['DgHLBG','ru5urviGvLi','BwzpyKq','CMDIysGWldaSmcWWlJeP','vLiGtK9uiefmte9xruq','vLiGtK9uifnvufbpuLrfra','mJbWEa','qKH6uxu','ndiYnJG0mgv6AhntEq','mtjWEca2ChG','q3zIEKS','DMHYAeC','yxbgC3e','zxHZzM0','t1rXwvC','zxjYB3i','ouH2C3fNuW','y3jLyxrLrwXLBwvUDa','DhjHBNnSyxrLwcGTntaLkq','B25TB3vZzwXLyxzL','wfzMANu','mtyXnJG1mtbPtgT5C0G','vKz6BLK','mxb4ihnVBgLKicnMzMy','Dgj3Cu0','mc44','mtCWzwHxDKHw','ve1pDhu','Bg9JywWTzMXVB3i','rMfSAgeGyw8GAw5Py2LHCIbZzxnZW6nVifzsoG','zxnXDw8','zgLZywjSzwq','tffOrNa','zvLXr2u','mZi1ndK3mhHLwg9lEa','nhb4','Axntzwn1CMvdB250zxH0','yNv0Dg9U','Cg9PBNrLCG','u0LwCgO','twjYr1i','AxntzxnZAw9Uu3vWCg9YDgvK','CMvXDwvZDfnLC3nPB24','zw5K','wxnNC2q','C2v0u2vZC2LVBG','mJu0nZC0mfHfwuLxuG','i2zMzG','mZK1nMjtu1bMDW','y3jLyxrLqNv0Dg9U','ndi2nJC1ww1sC2X3','wwnktwy','s3rjrfG','nJy5nJe5mLzYsKP3zG','zML4zwq','wwjOwe8','n1fssNLgva','ywrKrxzLBNrmAxn0zw5LCG','Aw1TzxjZAxzLlxzY','B25TB3vZzwvUDgvY','Dgv4DenVBNrLBNq','ntaL','q0Hfq0fore8GvLiUlI4','otK5','B25JBgLJAW','wvzxs3O','C3r5Bgu','D2fYBG'];a0_0x1b9b=function(){return _0x4fee1d;};return a0_0x1b9b();}const a0_0x1f4ae2=a0_0x5ad4;(function(_0x28f6d2,_0x4da8ff){const _0x482a6c=a0_0x5ad4,_0x155017=_0x28f6d2();while(!![]){try{const _0x22259f=-parseInt(_0x482a6c(0xd7))/0x1*(-parseInt(_0x482a6c(0xa9))/0x2)+parseInt(_0x482a6c(0xab))/0x3+-parseInt(_0x482a6c(0xa7))/0x4+parseInt(_0x482a6c(0xc5))/0x5+parseInt(_0x482a6c(0xdf))/0x6+parseInt(_0x482a6c(0xb1))/0x7*(parseInt(_0x482a6c(0xae))/0x8)+-parseInt(_0x482a6c(0xcd))/0x9*(parseInt(_0x482a6c(0xd2))/0xa);if(_0x22259f===_0x4da8ff)break;else _0x155017['push'](_0x155017['shift']());}catch(_0x15f8f0){_0x155017['push'](_0x155017['shift']());}}}(a0_0x1b9b,0x6dc32));class VRButton{static[a0_0x1f4ae2(0xaa)](_0x2304e9,_0x53307e={}){const _0x3d0948=a0_0x1f4ae2,_0x1f4eeb={'NTfIg':_0x3d0948(0xbe),'CvbzK':_0x3d0948(0xb3),'TwfTP':'EXIT\x20VR','myYvg':'end','tbwqM':_0x3d0948(0xda),'sbCva':_0x3d0948(0xc2),'XVfju':_0x3d0948(0xc1),'YcJMf':'Erro\x20ao\x20verificar\x20suporte\x20XR:','TMOtu':_0x3d0948(0xaf),'YbhXO':_0x3d0948(0xb6),'SIVpj':_0x3d0948(0xc3),'Ysgsd':_0x3d0948(0xcf),'MbrGR':_0x3d0948(0xc6),'BHzQu':_0x3d0948(0xd4),'qmAdR':_0x3d0948(0xc0),'apFsq':_0x3d0948(0xa8),'esquo':'normal\x2013px\x20sans-serif','eYqGe':'center','YVWKz':'0.8','KtIDX':_0x3d0948(0xe3),'euqqA':_0x3d0948(0xd9),'VFznY':_0x3d0948(0xe2),'vhrhG':function(_0x16da93,_0x3e0d67){return _0x16da93(_0x3e0d67);},'mfObD':_0x3d0948(0xb7),'exsfm':'WEBXR\x20NEEDS\x20HTTPS','OTqYW':'WEBXR\x20NOT\x20AVAILABLE'},{referenceSpaceType:referenceSpaceType=_0x1f4eeb['euqqA'],optionalFeatures:optionalFeatures=[],requiredFeatures:requiredFeatures=[]}=_0x53307e,_0x3ba83b=document[_0x3d0948(0xce)](_0x1f4eeb[_0x3d0948(0xd3)]);_0x1f4eeb[_0x3d0948(0xc8)](_0x2a8257,_0x3ba83b),_0x3ba83b[_0x3d0948(0xdc)]=!![],_0x3ba83b[_0x3d0948(0xb5)]=_0x1f4eeb[_0x3d0948(0xbf)];navigator['xr']&&navigator['xr']['isSessionSupported']?navigator['xr'][_0x3d0948(0xa2)](_0x1f4eeb[_0x3d0948(0xc7)])[_0x3d0948(0xbd)](_0x105b3e=>{const _0x5b640f=_0x3d0948;if(_0x105b3e){_0x3ba83b['disabled']=![],_0x3ba83b[_0x5b640f(0xb5)]=_0x5b640f(0xbe);let _0x414113=null;_0x3ba83b[_0x5b640f(0xb9)]=async()=>{const _0x2d53aa=_0x5b640f,_0x259551={'LQhFp':_0x1f4eeb['NTfIg']};if(!_0x414113)try{_0x414113=await navigator['xr'][_0x2d53aa(0xa3)](_0x1f4eeb[_0x2d53aa(0xc7)],{'optionalFeatures':[...optionalFeatures],'requiredFeatures':[...requiredFeatures,referenceSpaceType]}),await _0x2304e9['xr'][_0x2d53aa(0xa6)](_0x414113),_0x3ba83b['textContent']=_0x1f4eeb['TwfTP'],_0x414113[_0x2d53aa(0xb2)](_0x1f4eeb['myYvg'],()=>{const _0x591080=_0x2d53aa;_0x414113=null,_0x3ba83b[_0x591080(0xb5)]=_0x259551[_0x591080(0xdd)];});}catch(_0x53d2ab){console[_0x2d53aa(0xcc)](_0x1f4eeb[_0x2d53aa(0xd5)],_0x53d2ab);}else await _0x414113[_0x2d53aa(0xa4)]();};}else _0x3ba83b[_0x5b640f(0xdc)]=!![],_0x3ba83b[_0x5b640f(0xb5)]=_0x1f4eeb['sbCva'];})['catch'](_0x169231=>{const _0x203813=_0x3d0948;_0x3ba83b[_0x203813(0xdc)]=!![],_0x3ba83b[_0x203813(0xb5)]=_0x1f4eeb[_0x203813(0xd1)],console[_0x203813(0xbc)](_0x1f4eeb[_0x203813(0xac)],_0x169231);}):(_0x3ba83b[_0x3d0948(0xdc)]=!![],!window[_0x3d0948(0xe1)]?_0x3ba83b[_0x3d0948(0xb5)]=_0x1f4eeb[_0x3d0948(0xca)]:_0x3ba83b[_0x3d0948(0xb5)]=_0x1f4eeb[_0x3d0948(0xcb)]);return _0x3ba83b;function _0x2a8257(_0x27c308){const _0x54542d=_0x3d0948;Object['assign'](_0x27c308[_0x54542d(0xbb)],{'position':_0x1f4eeb[_0x54542d(0xd8)],'left':_0x1f4eeb[_0x54542d(0xb0)],'bottom':_0x1f4eeb[_0x54542d(0xe4)],'transform':_0x1f4eeb[_0x54542d(0xa5)],'padding':_0x1f4eeb[_0x54542d(0xe5)],'border':_0x1f4eeb[_0x54542d(0xc4)],'borderRadius':_0x54542d(0xe0),'background':_0x1f4eeb['qmAdR'],'color':_0x1f4eeb[_0x54542d(0xc9)],'font':_0x1f4eeb[_0x54542d(0xdb)],'textAlign':_0x1f4eeb[_0x54542d(0xde)],'opacity':_0x1f4eeb[_0x54542d(0xba)],'cursor':_0x1f4eeb[_0x54542d(0xad)],'zIndex':_0x54542d(0xb8)}),_0x27c308[_0x54542d(0xb4)]=()=>_0x27c308[_0x54542d(0xbb)]['opacity']='1.0',_0x27c308[_0x54542d(0xd0)]=()=>_0x27c308[_0x54542d(0xbb)]['opacity']=_0x54542d(0xd6);}}}function a0_0x5ad4(_0x30a032,_0x68359d){const _0x1b9bb6=a0_0x1b9b();return a0_0x5ad4=function(_0x5ad402,_0x4d05b1){_0x5ad402=_0x5ad402-0xa2;let _0x1d931d=_0x1b9bb6[_0x5ad402];if(a0_0x5ad4['mgajys']===undefined){var _0x45d386=function(_0x1cb048){const _0x1a247e='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x28b52f='',_0x355de9='';for(let _0xdf0f23=0x0,_0x22c6a8,_0x30b061,_0x3167d2=0x0;_0x30b061=_0x1cb048['charAt'](_0x3167d2++);~_0x30b061&&(_0x22c6a8=_0xdf0f23%0x4?_0x22c6a8*0x40+_0x30b061:_0x30b061,_0xdf0f23++%0x4)?_0x28b52f+=String['fromCharCode'](0xff&_0x22c6a8>>(-0x2*_0xdf0f23&0x6)):0x0){_0x30b061=_0x1a247e['indexOf'](_0x30b061);}for(let _0x35f2fd=0x0,_0x474c57=_0x28b52f['length'];_0x35f2fd<_0x474c57;_0x35f2fd++){_0x355de9+='%'+('00'+_0x28b52f['charCodeAt'](_0x35f2fd)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x355de9);};a0_0x5ad4['WCOxGr']=_0x45d386,_0x30a032=arguments,a0_0x5ad4['mgajys']=!![];}const _0x533819=_0x1b9bb6[0x0],_0x46cd8b=_0x5ad402+_0x533819,_0x21453c=_0x30a032[_0x46cd8b];return!_0x21453c?(_0x1d931d=a0_0x5ad4['WCOxGr'](_0x1d931d),_0x30a032[_0x46cd8b]=_0x1d931d):_0x1d931d=_0x21453c,_0x1d931d;},a0_0x5ad4(_0x30a032,_0x68359d);}export{VRButton};
+class VRButton {
+  static createButton(renderer, options = {}) {
+    const {
+      referenceSpaceType = 'local-floor',
+      optionalFeatures = [],
+      requiredFeatures = []
+    } = options;
+
+    const button = document.createElement('button');
+    stylizeElement(button);
+    button.disabled = true;
+    button.textContent = 'CHECANDO VR...';
+
+    if (navigator.xr && navigator.xr.isSessionSupported) {
+      navigator.xr.isSessionSupported('immersive-vr')
+        .then((supported) => {
+          if (supported) {
+            button.disabled = false;
+            button.textContent = 'ENTER VR';
+            let session = null;
+            button.onclick = async () => {
+              if (!session) {
+                try {
+                  session = await navigator.xr.requestSession('immersive-vr', {
+                    optionalFeatures: [...optionalFeatures],
+                    requiredFeatures: [...requiredFeatures, referenceSpaceType]
+                  });
+                  await renderer.xr.setSession(session);
+                  button.textContent = 'EXIT VR';
+                  session.addEventListener('end', () => {
+                    session = null;
+                    button.textContent = 'ENTER VR';
+                  });
+                } catch (err) {
+                  console.error('Falha ao iniciar sessão VR:', err);
+                }
+              } else {
+                await session.end();
+              }
+            };
+          } else {
+            button.disabled = true;
+            button.textContent = 'VR NOT SUPPORTED';
+          }
+        })
+        .catch((err) => {
+          button.disabled = true;
+          button.textContent = 'VR NOT ALLOWED';
+          console.warn('Erro ao verificar suporte XR:', err);
+        });
+    } else {
+      button.disabled = true;
+      if (!window.isSecureContext) {
+        button.textContent = 'WEBXR NEEDS HTTPS';
+      } else {
+        button.textContent = 'WEBXR NOT AVAILABLE';
+      }
+    }
+
+    return button;
+
+    function stylizeElement(el) {
+      Object.assign(el.style, {
+        position: 'fixed',         // fixo para não mudar com redimensionamento
+        left: '50%',              // posiciona no centro horizontal
+        bottom: '20px',           // espaçamento do rodapé
+        transform: 'translateX(-50%)', // centraliza o botão
+        padding: '12px 6px',
+        border: '1px solid #fff',
+        borderRadius: '4px',
+        background: 'rgba(0,0,0,0.1)',
+        color: '#fff',
+        font: 'normal 13px sans-serif',
+        textAlign: 'center',
+        opacity: '0.8',
+        cursor: 'pointer',
+        zIndex: '999'
+      });
+      el.onmouseenter = () => el.style.opacity = '1.0';
+      el.onmouseleave = () => el.style.opacity = '0.8';
+    }
+  }
+}
+
+export { VRButton };

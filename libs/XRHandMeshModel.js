@@ -1,1 +1,151 @@
-function a0_0x2738(_0x274b2b,_0x49f94a){const _0x166264=a0_0x1662();return a0_0x2738=function(_0x273848,_0x127709){_0x273848=_0x273848-0x145;let _0x11a106=_0x166264[_0x273848];if(a0_0x2738['zVXNYL']===undefined){var _0x144655=function(_0x519a98){const _0x2a5002='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4eff0e='',_0x1db753='';for(let _0x9ed2be=0x0,_0x5c3fdd,_0x5dbb64,_0x29a1d6=0x0;_0x5dbb64=_0x519a98['charAt'](_0x29a1d6++);~_0x5dbb64&&(_0x5c3fdd=_0x9ed2be%0x4?_0x5c3fdd*0x40+_0x5dbb64:_0x5dbb64,_0x9ed2be++%0x4)?_0x4eff0e+=String['fromCharCode'](0xff&_0x5c3fdd>>(-0x2*_0x9ed2be&0x6)):0x0){_0x5dbb64=_0x2a5002['indexOf'](_0x5dbb64);}for(let _0x3aaab3=0x0,_0x73a086=_0x4eff0e['length'];_0x3aaab3<_0x73a086;_0x3aaab3++){_0x1db753+='%'+('00'+_0x4eff0e['charCodeAt'](_0x3aaab3)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x1db753);};a0_0x2738['HLMren']=_0x144655,_0x274b2b=arguments,a0_0x2738['zVXNYL']=!![];}const _0x322bd7=_0x166264[0x0],_0x4a6b22=_0x273848+_0x322bd7,_0x53d2f5=_0x274b2b[_0x4a6b22];return!_0x53d2f5?(_0x11a106=a0_0x2738['HLMren'](_0x11a106),_0x274b2b[_0x4a6b22]=_0x11a106):_0x11a106=_0x53d2f5,_0x11a106;},a0_0x2738(_0x274b2b,_0x49f94a);}const a0_0x5aa864=a0_0x2738;(function(_0x4087a5,_0x2a9024){const _0x19a08d=a0_0x2738,_0x5a4aed=_0x4087a5();while(!![]){try{const _0x11266e=-parseInt(_0x19a08d(0x15e))/0x1*(parseInt(_0x19a08d(0x186))/0x2)+-parseInt(_0x19a08d(0x168))/0x3+parseInt(_0x19a08d(0x176))/0x4+-parseInt(_0x19a08d(0x158))/0x5+-parseInt(_0x19a08d(0x145))/0x6*(parseInt(_0x19a08d(0x15b))/0x7)+parseInt(_0x19a08d(0x146))/0x8*(parseInt(_0x19a08d(0x157))/0x9)+parseInt(_0x19a08d(0x178))/0xa;if(_0x11266e===_0x2a9024)break;else _0x5a4aed['push'](_0x5a4aed['shift']());}catch(_0x3a09c7){_0x5a4aed['push'](_0x5a4aed['shift']());}}}(a0_0x1662,0x9263c));import{GLTFLoader}from'../loaders/GLTFLoader.js';const DEFAULT_HAND_PROFILE_PATH='https://cdn.jsdelivr.net/npm/@webxr-input-profiles/assets@1.0/dist/profiles/generic-hand/';class XRHandMeshModel{constructor(_0x292879,_0x1ca425,_0x16a53f,_0x53c95d,_0x3ac778=null,_0x1c049d=null){const _0x485a9a=a0_0x2738,_0x564d7e={'gjnqa':_0x485a9a(0x16d),'xylQC':'wrist','UGvTJ':'thumb-metacarpal','uTkZe':_0x485a9a(0x17b),'pdTGD':_0x485a9a(0x177),'Hsthd':_0x485a9a(0x15d),'hMhXi':_0x485a9a(0x15a),'yVfMa':_0x485a9a(0x159),'CKNhp':'index-finger-tip','ltsQn':'middle-finger-metacarpal','kEKXp':_0x485a9a(0x179),'GzAQd':_0x485a9a(0x151),'lxgWl':_0x485a9a(0x17a),'TAHnv':_0x485a9a(0x161),'bwlFG':_0x485a9a(0x17d),'nPSiS':_0x485a9a(0x16e),'DHPkW':_0x485a9a(0x160),'HsTfA':_0x485a9a(0x174),'bDQTd':'pinky-finger-metacarpal','uTzTH':'pinky-finger-phalanx-proximal','iBiIi':'pinky-finger-phalanx-intermediate','vdyoi':'pinky-finger-tip','IFMqJ':function(_0x5615d8,_0x1c0535){return _0x5615d8===_0x1c0535;},'whkdw':function(_0x30d4b1,_0x3dd560){return _0x30d4b1||_0x3dd560;}};this['controller']=_0x1ca425,this[_0x485a9a(0x171)]=_0x292879,this['bones']=[],_0x564d7e[_0x485a9a(0x183)](_0x3ac778,null)&&(_0x3ac778=new GLTFLoader(),_0x3ac778[_0x485a9a(0x154)](_0x564d7e[_0x485a9a(0x188)](_0x16a53f,DEFAULT_HAND_PROFILE_PATH))),_0x3ac778[_0x485a9a(0x167)](_0x53c95d+_0x485a9a(0x156),_0x1aae4e=>{const _0x2c4131=_0x485a9a,_0x2db8b3={'FKgON':function(_0x18db90,_0x55eda4){return _0x18db90!==_0x55eda4;}},_0x11f250=_0x1aae4e[_0x2c4131(0x155)][_0x2c4131(0x14b)][0x0];this[_0x2c4131(0x171)][_0x2c4131(0x14a)](_0x11f250);const _0x200e80=_0x11f250['getObjectByProperty'](_0x564d7e[_0x2c4131(0x166)],_0x2c4131(0x17e));_0x200e80['frustumCulled']=![],_0x200e80[_0x2c4131(0x189)]=!![],_0x200e80['receiveShadow']=!![];const _0xd5e918=[_0x564d7e[_0x2c4131(0x17c)],_0x564d7e['UGvTJ'],_0x564d7e[_0x2c4131(0x173)],_0x564d7e['pdTGD'],_0x564d7e[_0x2c4131(0x163)],_0x564d7e['hMhXi'],_0x2c4131(0x172),_0x2c4131(0x165),_0x564d7e[_0x2c4131(0x153)],_0x564d7e[_0x2c4131(0x18a)],_0x564d7e[_0x2c4131(0x149)],_0x564d7e['kEKXp'],_0x564d7e[_0x2c4131(0x16f)],_0x564d7e[_0x2c4131(0x185)],_0x564d7e[_0x2c4131(0x14f)],_0x564d7e[_0x2c4131(0x181)],_0x2c4131(0x169),_0x564d7e[_0x2c4131(0x14c)],_0x564d7e['DHPkW'],_0x564d7e['HsTfA'],_0x564d7e[_0x2c4131(0x182)],_0x564d7e[_0x2c4131(0x180)],_0x564d7e[_0x2c4131(0x148)],_0x2c4131(0x150),_0x564d7e['vdyoi']];_0xd5e918[_0x2c4131(0x14e)](_0x22ca85=>{const _0x2cdf53=_0x2c4131,_0x5da585=_0x11f250[_0x2cdf53(0x147)](_0x22ca85);_0x2db8b3['FKgON'](_0x5da585,undefined)?_0x5da585['jointName']=_0x22ca85:console['warn'](_0x2cdf53(0x184)+_0x22ca85+_0x2cdf53(0x187)+_0x53c95d+_0x2cdf53(0x16a)),this[_0x2cdf53(0x164)][_0x2cdf53(0x16b)](_0x5da585);});if(_0x1c049d)_0x1c049d(_0x11f250);});}[a0_0x5aa864(0x152)](){const _0x3f68b8=a0_0x5aa864,_0x509b6=this[_0x3f68b8(0x16c)][_0x3f68b8(0x14d)];for(let _0x4fa7c7=0x0;_0x4fa7c7<this[_0x3f68b8(0x164)][_0x3f68b8(0x175)];_0x4fa7c7++){const _0x1ef77a=this[_0x3f68b8(0x164)][_0x4fa7c7];if(_0x1ef77a){const _0x23fa87=_0x509b6[_0x1ef77a[_0x3f68b8(0x170)]];if(_0x23fa87[_0x3f68b8(0x15f)]){const _0x5a2179=_0x23fa87[_0x3f68b8(0x17f)];_0x1ef77a[_0x3f68b8(0x17f)][_0x3f68b8(0x162)](_0x5a2179),_0x1ef77a[_0x3f68b8(0x15c)][_0x3f68b8(0x162)](_0x23fa87['quaternion']);}}}}}export{XRHandMeshModel};function a0_0x1662(){const _0x42491f=['Bg9Hza','mZu1otm0n3bhBhjgqG','CMLUzY1MAw5NzxiTCgHHBgfUEc1WCM94Aw1HBa','igHHBMqGBwvZAa','ChvZAa','y29UDhjVBgXLCG','DhLWzq','CMLUzY1MAw5NzxiTCgHHBgfUEc1PBNrLCM1LzgLHDgu','r3Pbuwq','AM9PBNroyw1L','AgfUze1VzgvS','Aw5KzxGTzMLUz2vYlxbOywXHBNGTChjVEgLTywW','DvrRwMu','CMLUzY1MAw5NzxiTDgLW','BgvUz3rO','mJq2nJC0nhLgCNrUAG','DgH1BwiTCgHHBgfUEc1KAxn0ywW','mJG2oty1mtbPseffvKu','BwLKzgXLlwzPBMDLCI1WAgfSyw54lxbYB3HPBwfS','BwLKzgXLlwzPBMDLCI1WAgfSyw54lwrPC3rHBa','DgH1BwiTCgHHBgfUEc1WCM94Aw1HBa','EhLSuum','CMLUzY1MAw5NzxiTBwv0ywnHCNbHBa','u2TPBM5Lze1LC2G','Cg9ZAxrPB24','Dvr6veG','yNDSrKC','yKrrvgq','suznCuO','q291BgrUj3qGzMLUzca','BhHNv2W','otG5mZqYvM1qugT0','igLUia','D2HRzhC','y2fZDfnOywrVDW','q0ToAha','mtqXoduZoerVCNroCq','ndi0ndbYzw9sy2C','z2v0t2jQzwn0qNLoyw1L','AujPswK','BhrZuw4','ywrK','y2HPBgrYzw4','BLbtAvm','AM9PBNrZ','zM9YrwfJAa','vefiBNy','CgLUA3KTzMLUz2vYlxbOywXHBNGTzgLZDgfS','BwLKzgXLlwzPBMDLCI1WAgfSyw54lwLUDgvYBwvKAwf0zq','DxbKyxrLtwvZAa','EvzMtwe','C2v0ugf0Aa','C2nLBMu','lMDSyG','ovz0CKjoEq','ndG3mJqZnwzttwzOyq','Aw5KzxGTzMLUz2vYlxbOywXHBNGTzgLZDgfS','Aw5KzxGTzMLUz2vYlw1LDgfJyxjWywW','n2LmAwXrvW','CxvHDgvYBMLVBG','DgH1BwiTDgLW','mwXPCfrHAW','DMLZAwjSzq','CMLUzY1MAw5NzxiTCgHHBgfUEc1KAxn0ywW','BwLKzgXLlwzPBMDLCI10Axa','y29WEq','shn0Agq','yM9Uzxm','Aw5KzxGTzMLUz2vYlxbOywXHBNGTAw50zxjTzwrPyxrL','z2PUCwe'];a0_0x1662=function(){return _0x42491f;};return a0_0x1662();}
+import { GLTFLoader } from '../loaders/GLTFLoader.js';
+
+const DEFAULT_HAND_PROFILE_PATH = 'https://cdn.jsdelivr.net/npm/@webxr-input-profiles/assets@1.0/dist/profiles/generic-hand/';
+
+/**
+ * Represents one of the hand model types {@link XRHandModelFactory} might produce
+ * depending on the selected profile. `XRHandMeshModel` represents a hand with a
+ * custom asset.
+ *
+ * @three_import import { XRHandMeshModel } from 'three/addons/webxr/XRHandMeshModel.js';
+ */
+class XRHandMeshModel {
+
+	/**
+	 * Constructs a new XR hand mesh model.
+	 *
+	 * @param {XRHandModel} handModel - The hand model.
+	 * @param {Group} controller - The WebXR controller.
+	 * @param {?string} path - The model path.
+	 * @param {XRHandedness} handedness - The handedness of the XR input source.
+	 * @param {?Loader} [loader=null] - The loader. If not provided, an instance of `GLTFLoader` will be used to load models.
+	 * @param {?Function} [onLoad=null] - A callback that is executed when a controller model has been loaded.
+	 */
+	constructor( handModel, controller, path, handedness, loader = null, onLoad = null ) {
+
+		/**
+		 * The WebXR controller.
+		 *
+		 * @type {Group}
+		 */
+		this.controller = controller;
+
+		/**
+		 * The hand model.
+		 *
+		 * @type {XRHandModel}
+		 */
+		this.handModel = handModel;
+
+		/**
+		 * An array of bones representing the bones
+		 * of the hand skeleton.
+		 *
+		 * @type {Array<Bone>}
+		 */
+		this.bones = [];
+
+		if ( loader === null ) {
+
+			loader = new GLTFLoader();
+			loader.setPath( path || DEFAULT_HAND_PROFILE_PATH );
+
+		}
+
+		loader.load( `${handedness}.glb`, gltf => {
+
+			const object = gltf.scene.children[ 0 ];
+			this.handModel.add( object );
+
+			const mesh = object.getObjectByProperty( 'type', 'SkinnedMesh' );
+			mesh.frustumCulled = false;
+			mesh.castShadow = true;
+			mesh.receiveShadow = true;
+
+			const joints = [
+				'wrist',
+				'thumb-metacarpal',
+				'thumb-phalanx-proximal',
+				'thumb-phalanx-distal',
+				'thumb-tip',
+				'index-finger-metacarpal',
+				'index-finger-phalanx-proximal',
+				'index-finger-phalanx-intermediate',
+				'index-finger-phalanx-distal',
+				'index-finger-tip',
+				'middle-finger-metacarpal',
+				'middle-finger-phalanx-proximal',
+				'middle-finger-phalanx-intermediate',
+				'middle-finger-phalanx-distal',
+				'middle-finger-tip',
+				'ring-finger-metacarpal',
+				'ring-finger-phalanx-proximal',
+				'ring-finger-phalanx-intermediate',
+				'ring-finger-phalanx-distal',
+				'ring-finger-tip',
+				'pinky-finger-metacarpal',
+				'pinky-finger-phalanx-proximal',
+				'pinky-finger-phalanx-intermediate',
+				'pinky-finger-phalanx-distal',
+				'pinky-finger-tip',
+			];
+
+			joints.forEach( jointName => {
+
+				const bone = object.getObjectByName( jointName );
+
+				if ( bone !== undefined ) {
+
+					bone.jointName = jointName;
+
+				} else {
+
+					console.warn( `Couldn't find ${jointName} in ${handedness} hand mesh` );
+
+				}
+
+				this.bones.push( bone );
+
+			} );
+
+			if ( onLoad ) onLoad( object );
+
+		} );
+
+	}
+
+	/**
+	 * Updates the mesh based on the tracked XR joints data.
+	 */
+	updateMesh() {
+
+		// XR Joints
+		const XRJoints = this.controller.joints;
+
+		for ( let i = 0; i < this.bones.length; i ++ ) {
+
+			const bone = this.bones[ i ];
+
+			if ( bone ) {
+
+				const XRJoint = XRJoints[ bone.jointName ];
+
+				if ( XRJoint.visible ) {
+
+					const position = XRJoint.position;
+
+					bone.position.copy( position );
+					bone.quaternion.copy( XRJoint.quaternion );
+					// bone.scale.setScalar( XRJoint.jointRadius || defaultRadius );
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+export { XRHandMeshModel };

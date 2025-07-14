@@ -1,1 +1,204 @@
-(function(_0x2b1af3,_0x251d33){const _0x40de0a=a0_0x4167,_0x332a51=_0x2b1af3();while(!![]){try{const _0xdd937d=-parseInt(_0x40de0a(0x241))/0x1*(parseInt(_0x40de0a(0x245))/0x2)+-parseInt(_0x40de0a(0x1df))/0x3+-parseInt(_0x40de0a(0x254))/0x4+parseInt(_0x40de0a(0x1d2))/0x5+-parseInt(_0x40de0a(0x260))/0x6+-parseInt(_0x40de0a(0x1de))/0x7*(-parseInt(_0x40de0a(0x1e1))/0x8)+parseInt(_0x40de0a(0x21c))/0x9;if(_0xdd937d===_0x251d33)break;else _0x332a51['push'](_0x332a51['shift']());}catch(_0x7809a1){_0x332a51['push'](_0x332a51['shift']());}}}(a0_0xd7b6,0xa26b2));import*as a0_0x3424a7 from'../libs/three.module.js';function a0_0xd7b6(){const _0x1e4525=['zKvhAxm','nJaZmtGZmfzOALzTDG','tfLMwMe','z2v0rwXLBwvUDej5swq','BMf2AwDHDg9YlNHYig5VDcbHDMfPBgfIBgu','zuHuwNu','DxbKyxrL','y3jLyxrLt2jQzwn0vvjm','tgLUzwfYtwLWtwfWtgLUzwfYrMLSDgvY','C3rLCMvV','DeLoswW','C2nYB2XSvg9W','zgvZA3rVCc1Kzwj1zY1SB2C','reL2z2K','D3jHCfq','wxzAs1C','yMHYExy','A2DXAMS','DMLKzw8','u1jhqKnVBg9Yu3bHy2u','mJm3mJG3merZvfHVtq','rg93BMXVywqGtg9NCW','CMvWzwf0','Bw9UB3nWywnL','C3jJ','BwLUrMLSDgvY','B2zMC2v0','rezKAfC','A0PiDMy','B25JBgLJAW','shfXuNq','DxnLCKfNzw50','ndiWntG4n1DytfHrqq','mJyYmZi2qwHvwwXL','zg93BMXVywq','mtzkANjYueu','C2nHBgu','uKzZuva','BNj5C0C','u2nYzwvUoIa','D292EKe','vvzytfG','q2XHBxbuB0vKz2vxCMfWCgLUzW','ve5dB2W','C2v0ugL4zwXsyxrPBW','C2nYB2XSsgvPz2H0','CunWweC','zuLAt0m','CgXHDgzVCM0','z0v2shK','iZbMma','y2fUDMfZ','vfjjvwi','rxjYB3iGy2HLy2TPBMCGAw1TzxjZAxzLlxzY','CMDIysGWldaSmcWWlJCP','Cg9ZAxrPB24','q2fJAgvqyxrOoG','yxbWzw5Kq2HPBgq','C3r5Bgu','ohb4','BvDSDMW','u3vWCg9YDhmGAw5SAw5LoG','y2XPzw50v2LKDgG','Aw5SAw5L','zgL2','B0TVEM4','D293vvO','sgzStwS','u3vWCg9YDhmGAw1TzxjZAxzLlxzYoG','EfLZruy','DNnkEeO','v2vIr0Xszw5KzxjLCG','z2vUzxjHDgvnAxbTyxbZ','AgvPz2H0','rujJAvy','vMLKzw9uzxH0DxjL','s25PDuS','ls0Tls0Tls0Tls0Tls0Tls0Tls0T','C2v0u2L6zq','ywrK','vxf1ueK','CMvZAxPL','zg9TrwXLBwvUDa','pt09pt09pt09pt09pt09pt09pt09pt09pt09pq','C3rYAw5NAwz5','mZaWChG','yw5PC290CM9WEq','yNv0Dg9U','zgLZCg9Zzq','Dgv4Dc9WBgfPBG','DhLWzq','BMvLzhnvCgrHDgu','u3rLCMvVoG','zfviDfa','mtuWmJi4ndvTqK9sze8','AxntzxnZAw9Uu3vWCg9YDgvK','y2f0y2G','CMvUzgvY','C2v0','twvZAa','twvZAejHC2LJtwf0zxjPywW','Bg9N','qxvgthq','Bwf0zxjPywW','ywrKrxzLBNrmAxn0zw5LCG','y29SB3jtCgfJzq','Aw5Uzxjive1m','Aw1TzxjZAxzLlxzY','y2fJAgvqyxrO','AM9PBG','uLbkAxC','u3bOzxjLr2vVBwv0CNK','tg9HzgvKoIbWBgf0zM9YBxmVzgvZA3rVCc5QCW','zgv2AwnLugL4zwXsyxrPBW','tgLUzwfYrMLSDgvY','ugvYC3bLy3rPDMvdyw1LCMe','DwLpC2y','Bg9Hza','ugXHDgzVCM06','mZeWChG','pt09ierfu0Tut1aGru5wsvjptK1ftLqGpt09','C3blsMu','y2XPzw50sgvPz2H0','rxf1AxjLy3rHBMD1BgfYuMvMBgvJDgLVBK1HChbPBMC','z2v0twf4qw5PC290CM9WEq','Cgf1C2u','vgv4DhvYzuXVywrLCG','uvnvqwi','vxnLCIbbz2vUDdO','AhjLzG','y3jLyxrLrwXLBwvUDa','mJGXody3ANPSCM1Z','tg9HzgvKoIbSAwjZl3rOCMvLlM1VzhvSzs5QCW','rgv2AwnLie1LBw9YEsaOr0iPoG','CMv2B2TLt2jQzwn0vvjm','ng1SC09HAq','rxjYB3iGy2HLy2TPBMCGAw5SAw5L','BwfNrMLSDgvY','y2fWywjPBgL0AwvZ','ChvZAa','BwfW','ndaL','u3jJoG','Dw5RBM93BG','zgvZA3rVCc1Kzwj1zY1SB2CUDhH0','AgLNAc1WzxjMB3jTyw5Jzq','BfzMCg8','ls0TieXVywrPBMCGtwvKAweGls0T','DMfIqKy','B2jQzwn0','nda5ndG1nKPMruDOAq','rxPLB3e','yxnZAwDU','zw5HyMXLugfU','yxv0BW','D3jHCfm','D2LKDgG','ieaGrfbsia','u2nLBMu','CMvTB3zL','Dgv4DenVBNrLBNq'];a0_0xd7b6=function(){return _0x1e4525;};return a0_0xd7b6();}function a0_0x4167(_0x1e02ed,_0x400f34){const _0xd7b614=a0_0xd7b6();return a0_0x4167=function(_0x4167e7,_0x4473b6){_0x4167e7=_0x4167e7-0x1cb;let _0x259e42=_0xd7b614[_0x4167e7];if(a0_0x4167['Mvbhkf']===undefined){var _0x56dee9=function(_0x5e7612){const _0x27d575='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x3ded81='',_0x534fbb='';for(let _0x59557f=0x0,_0x3dc225,_0x49f438,_0x255e21=0x0;_0x49f438=_0x5e7612['charAt'](_0x255e21++);~_0x49f438&&(_0x3dc225=_0x59557f%0x4?_0x3dc225*0x40+_0x49f438:_0x49f438,_0x59557f++%0x4)?_0x3ded81+=String['fromCharCode'](0xff&_0x3dc225>>(-0x2*_0x59557f&0x6)):0x0){_0x49f438=_0x27d575['indexOf'](_0x49f438);}for(let _0x454566=0x0,_0x1643fb=_0x3ded81['length'];_0x454566<_0x1643fb;_0x454566++){_0x534fbb+='%'+('00'+_0x3ded81['charCodeAt'](_0x454566)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x534fbb);};a0_0x4167['ffhuzB']=_0x56dee9,_0x1e02ed=arguments,a0_0x4167['Mvbhkf']=!![];}const _0x18a525=_0xd7b614[0x0],_0x205c34=_0x4167e7+_0x18a525,_0x44ee10=_0x1e02ed[_0x205c34];return!_0x44ee10?(_0x259e42=a0_0x4167['ffhuzB'](_0x259e42),_0x1e02ed[_0x205c34]=_0x259e42):_0x259e42=_0x44ee10,_0x259e42;},a0_0x4167(_0x1e02ed,_0x400f34);}import{OrbitControls}from'../libs/OrbitControls.js';export let renderer;let scene,camera,controls,sphereMesh,videoElement,texture;const DEBUG_DESKTOP=![],desktopLogs=[];function desktopLog(..._0x5cd359){const _0x46b8b2=a0_0x4167,_0x378428={'vabBF':_0x46b8b2(0x26b),'QSUAb':_0x46b8b2(0x1fe)},_0xea5035=_0x5cd359['map'](_0x3c88e6=>typeof _0x3c88e6===_0x46b8b2(0x253)?JSON[_0x46b8b2(0x212)](_0x3c88e6):_0x3c88e6)[_0x46b8b2(0x22b)]('\x20');console[_0x46b8b2(0x223)](_0xea5035);if(DEBUG_DESKTOP){desktopLogs[_0x46b8b2(0x249)](_0xea5035);const _0x94e170=document[_0x46b8b2(0x262)](_0x378428[_0x46b8b2(0x252)]);if(_0x94e170){const _0x44e561=document[_0x46b8b2(0x240)](_0x378428[_0x46b8b2(0x23d)]);_0x44e561[_0x46b8b2(0x25e)]=_0xea5035,_0x94e170[_0x46b8b2(0x1f7)](_0x44e561),_0x94e170[_0x46b8b2(0x26a)]=_0x94e170[_0x46b8b2(0x1eb)];}}}export async function init({container:_0x51f1f9}){const _0x3dc5cb=a0_0x4167,_0xb76e10={'fEGis':_0x3dc5cb(0x217),'qCpXG':_0x3dc5cb(0x24e),'mWlvl':_0x3dc5cb(0x1fe),'UVXLX':_0x3dc5cb(0x26b),'fWVqo':'absolute','HqqRt':_0x3dc5cb(0x213),'fvbrn':_0x3dc5cb(0x24b),'UquPI':_0x3dc5cb(0x258),'YiTVk':_0x3dc5cb(0x1f0),'TRIUb':'12px','wowUZ':_0x3dc5cb(0x1d5),'eHTZu':_0x3dc5cb(0x1f9),'DFdhW':_0x3dc5cb(0x215),'KniuK':_0x3dc5cb(0x1d3),'pIiSb':_0x3dc5cb(0x235),'DIvgi':function(_0xcd1b28,_0x4ebdef){return _0xcd1b28(_0x4ebdef);},'IGrAR':'Desktop\x20DEBUG\x20mode\x20ativado','EBciV':function(_0x2e31e0,_0xe3ca44){return _0x2e31e0(_0xe3ca44);},'Ezeoq':_0x3dc5cb(0x22e),'kJHvf':'Loaded:\x20libs/OrbitControls.js','lMMLp':function(_0x4a08fb,_0x1db256){return _0x4a08fb(_0x1db256);},'AuFLt':_0x3dc5cb(0x236),'spKJe':function(_0x5b3f1f,_0x1e5e4f,_0x4a6019){return _0x5b3f1f(_0x1e5e4f,_0x4a6019);},'wovzA':_0x3dc5cb(0x23e),'TNCol':function(_0xf71d14,_0x69b5a3,_0x141201){return _0xf71d14(_0x69b5a3,_0x141201);},'kgqjk':_0x3dc5cb(0x234),'RxIff':function(_0x540232,_0xd21c2a,_0x3b20dc){return _0x540232(_0xd21c2a,_0x3b20dc);},'vsJxJ':_0x3dc5cb(0x243),'uNofQ':_0x3dc5cb(0x24d),'ksQZh':_0x3dc5cb(0x229),'YvZKW':function(_0x59da31,_0x1f5ba9){return _0x59da31(_0x1f5ba9);},'dkmAX':_0x3dc5cb(0x263),'RPJiw':_0x3dc5cb(0x211),'uiOsf':_0x3dc5cb(0x1f1),'dUHtP':_0x3dc5cb(0x24f),'VZrpm':function(_0x547dea){return _0x547dea();}};_0x51f1f9[_0x3dc5cb(0x228)]='';if(DEBUG_DESKTOP){const _0x22b38f=document[_0x3dc5cb(0x240)](_0xb76e10[_0x3dc5cb(0x1fa)]);_0x22b38f['id']=_0xb76e10[_0x3dc5cb(0x1e7)],Object[_0x3dc5cb(0x256)](_0x22b38f['style'],{'position':_0xb76e10['fWVqo'],'top':'0','right':'0','width':_0xb76e10[_0x3dc5cb(0x1dc)],'maxHeight':_0xb76e10['fvbrn'],'overflowY':_0xb76e10[_0x3dc5cb(0x20e)],'backgroundColor':_0x3dc5cb(0x1f4),'color':_0xb76e10['YiTVk'],'fontSize':_0xb76e10[_0x3dc5cb(0x1f2)],'fontFamily':_0xb76e10[_0x3dc5cb(0x200)],'zIndex':0x270f,'padding':_0xb76e10[_0x3dc5cb(0x264)]}),_0x51f1f9['appendChild'](_0x22b38f);const _0x3b13d9=document[_0x3dc5cb(0x240)](_0xb76e10[_0x3dc5cb(0x1d9)]);_0x3b13d9[_0x3dc5cb(0x25e)]=_0xb76e10[_0x3dc5cb(0x20a)],Object[_0x3dc5cb(0x256)](_0x3b13d9[_0x3dc5cb(0x1f8)],{'position':_0xb76e10['fWVqo'],'top':'0','right':_0xb76e10['pIiSb'],'zIndex':0x2710}),_0x3b13d9[_0x3dc5cb(0x1db)]=()=>{const _0x148b02=_0x3dc5cb,_0x486c13=new Blob([desktopLogs[_0x148b02(0x22b)]('\x0a')],{'type':_0xb76e10[_0x148b02(0x25f)]}),_0x2b1b20=URL[_0x148b02(0x266)](_0x486c13),_0x377a6e=document[_0x148b02(0x240)]('a');_0x377a6e[_0x148b02(0x23f)]=_0x2b1b20,_0x377a6e[_0x148b02(0x1e0)]=_0xb76e10[_0x148b02(0x1ec)],_0x377a6e['click'](),URL[_0x148b02(0x244)](_0x2b1b20);},_0x51f1f9[_0x3dc5cb(0x1f7)](_0x3b13d9),_0xb76e10[_0x3dc5cb(0x1cb)](desktopLog,_0xb76e10['IGrAR']);}_0xb76e10[_0x3dc5cb(0x208)](desktopLog,_0xb76e10[_0x3dc5cb(0x255)]),_0xb76e10[_0x3dc5cb(0x1cb)](desktopLog,_0x3dc5cb(0x242)),_0xb76e10[_0x3dc5cb(0x1cb)](desktopLog,_0xb76e10[_0x3dc5cb(0x1da)]),_0xb76e10['lMMLp'](desktopLog,_0xb76e10[_0x3dc5cb(0x224)]),_0xb76e10[_0x3dc5cb(0x237)](desktopLog,_0xb76e10[_0x3dc5cb(0x1e6)],navigator[_0x3dc5cb(0x1dd)]),_0xb76e10[_0x3dc5cb(0x1e9)](desktopLog,_0xb76e10[_0x3dc5cb(0x1cf)],navigator[_0x3dc5cb(0x1ee)]),_0xb76e10['lMMLp'](desktopLog,_0x3dc5cb(0x1e5)+screen[_0x3dc5cb(0x25a)]+'x'+screen[_0x3dc5cb(0x207)]+_0x3dc5cb(0x25b)+window[_0x3dc5cb(0x22f)]),desktopLog('Hardware\x20Concurrency:',navigator['hardwareConcurrency']),_0xb76e10['RxIff'](desktopLog,_0xb76e10[_0x3dc5cb(0x204)],navigator['deviceMemory']||_0xb76e10['uNofQ']);navigator['xr']?(navigator['xr'][_0x3dc5cb(0x21d)](_0xb76e10['ksQZh'])['then'](_0x4d4b40=>desktopLog(_0x3dc5cb(0x202),_0x4d4b40))[_0x3dc5cb(0x21e)](()=>desktopLog(_0x3dc5cb(0x1f3))),navigator['xr']['isSessionSupported'](_0x3dc5cb(0x1fd))['then'](_0x5a078f=>desktopLog(_0x3dc5cb(0x1fb),_0x5a078f))[_0x3dc5cb(0x21e)](()=>desktopLog(_0x3dc5cb(0x246)))):_0xb76e10[_0x3dc5cb(0x1cd)](desktopLog,_0xb76e10['dkmAX']);_0xb76e10[_0x3dc5cb(0x208)](desktopLog,_0xb76e10[_0x3dc5cb(0x22c)]);const _0x4cdd71=document['createElement'](_0xb76e10[_0x3dc5cb(0x232)]);_0x51f1f9[_0x3dc5cb(0x1f7)](_0x4cdd71),scene=new a0_0x3424a7[(_0x3dc5cb(0x25c))](),camera=new a0_0x3424a7[(_0x3dc5cb(0x231))](0x4b,_0x51f1f9[_0x3dc5cb(0x1fc)]/_0x51f1f9[_0x3dc5cb(0x238)],0.1,0x3e8),camera[_0x3dc5cb(0x1f5)][_0x3dc5cb(0x220)](0x0,0x0,0.1),renderer=new a0_0x3424a7[(_0x3dc5cb(0x205))]({'canvas':_0x4cdd71,'antialias':!![],'powerPreference':_0xb76e10[_0x3dc5cb(0x21b)]}),renderer[_0x3dc5cb(0x20c)](_0x51f1f9[_0x3dc5cb(0x1fc)],_0x51f1f9[_0x3dc5cb(0x238)]),renderer[_0x3dc5cb(0x1ea)](window[_0x3dc5cb(0x22f)]),controls=new OrbitControls(camera,renderer[_0x3dc5cb(0x210)]),controls['enableZoom']=!![],controls[_0x3dc5cb(0x257)]=![],window[_0x3dc5cb(0x226)](_0x3dc5cb(0x20f),()=>{const _0x3681ab=_0x3dc5cb;renderer['setSize'](_0x51f1f9[_0x3681ab(0x1fc)],_0x51f1f9[_0x3681ab(0x238)]),camera['aspect']=_0x51f1f9[_0x3681ab(0x1fc)]/_0x51f1f9['clientHeight'],camera['updateProjectionMatrix']();}),_0xb76e10['VZrpm'](animate);}export async function load(_0x49aead){const _0x4ccebe=a0_0x4167,_0x36489c={'wKXFy':_0x4ccebe(0x251),'oKozn':function(_0x25861f,_0x32d666,_0x4a5a68){return _0x25861f(_0x32d666,_0x4a5a68);},'RFsQP':'Name:','eIZOC':'Type:','xYsEF':function(_0x1f4ddf,_0x166c19,_0x2a3477){return _0x1f4ddf(_0x166c19,_0x2a3477);},'lVfpo':_0x4ccebe(0x21a),'bhryv':function(_0x6da45,_0xba68e4,_0x1d4578){return _0x6da45(_0xba68e4,_0x1d4578);},'gkbpB':_0x4ccebe(0x1f6),'HflMk':function(_0x74b86e,_0x9d6769){return _0x74b86e(_0x9d6769);},'tINIl':_0x4ccebe(0x20b),'LYfZa':function(_0x1f0709,_0x4000b3){return _0x1f0709===_0x4000b3;},'nrysG':_0x4ccebe(0x1d0),'gEvHy':'Media\x20adicionada\x20à\x20cena'};desktopLog(_0x36489c['wKXFy']),_0x36489c[_0x4ccebe(0x1ff)](desktopLog,_0x36489c[_0x4ccebe(0x1e3)],_0x49aead['name']),desktopLog(_0x36489c[_0x4ccebe(0x1ed)],_0x49aead[_0x4ccebe(0x218)]),_0x36489c[_0x4ccebe(0x203)](desktopLog,_0x36489c[_0x4ccebe(0x250)],_0x49aead[_0x4ccebe(0x268)]),desktopLog(_0x4ccebe(0x24c),_0x49aead[_0x4ccebe(0x1d6)]),_0x36489c[_0x4ccebe(0x1ce)](desktopLog,_0x36489c['gkbpB'],_0x49aead[_0x4ccebe(0x22a)]),_0x36489c[_0x4ccebe(0x201)](desktopLog,_0x36489c[_0x4ccebe(0x269)]);sphereMesh&&(scene['remove'](sphereMesh),sphereMesh['geometry'][_0x4ccebe(0x216)](),sphereMesh[_0x4ccebe(0x225)][_0x4ccebe(0x24a)][_0x4ccebe(0x216)](),sphereMesh['material'][_0x4ccebe(0x216)](),sphereMesh=null);videoElement&&(videoElement[_0x4ccebe(0x23b)](),videoElement[_0x4ccebe(0x25d)](),videoElement=null);_0x36489c[_0x4ccebe(0x261)](_0x49aead[_0x4ccebe(0x218)],_0x36489c[_0x4ccebe(0x1e4)])?(videoElement=document[_0x4ccebe(0x240)](_0x36489c[_0x4ccebe(0x1e4)]),Object['assign'](videoElement,{'src':_0x49aead['cachePath']||_0x49aead[_0x4ccebe(0x1d6)],'loop':!![],'muted':!![],'playsInline':!![]}),await videoElement['play'](),texture=new a0_0x3424a7[(_0x4ccebe(0x209))](videoElement)):texture=await new Promise((_0x533da7,_0x21fbb3)=>new a0_0x3424a7[(_0x4ccebe(0x23c))]()[_0x4ccebe(0x233)](_0x49aead[_0x4ccebe(0x22a)]||_0x49aead[_0x4ccebe(0x1d6)],_0x533da7,undefined,_0x21fbb3));const _0x1fa057=renderer[_0x4ccebe(0x248)][_0x4ccebe(0x23a)]();texture['mapping']=a0_0x3424a7[_0x4ccebe(0x239)],texture[_0x4ccebe(0x227)]=a0_0x3424a7[_0x4ccebe(0x1d1)],texture[_0x4ccebe(0x259)]=a0_0x3424a7['ClampToEdgeWrapping'],texture[_0x4ccebe(0x1cc)]=a0_0x3424a7[_0x4ccebe(0x1e8)],texture[_0x4ccebe(0x206)]=!![],texture[_0x4ccebe(0x1d7)]=a0_0x3424a7[_0x4ccebe(0x267)],texture[_0x4ccebe(0x247)]=a0_0x3424a7[_0x4ccebe(0x230)],texture[_0x4ccebe(0x214)]=_0x1fa057;_0x49aead[_0x4ccebe(0x268)]?(texture[_0x4ccebe(0x1d4)][_0x4ccebe(0x220)](0x1,0.5),texture[_0x4ccebe(0x1d8)][_0x4ccebe(0x220)](0x0,0.5)):(texture[_0x4ccebe(0x1d4)]['set'](0x1,0x1),texture['offset']['set'](0x0,0x0));texture[_0x4ccebe(0x219)]=!![];const _0x541345=new a0_0x3424a7[(_0x4ccebe(0x22d))](0x1f4,0x80,0x40);_0x541345[_0x4ccebe(0x1e2)](-0x1,0x1,0x1),sphereMesh=new a0_0x3424a7[(_0x4ccebe(0x221))](_0x541345,new a0_0x3424a7[(_0x4ccebe(0x222))]({'map':texture})),scene[_0x4ccebe(0x20d)](sphereMesh),_0x36489c[_0x4ccebe(0x201)](desktopLog,_0x36489c[_0x4ccebe(0x1ef)]);}function animate(){const _0x3a1495=a0_0x4167,_0x2aa122={'bHgRw':function(_0x468ef2,_0x1bb48a){return _0x468ef2(_0x1bb48a);}};_0x2aa122['bHgRw'](requestAnimationFrame,animate),controls[_0x3a1495(0x265)](),renderer[_0x3a1495(0x21f)](scene,camera);}export function appendLogs(_0x5bb2a0){_0x5bb2a0['forEach'](_0x21ddb1=>desktopLog(_0x21ddb1));}
+// platforms/desktop.js
+import * as THREE from '../libs/three.module.js';
+import { OrbitControls } from '../libs/OrbitControls.js';
+
+export let renderer;
+let scene, camera, controls, sphereMesh, videoElement, texture;
+
+const DEBUG_DESKTOP = false;
+const desktopLogs = [];
+
+// Log helper
+function desktopLog(...args) {
+  const msg = args.map(a => typeof a === 'object' ? JSON.stringify(a) : a).join(' ');
+  console.log(msg);
+  if (DEBUG_DESKTOP) {
+    desktopLogs.push(msg);
+    const dbg = document.getElementById('desktop-debug-log');
+    if (dbg) {
+      const line = document.createElement('div');
+      line.textContent = msg;
+      dbg.appendChild(line);
+      dbg.scrollTop = dbg.scrollHeight;
+    }
+  }
+}
+
+export async function init({ container }) {
+  // Clear container first so we don't wipe out our debug UI
+  container.innerHTML = '';
+
+  // debug overlay
+  if (DEBUG_DESKTOP) {
+    const dbg = document.createElement('div');
+    dbg.id = 'desktop-debug-log';
+    Object.assign(dbg.style, {
+      position: 'absolute',
+      top: '0',
+      right: '0',
+      width: '300px',
+      maxHeight: '40%',
+      overflowY: 'auto',
+      backgroundColor: 'rgba(0,0,0,0.7)',
+      color: '#0f0',
+      fontSize: '12px',
+      fontFamily: 'monospace',
+      zIndex: 9999,
+      padding: '8px'
+    });
+    container.appendChild(dbg);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Download Logs';
+    Object.assign(btn.style, {
+      position: 'absolute',
+      top: '0',
+      right: '310px',
+      zIndex: 10000
+    });
+    btn.onclick = () => {
+      const blob = new Blob([desktopLogs.join('\n')], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'desktop-debug-log.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    };
+    container.appendChild(btn);
+
+    desktopLog('Desktop DEBUG mode ativado');
+  }
+
+  desktopLog('Loaded: platforms/desktop.js');
+  desktopLog('Loaded: libs/three.module.js');
+  desktopLog('Loaded: libs/OrbitControls.js');
+
+  desktopLog('=== DESKTOP ENVIRONMENT ===');
+  desktopLog('User Agent:', navigator.userAgent);
+  desktopLog('Platform:', navigator.platform);
+  desktopLog(`Screen: ${screen.width}x${screen.height} @ DPR ${window.devicePixelRatio}`);
+  desktopLog('Hardware Concurrency:', navigator.hardwareConcurrency);
+  desktopLog('Device Memory (GB):', navigator.deviceMemory || 'unknown');
+  if (navigator.xr) {
+    navigator.xr.isSessionSupported('immersive-vr')
+      .then(s => desktopLog('Supports immersive-vr:', s))
+      .catch(() => desktopLog('Error checking immersive-vr'));
+    navigator.xr.isSessionSupported('inline')
+      .then(s => desktopLog('Supports inline:', s))
+      .catch(() => desktopLog('Error checking inline'));
+  } else {
+    desktopLog('navigator.xr not available');
+  }
+  desktopLog('============================');
+
+  // Three.js setup
+  const canvas = document.createElement('canvas');
+  container.appendChild(canvas);
+
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(
+    75,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    1000
+  );
+  camera.position.set(0, 0, 0.1);
+
+  renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    powerPreference: 'high-performance'
+  });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableZoom = true;
+  controls.enablePan = false;
+
+  window.addEventListener('resize', () => {
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+  });
+
+  animate();
+}
+
+export async function load(media) {
+  desktopLog('--- Loading Media ---');
+  desktopLog('Name:', media.name);
+  desktopLog('Type:', media.type);
+  desktopLog('Stereo:', media.stereo);
+  desktopLog('Src:', media.src);
+  desktopLog('CachePath:', media.cachePath);
+  desktopLog('---------------------');
+
+  if (sphereMesh) {
+    scene.remove(sphereMesh);
+    sphereMesh.geometry.dispose();
+    sphereMesh.material.map.dispose();
+    sphereMesh.material.dispose();
+    sphereMesh = null;
+  }
+  if (videoElement) {
+    videoElement.pause();
+    videoElement.remove();
+    videoElement = null;
+  }
+
+  if (media.type === 'video') {
+    videoElement = document.createElement('video');
+    Object.assign(videoElement, {
+      src: media.cachePath || media.src,
+      loop: true,
+      muted: true,
+      playsInline: true
+    });
+    await videoElement.play();
+    texture = new THREE.VideoTexture(videoElement);
+  } else {
+    texture = await new Promise((res, rej) =>
+      new THREE.TextureLoader().load(media.cachePath || media.src, res, undefined, rej)
+    );
+  }
+
+  const maxAniso = renderer.capabilities.getMaxAnisotropy();
+  texture.mapping = THREE.EquirectangularReflectionMapping;
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.wrapT = THREE.ClampToEdgeWrapping;
+  texture.generateMipmaps = true;
+  texture.minFilter = THREE.LinearMipMapLinearFilter;
+  texture.magFilter = THREE.LinearFilter;
+  texture.anisotropy = maxAniso;
+
+  // Estéreo: exibir só o olho esquerdo (metade de cima)
+  if (media.stereo) {
+    texture.repeat.set(1, 0.5);
+    texture.offset.set(0, 0.5);
+  } else {
+    texture.repeat.set(1, 1);
+    texture.offset.set(0, 0);
+  }
+  texture.needsUpdate = true;
+
+  const geo = new THREE.SphereGeometry(500, 128, 64);
+  geo.scale(-1, 1, 1);
+  sphereMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texture }));
+  scene.add(sphereMesh);
+
+  desktopLog('Media adicionada à cena');
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+// Injeta logs vindos do modo VR
+export function appendLogs(vrLogs) {
+  vrLogs.forEach(msg => desktopLog(msg));
+}

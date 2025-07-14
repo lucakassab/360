@@ -1,1 +1,94 @@
-(function(_0x3c86b0,_0x215598){const _0x1a30cb=a0_0x5f3c,_0x5395c3=_0x3c86b0();while(!![]){try{const _0x815d1c=-parseInt(_0x1a30cb(0x92))/0x1*(parseInt(_0x1a30cb(0xa1))/0x2)+parseInt(_0x1a30cb(0x96))/0x3*(-parseInt(_0x1a30cb(0xa0))/0x4)+-parseInt(_0x1a30cb(0x8b))/0x5+parseInt(_0x1a30cb(0x72))/0x6+parseInt(_0x1a30cb(0x9c))/0x7*(-parseInt(_0x1a30cb(0x9b))/0x8)+-parseInt(_0x1a30cb(0x7e))/0x9+parseInt(_0x1a30cb(0x99))/0xa;if(_0x815d1c===_0x215598)break;else _0x5395c3['push'](_0x5395c3['shift']());}catch(_0x5ed1df){_0x5395c3['push'](_0x5395c3['shift']());}}}(a0_0x4017,0xaa9a3));import*as a0_0x4b7b60 from'../../libs/three.module.js';const FONT_SIZE=0x18,LINE_HEIGHT=FONT_SIZE*1.2,MAX_LOG_LINES=0x14,CANVAS_WIDTH=0x200,CANVAS_HEIGHT=LINE_HEIGHT*MAX_LOG_LINES+0x64,PLANE_SCALE=0.5;let canvas,ctx,texture,mesh;const logs=[];function a0_0x4017(){const _0x31dc42=['z2fTzxbHza','A2v5Dxa','C3nbEgy','r2fTzxbHzcbJB25Uzwn0zwq6ia','zM9YrwfJAa','y29Kzq','ntK1odeXnfDMqwjfvW','zMLSBfrLEhq','Dg9W','Bu16que','DMLZAwjSzq','C2HPzNq','CMDIysGWlcaWlcaWlcaWlJuP','Cg9ZAxrPB24','z0fiugK','ChGGBw9UB3nWywnL','tgLUzwfYrMLSDgvY','y2XLyxjszwn0','mtaWmdyYndvHA3jHquu','ChvZAa','DKTXEfG','qMTZAKu','s2v5vxa6icaG','Dgv4DejHC2vSAw5L','zMLSBfjLy3q','C2v0','vfrZreC','ANvtywG','thL3svq','D2LKDgG','A1fgvM4','mJi4mZm5mfziALLNqW','z2fTzxbHzgnVBM5Ly3rLza','BwfNrMLSDgvY','A2v5zg93BG','s2v5rg93BJOG','y3jLyxrLrwXLBwvUDa','zMLSBfn0EwXL','mJGZnMPzrvLxyq','twvZAejHC2LJtwf0zxjPywW','A2v5','r2fTzxbHzcbKAxnJB25Uzwn0zwq6ia','m3bxvNHyBW','zM9UDa','BMvLzhnvCgrHDgu','mZe4odi4ndbysw1XCgG','AgvPz2H0','mti0nJGYnen0AMjMza','mJfesK9tq2i','ignVzgu9','qxryrMm','q2fUDMfZvgv4DhvYzq','mJu3ntu0ngHYC0HjDa','nty2A0rZtLz3','twvZAa','iZbMma','ywrKrxzLBNrmAxn0zw5LCG','rfHXsu8','z2v0q29UDgv4Da'];a0_0x4017=function(){return _0x31dc42;};return a0_0x4017();}export function initDebugWidget(_0x12a609,_0x5bb45a){const _0x5a6a50=a0_0x5f3c,_0x2ce196={'mMzAA':'canvas','AtXFc':function(_0x53445a){return _0x53445a();},'LywIT':function(_0x4c1ce0,_0x4dce2c){return _0x4c1ce0*_0x4dce2c;},'DXqIO':_0x5a6a50(0x8e),'TTsDG':_0x5a6a50(0x8c),'TAUAk':'gamepaddisconnected'};canvas=document[_0x5a6a50(0x90)](_0x2ce196[_0x5a6a50(0x75)]),canvas[_0x5a6a50(0x89)]=CANVAS_WIDTH,canvas[_0x5a6a50(0x9a)]=CANVAS_HEIGHT,ctx=canvas[_0x5a6a50(0xa6)]('2d'),ctx[_0x5a6a50(0x97)]=FONT_SIZE+_0x5a6a50(0x7b),ctx[_0x5a6a50(0x83)]=_0x5a6a50(0x74),_0x2ce196[_0x5a6a50(0x9e)](drawBackground),texture=new a0_0x4b7b60[(_0x5a6a50(0x9f))](canvas),texture['minFilter']=a0_0x4b7b60[_0x5a6a50(0x7c)],texture[_0x5a6a50(0x8d)]=a0_0x4b7b60['LinearFilter'];const _0x1f09ef=new a0_0x4b7b60[(_0x5a6a50(0x93))]({'map':texture,'transparent':!![],'opacity':0.8,'depthTest':![]}),_0x2165ef=_0x2ce196[_0x5a6a50(0x88)](CANVAS_WIDTH/0x80,PLANE_SCALE),_0x10fa3b=_0x2ce196['LywIT'](CANVAS_HEIGHT/0x80,PLANE_SCALE),_0x31c948=new a0_0x4b7b60['PlaneGeometry'](_0x2165ef,_0x10fa3b);mesh=new a0_0x4b7b60[(_0x5a6a50(0xa2))](_0x31c948,_0x1f09ef),mesh[_0x5a6a50(0x79)][_0x5a6a50(0x85)](0x0,0x0,-2.5),_0x12a609['add'](mesh),window[_0x5a6a50(0xa4)](_0x2ce196[_0x5a6a50(0xa5)],_0x18c63a=>addLog(_0x5a6a50(0x8f)+_0x18c63a[_0x5a6a50(0x94)]+_0x5a6a50(0x9d)+_0x18c63a[_0x5a6a50(0x71)])),window[_0x5a6a50(0xa4)](_0x5a6a50(0x6d),_0xccf8ed=>addLog(_0x5a6a50(0x82)+_0xccf8ed[_0x5a6a50(0x94)]+_0x5a6a50(0x9d)+_0xccf8ed[_0x5a6a50(0x71)])),window['addEventListener'](_0x2ce196[_0x5a6a50(0x86)],_0x19cd75=>addLog(_0x5a6a50(0x6f)+_0x19cd75[_0x5a6a50(0xa7)]['id'])),window[_0x5a6a50(0xa4)](_0x2ce196['TAUAk'],_0x32613f=>addLog(_0x5a6a50(0x95)+_0x32613f[_0x5a6a50(0xa7)]['id']));}export function addLog(_0x448b6b){const _0x6ab1b1=a0_0x5f3c,_0x571155={'gAHPi':function(_0x4bdc44,_0x10bf90,_0x104115){return _0x4bdc44(_0x10bf90,_0x104115);},'vKqxX':function(_0x203649,_0x1d46fc){return _0x203649-_0x1d46fc;},'CHHFX':function(_0x5a0372,_0x5e21ad){return _0x5a0372>_0x5e21ad;},'ssAxf':function(_0x41431a){return _0x41431a();}},_0xa72b20=_0x571155[_0x6ab1b1(0x7a)](wrapText,_0x448b6b,_0x571155[_0x6ab1b1(0x80)](CANVAS_WIDTH,0x14));_0xa72b20[_0x6ab1b1(0x70)](_0x101dab=>logs[_0x6ab1b1(0x7f)](_0x101dab));while(_0x571155['CHHFX'](logs['length'],MAX_LOG_LINES))logs[_0x6ab1b1(0x77)]();_0x571155[_0x6ab1b1(0x6e)](redraw);}export function getLogs(){return logs['slice']();}function redraw(){const _0x223e77=a0_0x5f3c,_0x14f9f7={'juSah':function(_0x1ab5f3,_0x3be2a5){return _0x1ab5f3+_0x3be2a5;},'kQFVn':function(_0x1859fa,_0x1e0bf1){return _0x1859fa*_0x1e0bf1;},'INHUj':_0x223e77(0xa3)};drawBackground(),ctx[_0x223e77(0x91)]=_0x14f9f7['INHUj'],logs[_0x223e77(0x70)]((_0x45c149,_0x25ce24)=>{const _0x3b6f4b=_0x223e77;ctx[_0x3b6f4b(0x73)](_0x45c149,0xa,_0x14f9f7[_0x3b6f4b(0x87)](0xa,_0x14f9f7[_0x3b6f4b(0x8a)](_0x25ce24,LINE_HEIGHT)));}),texture[_0x223e77(0x98)]=!![];}function a0_0x5f3c(_0x290421,_0x27b540){const _0x4017c8=a0_0x4017();return a0_0x5f3c=function(_0x5f3c55,_0x265a10){_0x5f3c55=_0x5f3c55-0x6d;let _0x1f34b0=_0x4017c8[_0x5f3c55];if(a0_0x5f3c['QrNTgm']===undefined){var _0x3fc529=function(_0x8333fd){const _0x89f479='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x1e9f68='',_0x2cc2d1='';for(let _0x372580=0x0,_0x1aa034,_0x56007e,_0x3c38ca=0x0;_0x56007e=_0x8333fd['charAt'](_0x3c38ca++);~_0x56007e&&(_0x1aa034=_0x372580%0x4?_0x1aa034*0x40+_0x56007e:_0x56007e,_0x372580++%0x4)?_0x1e9f68+=String['fromCharCode'](0xff&_0x1aa034>>(-0x2*_0x372580&0x6)):0x0){_0x56007e=_0x89f479['indexOf'](_0x56007e);}for(let _0x29decf=0x0,_0x198f66=_0x1e9f68['length'];_0x29decf<_0x198f66;_0x29decf++){_0x2cc2d1+='%'+('00'+_0x1e9f68['charCodeAt'](_0x29decf)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2cc2d1);};a0_0x5f3c['wNKBKv']=_0x3fc529,_0x290421=arguments,a0_0x5f3c['QrNTgm']=!![];}const _0x3a4007=_0x4017c8[0x0],_0x1a6d61=_0x5f3c55+_0x3a4007,_0x3337f5=_0x290421[_0x1a6d61];return!_0x3337f5?(_0x1f34b0=a0_0x5f3c['wNKBKv'](_0x1f34b0),_0x290421[_0x1a6d61]=_0x1f34b0):_0x1f34b0=_0x3337f5,_0x1f34b0;},a0_0x5f3c(_0x290421,_0x27b540);}function drawBackground(){const _0x3a8595=a0_0x5f3c,_0x21aef3={'BksjE':_0x3a8595(0x78)};ctx[_0x3a8595(0x7d)](0x0,0x0,canvas[_0x3a8595(0x89)],canvas['height']),ctx[_0x3a8595(0x91)]=_0x21aef3[_0x3a8595(0x81)],ctx[_0x3a8595(0x84)](0x0,0x0,canvas['width'],canvas['height']);}function wrapText(_0x5453eb,_0x4c8782){const _0x5e0783=a0_0x5f3c,_0x5120b2={'mnKTg':function(_0x4ceab6,_0x3c0b4d){return _0x4ceab6+_0x3c0b4d;}},_0x52203e=_0x5453eb['split']('\x20'),_0x33b866=[];let _0x12d2f1='';for(const _0x5161a7 of _0x52203e){const _0x525874=_0x12d2f1?_0x5120b2['mnKTg'](_0x12d2f1,'\x20')+_0x5161a7:_0x5161a7;ctx['measureText'](_0x525874)[_0x5e0783(0x89)]>_0x4c8782&&_0x12d2f1?(_0x33b866[_0x5e0783(0x7f)](_0x12d2f1),_0x12d2f1=_0x5161a7):_0x12d2f1=_0x525874;}if(_0x12d2f1)_0x33b866[_0x5e0783(0x7f)](_0x12d2f1);return _0x33b866;}export function toggleDebugWidget(){const _0x45e246=a0_0x5f3c;if(!mesh)return;mesh[_0x45e246(0x76)]=!mesh[_0x45e246(0x76)];}
+// platforms/vr/vr_dbg_widget.js
+import * as THREE from '../../libs/three.module.js';
+
+const FONT_SIZE     = 24;
+const LINE_HEIGHT   = FONT_SIZE * 1.2;
+const MAX_LOG_LINES = 20;
+const CANVAS_WIDTH  = 512;
+const CANVAS_HEIGHT = LINE_HEIGHT * MAX_LOG_LINES + 100;
+const PLANE_SCALE   = 0.5;
+
+let canvas, ctx, texture, mesh;
+const logs = [];
+
+export function initDebugWidget(camera, scene) {
+  canvas = document.createElement('canvas');
+  canvas.width  = CANVAS_WIDTH;
+  canvas.height = CANVAS_HEIGHT;
+  ctx = canvas.getContext('2d');
+  ctx.font = `${FONT_SIZE}px monospace`;
+  ctx.textBaseline = 'top';
+  drawBackground();
+
+  texture = new THREE.CanvasTexture(canvas);
+  texture.minFilter = THREE.LinearFilter;
+  texture.magFilter = THREE.LinearFilter;
+
+  const material = new THREE.MeshBasicMaterial({
+    map: texture,
+    transparent: true,
+    opacity: 0.8,
+    depthTest: false
+  });
+  const width  = (CANVAS_WIDTH  / 128) * PLANE_SCALE;
+  const height = (CANVAS_HEIGHT / 128) * PLANE_SCALE;
+  const geometry = new THREE.PlaneGeometry(width, height);
+
+  mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(0, 0, -2.5);
+  camera.add(mesh);
+
+  window.addEventListener('keydown',             e => addLog(`KeyDown: ${e.key} code=${e.code}`));
+  window.addEventListener('keyup',               e => addLog(`KeyUp:   ${e.key} code=${e.code}`));
+  window.addEventListener('gamepadconnected',    e => addLog(`Gamepad connected: ${e.gamepad.id}`));
+  window.addEventListener('gamepaddisconnected', e => addLog(`Gamepad disconnected: ${e.gamepad.id}`));
+}
+
+export function addLog(msg) {
+  const lines = wrapText(msg, CANVAS_WIDTH - 20);
+  lines.forEach(line => logs.push(line));
+  while (logs.length > MAX_LOG_LINES) logs.shift();
+  redraw();
+}
+
+export function getLogs() {
+  return logs.slice();
+}
+
+function redraw() {
+  drawBackground();
+  ctx.fillStyle = '#0f0';
+  logs.forEach((line, i) => {
+    ctx.fillText(line, 10, 10 + i * LINE_HEIGHT);
+  });
+  texture.needsUpdate = true;
+}
+
+function drawBackground() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function wrapText(text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let current = '';
+  for (const word of words) {
+    const candidate = current ? current + ' ' + word : word;
+    if (ctx.measureText(candidate).width > maxWidth && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = candidate;
+    }
+  }
+  if (current) lines.push(current);
+  return lines;
+}
+
+// torna o debug widget (canvas + mesh) visível/invisível
+export function toggleDebugWidget() {
+  if (!mesh) return;
+  mesh.visible = !mesh.visible;
+}

@@ -1,1 +1,201 @@
-const a0_0x19b6d3=a0_0x547c;(function(_0x2f9ae9,_0x2c108c){const _0x1b868e=a0_0x547c,_0x1bf3bc=_0x2f9ae9();while(!![]){try{const _0x5af069=-parseInt(_0x1b868e(0xdc))/0x1+-parseInt(_0x1b868e(0xd4))/0x2*(-parseInt(_0x1b868e(0xe5))/0x3)+parseInt(_0x1b868e(0xcc))/0x4*(parseInt(_0x1b868e(0xdf))/0x5)+parseInt(_0x1b868e(0xcd))/0x6+-parseInt(_0x1b868e(0xe7))/0x7+parseInt(_0x1b868e(0xda))/0x8*(parseInt(_0x1b868e(0xec))/0x9)+-parseInt(_0x1b868e(0xd9))/0xa;if(_0x5af069===_0x2c108c)break;else _0x1bf3bc['push'](_0x1bf3bc['shift']());}catch(_0x56a621){_0x1bf3bc['push'](_0x1bf3bc['shift']());}}}(a0_0x5d11,0x2f425));import{Object3D}from'three';function a0_0x547c(_0x447670,_0x4fac0d){const _0x5d1138=a0_0x5d11();return a0_0x547c=function(_0x547cb3,_0x2aa61a){_0x547cb3=_0x547cb3-0xc7;let _0x1389b2=_0x5d1138[_0x547cb3];if(a0_0x547c['BYfChm']===undefined){var _0x5f5b0d=function(_0x3f5c22){const _0x408417='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0xb02c55='',_0x5dd16c='';for(let _0x427b76=0x0,_0x249043,_0x4739b8,_0x2ffdf3=0x0;_0x4739b8=_0x3f5c22['charAt'](_0x2ffdf3++);~_0x4739b8&&(_0x249043=_0x427b76%0x4?_0x249043*0x40+_0x4739b8:_0x4739b8,_0x427b76++%0x4)?_0xb02c55+=String['fromCharCode'](0xff&_0x249043>>(-0x2*_0x427b76&0x6)):0x0){_0x4739b8=_0x408417['indexOf'](_0x4739b8);}for(let _0x12be2d=0x0,_0x547504=_0xb02c55['length'];_0x12be2d<_0x547504;_0x12be2d++){_0x5dd16c+='%'+('00'+_0xb02c55['charCodeAt'](_0x12be2d)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5dd16c);};a0_0x547c['xldtuK']=_0x5f5b0d,_0x447670=arguments,a0_0x547c['BYfChm']=!![];}const _0x4f3d50=_0x5d1138[0x0],_0x28eef7=_0x547cb3+_0x4f3d50,_0x46eeea=_0x447670[_0x28eef7];return!_0x46eeea?(_0x1389b2=a0_0x547c['xldtuK'](_0x1389b2),_0x447670[_0x28eef7]=_0x1389b2):_0x1389b2=_0x46eeea,_0x1389b2;},a0_0x547c(_0x447670,_0x4fac0d);}import{XRHandPrimitiveModel}from'./XRHandPrimitiveModel.js';function a0_0x5d11(){const _0x4135eb=['y29UBMvJDgvK','mte2mtm0ohPjB1nkta','yM94zxm','odq5ntyYC0fuEKf5','DxbKyxrLtwf0CML4v29YBgq','t21qsgG','Axzsuei','s3P1sgS','ndvREePkru4','C3bOzxjL','BwvZAa','zgf0yq','vKjlt3K','AgfUzgvKBMvZCW','mti0suz5DuvH','mta0mZe4ngL4twvYtq','EfbltMi','ywrKrxzLBNrmAxn0zw5LCG','B25mB2fK','DwnMyKi','yM94','DMLZAwjSzq','mMHqwKzLAa','Cgf0Aa','y3jLyxrLsgfUze1VzgvS','zgLZy29UBMvJDgvK','z2X0zKXVywrLCG','mJm1odyWrKHItfzf','nZm2mJrcvKTswNm','C2v0ugf0Aa','mZi2mZq3yNvdz3vk','C3bOzxjLCW','Bw90Aw9Uq29UDhjVBgXLCG','otmZnxrMtgzSuq','AgfUza','C3bSAxq','DxbKyxrLtwvZAa','m3WXFdj8nhWW'];a0_0x5d11=function(){return _0x4135eb;};return a0_0x5d11();}import{XRHandMeshModel}from'./XRHandMeshModel.js';class XRHandModel extends Object3D{constructor(_0x5d74ed){const _0x2159f9=a0_0x547c,_0x512ddd={'VBKOy':_0x2159f9(0xe3)},_0x217003=_0x512ddd[_0x2159f9(0xca)][_0x2159f9(0xe1)]('|');let _0x138d2b=0x0;while(!![]){switch(_0x217003[_0x138d2b++]){case'0':this[_0x2159f9(0xc8)]=null;continue;case'1':this['controller']=_0x5d74ed;continue;case'2':this[_0x2159f9(0xde)]=null;continue;case'3':super();continue;case'4':this['envMap']=null;continue;}break;}}[a0_0x19b6d3(0xe8)](_0x2dc1ce){const _0x5d9de6=a0_0x19b6d3;super[_0x5d9de6(0xe8)](_0x2dc1ce),this[_0x5d9de6(0xde)]&&this[_0x5d9de6(0xde)][_0x5d9de6(0xe2)]();}}class XRHandModelFactory{constructor(_0x501867=null,_0x100c4e=null){const _0x41eba4=a0_0x19b6d3;this[_0x41eba4(0xd8)]=_0x501867,this[_0x41eba4(0xd5)]=null,this['onLoad']=_0x100c4e;}[a0_0x19b6d3(0xdb)](_0x5bc156){const _0x36b423=a0_0x19b6d3;return this[_0x36b423(0xd5)]=_0x5bc156,this;}[a0_0x19b6d3(0xd6)](_0x559ace,_0x1df362){const _0x1e5889=a0_0x19b6d3,_0x21a472={'KzuHk':function(_0x574749,_0x541b2e){return _0x574749===_0x541b2e;},'ucfbB':_0x1e5889(0xdd),'OmPHh':_0x1e5889(0xc7),'mmjcA':_0x1e5889(0xe6),'ivRPB':function(_0x2e627f,_0x11439a){return _0x2e627f===_0x11439a;},'xPKNb':_0x1e5889(0xd7)},_0x48f78b=new XRHandModel(_0x559ace);return _0x559ace[_0x1e5889(0xcf)](_0x1e5889(0xe4),_0x378137=>{const _0x46d407=_0x1e5889,_0x2c61d3=_0x378137[_0x46d407(0xc9)];if(_0x2c61d3[_0x46d407(0xe0)]&&!_0x48f78b[_0x46d407(0xde)]){_0x48f78b['xrInputSource']=_0x2c61d3;if(_0x21a472[_0x46d407(0xeb)](_0x1df362,undefined)||_0x1df362===_0x21a472[_0x46d407(0xd1)])_0x48f78b[_0x46d407(0xde)]=new XRHandPrimitiveModel(_0x48f78b,_0x559ace,this['path'],_0x2c61d3[_0x46d407(0xcb)],{'primitive':_0x21a472[_0x46d407(0xe9)]});else{if(_0x1df362===_0x21a472['mmjcA'])_0x48f78b[_0x46d407(0xde)]=new XRHandPrimitiveModel(_0x48f78b,_0x559ace,this[_0x46d407(0xd5)],_0x2c61d3[_0x46d407(0xcb)],{'primitive':_0x46d407(0xd2)});else _0x21a472[_0x46d407(0xea)](_0x1df362,_0x46d407(0xc8))&&(_0x48f78b[_0x46d407(0xde)]=new XRHandMeshModel(_0x48f78b,_0x559ace,this[_0x46d407(0xd5)],_0x2c61d3[_0x46d407(0xcb)],this[_0x46d407(0xd8)],this[_0x46d407(0xd0)]));}}_0x559ace[_0x46d407(0xd3)]=!![];}),_0x559ace[_0x1e5889(0xcf)](_0x21a472[_0x1e5889(0xce)],()=>{_0x559ace['visible']=![];}),_0x48f78b;}}export{XRHandModelFactory};
+import {
+	Object3D
+} from 'three';
+
+import {
+	XRHandPrimitiveModel
+} from './XRHandPrimitiveModel.js';
+
+import {
+	XRHandMeshModel
+} from './XRHandMeshModel.js';
+
+/**
+ * Represents a XR hand model.
+ *
+ * @augments Object3D
+ */
+class XRHandModel extends Object3D {
+
+	/**
+	 * Constructs a new XR hand model.
+	 *
+	 * @param {Group} controller - The hand controller.
+	 */
+	constructor( controller ) {
+
+		super();
+
+		/**
+		 * The hand controller.
+		 *
+		 * @type {Group}
+		 */
+		this.controller = controller;
+
+		/**
+		 * The motion controller.
+		 *
+		 * @type {?MotionController}
+		 * @default null
+		 */
+		this.motionController = null;
+
+		/**
+		 * The controller's environment map.
+		 *
+		 * @type {?Texture}
+		 * @default null
+		 */
+		this.envMap = null;
+
+		/**
+		 * The model mesh.
+		 *
+		 * @type {Mesh}
+		 * @default null
+		 */
+		this.mesh = null;
+
+	}
+
+	/**
+	 * Overwritten with a custom implementation. Makes sure the motion controller updates the mesh.
+	 *
+	 * @param {boolean} [force=false] - When set to `true`, a recomputation of world matrices is forced even
+	 * when {@link Object3D#matrixWorldAutoUpdate} is set to `false`.
+	 */
+	updateMatrixWorld( force ) {
+
+		super.updateMatrixWorld( force );
+
+		if ( this.motionController ) {
+
+			this.motionController.updateMesh();
+
+		}
+
+	}
+
+}
+
+/**
+ * Similar to {@link XRControllerModelFactory}, this class allows to create hand models
+ * for WebXR controllers that can be added as a visual representation to your scene.
+ *
+ * ```js
+ * const handModelFactory = new XRHandModelFactory();
+ *
+ * const hand = renderer.xr.getHand( 0 );
+ * hand.add( handModelFactory.createHandModel( hand ) );
+ * scene.add( hand );
+ * ```
+ *
+ * @three_import import { XRHandModelFactory } from 'three/addons/webxr/XRHandModelFactory.js';
+ */
+class XRHandModelFactory {
+
+	/**
+	 * Constructs a new XR hand model factory.
+	 *
+	 * @param {?GLTFLoader} [gltfLoader=null] - A glTF loader that is used to load hand models.
+	 * @param {?Function} [onLoad=null] - A callback that is executed when a hand model has been loaded.
+	 */
+	constructor( gltfLoader = null, onLoad = null ) {
+
+		/**
+		 * A glTF loader that is used to load hand models.
+		 *
+		 * @type {?GLTFLoader}
+		 * @default null
+		 */
+		this.gltfLoader = gltfLoader;
+
+		/**
+		 * The path to the model repository.
+		 *
+		 * @type {?string}
+		 * @default null
+		 */
+		this.path = null;
+
+		/**
+		 * A callback that is executed when a hand model has been loaded.
+		 *
+		 * @type {?Function}
+		 * @default null
+		 */
+		this.onLoad = onLoad;
+
+	}
+
+	/**
+	 * Sets the path to the hand model repository.
+	 *
+	 * @param {string} path - The path to set.
+	 * @return {XRHandModelFactory} A reference to this instance.
+	 */
+	setPath( path ) {
+
+		this.path = path;
+
+		return this;
+
+	}
+
+	/**
+	 * Creates a controller model for the given WebXR hand controller.
+	 *
+	 * @param {Group} controller - The hand controller.
+	 * @param {('spheres'|'boxes'|'mesh')} [profile] - The model profile that defines the model type.
+	 * @return {XRHandModel} The XR hand model.
+	 */
+	createHandModel( controller, profile ) {
+
+		const handModel = new XRHandModel( controller );
+
+		controller.addEventListener( 'connected', ( event ) => {
+
+			const xrInputSource = event.data;
+
+			if ( xrInputSource.hand && ! handModel.motionController ) {
+
+				handModel.xrInputSource = xrInputSource;
+
+				// @todo Detect profile if not provided
+				if ( profile === undefined || profile === 'spheres' ) {
+
+					handModel.motionController = new XRHandPrimitiveModel( handModel, controller, this.path, xrInputSource.handedness, { primitive: 'sphere' } );
+
+				} else if ( profile === 'boxes' ) {
+
+					handModel.motionController = new XRHandPrimitiveModel( handModel, controller, this.path, xrInputSource.handedness, { primitive: 'box' } );
+
+				} else if ( profile === 'mesh' ) {
+
+					handModel.motionController = new XRHandMeshModel( handModel, controller, this.path, xrInputSource.handedness, this.gltfLoader, this.onLoad );
+
+				}
+
+			}
+
+			controller.visible = true;
+
+		} );
+
+		controller.addEventListener( 'disconnected', () => {
+
+			controller.visible = false;
+			// handModel.motionController = null;
+			// handModel.remove( scene );
+			// scene = null;
+
+		} );
+
+		return handModel;
+
+	}
+
+}
+
+export { XRHandModelFactory };
