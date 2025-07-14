@@ -5,7 +5,7 @@ import { OrbitControls } from '../libs/OrbitControls.js';
 export let renderer;
 let scene, camera, controls, sphereMesh, videoElement, texture;
 
-const DEBUG_DESKTOP = true;
+const DEBUG_DESKTOP = false;
 const desktopLogs = [];
 
 // Log helper
@@ -174,9 +174,10 @@ export async function load(media) {
   texture.magFilter = THREE.LinearFilter;
   texture.anisotropy = maxAniso;
 
+  // Estéreo: exibir só o olho esquerdo (metade de cima)
   if (media.stereo) {
-    texture.repeat.set(0.5, 1);
-    texture.offset.set(0, 0);
+    texture.repeat.set(1, 0.5);
+    texture.offset.set(0, 0.5);
   } else {
     texture.repeat.set(1, 1);
     texture.offset.set(0, 0);

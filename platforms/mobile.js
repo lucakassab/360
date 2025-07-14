@@ -1,7 +1,7 @@
 // platforms/mobile.js
 import * as THREE from '../libs/three.module.js';
 
-const DEBUG = true;
+const DEBUG = false;
 let scene, camera, renderer, sphereMesh, videoElement, texture;
 const touchState = { isDragging: false, prevX: 0, prevY: 0, prevDist: 0 };
 const debugLogs = [];
