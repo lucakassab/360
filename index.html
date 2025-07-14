@@ -2,15 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>WebXR 360 Viewer</title>
-  <meta
-    name="viewport"
-    content="width=device-width,
-             initial-scale=1,
-             maximum-scale=1,
-             user-scalable=no"
-  />
+
+  <!-- Favicon para evitar 404 -->
+  <link rel="icon" href="icons/icon-192x192.png" sizes="192x192" type="image/png" />
 
   <!-- Import map para usar three.js local -->
   <script type="importmap">
@@ -106,6 +102,7 @@
   <button id="btn-install-pwa">Instalar App</button>
 
   <script type="module" src="core.js"></script>
+
   <script>
     // Service Worker registration
     if ('serviceWorker' in navigator) {
@@ -116,7 +113,7 @@
       });
     }
 
-    // beforeinstallprompt for Android/VisionOS
+    // beforeinstallprompt para Android/VisionOS
     let deferredPrompt;
     const installBtn = document.getElementById('btn-install-pwa');
     window.addEventListener('beforeinstallprompt', e => {
@@ -133,6 +130,16 @@
     window.addEventListener('appinstalled', () => {
       console.log('PWA instalado');
     });
+
+    // Bloqueia zoom por duplo-toque
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (e) {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) {
+        e.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
   </script>
 </body>
 </html>
