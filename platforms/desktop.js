@@ -7,7 +7,8 @@ const videoBlobMap = {};
 const DEBUG = true;
 const debugLogs = [];
 
-// Função de log shared\ nfunction log(...args) {
+// Função de log
+function log(...args) {
   const msg = args.map(a => (typeof a === 'object' ? JSON.stringify(a) : a)).join(' ');
   debugLogs.push(msg);
   console.debug(msg);
@@ -25,6 +26,7 @@ const debugLogs = [];
 export async function init({ container }) {
   container.innerHTML = '';
 
+  // Debug overlay
   if (DEBUG) {
     const dbg = document.createElement('div');
     dbg.id = 'debug-log';
@@ -75,6 +77,7 @@ export async function init({ container }) {
   log('Hardware Concurrency:', navigator.hardwareConcurrency);
   log('Device Memory (GB):', navigator.deviceMemory || 'unknown');
 
+  // Setup Three.js
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -92,8 +95,9 @@ export async function init({ container }) {
     antialias: true,
     powerPreference: 'high-performance'
   });
-  renderer.setSize(container.clientWidth, container.clientHeight);
+  // Performance: DPR fixo em 1
   renderer.setPixelRatio(1);
+  renderer.setSize(container.clientWidth, container.clientHeight);
 
   controls = new OrbitControls(camera, renderer.domElement);
   controls.enableZoom = true;
@@ -143,6 +147,7 @@ export async function load(media) {
     });
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
+    // Vídeo: desativa mipmaps para performance
     texture.generateMipmaps = false;
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
@@ -150,6 +155,7 @@ export async function load(media) {
     texture = await new Promise((res, rej) =>
       new THREE.TextureLoader().load(media.cachePath || media.src, res, undefined, rej)
     );
+    // Imagens: mantém mipmaps para qualidade
     texture.generateMipmaps = true;
     texture.minFilter = THREE.LinearMipMapLinearFilter;
     texture.magFilter = THREE.LinearFilter;
@@ -186,6 +192,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
+// Injeta logs vindos do VR (se houver)
 export function appendLogs(vrLogs) {
   vrLogs.forEach(msg => log(msg));
 }
