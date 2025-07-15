@@ -4,11 +4,10 @@ import { OrbitControls } from '../libs/OrbitControls.js';
 export let renderer;
 let scene, camera, controls, sphereMesh, videoElement, texture;
 const videoBlobMap = {};
-
-// DEBUG flag e logs
 const DEBUG = true;
 const debugLogs = [];
-function log(...args) {
+
+// Função de log shared\ nfunction log(...args) {
   const msg = args.map(a => (typeof a === 'object' ? JSON.stringify(a) : a)).join(' ');
   debugLogs.push(msg);
   console.debug(msg);
@@ -26,9 +25,7 @@ function log(...args) {
 export async function init({ container }) {
   container.innerHTML = '';
 
-  // Debug overlay
   if (DEBUG) {
-    // contêiner de logs
     const dbg = document.createElement('div');
     dbg.id = 'debug-log';
     Object.assign(dbg.style, {
@@ -46,7 +43,6 @@ export async function init({ container }) {
     });
     container.appendChild(dbg);
 
-    // botão de download de logs
     const btn = document.createElement('button');
     btn.textContent = '📥 Download Logs';
     Object.assign(btn.style, {
@@ -67,6 +63,7 @@ export async function init({ container }) {
       URL.revokeObjectURL(url);
     };
     container.appendChild(btn);
+
     log('Debug mode ativado (desktop)');
   }
 
@@ -77,12 +74,7 @@ export async function init({ container }) {
   log(`Screen: ${screen.width}x${screen.height} @ DPR ${window.devicePixelRatio}`);
   log('Hardware Concurrency:', navigator.hardwareConcurrency);
   log('Device Memory (GB):', navigator.deviceMemory || 'unknown');
-  log('Loaded: platforms/desktop.js');
-  log('Loaded: libs/three.module.js');
 
-  // Setup Three.js
-  const canvas = document.createElement('canvas');
-  container.appendChild(canvas);
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -92,13 +84,16 @@ export async function init({ container }) {
   );
   camera.position.set(0, 0, 0.1);
 
+  const canvas = document.createElement('canvas');
+  container.appendChild(canvas);
+
   renderer = new THREE.WebGLRenderer({
     canvas,
     antialias: true,
     powerPreference: 'high-performance'
   });
   renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(1);
 
   controls = new OrbitControls(camera, renderer.domElement);
   controls.enableZoom = true;
@@ -148,27 +143,23 @@ export async function load(media) {
     });
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
+    texture.generateMipmaps = false;
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
   } else {
     texture = await new Promise((res, rej) =>
-      new THREE.TextureLoader().load(
-        media.cachePath || media.src,
-        res,
-        undefined,
-        rej
-      )
+      new THREE.TextureLoader().load(media.cachePath || media.src, res, undefined, rej)
     );
+    texture.generateMipmaps = true;
+    texture.minFilter = THREE.LinearMipMapLinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
   }
 
-  // Configurações comuns de textura
-  const maxAniso = renderer.capabilities.getMaxAnisotropy();
   texture.mapping = THREE.EquirectangularReflectionMapping;
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.wrapS = THREE.ClampToEdgeWrapping;
   texture.wrapT = THREE.ClampToEdgeWrapping;
-  texture.generateMipmaps = true;
-  texture.minFilter = THREE.LinearMipMapLinearFilter;
-  texture.magFilter = THREE.LinearFilter;
-  texture.anisotropy = maxAniso;
 
   if (media.stereo) {
     log('Stereo mode');
@@ -180,14 +171,13 @@ export async function load(media) {
   }
   texture.needsUpdate = true;
 
-  const geo = new THREE.SphereGeometry(500, 128, 64);
+  const geo = new THREE.SphereGeometry(500, 64, 32);
   geo.scale(-1, 1, 1);
   sphereMesh = new THREE.Mesh(
     geo,
     new THREE.MeshBasicMaterial({ map: texture })
   );
   scene.add(sphereMesh);
-  log('Mídia adicionada à cena');
 }
 
 function animate() {
@@ -196,7 +186,6 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// Injeta logs vindos do VR (se houver)
 export function appendLogs(vrLogs) {
   vrLogs.forEach(msg => log(msg));
 }

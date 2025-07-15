@@ -1,12 +1,11 @@
-// platforms/mobile.js
 import * as THREE from '../libs/three.module.js';
 
-const DEBUG = false;
+const DEBUG = true;
 let scene, camera, renderer, sphereMesh, videoElement, texture;
 const touchState = { isDragging: false, prevX: 0, prevY: 0, prevDist: 0 };
 const debugLogs = [];
 
-// Função de log que alimenta console, array e overlay
+// Função de log
 function log(...args) {
   const msg = args.map(a => (typeof a === 'object' ? JSON.stringify(a) : a)).join(' ');
   debugLogs.push(msg);
@@ -23,15 +22,16 @@ function log(...args) {
 }
 
 export async function init({ container }) {
+  container.innerHTML = '';
+
   // Canvas full-screen
   const canvas = document.createElement('canvas');
   canvas.id = 'xr-canvas';
   canvas.style.width = '100%';
   canvas.style.height = '100%';
-  container.innerHTML = '';
   container.appendChild(canvas);
 
-  // Overlay de debug
+  // Debug overlay
   if (DEBUG) {
     const dbg = document.createElement('div');
     dbg.id = 'debug-log';
@@ -65,36 +65,23 @@ export async function init({ container }) {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'debug-log.txt';
+      a.download = 'mobile-debug-log.txt';
       a.click();
       URL.revokeObjectURL(url);
     };
     container.appendChild(btn);
 
-    log('Debug mode ativado');
+    log('Debug mode ativado (mobile)');
   }
 
-  // Info ambiente
+  // Logs de ambiente
   log('=== MOBILE ENVIRONMENT ===');
-  log('User Agent: ' + navigator.userAgent);
-  if (navigator.userAgentData) log('UA Data: ' + JSON.stringify(navigator.userAgentData));
-  log('Platform: ' + navigator.platform);
+  log('User Agent:', navigator.userAgent);
+  if (navigator.userAgentData) log('UA Data:', JSON.stringify(navigator.userAgentData));
+  log('Platform:', navigator.platform);
   log(`Screen: ${screen.width}x${screen.height} @ DPR ${window.devicePixelRatio}`);
-  log('Hardware Concurrency: ' + navigator.hardwareConcurrency);
-  log('Device Memory (GB): ' + (navigator.deviceMemory || 'unknown'));
-  if (navigator.xr) {
-    navigator.xr.isSessionSupported('immersive-vr')
-      .then(s => log('Supports immersive-vr: ' + s))
-      .catch(() => log('Error checking immersive-vr support'));
-    navigator.xr.isSessionSupported('inline')
-      .then(s => log('Supports inline: ' + s))
-      .catch(() => log('Error checking inline support'));
-  } else {
-    log('navigator.xr not available');
-  }
-
-  log('Loaded: platforms/mobile.js');
-  log('Loaded: libs/three.module.js');
+  log('Hardware Concurrency:', navigator.hardwareConcurrency);
+  log('Device Memory (GB):', navigator.deviceMemory || 'unknown');
 
   // Cena e câmera
   scene = new THREE.Scene();
@@ -106,15 +93,10 @@ export async function init({ container }) {
   );
   camera.position.set(0, 0, 0.1);
 
-  // Renderer
-  renderer = new THREE.WebGLRenderer({
-    canvas,
-    antialias: true,
-    preserveDrawingBuffer: true,
-    powerPreference: 'high-performance'
-  });
+  // Renderer otimizado
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(1);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   setupTouchControls(canvas);
@@ -126,6 +108,79 @@ export async function init({ container }) {
   });
 
   animate();
+}
+
+export async function load(media) {
+  log('Carregando mídia', media.name);
+  if (sphereMesh) {
+    scene.remove(sphereMesh);
+    sphereMesh.geometry.dispose();
+    sphereMesh.material.map.dispose();
+    sphereMesh.material.dispose();
+    sphereMesh = null;
+  }
+  if (videoElement) {
+    videoElement.pause();
+    videoElement.remove();
+    videoElement = null;
+  }
+
+  if (media.type === 'video') {
+    videoElement = document.createElement('video');
+    Object.assign(videoElement, {
+      src: media.cachePath || media.src,
+      loop: true,
+      muted: true,
+      playsInline: true
+    });
+    await videoElement.play();
+    texture = new THREE.VideoTexture(videoElement);
+    texture.generateMipmaps = false;
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+  } else {
+    texture = await new Promise((res, rej) =>
+      new THREE.TextureLoader().load(
+        media.cachePath || media.src,
+        res,
+        undefined,
+        rej
+      )
+    );
+    texture.generateMipmaps = true;
+    texture.minFilter = THREE.LinearMipMapLinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  }
+
+  texture.mapping = THREE.EquirectangularReflectionMapping;
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.wrapT = THREE.ClampToEdgeWrapping;
+
+  if (media.stereo) {
+    log('Stereo mode');
+    texture.repeat.set(1, 0.5);
+    texture.offset.set(0, 0.5);
+  } else {
+    texture.repeat.set(1, 1);
+    texture.offset.set(0, 0);
+  }
+  texture.needsUpdate = true;
+
+  const geo = new THREE.SphereGeometry(500, 64, 32);
+  geo.scale(-1, 1, 1);
+  sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(500, 64, 32), new THREE.MeshBasicMaterial({ map: texture }));
+  scene.add(sphereMesh);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+
+export function appendLogs(vrLogs) {
+  vrLogs.forEach(msg => log(msg));
 }
 
 function setupTouchControls(canvas) {
@@ -172,75 +227,4 @@ function onTouchMove(e) {
 function onTouchEnd(e) {
   log('touchend', e.touches.length);
   if (e.touches.length === 0) touchState.isDragging = false;
-}
-
-export async function load(media) {
-  log('Carregando mídia', media.name);
-  if (sphereMesh) {
-    scene.remove(sphereMesh);
-    sphereMesh.geometry.dispose();
-    sphereMesh.material.map.dispose();
-    sphereMesh.material.dispose();
-    sphereMesh = null;
-  }
-  if (videoElement) {
-    videoElement.pause();
-    videoElement.remove();
-    videoElement = null;
-  }
-
-  if (media.type === 'video') {
-    videoElement = document.createElement('video');
-    Object.assign(videoElement, {
-      src: media.cachePath || media.src,
-      loop: true,
-      muted: true,
-      playsInline: true
-    });
-    await videoElement.play();
-    texture = new THREE.VideoTexture(videoElement);
-  } else {
-    texture = await new Promise((res, rej) => {
-      new THREE.TextureLoader().load(media.cachePath || media.src, res, undefined, rej);
-    });
-  }
-
-  log('Configuring texture');
-  texture.mapping         = THREE.EquirectangularReflectionMapping;
-  texture.colorSpace      = THREE.SRGBColorSpace;
-  texture.wrapS           = THREE.ClampToEdgeWrapping;
-  texture.wrapT           = THREE.ClampToEdgeWrapping;
-  texture.generateMipmaps = true;
-  texture.minFilter       = THREE.LinearMipMapLinearFilter;
-  texture.magFilter       = THREE.LinearFilter;
-  texture.anisotropy      = renderer.capabilities.getMaxAnisotropy();
-
-  if (media.stereo) {
-    log('Stereo mode');
-    texture.repeat.set(1, 0.5);
-    texture.offset.set(0, 0.5);
-  } else {
-    texture.repeat.set(1, 1);
-    texture.offset.set(0, 0);
-  }
-  texture.needsUpdate = true;
-
-  const geo = new THREE.SphereGeometry(500, 256, 128);
-  geo.scale(-1, 1, 1);
-  sphereMesh = new THREE.Mesh(
-    geo,
-    new THREE.MeshBasicMaterial({ map: texture })
-  );
-  scene.add(sphereMesh);
-  log('Mídia adicionada à cena');
-}
-
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
-
-// Injeta logs vindos do modo VR
-export function appendLogs(vrLogs) {
-  vrLogs.forEach(msg => log(msg));
 }
