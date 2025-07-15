@@ -1,40 +1,36 @@
-import { precacheAndRoute } from 'workbox-precaching';
-import { registerRoute } from 'workbox-routing';
-import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
-import { RangeRequestsPlugin } from 'workbox-range-requests';
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { ExpirationPlugin } from 'workbox-expiration';
+// sw.js
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-sw.js');
 
-// Injeta automaticamente os assets no precache a partir do manifest gerado
-precacheAndRoute(self.__WB_MANIFEST || []);
+// Ativa imediatamente o novo SW
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
 
-// Cache dinâmico para vídeos e imagens (inclui range requests)
-registerRoute(
-  ({ request }) =>
-    request.destination === 'video' || request.destination === 'image',
-  new CacheFirst({
+// Precaching (será injetado pelo injectManifest)
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
+
+// CacheFirst + range para vídeos e imagens
+workbox.routing.registerRoute(
+  ({request}) => request.destination === 'video' || request.destination === 'image',
+  new workbox.strategies.CacheFirst({
     cacheName: 'media-cache',
     plugins: [
-      new RangeRequestsPlugin(),
-      new CacheableResponsePlugin({ statuses: [200] }),
-      new ExpirationPlugin({
+      new workbox.rangeRequests.RangeRequestsPlugin(),
+      new workbox.cacheableResponse.CacheableResponsePlugin({statuses: [200]}),
+      new workbox.expiration.ExpirationPlugin({
         maxEntries: 50,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 dias
+        maxAgeSeconds: 30 * 24 * 60 * 60,
       }),
-    ],
+    ]
   })
 );
 
-// Cache para scripts, estilos e documentos (stale-while-revalidate)
-registerRoute(
-  ({ request }) =>
-    ['script', 'style', 'document'].includes(request.destination),
-  new StaleWhileRevalidate({
+// Stale-while-revalidate para scripts, estilos, documentos
+workbox.routing.registerRoute(
+  ({request}) => ['script','style','document'].includes(request.destination),
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'static-assets',
-    plugins: [new CacheableResponsePlugin({ statuses: [200] })],
+    plugins: [
+      new workbox.cacheableResponse.CacheableResponsePlugin({statuses: [200]})
+    ]
   })
 );
-
-// Ativa imediatamente novo Service Worker
-self.addEventListener('install', () => self.skipWaiting());
-self.addEventListener('activate', () => self.clients.claim());
