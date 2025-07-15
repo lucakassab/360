@@ -12,6 +12,16 @@ let platformHandler = null;
 let currentMode     = '';
 let renderer        = null;
 
+/**
+ * Detecta a plataforma correta, tratando Meta Quest como mobile/VR
+ */
+function detectPlatform() {
+  const ua = navigator.userAgent;
+  if (/OculusBrowser|Quest/i.test(ua)) return 'mobile';
+  if (/Mobi|Android/i.test(ua))    return 'mobile';
+  return 'desktop';
+}
+
 function populateUI() {
   select.innerHTML = '';
   mediaList.forEach((m, i) => {
@@ -69,12 +79,11 @@ async function enterVR() {
 
 async function init() {
   populateUI();
-
   container.innerHTML = '';
 
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const mode     = isMobile ? 'mobile' : 'desktop';
-  currentMode    = mode;
+  // Detecta plataforma (inclui WebXR/Quest)
+  const mode = detectPlatform();
+  currentMode = mode;
   console.log('Inicializando em', mode);
 
   const mod = await import(`./platforms/${mode}.js`);
@@ -83,6 +92,7 @@ async function init() {
   renderer = platformHandler.renderer;
   platformHandler.load(mediaList[currentIndex]);
 
+  // Habilita botão de VR se suportado
   let hasVR = false;
   if (navigator.xr) {
     hasVR = await navigator.xr.isSessionSupported('immersive-vr');
@@ -94,9 +104,9 @@ async function init() {
     enterVrBtn.style.display = 'none';
   }
 
-  prevBtn.onclick = () => updateIndex(currentIndex - 1);
-  nextBtn.onclick = () => updateIndex(currentIndex + 1);
-  select.onchange = e => updateIndex(Number(e.target.value));
+  prevBtn.onclick   = () => updateIndex(currentIndex - 1);
+  nextBtn.onclick   = () => updateIndex(currentIndex + 1);
+  select.onchange   = e => updateIndex(Number(e.target.value));
 }
 
 init();
