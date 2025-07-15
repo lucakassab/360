@@ -126,27 +126,36 @@ export async function load(media) {
   }
 
   if (media.type === 'video') {
+    // Cria elemento de vídeo compatível com mobile (playsinline)
     videoElement = document.createElement('video');
-    Object.assign(videoElement, {
-      src: media.cachePath || media.src,
-      loop: true,
-      muted: true,
-      playsInline: true
-    });
-    await videoElement.play();
+    videoElement.setAttribute('playsinline', '');
+    videoElement.setAttribute('webkit-playsinline', '');
+    videoElement.crossOrigin = 'anonymous';
+    videoElement.muted = true;
+    videoElement.loop = true;
+    videoElement.playsInline = true;
+    videoElement.src = media.cachePath || media.src;
+    // Append offscreen para garantir autoplay
+    videoElement.style.display = 'none';
+    document.body.appendChild(videoElement);
+
+    try {
+      await videoElement.play();
+    } catch (err) {
+      console.warn('Falha no autoplay do vídeo, aguardando interação do usuário', err);
+      // Opcional: exiba um botão "Tap to Play"
+    }
+
     texture = new THREE.VideoTexture(videoElement);
+    // Vídeo: sem mipmaps para performance
     texture.generateMipmaps = false;
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
   } else {
     texture = await new Promise((res, rej) =>
-      new THREE.TextureLoader().load(
-        media.cachePath || media.src,
-        res,
-        undefined,
-        rej
-      )
+      new THREE.TextureLoader().load(media.cachePath || media.src, res, undefined, rej)
     );
+    // Imagens: mantém mipmaps para qualidade
     texture.generateMipmaps = true;
     texture.minFilter = THREE.LinearMipMapLinearFilter;
     texture.magFilter = THREE.LinearFilter;
@@ -159,7 +168,7 @@ export async function load(media) {
   texture.wrapS = THREE.ClampToEdgeWrapping;
   texture.wrapT = THREE.ClampToEdgeWrapping;
 
-  // Exibe apenas o olho esquerdo para mídias stereo em 2D
+  // Stereo: exibe apenas olho esquerdo em 2D
   if (media.stereo) {
     log('Stereo detected on mobile — exibindo olho esquerdo');
     texture.repeat.set(1, 0.5);
