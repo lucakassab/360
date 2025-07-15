@@ -95,7 +95,6 @@ export async function init({ container }) {
 
   // Renderer otimizado
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  // Performance: DPR fixo em 1
   renderer.setPixelRatio(1);
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -136,25 +135,40 @@ export async function load(media) {
     });
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
-    // Vídeo: sem mipmaps
     texture.generateMipmaps = false;
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
   } else {
     texture = await new Promise((res, rej) =>
-      new THREE.TextureLoader().load(media.cachePath || media.src, res, undefined, rej)
+      new THREE.TextureLoader().load(
+        media.cachePath || media.src,
+        res,
+        undefined,
+        rej
+      )
     );
-    // Imagens: mantém mipmaps para qualidade
     texture.generateMipmaps = true;
     texture.minFilter = THREE.LinearMipMapLinearFilter;
     texture.magFilter = THREE.LinearFilter;
     texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
   }
 
+  // Configurações comuns de textura
   texture.mapping = THREE.EquirectangularReflectionMapping;
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.wrapS = THREE.ClampToEdgeWrapping;
   texture.wrapT = THREE.ClampToEdgeWrapping;
+
+  // Exibe apenas o olho esquerdo para mídias stereo em 2D
+  if (media.stereo) {
+    log('Stereo detected on mobile — exibindo olho esquerdo');
+    texture.repeat.set(1, 0.5);
+    texture.offset.set(0, 0.5);
+  } else {
+    texture.repeat.set(1, 1);
+    texture.offset.set(0, 0);
+  }
+  texture.needsUpdate = true;
 
   // Geometria leve para performance
   const geo = new THREE.SphereGeometry(500, 64, 32);
