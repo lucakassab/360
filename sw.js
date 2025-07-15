@@ -1,59 +1,40 @@
-const CACHE_NAME = '360-viewer-cache-v1';
+import { precacheAndRoute } from 'workbox-precaching';
+import { registerRoute } from 'workbox-routing';
+import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
+import { RangeRequestsPlugin } from 'workbox-range-requests';
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import { ExpirationPlugin } from 'workbox-expiration';
 
-const STATIC_ASSETS = [
-  './',
-  './index.html',
-  './core.js',
-  './manifest.webmanifest',
-  './libs/three.module.js',
-  './platforms/desktop.js',
-  './platforms/mobile.js',
-  './platforms/vr.js',
-  './platforms/vr/vr_dbg_widget.js',
-  './platforms/vr/generic_vr.js',
-  './platforms/vr/quest.js',
-  './media/media.json',
-  // Ícones
-  './icons/icon-144x144.png',
-  './icons/icon-152x152.png',
-  './icons/icon-192x192.png',
-  './icons/icon-512x512.png',
-  './icons/maskable-icon-512x512.png',
-  // Mídias locais (use apenas os que você tem offline)
-  './media/image_1_Mono.jpg',
-  './media/image_2_Stereo.jpg',
-  './media/image_3_Stereo.jpg',
-  './media/image_4_Stereo.jpg',
-  './media/video_5_Stereo.mp4',
-  './media/video_6_Mono.mp4'
-];
+// Injeta automaticamente os assets no precache a partir do manifest gerado
+precacheAndRoute(self.__WB_MANIFEST || []);
 
-self.addEventListener('install', event => {
-  console.log('[SW] Instalando e cacheando arquivos...');
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return Promise.allSettled(
-        STATIC_ASSETS.map(asset => cache.add(asset))
-      );
-    })
-  );
-});
+// Cache dinâmico para vídeos e imagens (inclui range requests)
+registerRoute(
+  ({ request }) =>
+    request.destination === 'video' || request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'media-cache',
+    plugins: [
+      new RangeRequestsPlugin(),
+      new CacheableResponsePlugin({ statuses: [200] }),
+      new ExpirationPlugin({
+        maxEntries: 50,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 dias
+      }),
+    ],
+  })
+);
 
-self.addEventListener('activate', event => {
-  console.log('[SW] Ativando...');
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-      )
-    )
-  );
-});
+// Cache para scripts, estilos e documentos (stale-while-revalidate)
+registerRoute(
+  ({ request }) =>
+    ['script', 'style', 'document'].includes(request.destination),
+  new StaleWhileRevalidate({
+    cacheName: 'static-assets',
+    plugins: [new CacheableResponsePlugin({ statuses: [200] })],
+  })
+);
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(resp => {
-      return resp || fetch(event.request);
-    })
-  );
-});
+// Ativa imediatamente novo Service Worker
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', () => self.clients.claim());

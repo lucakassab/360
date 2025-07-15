@@ -74,16 +74,14 @@ export async function init({ container, xrSession }) {
   );
   scene.add(camera);
 
-  // ─── Iluminação Básica ───
-  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.0);
-  hemiLight.position.set(0, 1, 0);
-  scene.add(hemiLight);
-  const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
-  dirLight.position.set(0, 10, 10);
-  dirLight.target.position.set(0, 0, 0);
-  scene.add(dirLight);
-  scene.add(dirLight.target);
-  // dirLight.castShadow = true;
+  // Iluminação leve ideal para mostrar controles e mãos com bom desempenho
+  const ambient = new THREE.AmbientLight(0xffffff, 0.3); // luz difusa fraca
+  scene.add(ambient);
+
+  const hemi = new THREE.HemisphereLight(0xffffff, 0x222222, 0.7); // luz de cima
+  hemi.position.set(0, 1, 0);
+  scene.add(hemi);
+
 
   // Debug HUD (inicialmente oculto se habilitado)
   if (DEBUG_WIDGET) {

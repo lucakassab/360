@@ -1,20 +1,16 @@
 // core.js
+import mediaList from './media/media.js';
+
 const container     = document.getElementById('xr-container');
 const select        = document.getElementById('media-select');
 const prevBtn       = document.getElementById('prev-btn');
 const nextBtn       = document.getElementById('next-btn');
 const enterVrBtn    = document.getElementById('enter-vr-btn');
 
-let mediaList       = [];
 let currentIndex    = 0;
 let platformHandler = null;
 let currentMode     = '';
 let renderer        = null;
-
-async function fetchMediaList() {
-  const res = await fetch('media/media.json');
-  return res.json();
-}
 
 function populateUI() {
   select.innerHTML = '';
@@ -72,7 +68,6 @@ async function enterVR() {
 }
 
 async function init() {
-  mediaList = await fetchMediaList();
   populateUI();
 
   container.innerHTML = '';
