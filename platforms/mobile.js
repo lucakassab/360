@@ -74,7 +74,7 @@ export async function init({ container }) {
     log('Debug mode ativado (mobile)');
   }
 
-  // Logs de ambiente
+  // Logs do ambiente
   log('=== MOBILE ENVIRONMENT ===');
   log('User Agent:', navigator.userAgent);
   if (navigator.userAgentData) log('UA Data:', JSON.stringify(navigator.userAgentData));
@@ -83,7 +83,7 @@ export async function init({ container }) {
   log('Hardware Concurrency:', navigator.hardwareConcurrency);
   log('Device Memory (GB):', navigator.deviceMemory || 'unknown');
 
-  // Cena e câmera
+  // Scene e câmera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -95,8 +95,9 @@ export async function init({ container }) {
 
   // Renderer otimizado
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
+  // Performance: DPR fixo em 1
   renderer.setPixelRatio(1);
+  renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   setupTouchControls(canvas);
@@ -135,18 +136,15 @@ export async function load(media) {
     });
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
+    // Vídeo: sem mipmaps
     texture.generateMipmaps = false;
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
   } else {
     texture = await new Promise((res, rej) =>
-      new THREE.TextureLoader().load(
-        media.cachePath || media.src,
-        res,
-        undefined,
-        rej
-      )
+      new THREE.TextureLoader().load(media.cachePath || media.src, res, undefined, rej)
     );
+    // Imagens: mantém mipmaps para qualidade
     texture.generateMipmaps = true;
     texture.minFilter = THREE.LinearMipMapLinearFilter;
     texture.magFilter = THREE.LinearFilter;
@@ -158,19 +156,10 @@ export async function load(media) {
   texture.wrapS = THREE.ClampToEdgeWrapping;
   texture.wrapT = THREE.ClampToEdgeWrapping;
 
-  if (media.stereo) {
-    log('Stereo mode');
-    texture.repeat.set(1, 0.5);
-    texture.offset.set(0, 0.5);
-  } else {
-    texture.repeat.set(1, 1);
-    texture.offset.set(0, 0);
-  }
-  texture.needsUpdate = true;
-
+  // Geometria leve para performance
   const geo = new THREE.SphereGeometry(500, 64, 32);
   geo.scale(-1, 1, 1);
-  sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(500, 64, 32), new THREE.MeshBasicMaterial({ map: texture }));
+  sphereMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: texture }));
   scene.add(sphereMesh);
 }
 
