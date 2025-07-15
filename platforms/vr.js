@@ -1,5 +1,3 @@
-// platforms/vr.js
-
 import * as THREE from '../libs/three.module.js';
 import { initDebugWidget, addLog, getLogs, toggleDebugWidget } from './vr/vr_dbg_widget.js';
 import { initControllers as initQuestControllers }   from './vr/quest.js';
@@ -32,24 +30,14 @@ function overrideConsole() {
 async function logEnvironment() {
   console.log('=== VR ENVIRONMENT ===');
   console.log('User Agent:', navigator.userAgent);
-  if (navigator.userAgentData) {
-    console.log('UA Data:', JSON.stringify(navigator.userAgentData));
-  }
+  if (navigator.userAgentData) console.log('UA Data:', JSON.stringify(navigator.userAgentData));
   console.log('Platform:', navigator.platform);
-  console.log(
-    `Screen: ${screen.width}x${screen.height} @ DPR ${window.devicePixelRatio}`
-  );
+  console.log(`Screen: ${screen.width}x${screen.height} @ DPR ${window.devicePixelRatio}`);
   console.log('Hardware Concurrency:', navigator.hardwareConcurrency);
   console.log('Device Memory (GB):', navigator.deviceMemory || 'unknown');
   if (navigator.xr) {
-    console.log(
-      'Supports immersive-vr:',
-      await navigator.xr.isSessionSupported('immersive-vr')
-    );
-    console.log(
-      'Supports inline:',
-      await navigator.xr.isSessionSupported('inline')
-    );
+    console.log('Supports immersive-vr:', await navigator.xr.isSessionSupported('immersive-vr'));
+    console.log('Supports inline:', await navigator.xr.isSessionSupported('inline'));
   } else {
     console.log('navigator.xr not available');
   }
@@ -74,20 +62,17 @@ export async function init({ container, xrSession }) {
   );
   scene.add(camera);
 
-  // Iluminação leve ideal para mostrar controles e mãos com bom desempenho
-  const ambient = new THREE.AmbientLight(0xffffff, 0.3); // luz difusa fraca
+  // Iluminação leve para controles e mãos
+  const ambient = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add(ambient);
-
-  const hemi = new THREE.HemisphereLight(0xffffff, 0x222222, 0.7); // luz de cima
+  const hemi = new THREE.HemisphereLight(0xffffff, 0x222222, 0.7);
   hemi.position.set(0, 1, 0);
   scene.add(hemi);
 
-
-  // Debug HUD (inicialmente oculto se habilitado)
+  // Debug HUD
   if (DEBUG_WIDGET) {
     initDebugWidget(camera, scene);
     console.log('vr_dbg_widget inicializado');
-    // Começa oculto
     toggleDebugWidget();
   }
 
@@ -101,11 +86,11 @@ export async function init({ container, xrSession }) {
 
   renderer = new THREE.WebGLRenderer({
     antialias: true,
-    canvas,
-    preserveDrawingBuffer: true
+    canvas
   });
   renderer.xr.enabled = true;
-  renderer.setPixelRatio(window.devicePixelRatio);
+  // Performance: fixa DPR em 1 para VR
+  renderer.setPixelRatio(1);
   renderer.setSize(container.clientWidth, container.clientHeight);
 
   renderer.xr.setSession(xrSession);
@@ -147,12 +132,12 @@ export async function init({ container, xrSession }) {
 }
 
 /**
- * Loads a 360° image ou video (mono/stereo) na cena.
+ * Loads a 360° image or video (mono/stereo) na cena.
  */
 export async function load(media) {
   console.log('Carregando mídia:', media.name);
 
-  // Remove old
+  // Remove old meshes
   [monoMesh, leftMesh, rightMesh].forEach(m => {
     if (m) {
       scene.remove(m);
@@ -179,6 +164,10 @@ export async function load(media) {
     });
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
+    // Performance: sem mipmaps em vídeo
+    texture.generateMipmaps = false;
+    texture.minFilter       = THREE.LinearFilter;
+    texture.magFilter       = THREE.LinearFilter;
   } else {
     texture = await new Promise((res, rej) =>
       new THREE.TextureLoader().load(
@@ -188,19 +177,20 @@ export async function load(media) {
         rej
       )
     );
+    // Qualidade: mantém mipmaps em imagens
+    texture.generateMipmaps = true;
+    texture.minFilter       = THREE.LinearMipMapLinearFilter;
+    texture.magFilter       = THREE.LinearFilter;
+    texture.anisotropy      = renderer.capabilities.getMaxAnisotropy();
   }
 
-  // Configurações de qualidade
-  texture.mapping         = THREE.EquirectangularReflectionMapping;
-  texture.colorSpace      = THREE.SRGBColorSpace;
-  texture.wrapS           = THREE.ClampToEdgeWrapping;
-  texture.wrapT           = THREE.ClampToEdgeWrapping;
-  texture.generateMipmaps = true;
-  texture.minFilter       = THREE.LinearMipMapLinearFilter;
-  texture.magFilter       = THREE.LinearFilter;
-  texture.anisotropy      = renderer.capabilities.getMaxAnisotropy();
+  texture.mapping    = THREE.EquirectangularReflectionMapping;
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.wrapS      = THREE.ClampToEdgeWrapping;
+  texture.wrapT      = THREE.ClampToEdgeWrapping;
 
-  const geo = new THREE.SphereGeometry(500, 256, 128);
+  // Geometria mais leve para performance
+  const geo = new THREE.SphereGeometry(500, 64, 32);
   geo.scale(-1, 1, 1);
 
   if (media.stereo) {
