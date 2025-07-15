@@ -1,17 +1,86 @@
-// platforms/desktop.js
 import * as THREE from '../libs/three.module.js';
 import { OrbitControls } from '../libs/OrbitControls.js';
 
 export let renderer;
 let scene, camera, controls, sphereMesh, videoElement, texture;
-
-// Cache de vídeos carregados como Blob URLs para evitar múltiplas requisições
 const videoBlobMap = {};
+
+// DEBUG flag e logs
+const DEBUG = true;
+const debugLogs = [];
+function log(...args) {
+  const msg = args.map(a => (typeof a === 'object' ? JSON.stringify(a) : a)).join(' ');
+  debugLogs.push(msg);
+  console.debug(msg);
+  if (DEBUG) {
+    const dbg = document.getElementById('debug-log');
+    if (dbg) {
+      const div = document.createElement('div');
+      div.textContent = msg;
+      dbg.appendChild(div);
+      dbg.scrollTop = dbg.scrollHeight;
+    }
+  }
+}
 
 export async function init({ container }) {
   container.innerHTML = '';
 
-  // Three.js setup
+  // Debug overlay
+  if (DEBUG) {
+    // contêiner de logs
+    const dbg = document.createElement('div');
+    dbg.id = 'debug-log';
+    Object.assign(dbg.style, {
+      position: 'absolute',
+      bottom: '50px',
+      left: '0',
+      width: '100%',
+      maxHeight: '30%',
+      overflowY: 'auto',
+      backgroundColor: 'rgba(0,0,0,0.7)',
+      color: '#0f0',
+      fontSize: '12px',
+      fontFamily: 'monospace',
+      zIndex: '9999'
+    });
+    container.appendChild(dbg);
+
+    // botão de download de logs
+    const btn = document.createElement('button');
+    btn.textContent = '📥 Download Logs';
+    Object.assign(btn.style, {
+      position: 'absolute',
+      bottom: '0',
+      right: '10px',
+      padding: '8px 12px',
+      fontSize: '14px',
+      zIndex: '10000'
+    });
+    btn.onclick = () => {
+      const blob = new Blob([debugLogs.join('\n')], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'desktop-debug-log.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    };
+    container.appendChild(btn);
+    log('Debug mode ativado (desktop)');
+  }
+
+  log('=== DESKTOP ENVIRONMENT ===');
+  log('User Agent:', navigator.userAgent);
+  if (navigator.userAgentData) log('UA Data:', JSON.stringify(navigator.userAgentData));
+  log('Platform:', navigator.platform);
+  log(`Screen: ${screen.width}x${screen.height} @ DPR ${window.devicePixelRatio}`);
+  log('Hardware Concurrency:', navigator.hardwareConcurrency);
+  log('Device Memory (GB):', navigator.deviceMemory || 'unknown');
+  log('Loaded: platforms/desktop.js');
+  log('Loaded: libs/three.module.js');
+
+  // Setup Three.js
   const canvas = document.createElement('canvas');
   container.appendChild(canvas);
   scene = new THREE.Scene();
@@ -45,7 +114,7 @@ export async function init({ container }) {
 }
 
 export async function load(media) {
-  // Remove mesh existente
+  log('Carregando mídia', media.name);
   if (sphereMesh) {
     scene.remove(sphereMesh);
     sphereMesh.geometry.dispose();
@@ -53,7 +122,6 @@ export async function load(media) {
     sphereMesh.material.dispose();
     sphereMesh = null;
   }
-  // Para vídeo anterior
   if (videoElement) {
     videoElement.pause();
     videoElement.src = '';
@@ -62,10 +130,7 @@ export async function load(media) {
   }
 
   if (media.type === 'video') {
-    // Determina URL de cache
     const srcUrl = media.cachePath || media.src;
-
-    // Se ainda não carregado, busca e armazena Blob URL
     if (!videoBlobMap[srcUrl]) {
       const response = await fetch(srcUrl);
       const arrayBuffer = await response.arrayBuffer();
@@ -73,7 +138,6 @@ export async function load(media) {
       videoBlobMap[srcUrl] = URL.createObjectURL(blob);
     }
 
-    // Cria elemento de vídeo com Blob URL
     videoElement = document.createElement('video');
     Object.assign(videoElement, {
       src: videoBlobMap[srcUrl],
@@ -85,7 +149,6 @@ export async function load(media) {
     await videoElement.play();
     texture = new THREE.VideoTexture(videoElement);
   } else {
-    // Carrega imagem
     texture = await new Promise((res, rej) =>
       new THREE.TextureLoader().load(
         media.cachePath || media.src,
@@ -107,8 +170,8 @@ export async function load(media) {
   texture.magFilter = THREE.LinearFilter;
   texture.anisotropy = maxAniso;
 
-  // Estéreo: usa metade superior
   if (media.stereo) {
+    log('Stereo mode');
     texture.repeat.set(1, 0.5);
     texture.offset.set(0, 0.5);
   } else {
@@ -117,7 +180,6 @@ export async function load(media) {
   }
   texture.needsUpdate = true;
 
-  // Cria mesh de esfera
   const geo = new THREE.SphereGeometry(500, 128, 64);
   geo.scale(-1, 1, 1);
   sphereMesh = new THREE.Mesh(
@@ -125,6 +187,7 @@ export async function load(media) {
     new THREE.MeshBasicMaterial({ map: texture })
   );
   scene.add(sphereMesh);
+  log('Mídia adicionada à cena');
 }
 
 function animate() {
@@ -133,7 +196,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// Anexa logs de VR (se necessário)
+// Injeta logs vindos do VR (se houver)
 export function appendLogs(vrLogs) {
-  vrLogs.forEach(msg => console.log(msg));
+  vrLogs.forEach(msg => log(msg));
 }
