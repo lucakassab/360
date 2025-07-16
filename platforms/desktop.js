@@ -4,7 +4,7 @@ import { OrbitControls } from '../libs/OrbitControls.js';
 export let renderer;
 let scene, camera, controls, sphereMesh, videoElement, texture;
 const videoBlobMap = {};
-const DEBUG = true;
+const DEBUG = false;
 const debugLogs = [];
 
 // Função de log
