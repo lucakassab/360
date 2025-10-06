@@ -24,9 +24,10 @@
   <canvas id="c"></canvas>
 
   <script type="module">
-    import * as THREE from 'https://unpkg.com/three@0.165.0/build/three.module.js';
-    import { DeviceOrientationControls } from 'https://unpkg.com/three-stdlib@2.30.2/controls/DeviceOrientationControls.js';
-    import { VRButton } from 'https://unpkg.com/three@0.165.0/examples/jsm/webxr/VRButton.js';
+    // ===== IMPORTS via esm.sh (resolve "three" automaticamente) =====
+    import * as THREE from 'https://esm.sh/three@0.165.0';
+    import { DeviceOrientationControls } from 'https://esm.sh/three-stdlib@2.30.2/controls/DeviceOrientationControls.js?deps=three@0.165.0';
+    import { VRButton } from 'https://esm.sh/three@0.165.0/examples/jsm/webxr/VRButton.js';
 
     // ===== URLs RAW DO TEU GITHUB =====
     const IMAGES = [
@@ -34,7 +35,6 @@
       'https://raw.githubusercontent.com/lucakassab/360/master/image_3_Stereo.jpg',
       'https://raw.githubusercontent.com/lucakassab/360/master/image_4_Stereo.jpg'
     ];
-    // Padrão TB: metade de CIMA = OLHO ESQUERDO. Ajusta no split se precisar.
 
     // ===== THREE BÁSICO =====
     const canvas = document.getElementById('c');
