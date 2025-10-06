@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>360 TB Stereo - Simples</title>
   <style>
-    html, body { margin:0; height:100%; background:#000; overflow:hidden; font-family:system-ui, sans-serif;
-      overscroll-behavior: none; }
-    body, canvas { touch-action: none; }
-    #ui { position:fixed; top:10px; left:10px; z-index:10; display:flex; gap:8px; flex-wrap:wrap; }
+    html, body {
+      margin:0; height:100%; background:#000; overflow:hidden; font-family:system-ui, sans-serif;
+      overscroll-behavior: none; /* evita pull-to-refresh global */
+    }
+    /* Só o canvas bloqueia gestos de navegação */
+    canvas { display:block; width:100vw; height:100vh; touch-action: none; }
+    /* UI aceita toque/click normal */
+    #ui { position:fixed; top:10px; left:10px; z-index:20; display:flex; gap:8px; flex-wrap:wrap; touch-action: manipulation; }
     #ui * { font-size:14px; padding:8px; }
-    #vrBtnContainer { position:fixed; bottom:10px; left:10px; z-index:10; }
-    .hint { position:fixed; right:10px; bottom:10px; color:#bbb; font-size:12px; z-index:10; }
-    canvas { display:block; width:100vw; height:100vh; }
+    #vrBtnContainer { position:fixed; bottom:10px; left:10px; z-index:20; touch-action: manipulation; }
+    .hint { position:fixed; right:10px; bottom:10px; color:#bbb; font-size:12px; z-index:10; pointer-events:none; }
   </style>
 </head>
 <body>
@@ -26,19 +29,16 @@
   <canvas id="c"></canvas>
 
   <script type="module">
-    // ===== IMPORTS via esm.sh (resolve "three" automaticamente) =====
     import * as THREE from 'https://esm.sh/three@0.165.0';
     import { DeviceOrientationControls } from 'https://esm.sh/three-stdlib@2.30.2/controls/DeviceOrientationControls.js?deps=three@0.165.0';
     import { VRButton } from 'https://esm.sh/three@0.165.0/examples/jsm/webxr/VRButton.js';
 
-    // ===== URLs RAW DO TEU GITHUB =====
     const IMAGES = [
       'https://raw.githubusercontent.com/lucakassab/360/master/image_2_Stereo.jpg',
       'https://raw.githubusercontent.com/lucakassab/360/master/image_3_Stereo.jpg',
       'https://raw.githubusercontent.com/lucakassab/360/master/image_4_Stereo.jpg'
     ];
 
-    // ===== THREE BÁSICO =====
     const canvas = document.getElementById('c');
     const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, powerPreference:'high-performance' });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -54,14 +54,10 @@
     sphereGeom.scale(-1, 1, 1); // olhar pra dentro
 
     let controls = null;
-    let monoSphere = null;       // iOS/desktop mono (uma metade só)
-    let leftSphere = null;       // VR olho esquerdo
-    let rightSphere = null;      // VR olho direito
-    let isCardboard = false;     // fallback split-screen
-    let mode = 'mono';           // 'mono' | 'ios' | 'webxr' | 'cardboard'
+    let monoSphere = null, leftSphere = null, rightSphere = null;
+    let mode = 'mono'; // 'mono' | 'ios' | 'webxr' | 'cardboard'
     let currentIndex = 0;
 
-    // ===== CARREGAR E CORTAR TB =====
     async function loadStereo(index){
       const src = IMAGES[index];
       const img = await loadImage(src);
@@ -71,28 +67,19 @@
       if(!monoSphere) {
         monoSphere = new THREE.Mesh(sphereGeom, new THREE.MeshBasicMaterial({ map: monoTex }));
         scene.add(monoSphere);
-      } else {
-        monoSphere.material.map = monoTex;
-        monoSphere.material.needsUpdate = true;
-      }
+      } else { monoSphere.material.map = monoTex; monoSphere.material.needsUpdate = true; }
 
       if(!leftSphere) {
         leftSphere = new THREE.Mesh(sphereGeom, new THREE.MeshBasicMaterial({ map: leftTex }));
-        leftSphere.layers.set(1); // câmera esquerda no WebXR
-        scene.add(leftSphere);
-      } else {
-        leftSphere.material.map = leftTex; leftSphere.material.needsUpdate = true;
-      }
+        leftSphere.layers.set(1); scene.add(leftSphere);
+      } else { leftSphere.material.map = leftTex; leftSphere.material.needsUpdate = true; }
 
       if(!rightSphere) {
         rightSphere = new THREE.Mesh(sphereGeom, new THREE.MeshBasicMaterial({ map: rightTex }));
-        rightSphere.layers.set(2); // câmera direita no WebXR
-        scene.add(rightSphere);
-      } else {
-        rightSphere.material.map = rightTex; rightSphere.material.needsUpdate = true;
-      }
+        rightSphere.layers.set(2); scene.add(rightSphere);
+      } else { rightSphere.material.map = rightTex; rightSphere.material.needsUpdate = true; }
 
-      applyMode(); // mantém o modo atual após trocar mídia
+      applyMode(); // mantém o modo atual ao trocar mídia
     }
 
     function loadImage(src){
@@ -107,57 +94,39 @@
 
     function splitStereoToTextures(img){
       const w = img.width, h = img.height, half = Math.floor(h/2);
-
       const top = document.createElement('canvas'); top.width = w; top.height = half;
       const bot = document.createElement('canvas'); bot.width = w; bot.height = half;
-
-      const ctxT = top.getContext('2d'); const ctxB = bot.getContext('2d');
-      // TB padrão: topo = olho esquerdo, baixo = olho direito
-      ctxT.drawImage(img, 0, 0, w, half, 0, 0, w, half);
-      ctxB.drawImage(img, 0, half, w, half, 0, 0, w, half);
-
+      top.getContext('2d').drawImage(img, 0, 0, w, half, 0, 0, w, half);
+      bot.getContext('2d').drawImage(img, 0, half, w, half, 0, 0, w, half);
       const leftTex  = new THREE.CanvasTexture(top);
       const rightTex = new THREE.CanvasTexture(bot);
-      const monoTex  = leftTex.clone(); // iOS mono = usar só a metade de cima
-
+      const monoTex  = leftTex.clone(); // iOS mono = metade de cima
       return { leftTex, rightTex, monoTex };
     }
 
     function setupTex(tex){
       tex.colorSpace = THREE.SRGBColorSpace;
-      tex.minFilter = THREE.LinearFilter;
-      tex.magFilter = THREE.LinearFilter;
-      tex.generateMipmaps = false;
-      tex.needsUpdate = true;
+      tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter;
+      tex.generateMipmaps = false; tex.needsUpdate = true;
     }
 
-    // ===== MODOS / VISIBILIDADE =====
     function applyMode(){
       const mono = mode === 'mono' || mode === 'ios';
       const stereo = mode === 'webxr' || mode === 'cardboard';
       if (monoSphere) monoSphere.visible = mono;
       if (leftSphere) leftSphere.visible = stereo;
       if (rightSphere) rightSphere.visible = stereo;
-
-      // renderer.xr só no webxr real
       renderer.xr.enabled = (mode === 'webxr');
-      isCardboard = (mode === 'cardboard');
-
-      // se não estiver usando gyro / VR, garante roll zero no desktop
-      if (!controls && mode === 'mono') camera.rotation.z = 0;
+      if (!controls && mode === 'mono') camera.rotation.z = 0; // desktop: sem roll
     }
 
     function setModeMono(){
       if (controls) { controls.disconnect(); controls = null; }
-      mode = 'mono';
-      applyMode();
+      mode = 'mono'; applyMode();
     }
 
     async function setModeIOS(){
-      await enableGyro();
-      mode = 'ios'; // mono + gyro
-      applyMode();
-      requestFullscreen();
+      await enableGyro(); mode = 'ios'; applyMode(); requestFullscreen();
     }
 
     async function setModeAndroidVR(){
@@ -166,27 +135,17 @@
         const btn = VRButton.createButton(renderer);
         const holder = document.getElementById('vrBtnContainer');
         holder.innerHTML = ''; holder.appendChild(btn);
-
         renderer.xr.addEventListener('sessionstart', () => {
-          mode = 'webxr';
-          applyMode();
+          mode = 'webxr'; applyMode();
           const xrCam = renderer.xr.getCamera();
           if (xrCam && xrCam.cameras?.length >= 2) {
-            xrCam.cameras[0].layers.enable(1); xrCam.cameras[0].layers.disable(2); // esquerdo
-            xrCam.cameras[1].layers.enable(2); xrCam.cameras[1].layers.disable(1); // direito
+            xrCam.cameras[0].layers.enable(1); xrCam.cameras[0].layers.disable(2);
+            xrCam.cameras[1].layers.enable(2); xrCam.cameras[1].layers.disable(1);
           }
         });
-        renderer.xr.addEventListener('sessionend', () => {
-          // volta pro mono quando sair do VR
-          mode = 'mono';
-          applyMode();
-        });
-
+        renderer.xr.addEventListener('sessionend', () => { mode = 'mono'; applyMode(); });
       } else {
-        await enableGyro();
-        mode = 'cardboard';
-        applyMode();
-        requestFullscreen();
+        await enableGyro(); mode = 'cardboard'; applyMode(); requestFullscreen();
       }
     }
 
@@ -197,7 +156,7 @@
           const state = await DeviceOrientationEvent.requestPermission();
           if (state !== 'granted') console.warn('Giro não autorizado');
         }
-      } catch(e) { /* ok */ }
+      } catch(e) {}
       if (controls) controls.disconnect();
       controls = new DeviceOrientationControls(camera);
       controls.connect();
@@ -209,41 +168,43 @@
       else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
     }
 
-    // ===== BLOQUEIO DE SCROLL / PULL-TO-REFRESH =====
-    // Chrome/Android: evita P2R e scroll
+    /* ======== BLOQUEIO DE SCROLL/PULL-TO-REFRESH *APENAS NO CANVAS* ======== */
+    // Previne gestos só quando o usuário interage com a cena,
+    // não atrapalha os botões.
     ['touchstart','touchmove','gesturestart','wheel'].forEach(evt => {
-      window.addEventListener(evt, (e) => { e.preventDefault(); }, { passive: false });
+      canvas.addEventListener(evt, (e) => { e.preventDefault(); }, { passive: false });
     });
 
-    // ===== CONTROLES DESKTOP (arrastar sem roll) =====
+    /* ======== CONTROLES DESKTOP (drag, sem roll) ======== */
     let dragging=false, lastX=0, lastY=0, yaw=0, pitch=0;
     const PITCH_LIMIT = Math.PI/2 - 0.001;
 
-    renderer.domElement.addEventListener('pointerdown', e => {
+    canvas.addEventListener('pointerdown', e => {
       dragging = true; lastX = e.clientX; lastY = e.clientY;
-      // trava o roll no começo do drag
-      camera.rotation.order = 'YXZ';
-      camera.rotation.z = 0;
+      camera.rotation.order = 'YXZ'; camera.rotation.z = 0;
+      canvas.setPointerCapture(e.pointerId);
     });
 
-    renderer.domElement.addEventListener('pointermove', e => {
-      if (!dragging || controls || mode !== 'mono') return; // se gyro/XR ativo, ignora drag
+    canvas.addEventListener('pointermove', e => {
+      if (!dragging || controls || mode !== 'mono') return;
       const dx = e.clientX - lastX, dy = e.clientY - lastY;
       lastX = e.clientX; lastY = e.clientY;
-      yaw -= dx * 0.005;
-      pitch -= dy * 0.005;
+      yaw -= dx * 0.005; pitch -= dy * 0.005;
       pitch = Math.max(-PITCH_LIMIT, Math.min(PITCH_LIMIT, pitch));
-      camera.rotation.set(pitch, yaw, 0, 'YXZ'); // z=0: sem roll
+      camera.rotation.set(pitch, yaw, 0, 'YXZ');
     });
-    window.addEventListener('pointerup', ()=> dragging=false);
 
-    // ===== RENDER =====
-    function onResize(){
+    canvas.addEventListener('pointerup', e => {
+      dragging = false;
+      try { canvas.releasePointerCapture(e.pointerId); } catch(_) {}
+    });
+
+    /* ======== RENDER / RESIZE ======== */
+    window.addEventListener('resize', () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
-    }
-    window.addEventListener('resize', onResize);
+    });
 
     function render(){
       if (controls) controls.update();
@@ -252,12 +213,12 @@
         renderer.setScissorTest(true);
         const w = window.innerWidth, h = window.innerHeight;
 
-        camera.layers.set(1); // esquerdo
+        camera.layers.set(1);
         renderer.setViewport(0, 0, w/2, h);
         renderer.setScissor(0, 0, w/2, h);
         renderer.render(scene, camera);
 
-        camera.layers.set(2); // direito
+        camera.layers.set(2);
         renderer.setViewport(w/2, 0, w/2, h);
         renderer.setScissor(w/2, 0, w/2, h);
         renderer.render(scene, camera);
@@ -265,15 +226,13 @@
         renderer.setScissorTest(false);
         camera.layers.set(0);
       } else {
-        // garantia extra: sem roll no mono desktop
         if (!controls && mode === 'mono' && camera.rotation.z !== 0) camera.rotation.z = 0;
         renderer.render(scene, camera);
       }
     }
-
     renderer.setAnimationLoop(render);
 
-    // ===== UI =====
+    /* ======== UI ======== */
     const sel = document.getElementById('imgSel');
     sel.innerHTML = IMAGES.map((src, i) => `<option value="${src}">Imagem ${i+1}</option>`).join('');
     sel.addEventListener('change', async (e) => {
