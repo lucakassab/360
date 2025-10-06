@@ -2,16 +2,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>360 TB Stereo - Simples</title>
   <style>
     html, body {
       margin:0; height:100%; background:#000; overflow:hidden; font-family:system-ui, sans-serif;
-      overscroll-behavior: none; /* evita pull-to-refresh global */
+      overscroll-behavior: none; /* reduz pull-to-refresh */
     }
-    /* Só o canvas bloqueia gestos de navegação */
-    canvas { display:block; width:100vw; height:100vh; touch-action: none; }
-    /* UI aceita toque/click normal */
+    /* Canvas sempre cobrindo a viewport dinâmica (sem sobrar barra) */
+    canvas {
+      position: fixed; inset: 0;
+      width: 100dvw; height: 100dvh;
+      display:block; touch-action: none;
+    }
+    /* UI por cima, aceita toque normal */
     #ui { position:fixed; top:10px; left:10px; z-index:20; display:flex; gap:8px; flex-wrap:wrap; touch-action: manipulation; }
     #ui * { font-size:14px; padding:8px; }
     #vrBtnContainer { position:fixed; bottom:10px; left:10px; z-index:20; touch-action: manipulation; }
@@ -42,25 +46,23 @@
     const canvas = document.getElementById('c');
     const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, powerPreference:'high-performance' });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.xr.enabled = false;
+    // setSize vai ser chamado pela rotina de resize já com os tamanhos certos
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
     camera.position.set(0,0,0.1);
     camera.rotation.order = 'YXZ'; // evita roll no mouse/desktop
 
     const sphereGeom = new THREE.SphereGeometry(50, 64, 64);
-    sphereGeom.scale(-1, 1, 1); // olhar pra dentro
+    sphereGeom.scale(-1, 1, 1);
 
     let controls = null;
     let monoSphere = null, leftSphere = null, rightSphere = null;
     let mode = 'mono'; // 'mono' | 'ios' | 'webxr' | 'cardboard'
-    let currentIndex = 0;
 
+    // ======== LOAD / TEXTURAS ========
     async function loadStereo(index){
-      const src = IMAGES[index];
-      const img = await loadImage(src);
+      const img = await loadImage(IMAGES[index]);
       const { leftTex, rightTex, monoTex } = splitStereoToTextures(img);
       setupTex(leftTex); setupTex(rightTex); setupTex(monoTex);
 
@@ -79,7 +81,7 @@
         rightSphere.layers.set(2); scene.add(rightSphere);
       } else { rightSphere.material.map = rightTex; rightSphere.material.needsUpdate = true; }
 
-      applyMode(); // mantém o modo atual ao trocar mídia
+      applyMode();
     }
 
     function loadImage(src){
@@ -110,6 +112,7 @@
       tex.generateMipmaps = false; tex.needsUpdate = true;
     }
 
+    // ======== MODOS ========
     function applyMode(){
       const mono = mode === 'mono' || mode === 'ios';
       const stereo = mode === 'webxr' || mode === 'cardboard';
@@ -117,7 +120,7 @@
       if (leftSphere) leftSphere.visible = stereo;
       if (rightSphere) rightSphere.visible = stereo;
       renderer.xr.enabled = (mode === 'webxr');
-      if (!controls && mode === 'mono') camera.rotation.z = 0; // desktop: sem roll
+      if (!controls && mode === 'mono') camera.rotation.z = 0;
     }
 
     function setModeMono(){
@@ -168,23 +171,19 @@
       else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
     }
 
-    /* ======== BLOQUEIO DE SCROLL/PULL-TO-REFRESH *APENAS NO CANVAS* ======== */
-    // Previne gestos só quando o usuário interage com a cena,
-    // não atrapalha os botões.
+    // ======== BLOQUEIO DE GESTO SÓ NO CANVAS ========
     ['touchstart','touchmove','gesturestart','wheel'].forEach(evt => {
       canvas.addEventListener(evt, (e) => { e.preventDefault(); }, { passive: false });
     });
 
-    /* ======== CONTROLES DESKTOP (drag, sem roll) ======== */
+    // ======== DESKTOP DRAG sem roll ========
     let dragging=false, lastX=0, lastY=0, yaw=0, pitch=0;
     const PITCH_LIMIT = Math.PI/2 - 0.001;
-
     canvas.addEventListener('pointerdown', e => {
       dragging = true; lastX = e.clientX; lastY = e.clientY;
       camera.rotation.order = 'YXZ'; camera.rotation.z = 0;
       canvas.setPointerCapture(e.pointerId);
     });
-
     canvas.addEventListener('pointermove', e => {
       if (!dragging || controls || mode !== 'mono') return;
       const dx = e.clientX - lastX, dy = e.clientY - lastY;
@@ -193,34 +192,71 @@
       pitch = Math.max(-PITCH_LIMIT, Math.min(PITCH_LIMIT, pitch));
       camera.rotation.set(pitch, yaw, 0, 'YXZ');
     });
-
     canvas.addEventListener('pointerup', e => {
       dragging = false;
       try { canvas.releasePointerCapture(e.pointerId); } catch(_) {}
     });
 
-    /* ======== RENDER / RESIZE ======== */
-    window.addEventListener('resize', () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    });
+    // ======== RESIZE que realmente cobre a tela ========
+    const tmpV2 = new THREE.Vector2();
+    function getViewportSize(){
+      // usa visualViewport quando existe (iOS/Android lidando com barras)
+      if (window.visualViewport) {
+        return { w: Math.floor(window.visualViewport.width), h: Math.floor(window.visualViewport.height) };
+      }
+      // fallback: mede pelo CSS do canvas
+      return { w: Math.floor(canvas.clientWidth || window.innerWidth),
+               h: Math.floor(canvas.clientHeight || window.innerHeight) };
+    }
 
+    function resizeRendererToDisplaySize(){
+      const pr = Math.min(window.devicePixelRatio || 1, 2);
+      renderer.setPixelRatio(pr);
+      const { w, h } = getViewportSize();
+      // só reajusta se mudou mesmo
+      const size = renderer.getSize(tmpV2);
+      if (Math.abs(size.x - w) > 1 || Math.abs(size.y - h) > 1) {
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+    }
+
+    // ouvir tudo que mexe em viewport
+    window.addEventListener('resize', () => delayedResize());
+    window.addEventListener('orientationchange', () => delayedResize());
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', () => delayedResize());
+      window.visualViewport.addEventListener('scroll', () => delayedResize());
+    }
+    let resizeTimer = null;
+    function delayedResize(){
+      clearTimeout(resizeTimer);
+      // espera as barras sumirem/entrarem (Safari faz isso)
+      resizeTimer = setTimeout(resizeRendererToDisplaySize, 150);
+    }
+
+    // ======== RENDER LOOP ========
     function render(){
+      // garante tamanho correto antes de desenhar
+      resizeRendererToDisplaySize();
+
       if (controls) controls.update();
 
       if (mode === 'cardboard') {
+        const size = renderer.getSize(tmpV2);
+        const w = size.x, h = size.y;
+
         renderer.setScissorTest(true);
-        const w = window.innerWidth, h = window.innerHeight;
 
         camera.layers.set(1);
-        renderer.setViewport(0, 0, w/2, h);
-        renderer.setScissor(0, 0, w/2, h);
+        renderer.setViewport(0, 0, Math.floor(w/2), h);
+        renderer.setScissor(0, 0, Math.floor(w/2), h);
         renderer.render(scene, camera);
 
         camera.layers.set(2);
-        renderer.setViewport(w/2, 0, w/2, h);
-        renderer.setScissor(w/2, 0, w/2, h);
+        renderer.setViewport(Math.floor(w/2), 0, Math.ceil(w/2), h);
+        renderer.setScissor(Math.floor(w/2), 0, Math.ceil(w/2), h);
         renderer.render(scene, camera);
 
         renderer.setScissorTest(false);
@@ -232,13 +268,10 @@
     }
     renderer.setAnimationLoop(render);
 
-    /* ======== UI ======== */
+    // ======== UI ========
     const sel = document.getElementById('imgSel');
     sel.innerHTML = IMAGES.map((src, i) => `<option value="${src}">Imagem ${i+1}</option>`).join('');
-    sel.addEventListener('change', async (e) => {
-      currentIndex = e.target.selectedIndex;
-      await loadStereo(currentIndex); // mantém o modo atual
-    });
+    sel.addEventListener('change', async (e) => { await loadStereo(e.target.selectedIndex); });
 
     document.getElementById('gyroBtn').addEventListener('click', setModeIOS);
     document.getElementById('vrBtn').addEventListener('click', setModeAndroidVR);
@@ -247,6 +280,7 @@
     (async () => {
       await loadStereo(0);
       setModeMono();
+      delayedResize(); // garante tamanho certo no primeiro frame
     })();
   </script>
 </body>
