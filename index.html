@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>360 TB Stereo - Simples</title>
+  <style>
+    html, body { margin:0; height:100%; background:#000; overflow:hidden; font-family:system-ui, sans-serif; }
+    #ui { position:fixed; top:10px; left:10px; z-index:10; display:flex; gap:8px; flex-wrap:wrap; }
+    #ui * { font-size:14px; padding:8px; }
+    #vrBtnContainer { position:fixed; bottom:10px; left:10px; z-index:10; }
+    .hint { position:fixed; right:10px; bottom:10px; color:#bbb; font-size:12px; z-index:10; }
+    canvas { display:block; width:100vw; height:100vh; }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <select id="imgSel"></select>
+    <button id="gyroBtn">Imersivo (iOS)</button>
+    <button id="vrBtn">VR (Android)</button>
+  </div>
+  <div id="vrBtnContainer"></div>
+  <div class="hint">TB = topo=olho esquerdo. Se o teu vier invertido, troca no split.</div>
+  <canvas id="c"></canvas>
+
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js';
+    import { DeviceOrientationControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/controls/DeviceOrientationControls.js';
+    import { VRButton } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/webxr/VRButton.js';
+
+    // ===== URLs RAW DO TEU GITHUB =====
+    const IMAGES = [
+      'https://raw.githubusercontent.com/lucakassab/360/master/image_2_Stereo.jpg',
+      'https://raw.githubusercontent.com/lucakassab/360/master/image_3_Stereo.jpg',
+      'https://raw.githubusercontent.com/lucakassab/360/master/image_4_Stereo.jpg'
+    ];
+    // Padrão TB: metade de CIMA = OLHO ESQUERDO. Ajusta no split se precisar.
+
+    // ===== THREE BÁSICO =====
+    const canvas = document.getElementById('c');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, powerPreference:'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.xr.enabled = false;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0,0,0.1);
+
+    const sphereGeom = new THREE.SphereGeometry(50, 64, 64);
+    sphereGeom.scale(-1, 1, 1); // olhar pra dentro
+
+    let controls = null;
+    let monoSphere = null;       // iOS/desktop mono (uma metade só)
+    let leftSphere = null;       // VR olho esquerdo
+    let rightSphere = null;      // VR olho direito
+    let textures = { left:null, right:null, mono:null };
+    let isCardboard = false;     // fallback split-screen
+    let currentIndex = 0;
+
+    // ===== CARREGAR E CORTAR TB =====
+    async function loadStereo(index){
+      const src = IMAGES[index];
+      const img = await loadImage(src);
+      const { leftTex, rightTex, monoTex } = splitStereoToTextures(img);
+      setupTex(leftTex); setupTex(rightTex); setupTex(monoTex);
+      textures = { left:leftTex, right:rightTex, mono:monoTex };
+
+      if(!monoSphere) {
+        monoSphere = new THREE.Mesh(sphereGeom, new THREE.MeshBasicMaterial({ map: monoTex }));
+        scene.add(monoSphere);
+      } else {
+        monoSphere.material.map = monoTex;
+        monoSphere.material.needsUpdate = true;
+      }
+
+      if(!leftSphere) {
+        leftSphere = new THREE.Mesh(sphereGeom, new THREE.MeshBasicMaterial({ map: leftTex }));
+        leftSphere.layers.set(1); // câmera esquerda no WebXR
+        scene.add(leftSphere);
+      } else {
+        leftSphere.material.map = leftTex; leftSphere.material.needsUpdate = true;
+      }
+
+      if(!rightSphere) {
+        rightSphere = new THREE.Mesh(sphereGeom, new THREE.MeshBasicMaterial({ map: rightTex }));
+        rightSphere.layers.set(2); // câmera direita no WebXR
+        scene.add(rightSphere);
+      } else {
+        rightSphere.material.map = rightTex; rightSphere.material.needsUpdate = true;
+      }
+    }
+
+    function loadImage(src){
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+      });
+    }
+
+    function splitStereoToTextures(img){
+      const w = img.width, h = img.height, half = Math.floor(h/2);
+
+      const top = document.createElement('canvas'); top.width = w; top.height = half;
+      const bot = document.createElement('canvas'); bot.width = w; bot.height = half;
+
+      const ctxT = top.getContext('2d'); const ctxB = bot.getContext('2d');
+      // TB padrão: topo = olho esquerdo, baixo = olho direito
+      ctxT.drawImage(img, 0, 0, w, half, 0, 0, w, half);
+      ctxB.drawImage(img, 0, half, w, half, 0, 0, w, half);
+
+      const leftTex  = new THREE.CanvasTexture(top);
+      const rightTex = new THREE.CanvasTexture(bot);
+      const monoTex  = leftTex.clone(); // iOS mono = usar só a metade de cima
+
+      return { leftTex, rightTex, monoTex };
+    }
+
+    function setupTex(tex){
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
+      tex.generateMipmaps = false;
+      tex.needsUpdate = true;
+    }
+
+    // ===== MODOS =====
+    function setDesktopMono(){
+      isCardboard = false;
+      renderer.xr.enabled = false;
+      if (controls) { controls.disconnect(); controls = null; }
+      if (monoSphere) monoSphere.visible = true;
+      if (leftSphere) leftSphere.visible = false;
+      if (rightSphere) rightSphere.visible = false;
+    }
+
+    async function enterIOSImmersive(){
+      // Mono + giroscópio + fullscreen
+      await enableGyro();
+      isCardboard = false;
+      renderer.xr.enabled = false;
+      if (monoSphere) monoSphere.visible = true;
+      if (leftSphere) leftSphere.visible = false;
+      if (rightSphere) rightSphere.visible = false;
+      requestFullscreen();
+    }
+
+    async function enterAndroidVR(){
+      // Tenta WebXR; se falhar, fallback split-screen + gyro
+      const hasXR = navigator.xr && await navigator.xr.isSessionSupported?.('immersive-vr');
+      if (hasXR) {
+        renderer.xr.enabled = true;
+        const btn = VRButton.createButton(renderer);
+        const holder = document.getElementById('vrBtnContainer');
+        holder.innerHTML = ''; holder.appendChild(btn);
+
+        renderer.xr.addEventListener('sessionstart', () => {
+          const xrCam = renderer.xr.getCamera();
+          if (xrCam && xrCam.cameras?.length >= 2) {
+            xrCam.cameras[0].layers.enable(1); xrCam.cameras[0].layers.disable(2); // esquerdo
+            xrCam.cameras[1].layers.enable(2); xrCam.cameras[1].layers.disable(1); // direito
+          }
+          if (monoSphere) monoSphere.visible = false;
+          if (leftSphere) leftSphere.visible = true;
+          if (rightSphere) rightSphere.visible = true;
+        });
+
+      } else {
+        await enableGyro();
+        isCardboard = true;
+        if (monoSphere) monoSphere.visible = false;
+        if (leftSphere) leftSphere.visible = true;
+        if (rightSphere) rightSphere.visible = true;
+        requestFullscreen();
+      }
+    }
+
+    async function enableGyro(){
+      try {
+        if (typeof DeviceOrientationEvent !== 'undefined' &&
+            typeof DeviceOrientationEvent.requestPermission === 'function') {
+          const state = await DeviceOrientationEvent.requestPermission();
+          if (state !== 'granted') console.warn('Giro não autorizado');
+        }
+      } catch(e) { /* ok */ }
+      if (controls) controls.disconnect();
+      controls = new DeviceOrientationControls(camera);
+      controls.connect();
+    }
+
+    function requestFullscreen(){
+      const el = renderer.domElement;
+      if (el.requestFullscreen) el.requestFullscreen();
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    }
+
+    // ===== CONTROLES DESKTOP (arrastar) =====
+    let dragging=false, lastX=0, lastY=0, yaw=0, pitch=0;
+    renderer.domElement.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+    renderer.domElement.addEventListener('pointermove', e => {
+      if (!dragging || controls) return; // se gyro ativo, ignora drag
+      const dx = e.clientX - lastX, dy = e.clientY - lastY;
+      lastX = e.clientX; lastY = e.clientY;
+      yaw -= dx * 0.005; pitch -= dy * 0.005; pitch = Math.max(-Math.PI/2, Math.min(Math.PI/2, pitch));
+      camera.rotation.set(pitch, yaw, 0);
+    });
+    window.addEventListener('pointerup', ()=> dragging=false);
+
+    // ===== RENDER =====
+    function onResize(){
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    window.addEventListener('resize', onResize);
+
+    function render(){
+      if (controls) controls.update();
+
+      if (isCardboard) {
+        renderer.setScissorTest(true);
+        const w = window.innerWidth, h = window.innerHeight;
+
+        camera.layers.set(1); // esquerdo
+        renderer.setViewport(0, 0, w/2, h);
+        renderer.setScissor(0, 0, w/2, h);
+        renderer.render(scene, camera);
+
+        camera.layers.set(2); // direito
+        renderer.setViewport(w/2, 0, w/2, h);
+        renderer.setScissor(w/2, 0, w/2, h);
+        renderer.render(scene, camera);
+
+        renderer.setScissorTest(false);
+        camera.layers.set(0);
+      } else {
+        renderer.render(scene, camera);
+      }
+    }
+
+    renderer.setAnimationLoop(render);
+
+    // ===== UI =====
+    const sel = document.getElementById('imgSel');
+    sel.innerHTML = IMAGES.map((src, i) => `<option value="${src}">Imagem ${i+1}</option>`).join('');
+    sel.addEventListener('change', async (e) => {
+      currentIndex = e.target.selectedIndex;
+      await loadStereo(currentIndex);
+      setDesktopMono(); // volta pro modo seguro após trocar
+    });
+
+    document.getElementById('gyroBtn').addEventListener('click', enterIOSImmersive);
+    document.getElementById('vrBtn').addEventListener('click', enterAndroidVR);
+
+    // boot
+    (async () => {
+      await loadStereo(0);
+      setDesktopMono();
+    })();
+  </script>
+</body>
+</html>
