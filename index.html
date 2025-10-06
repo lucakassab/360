@@ -2,10 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>360 TB Stereo - Simples</title>
   <style>
-    html, body { margin:0; height:100%; background:#000; overflow:hidden; font-family:system-ui, sans-serif; }
+    html, body { margin:0; height:100%; background:#000; overflow:hidden; font-family:system-ui, sans-serif;
+      overscroll-behavior: none; }
+    body, canvas { touch-action: none; }
     #ui { position:fixed; top:10px; left:10px; z-index:10; display:flex; gap:8px; flex-wrap:wrap; }
     #ui * { font-size:14px; padding:8px; }
     #vrBtnContainer { position:fixed; bottom:10px; left:10px; z-index:10; }
@@ -46,6 +48,7 @@
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(0,0,0.1);
+    camera.rotation.order = 'YXZ'; // evita roll no mouse/desktop
 
     const sphereGeom = new THREE.SphereGeometry(50, 64, 64);
     sphereGeom.scale(-1, 1, 1); // olhar pra dentro
@@ -54,8 +57,8 @@
     let monoSphere = null;       // iOS/desktop mono (uma metade só)
     let leftSphere = null;       // VR olho esquerdo
     let rightSphere = null;      // VR olho direito
-    let textures = { left:null, right:null, mono:null };
     let isCardboard = false;     // fallback split-screen
+    let mode = 'mono';           // 'mono' | 'ios' | 'webxr' | 'cardboard'
     let currentIndex = 0;
 
     // ===== CARREGAR E CORTAR TB =====
@@ -64,7 +67,6 @@
       const img = await loadImage(src);
       const { leftTex, rightTex, monoTex } = splitStereoToTextures(img);
       setupTex(leftTex); setupTex(rightTex); setupTex(monoTex);
-      textures = { left:leftTex, right:rightTex, mono:monoTex };
 
       if(!monoSphere) {
         monoSphere = new THREE.Mesh(sphereGeom, new THREE.MeshBasicMaterial({ map: monoTex }));
@@ -89,6 +91,8 @@
       } else {
         rightSphere.material.map = rightTex; rightSphere.material.needsUpdate = true;
       }
+
+      applyMode(); // mantém o modo atual após trocar mídia
     }
 
     function loadImage(src){
@@ -127,53 +131,61 @@
       tex.needsUpdate = true;
     }
 
-    // ===== MODOS =====
-    function setDesktopMono(){
-      isCardboard = false;
-      renderer.xr.enabled = false;
-      if (controls) { controls.disconnect(); controls = null; }
-      if (monoSphere) monoSphere.visible = true;
-      if (leftSphere) leftSphere.visible = false;
-      if (rightSphere) rightSphere.visible = false;
+    // ===== MODOS / VISIBILIDADE =====
+    function applyMode(){
+      const mono = mode === 'mono' || mode === 'ios';
+      const stereo = mode === 'webxr' || mode === 'cardboard';
+      if (monoSphere) monoSphere.visible = mono;
+      if (leftSphere) leftSphere.visible = stereo;
+      if (rightSphere) rightSphere.visible = stereo;
+
+      // renderer.xr só no webxr real
+      renderer.xr.enabled = (mode === 'webxr');
+      isCardboard = (mode === 'cardboard');
+
+      // se não estiver usando gyro / VR, garante roll zero no desktop
+      if (!controls && mode === 'mono') camera.rotation.z = 0;
     }
 
-    async function enterIOSImmersive(){
-      // Mono + giroscópio + fullscreen
+    function setModeMono(){
+      if (controls) { controls.disconnect(); controls = null; }
+      mode = 'mono';
+      applyMode();
+    }
+
+    async function setModeIOS(){
       await enableGyro();
-      isCardboard = false;
-      renderer.xr.enabled = false;
-      if (monoSphere) monoSphere.visible = true;
-      if (leftSphere) leftSphere.visible = false;
-      if (rightSphere) rightSphere.visible = false;
+      mode = 'ios'; // mono + gyro
+      applyMode();
       requestFullscreen();
     }
 
-    async function enterAndroidVR(){
-      // Tenta WebXR; se falhar, fallback split-screen + gyro
+    async function setModeAndroidVR(){
       const hasXR = navigator.xr && await navigator.xr.isSessionSupported?.('immersive-vr');
       if (hasXR) {
-        renderer.xr.enabled = true;
         const btn = VRButton.createButton(renderer);
         const holder = document.getElementById('vrBtnContainer');
         holder.innerHTML = ''; holder.appendChild(btn);
 
         renderer.xr.addEventListener('sessionstart', () => {
+          mode = 'webxr';
+          applyMode();
           const xrCam = renderer.xr.getCamera();
           if (xrCam && xrCam.cameras?.length >= 2) {
             xrCam.cameras[0].layers.enable(1); xrCam.cameras[0].layers.disable(2); // esquerdo
             xrCam.cameras[1].layers.enable(2); xrCam.cameras[1].layers.disable(1); // direito
           }
-          if (monoSphere) monoSphere.visible = false;
-          if (leftSphere) leftSphere.visible = true;
-          if (rightSphere) rightSphere.visible = true;
+        });
+        renderer.xr.addEventListener('sessionend', () => {
+          // volta pro mono quando sair do VR
+          mode = 'mono';
+          applyMode();
         });
 
       } else {
         await enableGyro();
-        isCardboard = true;
-        if (monoSphere) monoSphere.visible = false;
-        if (leftSphere) leftSphere.visible = true;
-        if (rightSphere) rightSphere.visible = true;
+        mode = 'cardboard';
+        applyMode();
         requestFullscreen();
       }
     }
@@ -197,15 +209,31 @@
       else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
     }
 
-    // ===== CONTROLES DESKTOP (arrastar) =====
+    // ===== BLOQUEIO DE SCROLL / PULL-TO-REFRESH =====
+    // Chrome/Android: evita P2R e scroll
+    ['touchstart','touchmove','gesturestart','wheel'].forEach(evt => {
+      window.addEventListener(evt, (e) => { e.preventDefault(); }, { passive: false });
+    });
+
+    // ===== CONTROLES DESKTOP (arrastar sem roll) =====
     let dragging=false, lastX=0, lastY=0, yaw=0, pitch=0;
-    renderer.domElement.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+    const PITCH_LIMIT = Math.PI/2 - 0.001;
+
+    renderer.domElement.addEventListener('pointerdown', e => {
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+      // trava o roll no começo do drag
+      camera.rotation.order = 'YXZ';
+      camera.rotation.z = 0;
+    });
+
     renderer.domElement.addEventListener('pointermove', e => {
-      if (!dragging || controls) return; // se gyro ativo, ignora drag
+      if (!dragging || controls || mode !== 'mono') return; // se gyro/XR ativo, ignora drag
       const dx = e.clientX - lastX, dy = e.clientY - lastY;
       lastX = e.clientX; lastY = e.clientY;
-      yaw -= dx * 0.005; pitch -= dy * 0.005; pitch = Math.max(-Math.PI/2, Math.min(Math.PI/2, pitch));
-      camera.rotation.set(pitch, yaw, 0);
+      yaw -= dx * 0.005;
+      pitch -= dy * 0.005;
+      pitch = Math.max(-PITCH_LIMIT, Math.min(PITCH_LIMIT, pitch));
+      camera.rotation.set(pitch, yaw, 0, 'YXZ'); // z=0: sem roll
     });
     window.addEventListener('pointerup', ()=> dragging=false);
 
@@ -220,7 +248,7 @@
     function render(){
       if (controls) controls.update();
 
-      if (isCardboard) {
+      if (mode === 'cardboard') {
         renderer.setScissorTest(true);
         const w = window.innerWidth, h = window.innerHeight;
 
@@ -237,6 +265,8 @@
         renderer.setScissorTest(false);
         camera.layers.set(0);
       } else {
+        // garantia extra: sem roll no mono desktop
+        if (!controls && mode === 'mono' && camera.rotation.z !== 0) camera.rotation.z = 0;
         renderer.render(scene, camera);
       }
     }
@@ -248,17 +278,16 @@
     sel.innerHTML = IMAGES.map((src, i) => `<option value="${src}">Imagem ${i+1}</option>`).join('');
     sel.addEventListener('change', async (e) => {
       currentIndex = e.target.selectedIndex;
-      await loadStereo(currentIndex);
-      setDesktopMono(); // volta pro modo seguro após trocar
+      await loadStereo(currentIndex); // mantém o modo atual
     });
 
-    document.getElementById('gyroBtn').addEventListener('click', enterIOSImmersive);
-    document.getElementById('vrBtn').addEventListener('click', enterAndroidVR);
+    document.getElementById('gyroBtn').addEventListener('click', setModeIOS);
+    document.getElementById('vrBtn').addEventListener('click', setModeAndroidVR);
 
     // boot
     (async () => {
       await loadStereo(0);
-      setDesktopMono();
+      setModeMono();
     })();
   </script>
 </body>
