@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>WPA360 Player</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./libs/aframe.js"></script>
+  </head>
+  <body class="mode-normal">
+    <div id="hud">
+      <div id="left-stack">
+        <section id="left-main-card" class="hud-card">
+          <div class="card-collapse-header">
+            <button
+              id="left-card-collapse-btn"
+              type="button"
+              aria-label="Colapsar interface"
+            >
+              −
+            </button>
+          </div>
+
+          <div id="left-main-card-body">
+            <div class="hud-top-row">
+              <span id="tour-name" class="pill">Tour</span>
+              <span id="platform-badge" class="pill pill-muted">
+                Detectando...
+              </span>
+            </div>
+
+            <div class="tour-jump-controls">
+              <label class="hud-select-field">
+                <span>Tour</span>
+                <select id="tour-select" class="hud-select">
+                  <option value="">Carregando tours...</option>
+                </select>
+              </label>
+
+              <label class="hud-select-field">
+                <span>Cena</span>
+                <select id="scene-select" class="hud-select">
+                  <option value="">Carregando cenas...</option>
+                </select>
+              </label>
+
+              <div class="hud-inline-actions">
+                <button id="toggle-map-btn" type="button">
+                  Mostrar minimapa
+                </button>
+              </div>
+            </div>
+
+            <h1 id="scene-title">Carregando...</h1>
+            <p id="scene-description"></p>
+          </div>
+        </section>
+
+        <section id="alignment-debug-panel" class="hud-card is-hidden">
+          <div class="debug-title-row">
+            <strong>Calibração de alinhamento</strong>
+            <span id="alignment-debug-value" class="pill">
+              Posição: 0° · Rotação: 0°
+            </span>
+          </div>
+
+          <p class="debug-help">
+            Ajuste fino horizontal do panorama e da rotação manual dos hotspots.
+          </p>
+
+          <div class="debug-controls">
+            <label class="debug-field">
+              <span>Ajuste fino horizontal da posição (graus)</span>
+              <input
+                id="alignment-yaw-input"
+                class="debug-input"
+                type="number"
+                step="0.1"
+                value="0"
+              />
+            </label>
+
+            <label class="debug-field">
+              <span>Ajuste fino horizontal da rotação (graus)</span>
+              <input
+                id="rotation-yaw-input"
+                class="debug-input"
+                type="number"
+                step="0.1"
+                value="0"
+              />
+            </label>
+
+            <button id="alignment-reset-btn" type="button">Zerar</button>
+          </div>
+        </section>
+      </div>
+
+      <div id="right-stack">
+        <section id="map-panel" class="hud-card is-hidden">
+          <div class="map-header">
+            <span id="map-title">Cena</span>
+
+            <button
+              id="map-panel-collapse-btn"
+              type="button"
+              aria-label="Colapsar minimapa"
+            >
+              −
+            </button>
+          </div>
+
+          <div id="map-panel-body">
+            <div id="map-frame">
+              <div id="map-panzoom-stage">
+                <img id="map-image" alt="Mapa da cena atual" />
+              </div>
+            </div>
+
+            <div class="map-toolbar">
+              <button
+                id="map-prev-scene-btn"
+                type="button"
+                aria-label="Cena anterior"
+              >
+                ←
+              </button>
+              <button
+                id="map-next-scene-btn"
+                type="button"
+                aria-label="Próxima cena"
+              >
+                →
+              </button>
+              <button
+                id="map-zoom-out-btn"
+                type="button"
+                aria-label="Diminuir zoom"
+              >
+                −
+              </button>
+              <button
+                id="map-zoom-in-btn"
+                type="button"
+                aria-label="Aumentar zoom"
+              >
+                +
+              </button>
+              <button id="map-reset-btn" type="button">Reset</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="controls-card" class="hud-card is-hidden">
+          <button id="btn-enter-vr" type="button" disabled>Entrar em VR</button>
+          <button id="btn-exit-vr" type="button" class="is-hidden">
+            Sair do VR
+          </button>
+        </section>
+      </div>
+    </div>
+
+    <div id="loading-overlay" class="is-hidden" aria-live="polite">
+      <div class="loading-card">
+        <div class="spinner"></div>
+        <div id="loading-text">Carregando...</div>
+      </div>
+    </div>
+
+    <div id="error-toast" class="is-hidden" role="alert"></div>
+
+    <a-scene
+      id="tour-scene"
+      embedded
+      background="color: #000000"
+      loading-screen="enabled: false"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+      renderer="antialias: true; colorManagement: true; sortObjects: true"
+      webxr="optionalFeatures: local-floor, bounded-floor, hand-tracking"
+    >
+      <a-assets id="tour-assets" timeout="30000"></a-assets>
+
+      <a-entity
+        id="camera-rig"
+        position="0 0 0"
+        rotation="0 0 0"
+        drag-look-controls="enabled: true; sensitivity: 0.14; pitchMin: -85; pitchMax: 85; pitchTarget: #camera-pitch; cameraTarget: #main-camera; debug: true"
+        vr-viewer-translation-lock="enabled: false; worldTargets: #panorama-root, #hotspot-root; lockX: true; lockY: true; lockZ: true; debug: false"
+      >
+        <a-entity id="camera-pitch" position="0 0 0" rotation="0 0 0">
+          <a-camera
+            id="main-camera"
+            position="0 0 0"
+            rotation="0 0 0"
+            wasd-controls="enabled: false"
+          >
+            <a-entity
+              id="mouse-cursor"
+              cursor="rayOrigin: mouse; fuse: false"
+              raycaster="objects: .clickable-hotspot; far: 200"
+              visible="true"
+            ></a-entity>
+
+            <a-entity
+              id="vr-gaze-cursor"
+              position="0 0 -1.25"
+              visible="false"
+              cursor="fuse: true; fuseTimeout: 1200"
+              raycaster="objects: .vr-clickable-hotspot; far: 200"
+              geometry="primitive: ring; radiusInner: 0.008; radiusOuter: 0.014"
+              material="color: #FFFFFF; shader: flat; opacity: 0.95; side: double"
+            ></a-entity>
+          </a-camera>
+        </a-entity>
+
+        <!-- IMPORTANTE: os hands ficam dentro do camera-rig -->
+        <a-entity
+          id="vr-left-hand"
+          visible="false"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1"
+        ></a-entity>
+
+        <a-entity
+          id="vr-right-hand"
+          visible="false"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1"
+        ></a-entity>
+      </a-entity>
+
+      <a-entity id="panorama-root"></a-entity>
+      <a-entity id="hotspot-root"></a-entity>
+    </a-scene>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
