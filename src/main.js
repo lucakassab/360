@@ -343,6 +343,40 @@ function applyMapVisibility(hasMap) {
   updateMapSceneNavUi();
 }
 
+
+
+function normalizeMenuLabel(value = "") {
+  return String(value || "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function dedupeMenuItemsByLabel(items = []) {
+  const grouped = new Map();
+
+  items.forEach((item) => {
+    const key = normalizeMenuLabel(item?.label || item?.value || "");
+    if (!key) return;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+
+    grouped.get(key).push(item);
+  });
+
+  const result = [];
+
+  grouped.forEach((groupItems) => {
+    const activeItem = groupItems.find((item) => item?.isActive);
+    result.push(activeItem || groupItems[0]);
+  });
+
+  return result;
+}
+
+
 function populateTourSelect() {
   const select = dom.tourSelectEl;
   if (!select) {
@@ -360,23 +394,35 @@ function populateTourSelect() {
   placeholder.textContent = "Selecionar tour...";
   select.appendChild(placeholder);
 
+  const rawItems = [];
+
   AVAILABLE_TOURS.forEach((tour) => {
-    const option = document.createElement("option");
-    option.value = normalizePath(tour.path);
-    option.textContent = tour.label || tour.id || tour.path;
-    select.appendChild(option);
+    rawItems.push({
+      value: normalizePath(tour.path),
+      label: tour.label || tour.id || tour.path,
+      isActive: normalizePath(tour.path) === currentTourPath,
+    });
   });
 
   if (
     currentTourPath &&
     !AVAILABLE_TOURS.some((tour) => normalizePath(tour.path) === currentTourPath)
   ) {
-    const extraOption = document.createElement("option");
-    extraOption.value = currentTourPath;
-    extraOption.textContent =
-      currentTourData?.tourName || currentTourPath || "Tour atual";
-    select.appendChild(extraOption);
+    rawItems.push({
+      value: currentTourPath,
+      label: currentTourData?.tourName || currentTourPath || "Tour atual",
+      isActive: true,
+    });
   }
+
+  const uniqueItems = dedupeMenuItemsByLabel(rawItems);
+
+  uniqueItems.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.value;
+    option.textContent = item.label;
+    select.appendChild(option);
+  });
 
   select.value = currentTourPath || "";
   isProgrammaticTourSelectUpdate = false;
@@ -404,10 +450,18 @@ function populateSceneSelect() {
     return;
   }
 
-  tourData.scenes.forEach((scene) => {
+  const rawItems = tourData.scenes.map((scene) => ({
+    value: scene.id,
+    label: scene.title || scene.id,
+    isActive: scene.id === currentScene?.id,
+  }));
+
+  const uniqueItems = dedupeMenuItemsByLabel(rawItems);
+
+  uniqueItems.forEach((item) => {
     const option = document.createElement("option");
-    option.value = scene.id;
-    option.textContent = scene.title || scene.id;
+    option.value = item.value;
+    option.textContent = item.label;
     select.appendChild(option);
   });
 
@@ -571,6 +625,7 @@ async function renderCurrentScene() {
       state: tourState,
       tourPath: tourState.getTourPath(),
       onHotspotNavigate: handleHotspotNavigate,
+      availableTours: AVAILABLE_TOURS,
     });
     return;
   }

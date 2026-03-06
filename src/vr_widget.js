@@ -3,8 +3,12 @@ import { VRWidgetUI } from "./vr_widget_ui.js";
 
 const THREE = window.AFRAME?.THREE;
 
+function isControllerLaserEnabled(entityEl) {
+  return entityEl?.dataset?.vrLaserEnabled === "true";
+}
+
 function appendRaycasterSelector(entityEl, selector) {
-  if (!entityEl) return;
+  if (!entityEl || !isControllerLaserEnabled(entityEl)) return;
 
   const current = entityEl.getAttribute("raycaster") || {};
   const objects = String(current.objects || "")
@@ -22,18 +26,15 @@ function appendRaycasterSelector(entityEl, selector) {
   });
 }
 
-function normalizeEvents(value) {
-  if (!value) return [];
-  if (Array.isArray(value)) return value;
-
-  return String(value)
-    .split(",")
-    .map((x) => x.trim())
-    .filter(Boolean);
+function normalizeMenuLabel(value = "") {
+  return String(value || "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
 }
 
 function ensureControllerCursor(entityEl) {
-  if (!entityEl) return;
+  if (!entityEl || !isControllerLaserEnabled(entityEl)) return;
 
   const currentRaycaster = entityEl.getAttribute("raycaster") || {};
   const objects = String(currentRaycaster.objects || "")
@@ -47,8 +48,11 @@ function ensureControllerCursor(entityEl) {
 
   entityEl.setAttribute("raycaster", {
     ...currentRaycaster,
+    enabled:
+      currentRaycaster.enabled !== undefined ? currentRaycaster.enabled : true,
     far: currentRaycaster.far || 200,
-    showLine: true,
+    showLine:
+      currentRaycaster.showLine !== undefined ? currentRaycaster.showLine : true,
     lineColor: currentRaycaster.lineColor || "#93C5FD",
     lineOpacity:
       currentRaycaster.lineOpacity !== undefined
@@ -58,30 +62,69 @@ function ensureControllerCursor(entityEl) {
   });
 }
 
-function uniqueTours(list = [], currentPath = "", currentName = "") {
-  const seen = new Set();
+function dedupeMenuItemsByLabel(items = []) {
+  const grouped = new Map();
+
+  items.forEach((item) => {
+    const labelKey = normalizeMenuLabel(item?.label || item?.value || "");
+
+    if (!labelKey) {
+      return;
+    }
+
+    if (!grouped.has(labelKey)) {
+      grouped.set(labelKey, []);
+    }
+
+    grouped.get(labelKey).push(item);
+  });
+
   const result = [];
 
+  grouped.forEach((groupItems) => {
+    const activeItem = groupItems.find((item) => item?.isActive);
+    result.push(activeItem || groupItems[0]);
+  });
+
+  return result;
+}
+
+function uniqueTours(list = [], currentPath = "", currentName = "") {
+  const rawItems = [];
+  const seenPaths = new Set();
+
   list.forEach((t) => {
-    const key = String(t?.path || "").trim();
-    if (!key || seen.has(key)) return;
+    const pathValue = String(t?.path || "").trim();
+    if (!pathValue || seenPaths.has(pathValue)) return;
 
-    seen.add(key);
+    seenPaths.add(pathValue);
 
-    result.push({
-      value: key,
-      label: t.label || key,
+    rawItems.push({
+      value: pathValue,
+      label: t.label || pathValue,
+      isActive: pathValue === currentPath,
     });
   });
 
-  if (currentPath && !seen.has(currentPath)) {
-    result.push({
+  if (currentPath && !seenPaths.has(currentPath)) {
+    rawItems.push({
       value: currentPath,
       label: currentName || currentPath,
+      isActive: true,
     });
   }
 
-  return result;
+  return dedupeMenuItemsByLabel(rawItems);
+}
+
+function buildUniqueSceneItems(scenes = [], currentSceneId = "") {
+  const rawItems = scenes.map((scene) => ({
+    value: scene.id,
+    label: scene.title || scene.id,
+    isActive: scene.id === currentSceneId,
+  }));
+
+  return dedupeMenuItemsByLabel(rawItems);
 }
 
 function getButtonVisual(buttonEl) {
@@ -223,7 +266,7 @@ export class VRWidget {
 
     this.sceneEl = sceneEl;
     this.state = state;
-    this.availableTours = availableTours;
+    this.availableTours = Array.isArray(availableTours) ? availableTours : [];
     this.onTourChange = onTourChange;
     this.onSceneChange = onSceneChange;
 
@@ -235,7 +278,7 @@ export class VRWidget {
     this.leftHandEl = null;
     this.rightHandEl = null;
 
-    this.onThumbstickDown = this.onThumbstickDown.bind(this);
+    this.onGripDown = this.onGripDown.bind(this);
     this.syncFromState = this.syncFromState.bind(this);
 
     this.bindRaycasters();
@@ -257,7 +300,7 @@ export class VRWidget {
 
   bindControls() {
     if (this.rightHandEl) {
-      this.rightHandEl.addEventListener("thumbstickdown", this.onThumbstickDown);
+      this.rightHandEl.addEventListener("gripdown", this.onGripDown);
     }
 
     if (typeof this.state.subscribe === "function") {
@@ -306,13 +349,13 @@ export class VRWidget {
 
   destroy() {
     if (this.rightHandEl) {
-      this.rightHandEl.removeEventListener("thumbstickdown", this.onThumbstickDown);
+      this.rightHandEl.removeEventListener("gripdown", this.onGripDown);
     }
 
     this.ui.destroy();
   }
 
-  onThumbstickDown() {
+  onGripDown() {
     this.toggle();
   }
 
@@ -410,10 +453,7 @@ export class VRWidget {
       this.availableTours,
       currentTourPath,
       currentTourName
-    ).map((item) => ({
-      ...item,
-      isActive: item.value === currentTourPath,
-    }));
+    );
 
     const refs = this.ui.renderDropdown("tour", items);
 
@@ -452,11 +492,7 @@ export class VRWidget {
 
     const refs = this.ui.renderDropdown(
       "scene",
-      scenes.map((s) => ({
-        value: s.id,
-        label: s.title || s.id,
-        isActive: s.id === currentScene?.id,
-      }))
+      buildUniqueSceneItems(scenes, currentScene?.id || "")
     );
 
     refs.forEach(({ item, buttonEl }) => {

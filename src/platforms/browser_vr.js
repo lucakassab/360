@@ -5,6 +5,10 @@ import { initVRWidget } from "../vr_widget.js";
 let vrWidget = null;
 let vrControllersInitialized = false;
 
+// Flags de configuração dos lasers dos controles
+const VR_LEFT_CONTROLLER_LASER_ENABLED = false;
+const VR_RIGHT_CONTROLLER_LASER_ENABLED = true;
+
 function setVisible(el, visible) {
   if (!el) return;
   el.setAttribute("visible", visible);
@@ -43,13 +47,51 @@ function getMergedRayTargets(currentObjectsValue = "") {
   return currentTargets.join(", ");
 }
 
-function ensureVrControllerRaycaster(entityEl) {
+function isControllerLaserEnabled(hand) {
+  if (hand === "left") {
+    return VR_LEFT_CONTROLLER_LASER_ENABLED;
+  }
+
+  if (hand === "right") {
+    return VR_RIGHT_CONTROLLER_LASER_ENABLED;
+  }
+
+  return true;
+}
+
+function applyControllerLaserState(entityEl, hand) {
   if (!entityEl) return;
 
+  const laserEnabled = isControllerLaserEnabled(hand);
   const currentRaycaster = entityEl.getAttribute("raycaster") || {};
+
+  entityEl.dataset.vrLaserEnabled = laserEnabled ? "true" : "false";
+
+  if (!laserEnabled) {
+    // Desliga completamente interação e linha visual desse controle.
+    entityEl.removeAttribute("cursor");
+
+    entityEl.setAttribute("raycaster", {
+      ...currentRaycaster,
+      enabled: false,
+      showLine: false,
+      far: currentRaycaster.far || 200,
+      objects: "",
+    });
+
+    entityEl.setAttribute("line", {
+      color: "#93C5FD",
+      opacity: 0,
+      visible: false,
+    });
+
+    console.log("[VR] laser desativado para controle", { hand });
+    return;
+  }
 
   entityEl.setAttribute("raycaster", {
     ...currentRaycaster,
+    enabled: true,
     far: currentRaycaster.far || 200,
     showLine: true,
     lineColor: currentRaycaster.lineColor || "#93C5FD",
@@ -63,6 +105,7 @@ function ensureVrControllerRaycaster(entityEl) {
   entityEl.setAttribute("line", {
     color: "#93C5FD",
     opacity: 0.95,
+    visible: true,
   });
 }
 
@@ -74,7 +117,6 @@ function configureVrControllerOnce(entityEl, hand) {
     entityEl.dataset.vrControllerHand === hand;
 
   if (!alreadyConfigured) {
-    // limpa configuração só na primeira vez da sessão VR
     entityEl.removeAttribute("laser-controls");
     entityEl.removeAttribute("meta-touch-controls");
     entityEl.removeAttribute("tracked-controls");
@@ -85,6 +127,7 @@ function configureVrControllerOnce(entityEl, hand) {
 
     resetEntityLocalTransform(entityEl);
 
+    // Mantém laser-controls para tracking/modelo/eventos do controle.
     entityEl.setAttribute("laser-controls", {
       hand,
       model: true,
@@ -99,10 +142,15 @@ function configureVrControllerOnce(entityEl, hand) {
   }
 
   setVisible(entityEl, true);
-  ensureVrControllerRaycaster(entityEl);
+  applyControllerLaserState(entityEl, hand);
 }
 
 function refreshRaycasterEntity(entityEl, label = "") {
+  const laserEnabled = entityEl?.dataset?.vrLaserEnabled === "true";
+  if (!laserEnabled) {
+    return;
+  }
+
   const raycasterComponent = entityEl?.components?.raycaster;
 
   if (!raycasterComponent) {
@@ -130,28 +178,24 @@ function refreshVrInteractionTargets(sceneEl) {
   const vrGazeCursor = sceneEl.querySelector("#vr-gaze-cursor");
 
   const run = () => {
-    ensureVrControllerRaycaster(vrLeftHand);
-    ensureVrControllerRaycaster(vrRightHand);
+    applyControllerLaserState(vrLeftHand, "left");
+    applyControllerLaserState(vrRightHand, "right");
 
     refreshRaycasterEntity(vrLeftHand, "left-hand");
     refreshRaycasterEntity(vrRightHand, "right-hand");
     refreshRaycasterEntity(vrGazeCursor, "gaze-cursor");
   };
 
-  // imediato
   run();
 
-  // próximo frame
   window.requestAnimationFrame(() => {
     run();
 
-    // mais um frame porque A-Frame/DOM inicializam entities de forma assíncrona
     window.requestAnimationFrame(() => {
       run();
     });
   });
 
-  // fallback curto pra garantir depois que mesh/hotspots terminarem de anexar
   window.setTimeout(run, 120);
   window.setTimeout(run, 280);
 }
@@ -253,18 +297,17 @@ function createWidgetTourNavigateHandler(onHotspotNavigate) {
   };
 }
 
-function initVrWidget(sceneEl, state, onHotspotNavigate) {
+function initVrWidget(sceneEl, state, onHotspotNavigate, availableTours = []) {
   if (vrWidget) {
+    vrWidget.availableTours = Array.isArray(availableTours) ? availableTours : [];
     vrWidget.syncFromState?.();
     return;
   }
 
-  const availableTours = state.getAvailableTours?.() || [];
-
   vrWidget = initVRWidget({
     sceneEl,
     state,
-    availableTours,
+    availableTours: Array.isArray(availableTours) ? availableTours : [],
     onTourChange: createWidgetTourNavigateHandler(onHotspotNavigate),
     onSceneChange: createWidgetSceneNavigateHandler(onHotspotNavigate),
   });
@@ -275,6 +318,7 @@ export async function initBrowserVr({
   state,
   tourPath,
   onHotspotNavigate,
+  availableTours = [],
 }) {
   const currentScene = state.getCurrentScene();
   const tourData = state.getTourData();
@@ -299,8 +343,6 @@ export async function initBrowserVr({
   setVisible(mouseCursor, false);
   setVisible(vrGazeCursor, false);
 
-  // Só inicializa tracking/laser uma vez por sessão VR.
-  // Nas próximas mídias, só garante raycaster/targets.
   configureVrControllerOnce(vrLeftHand, "left");
   configureVrControllerOnce(vrRightHand, "right");
   vrControllersInitialized = true;
@@ -322,9 +364,8 @@ export async function initBrowserVr({
 
   setViewerTranslationLockEnabled(sceneEl, true);
 
-  initVrWidget(sceneEl, state, onHotspotNavigate);
+  initVrWidget(sceneEl, state, onHotspotNavigate, availableTours);
 
-  // depois da troca de mídia, só atualiza os alvos do raycaster
   refreshVrInteractionTargets(sceneEl);
 
   sceneEl.addEventListener(
