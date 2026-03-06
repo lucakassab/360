@@ -1,28 +1,28 @@
 {
   "tourName": "Apartamento Coluna 3",
   "tourDescription": "Tour virtual da Coluna 3.",
-  "tourFolder": "tours/Coluna_3",
+  "tourFolder": "tours/coluna_3",
   "defaultScene": "sala_coluna_03",
   "linkedTours": [
     {
       "id": "coluna_1",
-      "path": "tours/Coluna_1/tour.json"
+      "path": "tours/coluna_1/tour.json"
     },
     {
       "id": "coluna_2",
-      "path": "tours/Coluna_2/tour.json"
+      "path": "tours/coluna_2/tour.json"
     },
     {
       "id": "coluna_3",
-      "path": "tours/Coluna_3/tour.json"
+      "path": "tours/coluna_3/tour.json"
     },
     {
       "id": "coluna_4",
-      "path": "tours/Coluna_4/tour.json"
+      "path": "tours/coluna_4/tour.json"
     },
     {
       "id": "coluna_5",
-      "path": "tours/Coluna_5/tour.json"
+      "path": "tours/coluna_5/tour.json"
     }
   ],
   "scenes": [
@@ -50,9 +50,9 @@
     },
     {
       "id": "coluna_03_quarto",
-      "title": "COLUNA_03_QUARTO",
-      "description": "Cena COLUNA_03_QUARTO",
-      "image360": "COLUNA_03_QUARTO.jpg",
+      "title": "coluna_03_QUARTO",
+      "description": "Cena coluna_03_QUARTO",
+      "image360": "coluna_03_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "map_col_3_quarto_studio.png",
@@ -61,9 +61,9 @@
     },
     {
       "id": "coluna_03_quarto_suite",
-      "title": "COLUNA_03_QUARTO_SUITE",
-      "description": "Cena COLUNA_03_QUARTO_SUITE",
-      "image360": "COLUNA_03_QUARTO_SUITE.jpg",
+      "title": "coluna_03_QUARTO_SUITE",
+      "description": "Cena coluna_03_QUARTO_SUITE",
+      "image360": "coluna_03_QUARTO_SUITE.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "map_col_3_quarto_suite.png",
@@ -72,9 +72,9 @@
     },
     {
       "id": "corredor_coluna_03",
-      "title": "CORREDOR_COLUNA_03",
-      "description": "Cena CORREDOR_COLUNA_03",
-      "image360": "CORREDOR_COLUNA_03.jpg",
+      "title": "CORREDOR_coluna_03",
+      "description": "Cena CORREDOR_coluna_03",
+      "image360": "CORREDOR_coluna_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "map_col_3_corredor.png",
@@ -83,9 +83,9 @@
     },
     {
       "id": "cozinha_coluna_03",
-      "title": "COZINHA_COLUNA_03",
-      "description": "Cena COZINHA_COLUNA_03",
-      "image360": "COZINHA_COLUNA_03.jpg",
+      "title": "COZINHA_coluna_03",
+      "description": "Cena COZINHA_coluna_03",
+      "image360": "COZINHA_coluna_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "map_col_3_cozinha.png",
@@ -94,12 +94,12 @@
     },
     {
       "id": "sala_coluna_03",
-      "title": "SALA_COLUNA_03",
-      "description": "Cena SALA_COLUNA_03",
-      "image360": "SALA_COLUNA_03.jpg",
+      "title": "SALA_coluna_03",
+      "description": "Cena SALA_coluna_03",
+      "image360": "SALA_coluna_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_3_map_Sala.png",
+      "imageMap": "coluna_3_map_Sala.png",
       "mapRotation": 0,
       "hotspots": []
     }
