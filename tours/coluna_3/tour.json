@@ -99,7 +99,7 @@
       "image360": "SALA_COLUNA_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_3_sala.png",
+      "imageMap": "Coluna_3_map_Sala.png",
       "mapRotation": 0,
       "hotspots": []
     }
