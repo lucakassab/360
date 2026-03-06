@@ -26,27 +26,27 @@ const AVAILABLE_TOURS = [
   {
     id: "coluna_1",
     label: "Apartamento Coluna 1",
-    path: "tours/Coluna_1/tour.json",
+    path: "tours/coluna_1/tour.json",
   },
   {
     id: "coluna_2",
     label: "Apartamento Coluna 2",
-    path: "tours/Coluna_2/tour.json",
+    path: "tours/coluna_2/tour.json",
   },
   {
     id: "coluna_3",
     label: "Apartamento Coluna 3",
-    path: "tours/Coluna_3/tour.json",
+    path: "tours/coluna_3/tour.json",
   },
   {
     id: "coluna_4",
     label: "Apartamento Coluna 4",
-    path: "tours/Coluna_4/tour.json",
+    path: "tours/coluna_4/tour.json",
   },
   {
     id: "coluna_5",
     label: "Apartamento Coluna 5",
-    path: "tours/Coluna_5/tour.json",
+    path: "tours/coluna_5/tour.json",
   },
 ];
 
