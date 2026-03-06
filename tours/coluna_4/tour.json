@@ -33,7 +33,7 @@
       "image360": "BANHO_STUDIO_COL_04_DIREITO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "coluna_4_map_Banho_Studio_Direito.png",
+      "imageMap": "Coluna_4_map_Banho_Studio_Direito.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -44,7 +44,7 @@
       "image360": "BANHO_STUDIO_COL_04_ESQUERDO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "coluna_4_map_Banho_Studio_Esquerdo.png",
+      "imageMap": "Coluna_4_map_Banho_Studio_Esquerdo.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -52,10 +52,10 @@
       "id": "coluna_04_direita",
       "title": "coluna_04_DIREITA",
       "description": "Cena coluna_04_DIREITA",
-      "image360": "coluna_04_DIREITA.jpg",
+      "image360": "COLUNA_04_DIREITA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "coluna_4_map_Direita.png",
+      "imageMap": "Coluna_4_map_Direita.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -63,10 +63,10 @@
       "id": "coluna_04_esquerda",
       "title": "coluna_04_ESQUERDA",
       "description": "Cena coluna_04_ESQUERDA",
-      "image360": "coluna_04_ESQUERDA.jpg",
+      "image360": "COLUNA_04_ESQUERDA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "coluna_4_map_Esquerda.png",
+      "imageMap": "Coluna_4_map_Esquerda.png",
       "mapRotation": 0,
       "hotspots": []
     }
