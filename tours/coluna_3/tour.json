@@ -96,10 +96,10 @@
       "id": "sala_coluna_03",
       "title": "SALA_coluna_03",
       "description": "Cena SALA_coluna_03",
-      "image360": "SALA_coluna_03.jpg",
+      "image360": "SALA_COLUNA_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "coluna_3_map_Sala.png",
+      "imageMap": "map_col_3_sala.png",
       "mapRotation": 0,
       "hotspots": []
     }
