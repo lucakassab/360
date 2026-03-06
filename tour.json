@@ -63,7 +63,7 @@
       "id": "coluna_01_sala",
       "title": "coluna_01_SALA",
       "description": "Cena coluna_01_SALA",
-      "image360": "coluna_01_SALA.jpg",
+      "image360": "COLUNA_01_SALA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "map_col_1_sala.png",
