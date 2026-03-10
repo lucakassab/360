@@ -1,0 +1,78 @@
+{
+  "tourName": "PUC",
+  "tourDescription": "Tour virtual da PUC.",
+  "tourFolder": "tours/puc",
+  "defaultScene": "puc_sauna",
+  "linkedTours": [
+    {
+      "id": "coluna_1",
+      "path": "tours/coluna_1/tour.json"
+    },
+    {
+      "id": "coluna_2",
+      "path": "tours/coluna_2/tour.json"
+    },
+    {
+      "id": "coluna_3",
+      "path": "tours/coluna_3/tour.json"
+    },
+    {
+      "id": "coluna_4",
+      "path": "tours/coluna_4/tour.json"
+    },
+    {
+      "id": "coluna_5",
+      "path": "tours/coluna_5/tour.json"
+    },
+    {
+      "id": "puc",
+      "path": "tours/puc/tour.json"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "puc_sauna",
+      "title": "PUC SAUNA",
+      "description": "Cena PUC SAUNA",
+      "image360": "PUC SAUNA.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "hall_de_elevador",
+      "title": "HALL DE ELEVADOR",
+      "description": "Cena HALL DE ELEVADOR",
+      "image360": "HALL DE ELEVADOR.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "gourmet",
+      "title": "GOURMET",
+      "description": "Cena GOURMET",
+      "image360": "GOURMET.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "academia",
+      "title": "ACADEMIA",
+      "description": "Cena ACADEMIA",
+      "image360": "ACADEMIA.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "",
+      "mapRotation": 0,
+      "hotspots": []
+    }
+  ]
+}
