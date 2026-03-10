@@ -34,7 +34,7 @@
       "id": "puc_sauna",
       "title": "PUC SAUNA",
       "description": "Cena PUC SAUNA",
-      "image360": "PUC SAUNA.jpg",
+      "image360": "puc_sauna.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "",
@@ -45,7 +45,7 @@
       "id": "hall_de_elevador",
       "title": "HALL DE ELEVADOR",
       "description": "Cena HALL DE ELEVADOR",
-      "image360": "HALL DE ELEVADOR.jpg",
+      "image360": "hall_de_elevador.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "",
@@ -56,7 +56,7 @@
       "id": "gourmet",
       "title": "GOURMET",
       "description": "Cena GOURMET",
-      "image360": "GOURMET.jpg",
+      "image360": "gourmet.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "",
@@ -67,7 +67,7 @@
       "id": "academia",
       "title": "ACADEMIA",
       "description": "Cena ACADEMIA",
-      "image360": "ACADEMIA.jpg",
+      "image360": "academia.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "",
@@ -75,4 +75,5 @@
       "hotspots": []
     }
   ]
+
 }
