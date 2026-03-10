@@ -23,6 +23,10 @@
     {
       "id": "coluna_5",
       "path": "tours/coluna_5/tour.json"
+    },
+    {
+      "id": "puc",
+      "path": "tours/puc/tour.json"
     }
   ],
   "scenes": [
@@ -74,7 +78,7 @@
       "id": "cozinha_coluna_01",
       "title": "COZINHA_coluna_01",
       "description": "Cena COZINHA_coluna_01",
-      "image360": "COZINHA_coluna_01.jpg",
+      "image360": "COZINHA_COLUNA_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "map_col_1_cozinnha.png",
