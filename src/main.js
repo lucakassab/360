@@ -48,6 +48,11 @@ const AVAILABLE_TOURS = [
     label: "Apartamento Coluna 5",
     path: "tours/coluna_5/tour.json",
   },
+  {
+    id: "puc",
+    label: "PUC",
+    path: "tours/puc/tour.json",
+  },
 ];
 
 const MAP_MIN_SCALE = 1;
