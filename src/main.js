@@ -16,6 +16,7 @@ import {
   rerenderBrowserNormalHotspots,
 } from "./platforms/browser_normal.js";
 
+
 const SHOW_ALIGNMENT_DEBUG_UI = false;
 const PANORAMA_FINE_YAW_STORAGE_KEY =
   "wpa360_debug_panorama_fine_yaw_offset_deg";
