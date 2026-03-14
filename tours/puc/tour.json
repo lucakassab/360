@@ -97,6 +97,28 @@
       "hotspots": []
     },
     {
+      "id": "mesa_academia",
+      "title": "MESA ACADEMIA",
+      "description": "Cena MESA ACADEMIA",
+      "image360": "mesa_academia.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "piscina",
+      "title": "PISCINA",
+      "description": "Cena PISCINA",
+      "image360": "piscina.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
       "id": "vista_meio_salao",
       "title": "VISTA MEIO SALAO",
       "description": "Cena VISTA MEIO SALAO",
