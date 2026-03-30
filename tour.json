@@ -32,7 +32,7 @@
   "scenes": [
     {
       "id": "banho_col_01",
-      "title": "BANHO_COL_01",
+      "title": "Coluna 1 - Banheiro Suite",
       "description": "Cena BANHO_COL_01",
       "image360": "BANHO_COL_01.jpg",
       "stereoFormat": "top-bottom",
