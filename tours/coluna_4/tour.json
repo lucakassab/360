@@ -1,5 +1,5 @@
 {
-  "tourName": "Coluna 4",
+  "tourName": "Apartamento Coluna 4",
   "tourDescription": "Tour virtual da Coluna 4.",
   "tourFolder": "tours/coluna_4",
   "defaultScene": "coluna_04_direita",
@@ -28,9 +28,9 @@
   "scenes": [
     {
       "id": "banho_studio_col_04_direito",
-      "title": "BANHO_STUDIO_COL_04_DIREITO",
-      "description": "Cena BANHO_STUDIO_COL_04_DIREITO",
-      "image360": "BANHO_STUDIO_COL_04_DIREITO.jpg",
+      "title": "Coluna 4 - Direita - Studio - Banheiro",
+      "description": "Coluna 4 - Direita - Studio - Banheiro",
+      "image360": "Coluna 4 Direita - Studio Banheiro.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "mapa_padrao.png",
@@ -39,9 +39,9 @@
     },
     {
       "id": "banho_studio_col_04_esquerdo",
-      "title": "BANHO_STUDIO_COL_04_ESQUERDO",
-      "description": "Cena BANHO_STUDIO_COL_04_ESQUERDO",
-      "image360": "BANHO_STUDIO_COL_04_ESQUERDO.jpg",
+      "title": "Coluna 4 - Esquerda - Studio - Banheiro",
+      "description": "Coluna 4 - Esquerda - Studio - Banheiro",
+      "image360": "Coluna 4 Esquerda - Studio Banheiro.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "mapa_padrao.png",
@@ -50,9 +50,9 @@
     },
     {
       "id": "coluna_04_direita",
-      "title": "coluna_04_DIREITA",
-      "description": "Cena coluna_04_DIREITA",
-      "image360": "COLUNA_04_DIREITA.jpg",
+      "title": "Coluna 4 - Direita - Varanda",
+      "description": "Coluna 4 - Direita - Varanda",
+      "image360": "Coluna 4 Direita - Varanda.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "mapa_padrao.png",
@@ -61,9 +61,9 @@
     },
     {
       "id": "coluna_04_esquerda",
-      "title": "coluna_04_ESQUERDA",
-      "description": "Cena coluna_04_ESQUERDA",
-      "image360": "COLUNA_04_ESQUERDA.jpg",
+      "title": "Coluna 4 - Esquerda - Varanda",
+      "description": "Coluna 4 - Esquerda - Varanda",
+      "image360": "Coluna 4 Esquerda - Varanda.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "mapa_padrao.png",
