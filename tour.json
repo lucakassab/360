@@ -1,5 +1,5 @@
 {
-  "tourName": "Apartamento Coluna 1",
+  "tourName": "Coluna 1",
   "tourDescription": "Tour virtual da Coluna 1.",
   "tourFolder": "tours/coluna_1",
   "defaultScene": "banho_col_01",
@@ -14,8 +14,8 @@
   "scenes": [
     {
       "id": "banho_col_01",
-      "title": "Coluna 1 - Apartamento Suíte - Banheiro",
-      "description": "Coluna 1 - Apartamento Suíte - Banheiro",
+      "title": "Coluna 1 - Suíte - Banheiro",
+      "description": "Coluna 1 - Suíte - Banheiro",
       "image360": "BANHO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -25,8 +25,8 @@
     },
     {
       "id": "banho_studio_col_01",
-      "title": "Coluna 1 - Apartamento Studio - Banheiro",
-      "description": "Coluna 1 - Apartamento Studio - Banheiro",
+      "title": "Coluna 1 - Studio - Banheiro",
+      "description": "Coluna 1 - Studio - Banheiro",
       "image360": "BANHO_STUDIO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -36,8 +36,8 @@
     },
     {
       "id": "coluna_01_quarto",
-      "title": "Coluna 1 - Apartamento Suíte - Quarto",
-      "description": "Coluna 1 - Apartamento Suíte - Quarto",
+      "title": "Coluna 1 - Suíte - Quarto",
+      "description": "Coluna 1 - Suíte - Quarto",
       "image360": "COLUNA_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -47,8 +47,8 @@
     },
     {
       "id": "coluna_01_sala",
-      "title": "Coluna 1 - Apartamento Suíte - Sala",
-      "description": "Coluna 1 - Apartamento Suíte - Sala",
+      "title": "Coluna 1 - Suíte - Sala",
+      "description": "Coluna 1 - Suíte - Sala",
       "image360": "COLUNA_01_SALA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -58,8 +58,8 @@
     },
     {
       "id": "cozinha_coluna_01",
-      "title": "Coluna 1 - Apartamento Suíte - Cozinha",
-      "description": "Coluna 1 - Apartamento Suíte - Cozinha",
+      "title": "Coluna 1 - Suíte - Cozinha",
+      "description": "Coluna 1 - Suíte - Cozinha",
       "image360": "COZINHA_COLUNA_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -69,8 +69,8 @@
     },
     {
       "id": "studio_01_cozinha",
-      "title": "Coluna 1 - Apartamento Studio - Cozinha",
-      "description": "Coluna 1 - Apartamento Studio - Cozinha",
+      "title": "Coluna 1 - Studio - Cozinha",
+      "description": "Coluna 1 - Studio - Cozinha",
       "image360": "STUDIO_01_COZINHA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -80,8 +80,8 @@
     },
     {
       "id": "studio_01_quarto",
-      "title": "Coluna 1 - Apartamento Studio - Quarto",
-      "description": "Coluna 1 - Apartamento Studio - Quarto",
+      "title": "Coluna 1 - Studio - Quarto",
+      "description": "Coluna 1 - Studio - Quarto",
       "image360": "STUDIO_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
