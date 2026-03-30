@@ -32,12 +32,78 @@
   "scenes": [
     {
       "id": "banho_col_01",
-      "title": "Coluna 1 - Banheiro Suite",
-      "description": "Coluna 1 - Banheiro Suite",
+      "title": "Coluna 1 - banheiro suíte",
+      "description": "Banheiro da suíte da coluna 1.",
       "image360": "BANHO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "map_col_1_quarto_suite_banheiro.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "banho_studio_col_01",
+      "title": "Coluna 1 - banheiro studio",
+      "description": "Banheiro do studio da coluna 1.",
+      "image360": "BANHO_STUDIO_COL_01.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "map_col_1_quarto_studio_banheiro.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "coluna_01_quarto",
+      "title": "Coluna 1 - quarto suíte",
+      "description": "Quarto da suíte da coluna 1.",
+      "image360": "COLUNA_01_QUARTO.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "map_col_1_quarto_suite.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "coluna_01_sala",
+      "title": "Coluna 1 - sala suíte",
+      "description": "Sala da suíte da coluna 1.",
+      "image360": "COLUNA_01_SALA.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "map_col_1_sala.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "cozinha_coluna_01",
+      "title": "Coluna 1 - cozinha suíte",
+      "description": "Cozinha da suíte da coluna 1.",
+      "image360": "COZINHA_COLUNA_01.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "map_col_1_cozinnha.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "studio_01_cozinha",
+      "title": "Coluna 1 - cozinha studio",
+      "description": "Cozinha do studio da coluna 1.",
+      "image360": "STUDIO_01_COZINHA.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "map_col_1_cozinnha.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "studio_01_quarto",
+      "title": "Coluna 1 - quarto studio",
+      "description": "Quarto do studio da coluna 1.",
+      "image360": "STUDIO_01_QUARTO.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "map_col_1_quarto_studio.png",
       "mapRotation": 0,
       "hotspots": []
     }
