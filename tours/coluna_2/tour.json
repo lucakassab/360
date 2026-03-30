@@ -1,0 +1,118 @@
+{
+  "tourName": "Apartamento Coluna 2",
+  "tourDescription": "Tour virtual da Coluna 2.",
+  "tourFolder": "tours/coluna_2",
+  "defaultScene": "banho_social_col_02",
+  "linkedTours": [
+    {
+      "id": "coluna_1",
+      "path": "tours/coluna_1/tour.json"
+    },
+    {
+      "id": "coluna_2",
+      "path": "tours/coluna_2/tour.json"
+    },
+    {
+      "id": "coluna_3",
+      "path": "tours/coluna_3/tour.json"
+    },
+    {
+      "id": "coluna_4",
+      "path": "tours/coluna_4/tour.json"
+    },
+    {
+      "id": "coluna_5",
+      "path": "tours/coluna_5/tour.json"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "banho_social_col_02",
+      "title": "BANHO_SOCIAL_COL_02",
+      "description": "Cena BANHO_SOCIAL_COL_02",
+      "image360": "BANHO_SOCIAL_COL_02.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Banho_Social.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "banho_studio_col_02",
+      "title": "BANHO_STUDIO_COL_02",
+      "description": "Cena BANHO_STUDIO_COL_02",
+      "image360": "BANHO_STUDIO_COL_02.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Banho_Studio.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "coluna_02_corredor",
+      "title": "coluna_02_CORREDOR",
+      "description": "Cena coluna_02_CORREDOR",
+      "image360": "COLUNA_02_CORREDOR.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Corredor.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "coluna_02_cozinha",
+      "title": "coluna_02_COZINHA",
+      "description": "Cena coluna_02_COZINHA",
+      "image360": "COLUNA_02_COZINHA.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Cozinha.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "coluna_02_quarto",
+      "title": "coluna_02_QUARTO",
+      "description": "Cena coluna_02_QUARTO",
+      "image360": "COLUNA_02_QUARTO.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Quarto.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "coluna_02_sala",
+      "title": "coluna_02_SALA",
+      "description": "Cena coluna_02_SALA",
+      "image360": "COLUNA_02_SALA.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Sala.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "cozinha_studio_02",
+      "title": "COZINHA_STUDIO_02",
+      "description": "Cena COZINHA_STUDIO_02",
+      "image360": "COZINHA_STUDIO_02.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Studio_Cozinha.png",
+      "mapRotation": 0,
+      "hotspots": []
+    },
+    {
+      "id": "studio_quarto_coluna_02",
+      "title": "STUDIO_QUARTO_coluna_02",
+      "description": "Cena STUDIO_QUARTO_coluna_02",
+      "image360": "STUDIO_QUARTO_COLUNA_02.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "Coluna_2_map_Studio_Quarto.png",
+      "mapRotation": 0,
+      "hotspots": []
+    }
+  ]
+}
