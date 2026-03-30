@@ -32,8 +32,8 @@
   "scenes": [
     {
       "id": "banho_col_01",
-      "title": "Coluna 1 - Banheiro Suite",
-      "description": "Coluna 1 - Banheiro Suite",
+      "title": "Coluna 1 - banheiro suíte",
+      "description": "Banheiro da suíte da coluna 1.",
       "image360": "BANHO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -43,8 +43,8 @@
     },
     {
       "id": "banho_studio_col_01",
-      "title": "BANHO_STUDIO_COL_01",
-      "description": "Cena BANHO_STUDIO_COL_01",
+      "title": "Coluna 1 - banheiro studio",
+      "description": "Banheiro do studio da coluna 1.",
       "image360": "BANHO_STUDIO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -54,8 +54,8 @@
     },
     {
       "id": "coluna_01_quarto",
-      "title": "coluna_01_QUARTO",
-      "description": "Cena coluna_01_QUARTO",
+      "title": "Coluna 1 - quarto suíte",
+      "description": "Quarto da suíte da coluna 1.",
       "image360": "COLUNA_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -65,8 +65,8 @@
     },
     {
       "id": "coluna_01_sala",
-      "title": "coluna_01_SALA",
-      "description": "Cena coluna_01_SALA",
+      "title": "Coluna 1 - sala suíte",
+      "description": "Sala da suíte da coluna 1.",
       "image360": "COLUNA_01_SALA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -76,8 +76,8 @@
     },
     {
       "id": "cozinha_coluna_01",
-      "title": "COZINHA_coluna_01",
-      "description": "Cena COZINHA_coluna_01",
+      "title": "Coluna 1 - cozinha suíte",
+      "description": "Cozinha da suíte da coluna 1.",
       "image360": "COZINHA_COLUNA_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -87,8 +87,8 @@
     },
     {
       "id": "studio_01_cozinha",
-      "title": "STUDIO_01_COZINHA",
-      "description": "Cena STUDIO_01_COZINHA",
+      "title": "Coluna 1 - cozinha studio",
+      "description": "Cozinha do studio da coluna 1.",
       "image360": "STUDIO_01_COZINHA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -98,8 +98,8 @@
     },
     {
       "id": "studio_01_quarto",
-      "title": "STUDIO_01_QUARTO",
-      "description": "Cena STUDIO_01_QUARTO",
+      "title": "Coluna 1 - quarto studio",
+      "description": "Quarto do studio da coluna 1.",
       "image360": "STUDIO_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
