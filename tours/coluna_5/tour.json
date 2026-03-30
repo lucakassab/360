@@ -1,5 +1,5 @@
 {
-  "tourName": "Coluna 5",
+  "tourName": "Apartamento Coluna 5",
   "tourDescription": "Tour virtual da Coluna 5.",
   "tourFolder": "tours/coluna_5",
   "defaultScene": "coluna_05",
@@ -28,9 +28,9 @@
   "scenes": [
     {
       "id": "banho_studio_col_05",
-      "title": "BANHO_STUDIO_COL_05",
-      "description": "Cena BANHO_STUDIO_COL_05",
-      "image360": "BANHO_STUDIO_COL_05.jpg",
+      "title": "Coluna 5 - Banheiro",
+      "description": "Coluna 5 - Banheiro",
+      "image360": "Coluna 5 - Banheiro.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "mapa_padrao.png",
@@ -39,9 +39,9 @@
     },
     {
       "id": "coluna_05",
-      "title": "coluna_05",
-      "description": "Cena coluna_05",
-      "image360": "COLUNA_05.jpg",
+      "title": "Coluna 5 - Varanda",
+      "description": "Coluna 5 - Varanda",
+      "image360": "Coluna 5 - Varanda.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
       "imageMap": "mapa_padrao.png",
