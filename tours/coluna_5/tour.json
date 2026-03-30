@@ -33,7 +33,7 @@
       "image360": "BANHO_STUDIO_COL_05.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_5_map_Banho_Studio.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -44,7 +44,7 @@
       "image360": "COLUNA_05.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_5_map_Principal.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     }

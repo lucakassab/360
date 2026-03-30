@@ -37,7 +37,7 @@
       "image360": "puc_sauna.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -48,7 +48,7 @@
       "image360": "hall_de_elevador.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -59,7 +59,7 @@
       "image360": "gourmet_cozinha.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -70,7 +70,7 @@
       "image360": "academia.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -81,7 +81,7 @@
       "image360": "academia_banho.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -92,7 +92,7 @@
       "image360": "baixo_pergolado.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -103,7 +103,7 @@
       "image360": "mesa_academia.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -114,7 +114,7 @@
       "image360": "piscina.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -125,7 +125,7 @@
       "image360": "vista_meio_salao.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     }

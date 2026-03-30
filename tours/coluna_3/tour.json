@@ -33,7 +33,7 @@
       "image360": "BANHO_SOCIAL_COL-03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_3_quarto_banheiro.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -44,7 +44,7 @@
       "image360": "BANHO_SUITE_COL-03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_3_quarto_suite_banheiro.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -55,7 +55,7 @@
       "image360": "COLUNA_03_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_3_quarto_studio.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -66,7 +66,7 @@
       "image360": "COLUNA_03_QUARTO_SUITE.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_3_quarto_suite.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -77,7 +77,7 @@
       "image360": "CORREDOR_COLUNA_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_3_corredor.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -88,7 +88,7 @@
       "image360": "COZINHA_COLUNA_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_3_cozinha.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -99,7 +99,7 @@
       "image360": "SALA_COLUNA_03.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_3_map_Sala.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     }

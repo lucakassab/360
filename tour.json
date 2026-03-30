@@ -4,110 +4,106 @@
   "tourFolder": "tours/coluna_1",
   "defaultScene": "banho_col_01",
   "linkedTours": [
-    { "id": "coluna_1", "path": "tours/coluna_1/tour.json" },
-    { "id": "coluna_2", "path": "tours/coluna_2/tour.json" },
-    { "id": "coluna_3", "path": "tours/coluna_3/tour.json" },
-    { "id": "coluna_4", "path": "tours/coluna_4/tour.json" },
-    { "id": "coluna_5", "path": "tours/coluna_5/tour.json" },
-    { "id": "puc", "path": "tours/puc/tour.json" }
+    {
+      "id": "coluna_1",
+      "path": "tours/coluna_1/tour.json"
+    },
+    {
+      "id": "coluna_2",
+      "path": "tours/coluna_2/tour.json"
+    },
+    {
+      "id": "coluna_3",
+      "path": "tours/coluna_3/tour.json"
+    },
+    {
+      "id": "coluna_4",
+      "path": "tours/coluna_4/tour.json"
+    },
+    {
+      "id": "coluna_5",
+      "path": "tours/coluna_5/tour.json"
+    },
+    {
+      "id": "puc",
+      "path": "tours/puc/tour.json"
+    }
   ],
   "scenes": [
     {
       "id": "banho_col_01",
-      "title": "Coluna 1 - Suite Banheiro",
-      "description": "Coluna 1 - Suite Banheiro",
-      "image360": "Coluna 1 - Suite Banheiro.jpg",
+      "title": "Coluna 1 - Suíte - Banheiro",
+      "description": "Coluna 1 - Suíte - Banheiro",
+      "image360": "BANHO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_1_quarto_suite_banheiro.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
     {
       "id": "banho_studio_col_01",
-      "title": "Coluna 1 - Studio Banheiro",
-      "description": "Coluna 1 - Studio Banheiro",
-      "image360": "Coluna 1 - Studio Banheiro.jpg",
+      "title": "Coluna 1 - Studio - Banheiro",
+      "description": "Coluna 1 - Studio - Banheiro",
+      "image360": "BANHO_STUDIO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_1_quarto_studio_banheiro.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
     {
       "id": "coluna_01_quarto",
-      "title": "Coluna 1 - Suite Quarto",
-      "description": "Coluna 1 - Suite Quarto",
-      "image360": "Coluna 1 - Suite Quarto.jpg",
+      "title": "Coluna 1 - Suíte - Quarto",
+      "description": "Coluna 1 - Suíte - Quarto",
+      "image360": "COLUNA_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_1_quarto_suite.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
     {
       "id": "coluna_01_sala",
-      "title": "Coluna 1 - Suite Sala",
-      "description": "Coluna 1 - Suite Sala",
-      "image360": "Coluna 1 - Suite Sala.jpg",
+      "title": "Coluna 1 - Suíte - Sala",
+      "description": "Coluna 1 - Suíte - Sala",
+      "image360": "COLUNA_01_SALA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_1_sala.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
     {
       "id": "cozinha_coluna_01",
-      "title": "Coluna 1 - Suite Cozinha",
-      "description": "Coluna 1 - Suite Cozinha",
-      "image360": "Coluna 1 - Suite Cozinha.jpg",
+      "title": "Coluna 1 - Suíte - Cozinha",
+      "description": "Coluna 1 - Suíte - Cozinha",
+      "image360": "COZINHA_COLUNA_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_1_cozinnha.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
     {
       "id": "studio_01_cozinha",
-      "title": "Coluna 1 - Studio Cozinha",
-      "description": "Coluna 1 - Studio Cozinha",
-      "image360": "Coluna 1 - Studio Cozinha.jpg",
+      "title": "Coluna 1 - Studio - Cozinha",
+      "description": "Coluna 1 - Studio - Cozinha",
+      "image360": "STUDIO_01_COZINHA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_1_cozinnha.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
     {
       "id": "studio_01_quarto",
-      "title": "Coluna 1 - Studio Quarto",
-      "description": "Coluna 1 - Studio Quarto",
-      "image360": "Coluna 1 - Studio Quarto.jpg",
+      "title": "Coluna 1 - Studio - Quarto",
+      "description": "Coluna 1 - Studio - Quarto",
+      "image360": "STUDIO_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "map_col_1_quarto_studio.png",
-      "mapRotation": 0,
-      "hotspots": []
-    },
-    {
-      "id": "varanda_coluna_01",
-      "title": "Coluna 1 - Suite Varanda",
-      "description": "Coluna 1 - Suite Varanda",
-      "image360": "Coluna 1 - Suite Varanda.jpg",
-      "stereoFormat": "top-bottom",
-      "invertStereo": false,
-      "imageMap": "",
-      "mapRotation": 0,
-      "hotspots": []
-    },
-    {
-      "id": "studio_01_varanda",
-      "title": "Coluna 1 - Studio Varanda",
-      "description": "Coluna 1 - Studio Varanda",
-      "image360": "Coluna 1 - Studio Varanda.jpg",
-      "stereoFormat": "top-bottom",
-      "invertStereo": false,
-      "imageMap": "",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     }

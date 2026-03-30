@@ -33,7 +33,7 @@
       "image360": "BANHO_SOCIAL_COL_02.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Banho_Social.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -44,7 +44,7 @@
       "image360": "BANHO_STUDIO_COL_02.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Banho_Studio.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -55,7 +55,7 @@
       "image360": "COLUNA_02_CORREDOR.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Corredor.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -66,7 +66,7 @@
       "image360": "COLUNA_02_COZINHA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Cozinha.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -77,7 +77,7 @@
       "image360": "COLUNA_02_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Quarto.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -88,7 +88,7 @@
       "image360": "COLUNA_02_SALA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Sala.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -99,7 +99,7 @@
       "image360": "COZINHA_STUDIO_02.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Studio_Cozinha.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     },
@@ -110,7 +110,7 @@
       "image360": "STUDIO_QUARTO_COLUNA_02.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
-      "imageMap": "Coluna_2_map_Studio_Quarto.png",
+      "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
     }
