@@ -4,36 +4,18 @@
   "tourFolder": "tours/coluna_1",
   "defaultScene": "banho_col_01",
   "linkedTours": [
-    {
-      "id": "coluna_1",
-      "path": "tours/coluna_1/tour.json"
-    },
-    {
-      "id": "coluna_2",
-      "path": "tours/coluna_2/tour.json"
-    },
-    {
-      "id": "coluna_3",
-      "path": "tours/coluna_3/tour.json"
-    },
-    {
-      "id": "coluna_4",
-      "path": "tours/coluna_4/tour.json"
-    },
-    {
-      "id": "coluna_5",
-      "path": "tours/coluna_5/tour.json"
-    },
-    {
-      "id": "puc",
-      "path": "tours/puc/tour.json"
-    }
+    { "id": "coluna_1", "path": "tours/coluna_1/tour.json" },
+    { "id": "coluna_2", "path": "tours/coluna_2/tour.json" },
+    { "id": "coluna_3", "path": "tours/coluna_3/tour.json" },
+    { "id": "coluna_4", "path": "tours/coluna_4/tour.json" },
+    { "id": "coluna_5", "path": "tours/coluna_5/tour.json" },
+    { "id": "puc", "path": "tours/puc/tour.json" }
   ],
   "scenes": [
     {
       "id": "banho_col_01",
-      "title": "Coluna 1 - banheiro suíte",
-      "description": "Banheiro da suíte da coluna 1.",
+      "title": "Coluna 1 - Apartamento Suíte - Banheiro",
+      "description": "Coluna 1 - Apartamento Suíte - Banheiro",
       "image360": "BANHO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -43,8 +25,8 @@
     },
     {
       "id": "banho_studio_col_01",
-      "title": "Coluna 1 - banheiro studio",
-      "description": "Banheiro do studio da coluna 1.",
+      "title": "Coluna 1 - Apartamento Studio - Banheiro",
+      "description": "Coluna 1 - Apartamento Studio - Banheiro",
       "image360": "BANHO_STUDIO_COL_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -54,8 +36,8 @@
     },
     {
       "id": "coluna_01_quarto",
-      "title": "Coluna 1 - quarto suíte",
-      "description": "Quarto da suíte da coluna 1.",
+      "title": "Coluna 1 - Apartamento Suíte - Quarto",
+      "description": "Coluna 1 - Apartamento Suíte - Quarto",
       "image360": "COLUNA_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -65,8 +47,8 @@
     },
     {
       "id": "coluna_01_sala",
-      "title": "Coluna 1 - sala suíte",
-      "description": "Sala da suíte da coluna 1.",
+      "title": "Coluna 1 - Apartamento Suíte - Sala",
+      "description": "Coluna 1 - Apartamento Suíte - Sala",
       "image360": "COLUNA_01_SALA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -76,8 +58,8 @@
     },
     {
       "id": "cozinha_coluna_01",
-      "title": "Coluna 1 - cozinha suíte",
-      "description": "Cozinha da suíte da coluna 1.",
+      "title": "Coluna 1 - Apartamento Suíte - Cozinha",
+      "description": "Coluna 1 - Apartamento Suíte - Cozinha",
       "image360": "COZINHA_COLUNA_01.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -87,8 +69,8 @@
     },
     {
       "id": "studio_01_cozinha",
-      "title": "Coluna 1 - cozinha studio",
-      "description": "Cozinha do studio da coluna 1.",
+      "title": "Coluna 1 - Apartamento Studio - Cozinha",
+      "description": "Coluna 1 - Apartamento Studio - Cozinha",
       "image360": "STUDIO_01_COZINHA.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
@@ -98,8 +80,8 @@
     },
     {
       "id": "studio_01_quarto",
-      "title": "Coluna 1 - quarto studio",
-      "description": "Quarto do studio da coluna 1.",
+      "title": "Coluna 1 - Apartamento Studio - Quarto",
+      "description": "Coluna 1 - Apartamento Studio - Quarto",
       "image360": "STUDIO_01_QUARTO.jpg",
       "stereoFormat": "top-bottom",
       "invertStereo": false,
