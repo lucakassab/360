@@ -47,6 +47,17 @@
       "imageMap": "mapa_padrao.png",
       "mapRotation": 0,
       "hotspots": []
+    },
+    {
+      "id": "apartamento_col_05",
+      "title": "Coluna 5 - Apartamento",
+      "description": "Coluna 5 - Apartamento",
+      "image360": "Coluna 5 - Apartamento.jpg",
+      "stereoFormat": "top-bottom",
+      "invertStereo": false,
+      "imageMap": "mapa_padrao.png",
+      "mapRotation": 0,
+      "hotspots": []
     }
   ]
 }
